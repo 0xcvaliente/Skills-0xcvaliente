@@ -1,0 +1,17 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/animate-expo/RECIPES.md",
+      "stored_path": "RECIPES.md",
+      "sha256": "1193cb71334da2e2341778dd92bec9ac79d989cb07fd55d661f324ed5871e718"
+    },
+    {
+      "original_path": "skills/animate-expo/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "9a01a91701e6563c67677dde6b66ab30f066a5341d42c21a90ba51d99679274a"
+    }
+  ]
+}

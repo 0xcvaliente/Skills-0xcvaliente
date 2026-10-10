@@ -1,0 +1,22 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/improve-animations/AUDIT.md",
+      "stored_path": "AUDIT.md",
+      "sha256": "551c8473e20e5f4774680bc24d45e1c68e50992582720905c6b077756b7b5a55"
+    },
+    {
+      "original_path": "skills/improve-animations/PLAN-TEMPLATE.md",
+      "stored_path": "PLAN-TEMPLATE.md",
+      "sha256": "0a08ac8e23fd2082d7ffb86aeed7b789de77328c3cf874b16f1a755f2ef0a6ad"
+    },
+    {
+      "original_path": "skills/improve-animations/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6"
+    }
+  ]
+}

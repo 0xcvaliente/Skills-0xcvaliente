@@ -1,0 +1,27 @@
+{
+  "title": "From request to background work",
+  "description": "The API writes the record synchronously, then publishes queued work. A worker processes the queue; completion notifications are proposed.",
+  "width": 1160, "height": 620, "theme": "light",
+  "regions": [{"id": "platform", "label": "APPLICATION PLATFORM", "x": 430, "y": 50, "w": 710, "h": 500}],
+  "nodes": [
+    {"id": "client", "label": "Web client", "detail": "Request origin", "x": 60, "y": 100, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "api", "label": "Orders API", "detail": "Validate · store · publish", "x": 470, "y": 100, "w": 240, "h": 120, "emphasis": true, "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "database", "label": "Order database", "detail": "Durable records", "shape": "store", "x": 880, "y": 100, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "queue", "label": "Job queue", "detail": "Asynchronous boundary", "shape": "store", "x": 470, "y": 390, "w": 240, "h": 120, "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "worker", "label": "Fulfilment worker", "detail": "Consumes queued jobs", "x": 880, "y": 390, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "notification", "label": "Notifications", "detail": "Completion events", "x": 60, "y": 390, "w": 220, "h": 120, "status": "proposed", "sources": ["Example design proposal"]}
+  ],
+  "edges": [
+    {"id": "submit", "from": "client", "to": "api", "label": "Submit order", "label_at": [300, 115], "label_w": 150, "points": [[280,160],[470,160]], "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "persist", "from": "api", "to": "database", "label": "Write record", "label_at": [735,115], "label_w": 120, "points": [[710,160],[880,160]], "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "publish", "from": "api", "to": "queue", "label": "Publish job", "label_at": [610,280], "label_w": 150, "points": [[590,220],[590,390]], "style": "dashed", "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "consume", "from": "queue", "to": "worker", "label": "Deliver job", "label_at": [735,405], "label_w": 120, "points": [[710,450],[880,450]], "style": "dashed", "status": "provided", "sources": ["Synthetic example brief"]},
+    {"id": "complete", "from": "worker", "to": "notification", "label": "Completion event · proposed", "label_at": [445,553], "label_w": 280, "points": [[990,510],[990,575],[170,575],[170,510]], "style": "dashed", "status": "proposed", "sources": ["Example design proposal"]}
+  ],
+  "notes": [
+    "Synthetic example: this does not describe an observed production deployment.",
+    "Dashed routes mean asynchronous messages; the proposed notification path is also named explicitly.",
+    "The platform group describes scope, not an established trust or hosting boundary.",
+    "Retries, failure handling, ordering guarantees, and idempotency are unspecified."
+  ]
+}

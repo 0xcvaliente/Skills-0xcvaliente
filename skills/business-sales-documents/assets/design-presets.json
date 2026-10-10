@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "guidance": "Original optional starting directions. Supplied brands/templates and the requested medium override presets. Verify font availability and contrast before production.",
+  "presets": [
+    {
+      "id": "executive-clear",
+      "use": "Proposals, executive briefs, and decision documents",
+      "colors": {"paper": "#FFFFFF", "ink": "#18202A", "secondary": "#374151", "accent": "#1F4D71", "surface": "#F2F5F8", "rule": "#D1D5DB"},
+      "type": {"display_candidates": ["Inter", "Arial"], "body_candidates": ["Inter", "Arial"], "heading_weight": 600},
+      "layout": "Clear hierarchy, flowing prose, deliberate comparison tables; no separate cover unless useful"
+    },
+    {
+      "id": "product-evidence",
+      "use": "Software brochures, product explanations, and technical sales sheets",
+      "colors": {"paper": "#FFFFFF", "ink": "#111827", "secondary": "#4B5563", "accent": "#005C66", "surface": "#E7F3F3", "rule": "#CCD9DB"},
+      "type": {"display_candidates": ["Noto Sans", "Arial"], "body_candidates": ["Inter", "Arial"], "heading_weight": 600},
+      "layout": "Large genuine product example, concise annotations, workflow explanation and adjacent proof"
+    },
+    {
+      "id": "editorial-service",
+      "use": "Service brochures and company profiles with a narrative emphasis",
+      "colors": {"paper": "#FFFDF8", "ink": "#27231F", "secondary": "#615A52", "accent": "#6B3D4B", "surface": "#F3EDEE", "rule": "#D8CED1"},
+      "type": {"display_candidates": ["Georgia", "Noto Serif"], "body_candidates": ["Inter", "Arial"], "heading_weight": 400},
+      "layout": "Varied page roles, generous margins, informative photography with captions; retain substantive copy"
+    },
+    {
+      "id": "event-visible",
+      "use": "Trade-show one-pagers and concise introduction handouts",
+      "colors": {"paper": "#FFFFFF", "ink": "#152333", "secondary": "#40546B", "accent": "#173FA6", "surface": "#ECF1FC", "rule": "#CBD4E5"},
+      "type": {"display_candidates": ["Inter", "Arial"], "body_candidates": ["Inter", "Arial"], "heading_weight": 700},
+      "layout": "Clear category at first glance, one hero subject, restrained short copy and a visible contact action"
+    },
+    {
+      "id": "quiet-premium",
+      "use": "Restrained specialist business services and premium company introductions",
+      "colors": {"paper": "#FEFEFC", "ink": "#292F31", "secondary": "#555F61", "accent": "#475C53", "surface": "#F0F3EF", "rule": "#CDD5D0"},
+      "type": {"display_candidates": ["Georgia", "Noto Serif"], "body_candidates": ["Inter", "Arial"], "heading_weight": 400},
+      "layout": "Strong alignment, sparse accents, clear section prose and detailed genuine imagery"
+    }
+  ]
+}

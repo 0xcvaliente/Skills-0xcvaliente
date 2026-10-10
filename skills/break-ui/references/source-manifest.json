@@ -1,0 +1,17 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/break-ui/CATALOG.md",
+      "stored_path": "CATALOG.md",
+      "sha256": "7358efcc6bb48e35187be1c064cf60022dcb18c72c18fab58b606dfc5f421f15"
+    },
+    {
+      "original_path": "skills/break-ui/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "e7eec1d70ac56a04255e9c0dbe98084ea3d544cc04aaad34f32c95d6fa9dff5e"
+    }
+  ]
+}

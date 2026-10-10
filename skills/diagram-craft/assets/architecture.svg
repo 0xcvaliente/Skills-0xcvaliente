@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 620" width="1160" height="620" role="img" aria-labelledby="dc-0d225c179a-title dc-0d225c179a-desc" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+<title id="dc-0d225c179a-title">From request to background work</title>
+<desc id="dc-0d225c179a-desc">The API writes the record synchronously, then publishes queued work. A worker processes the queue; completion notifications are proposed.</desc>
+<defs><marker id="dc-0d225c179a-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#50636d"/></marker></defs>
+<rect width="1160" height="620" fill="#f7f4ec" aria-hidden="true"/>
+<rect x="430" y="50" width="710" height="500" rx="8" fill="none" stroke="#9aa5a6" stroke-dasharray="4 4"/>
+<text x="446" y="74" font-size="13" font-weight="600" fill="#50636d" text-anchor="start"><tspan x="446" dy="0">APPLICATION PLATFORM</tspan></text>
+<polyline data-edge="submit" points="280,160 470,160" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)"/>
+<polyline data-edge="persist" points="710,160 880,160" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)"/>
+<polyline data-edge="publish" points="590,220 590,390" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<polyline data-edge="consume" points="710,450 880,450" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<polyline data-edge="complete" points="990,510 990,575 170,575 170,510" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<g id="dc-0d225c179a-node-client" data-node="client" data-x="60" data-y="100" data-w="220" data-h="120">
+<rect x="60" y="100" width="220" height="120" rx="6" fill="#ffffff" stroke="#9aa5a6" stroke-width="1.5"/>
+<text x="78" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="client"><tspan x="78" dy="0">Web client</tspan></text>
+<text x="78" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="client"><tspan x="78" dy="0">Request origin</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-api" data-node="api" data-x="470" data-y="100" data-w="240" data-h="120">
+<rect x="470" y="100" width="240" height="120" rx="6" fill="#fdeee6" stroke="#be3b21" stroke-width="2"/>
+<text x="488" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="api"><tspan x="488" dy="0">Orders API</tspan></text>
+<text x="488" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="api"><tspan x="488" dy="0">Validate · store · publish</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-database" data-node="database" data-x="880" data-y="100" data-w="220" data-h="120">
+<rect x="880" y="100" width="220" height="120" rx="6" fill="#ffffff" stroke="#9aa5a6" stroke-width="1.5"/>
+<path d="M890 109 H1090 M890 211 H1090" stroke="#9aa5a6" fill="none"/>
+<text x="898" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="database"><tspan x="898" dy="0">Order database</tspan></text>
+<text x="898" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="database"><tspan x="898" dy="0">Durable records</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-queue" data-node="queue" data-x="470" data-y="390" data-w="240" data-h="120">
+<rect x="470" y="390" width="240" height="120" rx="6" fill="#ffffff" stroke="#9aa5a6" stroke-width="1.5"/>
+<path d="M480 399 H700 M480 501 H700" stroke="#9aa5a6" fill="none"/>
+<text x="488" y="447.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="queue"><tspan x="488" dy="0">Job queue</tspan></text>
+<text x="488" y="473.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="queue"><tspan x="488" dy="0">Asynchronous boundary</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-worker" data-node="worker" data-x="880" data-y="390" data-w="220" data-h="120">
+<rect x="880" y="390" width="220" height="120" rx="6" fill="#ffffff" stroke="#9aa5a6" stroke-width="1.5"/>
+<text x="898" y="447.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="worker"><tspan x="898" dy="0">Fulfilment worker</tspan></text>
+<text x="898" y="473.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="worker"><tspan x="898" dy="0">Consumes queued jobs</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-notification" data-node="notification" data-x="60" data-y="390" data-w="220" data-h="120">
+<rect x="60" y="390" width="220" height="120" rx="6" fill="#ffffff" stroke="#9aa5a6" stroke-width="1.5"/>
+<text x="78" y="436.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">Notifications</tspan></text>
+<text x="78" y="462.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">Completion events</tspan></text>
+<text x="78" y="495" font-size="11" font-weight="700" fill="#172b36" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">PROPOSED</tspan></text>
+</g>
+<g data-label="submit" data-x="300" data-y="115" data-w="150" data-h="30"><rect x="300" y="115" width="150" height="30" rx="4" fill="#f7f4ec"/>
+<text x="308" y="134" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="308" dy="0">Submit order</tspan></text>
+</g>
+<g data-label="persist" data-x="735" data-y="115" data-w="120" data-h="30"><rect x="735" y="115" width="120" height="30" rx="4" fill="#f7f4ec"/>
+<text x="743" y="134" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="743" dy="0">Write record</tspan></text>
+</g>
+<g data-label="publish" data-x="610" data-y="280" data-w="150" data-h="30"><rect x="610" y="280" width="150" height="30" rx="4" fill="#f7f4ec"/>
+<text x="618" y="299" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="618" dy="0">Publish job</tspan></text>
+</g>
+<g data-label="consume" data-x="735" data-y="405" data-w="120" data-h="30"><rect x="735" y="405" width="120" height="30" rx="4" fill="#f7f4ec"/>
+<text x="743" y="424" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="743" dy="0">Deliver job</tspan></text>
+</g>
+<g data-label="complete" data-x="445" data-y="553" data-w="280" data-h="30"><rect x="445" y="553" width="280" height="30" rx="4" fill="#f7f4ec"/>
+<text x="453" y="572" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="453" dy="0">Completion event · proposed</tspan></text>
+</g>
+</svg>

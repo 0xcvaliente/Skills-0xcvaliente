@@ -1,0 +1,17 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/ask-sonner/API.md",
+      "stored_path": "API.md",
+      "sha256": "4bb06f482c5757529e3d7a672a30fbeed42d24919a63e2571384a9ce1549aa7f"
+    },
+    {
+      "original_path": "skills/ask-sonner/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "39f3ee185b3aa2cf70a689052ff078953ce7ba5915ed7a9391d232e9d4dcf57f"
+    }
+  ]
+}

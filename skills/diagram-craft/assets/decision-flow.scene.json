@@ -1,0 +1,21 @@
+{
+  "title": "An authorization gate with explicit outcomes",
+  "description": "A valid token reaches policy evaluation. An invalid token returns 401; an allowed policy returns the resource, while a denied policy returns 403.",
+  "width": 1160, "height": 760, "theme": "dark",
+  "nodes": [
+    {"id": "request", "label": "Receive request", "detail": "Protected resource", "x": 60, "y": 100, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "token", "label": "Token valid?", "shape": "decision", "x": 480, "y": 70, "w": 220, "h": 180, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "unauthorized", "label": "Return 401", "detail": "Invalid token", "x": 880, "y": 100, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "policy", "label": "Access allowed?", "shape": "decision", "x": 480, "y": 360, "w": 220, "h": 180, "emphasis": true, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "forbidden", "label": "Return 403", "detail": "Policy denied access", "x": 880, "y": 390, "w": 220, "h": 120, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "resource", "label": "Return resource", "detail": "Authorized request", "x": 480, "y": 640, "w": 220, "h": 100, "status": "provided", "sources": ["Synthetic authorization brief"]}
+  ],
+  "edges": [
+    {"id": "validate", "from": "request", "to": "token", "points": [[280,160],[480,160]], "label": "Validate token", "label_at": [300,115], "label_w": 160, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "invalid", "from": "token", "to": "unauthorized", "points": [[700,160],[880,160]], "label": "No", "label_at": [735,115], "label_w": 110, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "valid", "from": "token", "to": "policy", "points": [[590,250],[590,360]], "label": "Yes", "label_at": [610,285], "label_w": 100, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "denied", "from": "policy", "to": "forbidden", "points": [[700,450],[880,450]], "label": "No", "label_at": [735,405], "label_w": 110, "status": "provided", "sources": ["Synthetic authorization brief"]},
+    {"id": "allowed", "from": "policy", "to": "resource", "points": [[590,540],[590,640]], "label": "Yes", "label_at": [610,572], "label_w": 100, "status": "provided", "sources": ["Synthetic authorization brief"]}
+  ],
+  "notes": ["Synthetic example: token refresh, expiration races, and policy-service failures are outside this brief.", "Diamond labels are questions. Every shown decision has labeled, distinct outcomes."]
+}

@@ -1,0 +1,41 @@
+{
+  "checked_on": "2026-10-09",
+  "platform": {
+    "os": "Darwin",
+    "architecture": "arm64",
+    "python": "3.9.6",
+    "codex_cli": "0.162.1"
+  },
+  "runtime_version": "1.6.2",
+  "runtime_source_tag": "v1.6.2",
+  "status": "passed",
+  "smoke_command": "python3 codex-skills/codegraph/scripts/smoke_test.py --codegraph codegraph-runtime/node_modules/.bin/codegraph",
+  "passed_checks": [
+    "isolated_initial_index",
+    "typescript_and_python_cross_file_callers",
+    "cli_explore_source",
+    "cli_impact_and_transitive_affected_test",
+    "explicit_sync_after_edit",
+    "mcp_unindexed_root_default_explore_schema",
+    "mcp_explicit_project_path",
+    "mcp_unindexed_project_guidance_and_recovery"
+  ],
+  "structural_validation": {
+    "codegraph": "passed",
+    "repo-context": "passed"
+  },
+  "not_measured": [
+    "Codex comparative tokens/cost/latency",
+    "automatic watcher operation",
+    "other operating systems",
+    "large repository performance",
+    "all supported languages"
+  ],
+  "native_codex_registration": {
+    "status": "passed",
+    "existing_servers_preserved": true,
+    "global_instructions_preserved": true,
+    "minimal_path_configured_launcher_probe": "passed",
+    "active_session_tool_loading": "requires host reconnect; not claimed"
+  }
+}
