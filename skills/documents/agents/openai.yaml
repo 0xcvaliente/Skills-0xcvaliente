@@ -1,0 +1,4 @@
+interface:
+  display_name: "Documents"
+  short_description: "Create, edit, review, design, and check Word, Excel, PowerPoint, PDF, and shareable documents"
+  default_prompt: "Use the documents skill to turn these notes into a 2-page proposal as a Word document and a PDF, with a clean professional design."

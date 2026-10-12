@@ -117,6 +117,17 @@ Keep placeholders unambiguous (`{{client_name}}`) so they are easy to find even 
 - **Macros (`.docm`):** never run or enable. If preserving them, say the file still contains macros.
 - **Right-to-left or complex scripts:** set the language and paragraph direction; test the render.
 
+## Design and visual QA
+
+Read [../design/GUIDE.md](../design/GUIDE.md) first. To see a styled build, run `python3 assets/starters/docx_starter.py out.docx --preset report-classic` and copy its `apply_tokens` (styles, page size, margins, language), `add_table` (header fill, right-aligned numbers, light rules, repeating header row), and `add_page_number` into your script. Word-specific checks:
+
+- Body 10.5-12 pt in a body style; headings from the scale; headings keep with the next paragraph; widow control on.
+- Line length: if body lines run past about 80 characters, widen the margins, raise the size, or use two columns.
+- No manual spacing (blank paragraphs, spaces, tabs): use paragraph spacing and page-break-before.
+- Tables: styled header row repeating across pages, numbers right-aligned with units in the header, light horizontal rules, caption in the Caption style below.
+- Colour contrast at least 4.5:1 for text, checked with `scripts/contrast.py`; default theme colours replaced.
+- Measure: `python3 scripts/design_audit.py OUT.docx`, then look at `scripts/render.py OUT.docx --montage`.
+
 ## Verify
 
 1. `python3 scripts/inspect_office.py OUT.docx`: outline is as intended, no unexpected tracked changes, comment count right, no stray placeholders in `--text`.

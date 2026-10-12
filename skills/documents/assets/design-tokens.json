@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "notes": [
+    "Presets are starting points. If the user supplies a brand or template, use theirs and keep these only as a fallback.",
+    "Fonts are chosen for availability on Windows and macOS. Always name a fallback; a font the reader does not have is silently replaced.",
+    "media lists where a preset may be used; deck-dark is slide-only because light text on a white page or sheet fails contrast.",
+    "type.document sizes are points for A4/Letter print and on-screen reading. type.slide sizes are points on a 13.333 x 7.5 in (16:9) slide. type.sheet sizes are points.",
+    "All text/background pairs listed in contrast_pairs meet WCAG 2.x AA (4.5:1 normal text), and every chart colour reaches 3:1 against the background (the threshold for graphics). scripts/contrast.py --tokens checks both."
+  ],
+  "presets": {
+    "report-classic": {
+      "media": ["document", "slide", "sheet"],
+      "description": "Serif headings, sans body, navy and amber. Reports, proposals, memos, anything printed or read as a long document.",
+      "fonts": {
+        "heading": "Georgia",
+        "body": "Arial",
+        "mono": "Courier New",
+        "fallback": {"heading": "Times New Roman", "body": "Helvetica", "mono": "Courier"}
+      },
+      "colors": {
+        "text": "#1F2933",
+        "muted": "#52606D",
+        "background": "#FFFFFF",
+        "surface": "#F5F7FA",
+        "rule": "#CBD2D9",
+        "primary": "#1F4E79",
+        "accent": "#9A4A00",
+        "on_primary": "#FFFFFF",
+        "success": "#2F6B3F",
+        "warning": "#8A5A00",
+        "danger": "#B42318"
+      },
+      "chart": ["#1F4E79", "#9A4A00", "#2F6B3F", "#6B4C9A", "#52606D"],
+      "contrast_pairs": [["text", "background"], ["muted", "background"], ["primary", "background"], ["accent", "background"], ["on_primary", "primary"], ["text", "surface"]],
+      "type": {
+        "document": {"title": 30, "h1": 22, "h2": 16, "h3": 13, "body": 11, "caption": 9, "footer": 9, "line_height": 1.4},
+        "slide": {"title": 36, "subtitle": 24, "body": 24, "small": 16, "footnote": 12},
+        "sheet": {"title": 16, "header": 11, "body": 11}
+      },
+      "space": {"unit": 4, "scale": [4, 8, 12, 16, 24, 32, 48], "paragraph_after_pt": 8, "heading_before_pt": 18},
+      "page": {"size": "A4", "margin_mm": 25, "slide_margin_in": 0.6},
+      "table": {"header_fill": "primary", "header_text": "on_primary", "rule": "rule", "zebra": false, "numbers_align": "right"}
+    },
+    "business-modern": {
+      "media": ["document", "slide", "sheet"],
+      "description": "One sans family, teal and rust, chart palette adapted from Okabe-Ito and darkened so every series reaches 3:1 on white. Business decks, dashboards, one-pagers, sales material.",
+      "fonts": {
+        "heading": "Arial",
+        "body": "Arial",
+        "mono": "Courier New",
+        "fallback": {"heading": "Helvetica", "body": "Helvetica", "mono": "Courier"}
+      },
+      "colors": {
+        "text": "#16232B",
+        "muted": "#4A5B66",
+        "background": "#FFFFFF",
+        "surface": "#EEF5F6",
+        "rule": "#C7D6DA",
+        "primary": "#0B6E75",
+        "accent": "#B3361E",
+        "on_primary": "#FFFFFF",
+        "success": "#1E7B4A",
+        "warning": "#8A5A00",
+        "danger": "#B42318"
+      },
+      "chart": ["#0072B2", "#D55E00", "#007A5A", "#A8458A", "#9A6A00"],
+      "contrast_pairs": [["text", "background"], ["muted", "background"], ["primary", "background"], ["accent", "background"], ["on_primary", "primary"], ["text", "surface"]],
+      "type": {
+        "document": {"title": 28, "h1": 20, "h2": 15, "h3": 12, "body": 10.5, "caption": 9, "footer": 9, "line_height": 1.45},
+        "slide": {"title": 40, "subtitle": 24, "body": 24, "small": 16, "footnote": 12},
+        "sheet": {"title": 16, "header": 11, "body": 11}
+      },
+      "space": {"unit": 4, "scale": [4, 8, 12, 16, 24, 32, 48], "paragraph_after_pt": 8, "heading_before_pt": 16},
+      "page": {"size": "A4", "margin_mm": 22, "slide_margin_in": 0.7},
+      "table": {"header_fill": "primary", "header_text": "on_primary", "rule": "rule", "zebra": true, "numbers_align": "right"}
+    },
+    "minimal": {
+      "media": ["document", "slide", "sheet"],
+      "description": "Black on white, one accent, generous space. Letters, specs, decision records, technical documents, anything that should look quiet.",
+      "fonts": {
+        "heading": "Arial",
+        "body": "Arial",
+        "mono": "Courier New",
+        "fallback": {"heading": "Helvetica", "body": "Helvetica", "mono": "Courier"}
+      },
+      "colors": {
+        "text": "#111111",
+        "muted": "#555555",
+        "background": "#FFFFFF",
+        "surface": "#F4F4F4",
+        "rule": "#D0D0D0",
+        "primary": "#111111",
+        "accent": "#0A58CA",
+        "on_primary": "#FFFFFF",
+        "success": "#1E7B4A",
+        "warning": "#8A5A00",
+        "danger": "#B42318"
+      },
+      "chart": ["#111111", "#0A58CA", "#777777", "#B3361E", "#1E7B4A"],
+      "contrast_pairs": [["text", "background"], ["muted", "background"], ["accent", "background"], ["on_primary", "primary"], ["text", "surface"]],
+      "type": {
+        "document": {"title": 26, "h1": 18, "h2": 14, "h3": 12, "body": 11, "caption": 9, "footer": 9, "line_height": 1.5},
+        "slide": {"title": 36, "subtitle": 24, "body": 24, "small": 16, "footnote": 12},
+        "sheet": {"title": 14, "header": 11, "body": 11}
+      },
+      "space": {"unit": 4, "scale": [4, 8, 12, 16, 24, 32, 48], "paragraph_after_pt": 10, "heading_before_pt": 20},
+      "page": {"size": "A4", "margin_mm": 28, "slide_margin_in": 0.8},
+      "table": {"header_fill": "surface", "header_text": "text", "rule": "rule", "zebra": false, "numbers_align": "right"}
+    },
+    "deck-dark": {
+      "media": ["slide"],
+      "description": "Light text on a dark ground with a single bright accent. Presentations shown on screens or projectors in dim rooms; not for print.",
+      "fonts": {
+        "heading": "Arial",
+        "body": "Arial",
+        "mono": "Courier New",
+        "fallback": {"heading": "Helvetica", "body": "Helvetica", "mono": "Courier"}
+      },
+      "colors": {
+        "text": "#F2F5F7",
+        "muted": "#B8C4CC",
+        "background": "#10202B",
+        "surface": "#1A3040",
+        "rule": "#35505F",
+        "primary": "#4FD1C5",
+        "accent": "#FFB454",
+        "on_primary": "#10202B",
+        "success": "#6EDC9A",
+        "warning": "#FFB454",
+        "danger": "#FF8A80"
+      },
+      "chart": ["#4FD1C5", "#FFB454", "#8AB4F8", "#F48FB1", "#B8C4CC"],
+      "contrast_pairs": [["text", "background"], ["muted", "background"], ["primary", "background"], ["accent", "background"], ["on_primary", "primary"], ["text", "surface"], ["muted", "surface"]],
+      "type": {
+        "document": {"title": 28, "h1": 20, "h2": 15, "h3": 12, "body": 11, "caption": 9, "footer": 9, "line_height": 1.45},
+        "slide": {"title": 40, "subtitle": 26, "body": 26, "small": 18, "footnote": 14},
+        "sheet": {"title": 16, "header": 11, "body": 11}
+      },
+      "space": {"unit": 4, "scale": [4, 8, 12, 16, 24, 32, 48], "paragraph_after_pt": 8, "heading_before_pt": 16},
+      "page": {"size": "A4", "margin_mm": 22, "slide_margin_in": 0.7},
+      "table": {"header_fill": "surface", "header_text": "primary", "rule": "rule", "zebra": false, "numbers_align": "right"}
+    }
+  }
+}

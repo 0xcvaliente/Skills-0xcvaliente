@@ -93,6 +93,15 @@ Covering text with a black rectangle, white box, or annotation leaves the text u
 
 If you cannot guarantee removal with the tools present, say so and do not label the file as redacted.
 
+## Design and visual QA
+
+Read [../design/GUIDE.md](../design/GUIDE.md). For code-built PDFs, `python3 assets/starters/pdf_starter.py out.pdf --preset report-classic` shows a styled reportlab build (A4, preset margins, type scale, header-filled table with right-aligned numbers, page numbers, document title and author). It uses the PDF standard fonts so nothing needs embedding; for a brand font register and embed a TrueType file. PDF-specific checks:
+
+- Page size chosen on purpose and the same on every page; margins at least 12 mm (add bleed and crop marks only if a printer asks).
+- Fonts embedded (the audit warns when they are not), text at least 7 pt (aim for 10 pt or more).
+- Document title and language set; tagged PDF only comes from a properly styled source document.
+- Measure: `python3 scripts/design_audit.py OUT.pdf`, then `scripts/render.py OUT.pdf --montage` and look at every page.
+
 ## Verify
 
 1. `pdf_tool.py info OUT`: page count and size as expected, no unintended encryption.

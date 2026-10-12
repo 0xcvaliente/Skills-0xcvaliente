@@ -90,6 +90,17 @@ If Node is the available tool: set the layout (`pres.layout = "LAYOUT_WIDE"` for
 3. Make the requested changes only. If text grows, check for overflow and resize or trim; do not shrink fonts below the template's sizes.
 4. `python3 scripts/render.py OUT.pptx --montage`, then look at each slide.
 
+## Design and visual QA
+
+Read [../design/GUIDE.md](../design/GUIDE.md) and [../design/data-display.md](../design/data-display.md). `python3 assets/starters/pptx_starter.py out.pptx --preset business-modern` builds a 16:9 deck from a preset (title at a fixed position, 24 pt body, safe margins, notes, native chart with alt text): copy `new_deck`, `add_title`, `add_bullets`, `add_chart_slide`, `set_alt`. The `deck-dark` preset is for screens only. Slide-specific checks:
+
+- Title in the same place on every slide; one idea per slide; body 24 pt, nothing under 12 pt, content inside a 0.5 in safe area.
+- At most about 50 words per slide; the audit warns above 60 and errors above 90.
+- No bullets nested three levels deep; split the slide or use a table.
+- Chart title states the takeaway; native chart with alt text; palette from the preset.
+- Text on images sits on a solid panel or scrim; every picture has alt text.
+- Measure: `python3 scripts/design_audit.py OUT.pptx` (font sizes, off-slide and overlapping shapes, density, contrast where colours are explicit, missing titles and alt text), then `scripts/render.py OUT.pptx --montage` and look at every slide.
+
 ## Verify
 
 1. Render every slide and look for: text running off the slide or out of its box, overlapping shapes, tiny text, cropped or stretched images, low contrast, empty placeholders ("Click to add title" shows in the editor even when hidden in the show).

@@ -64,6 +64,10 @@ When asked to review, comment on, or proof someone's document, do not rewrite it
 
 [export.md](export.md) has recipes for Markdown to `.docx`/`.pdf` (pandoc or LibreOffice), HTML to PDF, applying a reference style, and checks after export (headings kept, tables intact, links live, fonts).
 
+## Make it look right
+
+Content first, then look. Read [../design/GUIDE.md](../design/GUIDE.md): a strong first screen (title, status, summary), headings that are visibly a hierarchy, short paragraphs, tables for comparisons, one accent colour, enough contrast. When the output is a file, build it with the matching sub-skill (`../word`, `../pdf`) from a design preset, then run `python3 scripts/design_audit.py` and look at the render.
+
 ## Before it leaves your hands
 
 Run through this and report anything that fails:

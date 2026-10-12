@@ -92,6 +92,18 @@ wb.save("out.xlsx")
 
 When the task is understanding data rather than building a model: state the question, read the data and profile it (row counts, nulls, ranges, duplicates), do the calculation in a language with tests or a formula the user can audit, and show the numbers behind any statement. Say which rows you excluded and why. Do not round intermediate results.
 
+## Design and visual QA
+
+Read [../design/GUIDE.md](../design/GUIDE.md) and [../design/data-display.md](../design/data-display.md). `python3 assets/starters/xlsx_starter.py out.xlsx --preset business-modern` shows a styled build (title and source line, filled header, thin rules, number formats, totals row, frozen header, gridlines off, print setup, native chart in the preset palette): copy `style_header`, `style_table`, and `add_bar_chart`. Sheet-specific checks:
+
+- One font family; header row bold with a fill; no fills elsewhere except inputs and totals.
+- One number format per column: thousands separators, fixed decimals, percent and currency as formats, units in the header.
+- Column widths fitted so no text is cut off or shows `####`; wrap long text on purpose.
+- Frozen header row for tables over about 20 rows; no merged cells inside data tables.
+- Presentation sheets: gridlines off, print area, landscape, fit to one page wide, header row repeated.
+- Charts native, titled with the conclusion, axes labelled, bars from zero, preset palette.
+- Measure: `python3 scripts/design_audit.py OUT.xlsx` (header style, clipped text, General-format numbers, merged ranges), then `scripts/render.py`.
+
 ## Verify
 
 1. `python3 scripts/xlsx_check.py OUT.xlsx --recalc`: zero errors, zero uncalculated formulas.

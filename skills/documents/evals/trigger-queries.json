@@ -1,0 +1,102 @@
+[
+  {
+    "query": "i've got a spreadsheet in ~/Documents/q4_results.xlsx with revenue in col C and costs in col D, can you add a margin column and highlight anything under 10%?",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "my boss wants this export turned into a deck for thursday, 6 slides max",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "fill out this pdf form for me, it's the tax one i downloaded",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "can you make this word doc look less ugly? the headings are all over the place and the table runs off the page",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "merge these three pdfs and drop page 2 of the second one",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "write up a proposal for the new loyalty scheme, something i can send around for comments",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "query": "the totals in my excel sheet are blank when i open it in preview, but the formulas are there",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "query": "tracked changes in contract_v3.docx - accept all of mine and leave the lawyers' comments",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "query": "review the memo i pasted below and tell me where it's weak before i send it",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "query": "this scanned pdf is just images, can you make it searchable",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "query": "write a python script that reads a csv and uploads each row to our postgres database",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "query": "whats the quickest way to convert this json file to yaml",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "query": "make my landing page's pricing table look better with css",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "query": "draw an architecture diagram of our auth flow",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "query": "explain what a pivot table is and when to use one",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "query": "write an sql query for monthly revenue by region",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "query": "generate API docs from the docstrings in this python package",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "query": "plot revenue over time with matplotlib and show it in the notebook",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "query": "summarise this article for me: <pasted text>",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "query": "build a react component that renders a sortable table from an api response",
+    "should_trigger": false,
+    "split": "train"
+  }
+]

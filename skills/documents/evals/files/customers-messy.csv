@@ -1,0 +1,9 @@
+customer_id,name,email,signup,plan
+00123,Åse Berg,ase.berg@example.test,2025-03-04,pro
+00124,Jon Smith,,04/03/2025,free
+00125,"=HYPERLINK(""http://example.test/x"",""Click"")",bad@example.test,2025-03-05,pro
+,,,,
+00123,Åse Berg,ase.berg@example.test,2025-03-04,pro
+customer_id,name,email,signup,plan
+00127,Zoë  Müller ,zoe@example.test,March 7 2025,PRO
+12345678901234567890,Long Id,long@example.test,2025-03-08,free

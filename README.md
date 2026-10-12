@@ -138,7 +138,7 @@ Run security assessments only against systems you own or are authorized to test.
 
 | Skill | Use it to | Example prompt |
 |---|---|---|
-| [`documents`](skills/documents) | One skill with five bundled sub-skills: **docs** (reports, proposals, memos, specs to read, share, review), **word** (`.docx`), **spreadsheets** (`.xlsx`/`.csv`), **slides** (`.pptx`), **pdf**. Includes dependency-free inspect, pack/unpack, render, formula-check and PDF scripts. | "Turn this brief into a proposal as Word and PDF", "Fix the formula errors in this workbook", "Fill this PDF form" |
+| [`documents`](skills/documents) | One skill with six bundled sub-skills: **docs** (reports, proposals, memos, specs to read, share, review), **word** (`.docx`), **spreadsheets** (`.xlsx`/`.csv`), **slides** (`.pptx`), **pdf**, and **design** (typography, layout, colour, contrast, tables and charts, with four presets and starter builds). Includes dependency-free inspect, pack/unpack, render, formula-check, design-audit and PDF scripts, plus evals. | "Turn this brief into a proposal as Word and PDF", "Make this deck look professional", "Fix the formula errors in this workbook", "Fill this PDF form" |
 
 ### Creative assets
 
@@ -184,7 +184,7 @@ python3 scripts/validate.py                  # all skills
 python3 scripts/validate.py skills/animate   # one skill
 ```
 
-The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt). To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
+The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
 
 ## Licensing
 
