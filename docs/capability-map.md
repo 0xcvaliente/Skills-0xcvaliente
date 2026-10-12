@@ -30,7 +30,7 @@ When a skill writes a pointer or convention into an instruction file, prefer `AG
 
 ## Invoking a skill
 
-Every Agent Skills host can select a skill automatically from its `description`. To request one explicitly, name it in the prompt ("use the `animate` skill"). Hosts also offer shorthand: `/name` (Claude Code, Cursor, others), `$name` (Codex). Skills in this repository avoid depending on any one shorthand.
+Every Agent Skills host can select a skill automatically from its `description`. To request one explicitly, name it in the prompt ("use the `animate` skill"). Hosts also offer shorthand: `/name` (Claude Code, Cursor, others), `$name` (Codex), `/skill:name` (pi). Skills in this repository avoid depending on any one shorthand.
 
 ## Skill locations
 

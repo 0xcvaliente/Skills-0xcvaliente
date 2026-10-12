@@ -10,6 +10,7 @@ Skills follow the open [Agent Skills](https://agentskills.io) format: a folder w
 | Gemini CLI | `~/.gemini/skills`, `~/.agents/skills` | `.gemini/skills`, `.agents/skills` |
 | GitHub Copilot | `~/.copilot/skills`, `~/.agents/skills` | `.github/skills`, `.claude/skills`, `.agents/skills` |
 | OpenCode | `~/.config/opencode/skills`, `~/.claude/skills`, `~/.agents/skills` | `.opencode/skills`, `.claude/skills`, `.agents/skills` |
+| pi | `~/.agents/skills` | `.agents/skills` (searched up to the repo root) |
 | Cursor | (see Cursor docs) | `.cursor/skills`, `.agents/skills` |
 | Claude Code | `~/.claude/skills` | `.claude/skills` |
 
