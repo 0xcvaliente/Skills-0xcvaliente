@@ -13,6 +13,7 @@ Each skill keeps its upstream attribution and license. Where a package records i
 | `ponytail` | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | |
 | `diagram-craft` | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | |
 | `frontend-design`, `figma`, `figma-implement-design`, `figma-create-design-system-rules`, `security-best-practices`, `security-threat-model`, `hatch-pet`, `codegraph` | Ship with their own `LICENSE`/`NOTICE` files | No upstream URL is recorded in the package; check the license file for the rights holder. |
+| `documents` | Original work in this repository | Studied the *approach* of Anthropic's published `docx`/`pdf`/`pptx`/`xlsx` and `doc-coauthoring` skills ([anthropics/skills](https://github.com/anthropics/skills)): route by file type, work on structure not appearance, verify by rendering. Those skills are proprietary (all rights reserved) and **no text or code was copied**; every guide and script here is newly written. Format facts come from the public OOXML and PDF specifications and the libraries' own documentation. |
 | `founder`, `repo-context`, `business-sales-documents`, `outlook-email-automation`, `create-3d-assets`, `payload`, `vercel-react-best-practices`, `web-design-guidelines`, `web-experience-design` | Authored or curated in the 0xcvaliente collections | No external upstream recorded in the package. |
 
 When you update a skill from its upstream, refresh the pinned revision and checksum in its `source-manifest.json` and add a dated line to `provenance.md`.

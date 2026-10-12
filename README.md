@@ -1,6 +1,6 @@
 # agent-skills-0xcvaliente
 
-A curated library of 44 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 45 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository is the model-agnostic successor to [`claude-skills-0xcvaliente`](https://github.com/0xcvaliente/claude-skills-0xcvaliente) and [`codex-skills-deprecated`](https://github.com/0xcvaliente/codex-skills-deprecated). Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -133,6 +133,12 @@ Run security assessments only against systems you own or are authorized to test.
 | [`business-sales-documents`](skills/business-sales-documents) | Write and design proposals, company profiles, catalogs, one-pagers, reports, and pitch decks, ready for print. | "Make a 2-page sales brochure for our service" |
 | [`outlook-email-automation`](skills/outlook-email-automation) | Set up and browser-test Outlook sending and follow-up automation with Power Automate. | "Automate a follow-up email 3 days after no reply" |
 
+### Documents and files
+
+| Skill | Use it to | Example prompt |
+|---|---|---|
+| [`documents`](skills/documents) | One skill with five bundled sub-skills: **docs** (reports, proposals, memos, specs to read, share, review), **word** (`.docx`), **spreadsheets** (`.xlsx`/`.csv`), **slides** (`.pptx`), **pdf**. Includes dependency-free inspect, pack/unpack, render, formula-check and PDF scripts. | "Turn this brief into a proposal as Word and PDF", "Fix the formula errors in this workbook", "Fill this PDF form" |
+
 ### Creative assets
 
 | Skill | Use it to | Example prompt |
@@ -153,6 +159,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | `hatch-pet` | Python 3 and an image generation/editing tool |
 | `codegraph` | The CodeGraph CLI and an indexed repository (see `skills/codegraph/references/setup.md`) |
 | `repo-context`, `pstack`, `founder`, `business-sales-documents`, `diagram-craft` | Python 3.9+ for their bundled helper scripts |
+| `documents` | Python 3.9+ for the bundled scripts (standard library only). Optional, by task: `python-docx`, `openpyxl`, `python-pptx`, `pypdf`, `reportlab`, LibreOffice, Poppler, pandoc. `scripts/doctor.py` reports what is installed |
 
 ## Anatomy of a skill
 
@@ -185,4 +192,4 @@ This repository has no single license. Each skill keeps the license and notices 
 ## Not included
 
 - Company- and project-specific skills, kept in a private companion repository.
-- Account-synced document skills (`docs`, `docx`, `pdf`, `pptx`, `xlsx`) that some hosts supply.
+- Host-supplied document skills (some hosts ship their own `docx`, `pdf`, `pptx`, `xlsx`). The `documents` skill here is an independent, original implementation and does not use or copy them.
