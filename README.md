@@ -1,6 +1,6 @@
 # agent-skills-0xcvaliente
 
-A curated library of 45 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 46 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository is the model-agnostic successor to [`claude-skills-0xcvaliente`](https://github.com/0xcvaliente/claude-skills-0xcvaliente) and [`codex-skills-deprecated`](https://github.com/0xcvaliente/codex-skills-deprecated). Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -57,6 +57,7 @@ Skills are symlinked, so `git pull` updates them. Start a new agent session afte
 | Skill | Use it to | Example prompt |
 |---|---|---|
 | [`frontend-design`](skills/frontend-design) | Choose a distinctive visual direction (type, color, layout) instead of a templated default. | "Design a landing page for a coffee roastery that doesn't look like a SaaS template" |
+| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop frontend design for landing pages, portfolios and redesigns: infer the brief, pick a direction, avoid templated output. | "Redesign this landing page so it doesn't look AI-generated" |
 | [`ui-design`](skills/ui-design) | Build React/Next/Tailwind UI and audit visual and interaction defects: design systems, dark mode, responsiveness, "UI slop". | "Extract our design system and add dark mode" |
 | [`web-experience-design`](skills/web-experience-design) | Plan and build a whole coherent site or product experience, including cinematic and 3D web. | "Plan and build the new portfolio homepage" |
 | [`web-design-guidelines`](skills/web-design-guidelines) | Review or implement against accessibility, forms, responsive layout, theming, and front-end performance rules. | "Check the signup form against web interface guidelines" |
