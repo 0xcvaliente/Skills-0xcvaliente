@@ -1,0 +1,2710 @@
+{
+  "schema_version": 1,
+  "repository": "usestrix/strix",
+  "reviewed_commit": "62b496430da5df5e9e79a190e7af6f92529883a3",
+  "reviewed_tree": "a41270e6597885a5fbe8e800d5a9da9de64e8313",
+  "reviewed_default_branch": "main",
+  "reviewed_at": "2026-10-10",
+  "files": {
+    ".github/ISSUE_TEMPLATE/bug_report.md": {
+      "sha": "85919cefe8ec2acccfbc74c2692b1148b7dc87fd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/ISSUE_TEMPLATE/feature_request.md": {
+      "sha": "f45586549c215746dd615f3b3a36518386097dc1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/actions/setup-python-env/action.yml": {
+      "sha": "ab70c894fd770cc60413561a90656cfc1d3182c4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/dependabot.yml": {
+      "sha": "9aa16bf1719c22197cb88215ced92274c18c39f3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/logo.png": {
+      "sha": "699eb83737137673585c5d23f4b1d5865a7344aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/screenshot.png": {
+      "sha": "f15e14c2a24df3bcbfaaeb2811cbf5ebecb551f4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/build-release.yml": {
+      "sha": "504080206d44f5b5c26a420df711309a301a3ddd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci-package.yml": {
+      "sha": "6673d7a0625dc8f1e61155b19a9ecda4e8689d4f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci-python.yml": {
+      "sha": "d1ee05915b5cb0c0b30fa9551610c4c94f9f6b82",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci-tui.yml": {
+      "sha": "1dac8219f84f8f0eb80e6a8f86af30faf310d8d8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci-viewer.yml": {
+      "sha": "4bfc93613e4e7963e364b5a550ef3c625857fb6a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci-workflows.yml": {
+      "sha": "5796e0d2a913c37c358d76bef2bb02da2e8c122d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/ci.yml": {
+      "sha": "9ae8e7636be718f9cca1153328d446d4ca4915d0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".gitignore": {
+      "sha": "89db2d7edd94927014bd74af79ec6ab6fd199261",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".pre-commit-config.yaml": {
+      "sha": "ceaae9717e9acad684d79d7ff38ecf1588f07fc4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "AGENTS.md": {
+      "sha": "ab3fd988dd12a1a5a9387f9da85eb700fdf49486",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "CONTRIBUTING.md": {
+      "sha": "37b20d6319562e468e11b02b5bc8d2a364439875",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "LICENSE": {
+      "sha": "65c4e8f58a00552cc29f6bd1dcaf1c4ef10012b8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "Makefile": {
+      "sha": "8a6f245558fb1d7958c784590f50f00bc375ad31",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "README.md": {
+      "sha": "f93b23765be4ad46ab5acf7a111da60f6578a3dd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "benchmarks/README.md": {
+      "sha": "b7d99dece761b32e057a881f7eb75840968190e9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "containers/Dockerfile": {
+      "sha": "cabb6b39e160a903a1fb938dfce5345830e0c171",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "containers/docker-entrypoint.sh": {
+      "sha": "e4f472d6279cec6ca530a398297d6a780a15edd1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/README.md": {
+      "sha": "cc19895331043dc83b0f884ca185e7934656fe2b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/advanced/configuration.mdx": {
+      "sha": "c245b364ce4b14465fccd2bd81bb5a3759e9ee90",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/advanced/skills.mdx": {
+      "sha": "ce624424065e75b6dd3e9ea4c24fb2b7ac15abf3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/cloud/cli.mdx": {
+      "sha": "d0f8429271728fa7df3e78f8db6bef170327a804",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/cloud/overview.mdx": {
+      "sha": "1dc5c69b396f6f4a5d5cea0244594db814985466",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/contributing.mdx": {
+      "sha": "5622b82dc5e2cae65a9ead405047cfad6552dda9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/docs.json": {
+      "sha": "665874f80fdb5cfe0a8fc962dc81dcc481449007",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/images/favicon-48.ico": {
+      "sha": "64be0c4ade374e5ab7186777f8f2a0c95dd7e0b0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/images/logo.png": {
+      "sha": "699eb83737137673585c5d23f4b1d5865a7344aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/images/screenshot.png": {
+      "sha": "f15e14c2a24df3bcbfaaeb2811cbf5ebecb551f4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/index.mdx": {
+      "sha": "910f1e2ec2125d6e353fffa34936f602b47a80a4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/integrations/ci-cd.mdx": {
+      "sha": "03f1d2038ca2fdd1288aea9b004168059bba6c55",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/integrations/coding-agents.mdx": {
+      "sha": "80f24597fe08c172ce43ce4d0b6b0a69e9d38275",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/integrations/github-actions.mdx": {
+      "sha": "45f01bdb7023bc183a323fd9e7d6795b3dc528c0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/integrations/mcp.mdx": {
+      "sha": "6b9945c919812a4cbc11865634f541b3c061df4c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/anthropic.mdx": {
+      "sha": "da32b13abfde31188b7703ada1f227713db76caa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/azure.mdx": {
+      "sha": "1a9be0084edd47cfabd90d3767d8d0605a37d004",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/bedrock.mdx": {
+      "sha": "2189e9876d562aceef9e343973d3ddc6136ca2b6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/local.mdx": {
+      "sha": "58b37509baf110e4c01e4890c66d44fe374740a9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/novita.mdx": {
+      "sha": "8ae514d46db468bf4349ad148fe7d8d703ccc620",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/openai.mdx": {
+      "sha": "c8a4867780af8b62862a8c878bcab43f6bdc8f6c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/openrouter.mdx": {
+      "sha": "a16587599601e239305d8304f0a15d2c06eda48e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/overview.mdx": {
+      "sha": "e10327e63ccdedc91fa4814d57ae8d5731ecb5ec",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/vercel-ai-gateway.mdx": {
+      "sha": "54d3a362af5eb08b53deb89548b41fbfe8abeebc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/llm-providers/vertex.mdx": {
+      "sha": "72a71872677cf705ef4a74481e26ed2cfb3f0b21",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/logo/strix.png": {
+      "sha": "699eb83737137673585c5d23f4b1d5865a7344aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/quickstart.mdx": {
+      "sha": "dcd2e7c5916f205d095b02e16c313940335687d3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/tools/browser.mdx": {
+      "sha": "7220d9ce657b33992eea541496b509c464c4a96f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/tools/overview.mdx": {
+      "sha": "466d91af63f4192dc3a5170b1f2988ada2365e63",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/tools/proxy.mdx": {
+      "sha": "3fc027b9a7269cf011245940c6df8dd8aa43921a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/tools/sandbox.mdx": {
+      "sha": "386452f7fbf24a8479388ba3da8581e15727830d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/tools/terminal.mdx": {
+      "sha": "5f7cb8410e7b0fa8b3d8efc31b222e57a7057a7a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/usage/cli.mdx": {
+      "sha": "2fc492e9b757e5c30c67df1cd9afab0970ccbf3c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/usage/instructions.mdx": {
+      "sha": "c724b7b106c2e5007910b8e1fc4a9b5f3487a970",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/usage/scan-modes.mdx": {
+      "sha": "9f9589103106b38b79dcb6d9e90c65de25c88c27",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "docs/usage/viewer.mdx": {
+      "sha": "01f42c57d8416fdfb1607831e99d47e9b7467b88",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "pyproject.toml": {
+      "sha": "20519dac104f19c2cef97091fa28e2dd76a410b5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "scripts/build.sh": {
+      "sha": "6a6c29e34a54381a6629fafd9c9c2b4f27e46a4f",
+      "mode": "100755",
+      "type": "blob"
+    },
+    "scripts/docker.sh": {
+      "sha": "088c482235083bef8777a8769b1637639b456a98",
+      "mode": "100755",
+      "type": "blob"
+    },
+    "scripts/install.sh": {
+      "sha": "e179b558e4816e5f5c45fc529b3388607f773d9a",
+      "mode": "100755",
+      "type": "blob"
+    },
+    "scripts/tui_sidecar_hook.py": {
+      "sha": "01de6fdc1a63a1ee4787e8a27a1d6d17ef147802",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/api-security-testing/SKILL.md": {
+      "sha": "d21a25da6167f79c3caff745abc142b2118c2691",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/application-security-testing/SKILL.md": {
+      "sha": "0c27bd5df4a346abfc1e81efc62f49b066637f52",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/ci-security-scanning-with-strix/SKILL.md": {
+      "sha": "69ae726776b8c1dbc667f18a9f972a66e4656c4e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/find-security-vulnerabilities-in-code/SKILL.md": {
+      "sha": "b1829e9cba9db38d6d76e9fa274da3caa188ac75",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/fix-security-vulnerabilities-with-strix/SKILL.md": {
+      "sha": "6912cb542b3e5c46e99fa196cd29039de9a8e574",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/managed-pentesting-with-strix/SKILL.md": {
+      "sha": "246aa882580962a89aaef2ad89d5d3c6e150a793",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/owasp-top-10-testing/SKILL.md": {
+      "sha": "328e217f7e0ab0fe43f448de49c1b2fb2897a6a7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/penetration-testing-with-strix/SKILL.md": {
+      "sha": "afd56cea3920da1f5092f90244c3db7519b8b0ae",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "skills/web-app-penetration-testing/SKILL.md": {
+      "sha": "99331fa8bb83315a3bce4449592bb77504421d30",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix.spec": {
+      "sha": "987d8b96c020ad43b19ecfd2bdf6cd86ab338477",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/agents/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/agents/factory.py": {
+      "sha": "4cd9e0378f240eb568d06c593f99711c223adf10",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/agents/prompt.py": {
+      "sha": "c45831aaef5f2ea2872c94f97885977b38baf5c2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/agents/prompts/scope.jinja": {
+      "sha": "c9dc5c72253c7a4c933395b1b6fd5367b6c7c1d6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/agents/prompts/system_prompt.jinja": {
+      "sha": "b13c9a4c8e8c2928b0af261ed36a95faf551fc93",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/__init__.py": {
+      "sha": "f21fdab6bfd9affddf88b3687d017df796385565",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/codex.py": {
+      "sha": "b7cf7ae55d338ef3a3664d1ce1b4a065cbb8218f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/loader.py": {
+      "sha": "e6edd548411687c8bf0b51f60226e6838634b223",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/models.py": {
+      "sha": "f36c1d9eb80799b6e64c87de520fad48430b3594",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/settings.py": {
+      "sha": "5aa6da067eef222e114907d519a125917bc81ce8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/tool_call_ids.py": {
+      "sha": "c418643dbb9b201eb14e5346a7323092dd0ff3bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/tool_call_limits.py": {
+      "sha": "a014e8db85d05b6ca41c8a78de8a51d89b9142aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/__init__.py": {
+      "sha": "8e07f9d9d0d8affde1b7c781470e291a92130168",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/agents.py": {
+      "sha": "7e738be1d25c2913167bfceb42485743efe415a5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/execution.py": {
+      "sha": "87a2bf0295097051aaa3ad9be10532c3e6695717",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/hooks.py": {
+      "sha": "06650be92753f18aec4d5ab36e6f8e2a1f315f41",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/inputs.py": {
+      "sha": "c36f71b6382f88a326537ac289dee8c077963e41",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/paths.py": {
+      "sha": "2cd7ba0b9208c90057bf7bddf76d40267e8788b8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/runner.py": {
+      "sha": "f9bb494044ce0dcf69ff97b87593b73caa4ebb2c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/core/sessions.py": {
+      "sha": "b1af3a4535a914a0ac5d44dc555c733a87def037",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/__init__.py": {
+      "sha": "b0f97407c793230abfb292871a5cb4b86efaea7d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/auth_cli.py": {
+      "sha": "51e6b9fe9db46f0599cbae926b0d3e66f000b727",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cli.py": {
+      "sha": "a8992ce4980a2d8c7635d6eca0ef4ff1c90b0782",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cli_args.py": {
+      "sha": "c9b6951be62e4ed88ec2ce52afe4e372efca4f50",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/__init__.py": {
+      "sha": "a906b43981c34c78d51dfe159218cb4e9ea30f1c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/arguments.py": {
+      "sha": "d1924572d25949eeeb62418cc6a555db09261348",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/billing.py": {
+      "sha": "4bc0c1f87f8598ce033f3628b3e764e833a59f5c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/http.py": {
+      "sha": "1531f0b587f6dea88f63329086db4636449f1414",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/payment_proxy.py": {
+      "sha": "9041f7f6b338658dbcf22e0f544c9e8331a2da19",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/render.py": {
+      "sha": "69a497f3d5e61525ef2ad64e0e6a81299bda51a4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/runner.py": {
+      "sha": "f35cc436636522cb9f8537d974de96bd0e292c2f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/session.py": {
+      "sha": "d2ec0861f32fd976c235978beb7a9c551113e05b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/source_scan.py": {
+      "sha": "7893bf5af195a166fbd8d05d0f5392d2b47663ab",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/source_upload.py": {
+      "sha": "780a845695e4626e72a82517d2fb9ecbcf516a4a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/spec.py": {
+      "sha": "c9ec5d2bf7f9ceb75cd51f502cc4936cf635f77a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/cloud/workspaces.py": {
+      "sha": "1d4953575ce360395542baaeed4cfba793f1f2fa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/completions.py": {
+      "sha": "f188fc3e74f58463b60ece41e2c299f72157661f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/environment.py": {
+      "sha": "522067df84a046379341f0e243dea57c9205b6b1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/interactive.py": {
+      "sha": "d704cd45a44db281e7a4ac4a806e852b056d2785",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/main.py": {
+      "sha": "cc3a0321848125de931b70d2afed101689b1a0f3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/platform_cli.py": {
+      "sha": "bf57e9cc85c9cde1e45f251c72c8d4cab0023b19",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/platform_identity.py": {
+      "sha": "508e7e396f2a1d1f389c6fc32db27aa96b96c7e8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/resume_picker.py": {
+      "sha": "fb1e179663b06223ce22ca2c3a8cee747a1d9b88",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/scan_setup.py": {
+      "sha": "0af126d017d9a75594ce48c95454b32a708e74e8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/terminal_text.py": {
+      "sha": "b0cc2b4bb73b3d93252883ca687ad1d32111bbe9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/__init__.py": {
+      "sha": "541c0cdcf00803ffdd0390c8d76024301b8c1005",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/__init__.py": {
+      "sha": "58120d2a3c7b621ee8db43c2db20eb6eea0e847c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/controller.py": {
+      "sha": "133b3a13e245fd8132be15597ad6dbb661f03bb4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/live_view.py": {
+      "sha": "549f8bddf3af0d65983360080ba7d97aa5aae6a4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/messages.py": {
+      "sha": "77bc8bf2b391195d4b30f803816a9edfe2470224",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/projection.py": {
+      "sha": "67a206b8ecfc29dc8d7f2e2907558b83206aec5f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/protocol.py": {
+      "sha": "99da5823898475a241d9401a1c875a5696ac727f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/backend/server.py": {
+      "sha": "f884b3b60eee94659522e79a19fb5fa4b42b6003",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/cmd/strix-tui/main.go": {
+      "sha": "335725d5fc692a8f3272fa9788cf683a3c2dcf6a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/go.mod": {
+      "sha": "1ff6ec350e8a6dc3a03cb08015ba9eed56bee2db",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/go.sum": {
+      "sha": "f255aec1de72d711f90f22d150648a45ee33bd7b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/history.py": {
+      "sha": "999ca08c0c2e67deeea33bfbada52a0efb7d4ef5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/agents.go": {
+      "sha": "b60300fa924df5b38bc2606d968e30804a4d6455",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/client.go": {
+      "sha": "f1344de35d0f7f3a74c85c54e97e931701277af7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/client_test.go": {
+      "sha": "651355b0c9d2256343dfbee61a06a729726a3acf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/findings_test.go": {
+      "sha": "0e865f57721c0a8cd034c92f3733b91983cab77c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/frame_bench_test.go": {
+      "sha": "404a71dd0c54955de576f16e010d0870dca3bb79",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/input_test.go": {
+      "sha": "c7f7482831240debbf684c506e16fb8cef909cdd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/mcp_test.go": {
+      "sha": "fa52f3c32d27b36b8fdab23c874a55a1abe3fd63",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/model.go": {
+      "sha": "bae3cb7e5915b01b2ed49c9bd1f0217343321bbc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/model_test.go": {
+      "sha": "c79c35b75b9af4e1e56ddf2d6659cf2120987fd4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/panels.go": {
+      "sha": "86f0fac4e7dc2251f2992def21a16dd96cd53127",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/panels_test.go": {
+      "sha": "0e783e9e721e7540a67f7558a799024235b480d8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/selection.go": {
+      "sha": "1d629b02a07945b10f1c1e57ba79865477111562",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/selection_test.go": {
+      "sha": "23f5160a2748ee02c4215a81b7f6b8f525c291a3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/setup.go": {
+      "sha": "89e5cb2469a1fe51b5d359b20431d586edd23393",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/setup_log_test.go": {
+      "sha": "603fbe1b81e7c56c08619d9ff4b47523294ab81c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/setup_prompt_test.go": {
+      "sha": "7ac2ed829f331530b6e55033ea9e47d96e0b4959",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/spinner_test.go": {
+      "sha": "fed9da2e6d15f2fe00e74ed26d2d8f04cc6b98fd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/update.go": {
+      "sha": "a963a49d7592f1df2f720facd505ea3f21ca013f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/view.go": {
+      "sha": "a723919e89f177d1d51777239c03352b937e3b14",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/vuln_report.go": {
+      "sha": "2f460926c91ce76e4284dd87abc9ca7e467d57e0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/vulnerabilities.go": {
+      "sha": "66fc8117a128729b1c660c3e15b3dc03c203d4d0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/app/wire.go": {
+      "sha": "72f02a38cf51c840cebdaff65da1a9a29db6a93f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/protocol/protocol.go": {
+      "sha": "2e36460732a4474a659f48c89424cf0facd931c6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/protocol/protocol_test.go": {
+      "sha": "f2f539b69b6be8beb4b63c02b27e8716d69038ca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/agent_message.go": {
+      "sha": "6d2948538acf5d16f65e65c8b5622fa7921c4e52",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/agents_graph.go": {
+      "sha": "b6999a2b77e580b828431eb21ba5f5157c0b78fc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/chat.go": {
+      "sha": "bfc42728bb28a8a84cb21e46575fbb7607612ae5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/code.go": {
+      "sha": "0e3383ec7890e7651c517b4e8dd1f8add4341f9f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/coverage.go": {
+      "sha": "3f6c161e11d5f56d4ef652ef0462ac649bd716e1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/coverage_test.go": {
+      "sha": "5f357bccfc5787dbbc70b6c9fc591eb5ec3e89f2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/dependency.go": {
+      "sha": "f0210696164149bf577fb79030fc20b1ac838b9d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/file_edit.go": {
+      "sha": "e1c2176f0d06d885a71c99593ca9bba7ff46d22b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/helpers.go": {
+      "sha": "80c6dfa80de7d395f1a89ba04060ee9705b96e92",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image.go": {
+      "sha": "9e6f118eab1da36b2371651d8d9d1f2c00389783",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_detect.go": {
+      "sha": "d1905208ba0fd007f2cc6dc0d109121e48edb4bf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_detect_test.go": {
+      "sha": "41bde37e158751183c0f6bab2d06afd20323d3b9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_detect_unix.go": {
+      "sha": "87b0b81a116527ebd335a9c64e38847493bb15fb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_detect_windows.go": {
+      "sha": "7825f6096c7c16aa02c38971eeb1d06b38637dd4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_kitty.go": {
+      "sha": "1eeb006e3c886359298f1634e547bb050c2d4fe7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/image_kitty_test.go": {
+      "sha": "0f838e59cde66a2db917427a0de44a4f1d8c5ce6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/markdown_test.go": {
+      "sha": "a887f995099bc2d841dc537a915dd3d6539402b0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/mcp.go": {
+      "sha": "fec3e85eeb993457d58811c3923e15476cd8483b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/notes.go": {
+      "sha": "6c81492e6d119151309d46b144844c67d378c8bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/proxy.go": {
+      "sha": "a8f9fb75f263b96e277bd78b26ed096580680046",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/registry.go": {
+      "sha": "7813c991a5caa26fe7a284bb46c827734598482b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/render_test.go": {
+      "sha": "383dac550da044586fc81f6969c92785b609f785",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/report.go": {
+      "sha": "2c32eca4b3e2fb271c97332a39aace11ff0b0acd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/report_list.go": {
+      "sha": "aa19293ddf17453365e31bda6e061219713ae2dc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/scan.go": {
+      "sha": "1c82ed94268c31cd233378ddae536bda9596ca79",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/simple.go": {
+      "sha": "2dfa5641e2195ef1a2cf1e07a801253f7146dfa9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/spinner.go": {
+      "sha": "c8a96a7f7028fb3a0a317916136d292b235d8d85",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/styles.go": {
+      "sha": "9fc990439bd2ae07336741663d4512f32c668274",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/terminal.go": {
+      "sha": "059e1936b3a73f934940c6a1cf6ee3269aaa4758",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/threat_model.go": {
+      "sha": "272bce76c5f3ea78468edd69442c152b0775542d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/todo.go": {
+      "sha": "8ec09b2f6ab00d99be5c435e8dffb1d4e077995d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/internal/render/wait_user.go": {
+      "sha": "2e5cbcc002b2b5cd36eae8e5a2841c5f38128426",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/live_view.py": {
+      "sha": "dbcf4028637ed91dca0f49eb4ba2133fef274b55",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/runtime.py": {
+      "sha": "ae9832369b9795ae498f8df4497ee14ec358ebf5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/tui/sidecar.py": {
+      "sha": "c0d0f986d11517814cec4cf10e2f7ace8d60d5cd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/update_check.py": {
+      "sha": "9e98b38fd1751a0cd4a6675ea50a7a2252a5662b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/url_safety.py": {
+      "sha": "b9a771656da272c10fd5c905e7b2087cd6cf37b9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/utils.py": {
+      "sha": "7ab55d8ee2993cb4f66ce40548e98ea7f6bfa21c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/__init__.py": {
+      "sha": "0e48bb284d8abfc277cbe9849784467a7e802363",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/auth.py": {
+      "sha": "67a0db9d53b06bf49f0f41cdc9601cb9e5a694a1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/cli.py": {
+      "sha": "59152cf35990f71559254b145609786939a57deb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/index.html": {
+      "sha": "dba7938a5d3059448d129b8364c412ba9e08ae4e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/package-lock.json": {
+      "sha": "09790806313208a3b92ca28199c35317dcdc3367",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/package.json": {
+      "sha": "e79db76fdda0bcea2ec83ee4b444c81c1d827ec5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/public/logo.png": {
+      "sha": "699eb83737137673585c5d23f4b1d5865a7344aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/App.tsx": {
+      "sha": "bbd24f4c760243bef48d55bbd17446bbedbb28ab",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/AddRepositoryDialog.tsx": {
+      "sha": "ee7a2853afc879a656dfc603c022c810e412793d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/EmailReportView.tsx": {
+      "sha": "a44da4ce90b35985ac5860ebdbffdcde5b748415",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/EmailVerifyInline.tsx": {
+      "sha": "9318f854126799f4e92e3d700ef53a65dd4da41b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/FeedbackView.tsx": {
+      "sha": "f9d6985f05e9f48ba9bef436abdf94e29b2ff65d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/IssueSeveritySummary.tsx": {
+      "sha": "1be2d7e52cc0ff3eac71b9f3f815b49ecc05edb4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/PastRunsView.tsx": {
+      "sha": "adfeb4ddd05b6f177e5d03a2881f458cbff14aca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/ProCta.tsx": {
+      "sha": "ba68d4463c6b6b76a3f7dca41214780693d4358b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/RunDetails.tsx": {
+      "sha": "53b66eca4f830e831a019eb1e0a04bb6122c1df3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/Sidebar.tsx": {
+      "sha": "19cd19775f6df869b2097165d86696de52de10f4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/TrustToast.tsx": {
+      "sha": "deec179bed62b582b66d413503b5c0c78d743d80",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/UpgradeModal.tsx": {
+      "sha": "5f9cb9b8f4f6af0ce4f62b6e1302ac677e7e66a5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/AgentDetailModal.tsx": {
+      "sha": "c871ba8176d916b27cfbd210526be6c15c04f7c6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/AgentGraph.tsx": {
+      "sha": "3850284366374943930eebbfca74a9162458e81c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/AgentNode.tsx": {
+      "sha": "c7bc3ae11f326b96ab3714ae66f4c3553e59b2a1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/AgentTranscript.tsx": {
+      "sha": "fb2f7879d31a34cd8982a8388a807f033e1c3699",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/GraphSkeleton.tsx": {
+      "sha": "853b1af5c12b503dd83eb6724a6bab9fafb85045",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/ScanPromptComposer.tsx": {
+      "sha": "0df49fe33bc863efce025a67324814fa3a1c3306",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/AgentCommsRenderer.tsx": {
+      "sha": "5bbbeeec9fd3e0127a7af71223f4c3c79c4f951a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ApplyPatchRenderer.tsx": {
+      "sha": "2cf4482d8c226c7fb2536eb8232d0baa0ed7a91a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/BrowserRenderer.tsx": {
+      "sha": "605c5b14b450b16b51e72a52bf8a027b65f99195",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ChatBubble.tsx": {
+      "sha": "bf98fb60c10be7c3d0becc8ef0d6255b14784810",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/CoverageRenderer.tsx": {
+      "sha": "57e579ce372c320595c332b091aa865f2110de9c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/FallbackRenderer.tsx": {
+      "sha": "2694032569e60468ab856c4bc321cb3e84d8c533",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/FileEditRenderer.tsx": {
+      "sha": "697e16df211c0d25181b517455eb6d4e99855947",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/FinishRenderer.tsx": {
+      "sha": "ab2acbc102db6292c906b6c3c182096324bc6ece",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/LoadSkillRenderer.tsx": {
+      "sha": "c0aa2292e8352b308e648b728c6de531e60e8097",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/Markdown.tsx": {
+      "sha": "d4d7c07d71ffd58e7e3546ae0c361b4935dbf436",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/McpRenderer.tsx": {
+      "sha": "ffafeaba8bc7b61717f977df82ce9f17a9c2c189",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/NotesRenderer.tsx": {
+      "sha": "c7c528aa154b790f6434816759528839e022fd21",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ProxyRenderer.tsx": {
+      "sha": "e35e5a7efdf974990fc487de6ee11714d389c198",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/PythonRenderer.tsx": {
+      "sha": "62c4dac88faedb848bb43672605046d75d65c939",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ReportListRenderer.tsx": {
+      "sha": "f1eba7ed8f56ec20240481107e48ae9b84fa5241",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ScanInfoRenderer.tsx": {
+      "sha": "491ec983bad03d910728af01dd63992b49bfce32",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/TerminalRenderer.tsx": {
+      "sha": "74ad423548d7793ea9eb02cf892eb43307c5633f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ThinkRenderer.tsx": {
+      "sha": "ee0b639276d95987dd6eeca1ea0d4d96e2fc8564",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ThreatModelRenderer.tsx": {
+      "sha": "923d99960f07580ebd2019fe093b529aba9bc1cb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/TodoRenderer.tsx": {
+      "sha": "edfeacd3480f78611fbb2a3c86ac7711d1f80fe5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ToolCard.tsx": {
+      "sha": "bbd2333ce0790b1fd7864e8f072b76656d43d043",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/ViewImageRenderer.tsx": {
+      "sha": "d38d7b0ba1322624a23c737de5ea71dc54a137e6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/VulnReportDeleteRenderer.tsx": {
+      "sha": "90e3ccec42f71d01db14dc611b27a6cd36190bb5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/VulnReportRenderer.tsx": {
+      "sha": "c556e1c7659a54c0f4372e5c63ea3ed85a6d36c9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/WaitForUserRenderer.tsx": {
+      "sha": "b4d3f847b2a7507cfa60fedda1783806a45a3bad",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/WebSearchRenderer.tsx": {
+      "sha": "0305de6eb8f8e2e9a2732b490fc5796337af4353",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/index.ts": {
+      "sha": "487ba8bdd796378196d16c7c8250d3595c262486",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/live/tool-renderers/utils.ts": {
+      "sha": "9eb9bca7596ee8d7a30281eb88b38e263200a87f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/CodeDiffBlock.tsx": {
+      "sha": "c88ed49b1d05f50e1264c4afd1ea02b644b4a0e6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/ContentSection.tsx": {
+      "sha": "84b6dcdfb1d5bfb38dc990a5acb621f4295f51bf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/IssueSidebar.tsx": {
+      "sha": "f11495f0b218cb24f7971ed0c2bb51eebfb74cb0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/MdCodeBlock.tsx": {
+      "sha": "1e814aae6c98d4822033c65ff9e7429a5722a3e5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/PocBlock.tsx": {
+      "sha": "587df8b17e1e6fda180c990c1728392c3c4cc361",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/components/vulnerability/VulnerabilityDetail.tsx": {
+      "sha": "09e591baf760b5f2c5f23114d02ae606fe483aae",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/data/serverSource.ts": {
+      "sha": "f90f84bff47b96038a762e5d617d704f295e7adc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/index.css": {
+      "sha": "cc02b76c2a1369cc4f78d5abbd18a075360048a6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/cta.ts": {
+      "sha": "bf262ac40ce0ee71dcb8972c4c8aee90c30b18b2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/display-number.ts": {
+      "sha": "86fb2314dccd1f714ed94ed4055320832006517d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/fenced-code.ts": {
+      "sha": "6a5f8290dbf94c9f1464fa89d91dd7cf09512855",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/hljs.ts": {
+      "sha": "8824a81171ca29b4aa7a8a2e5e2d8d6dc7092e97",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/local-run-parser.ts": {
+      "sha": "54968ddaecfb0a917a1023383d58a8e2eaa459d3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/target-utils.ts": {
+      "sha": "c5371f5c65dfeb67b93d948977b0b66fd7e5e02e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/utils.ts": {
+      "sha": "121d0c284d19ed54ea519866d49a79ef80aafe47",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/lib/vulnerability-utils.ts": {
+      "sha": "7123d4f0ec58f80a2d2a20b2f49e66d7e35c8521",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/main.tsx": {
+      "sha": "65dc4ec6d790b08f8d805542a88bfc5edf7ed77f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/stores/auth.ts": {
+      "sha": "74c9a83370a1c483d9460e28e6ffb913e64ec684",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/types/events.ts": {
+      "sha": "3f4f1133772b31be1605caca3e040b2ad82dbf71",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/src/types/issues.ts": {
+      "sha": "3e71620a6ade1ddd49ba6ae6af28acf3ed6876d9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/tsconfig.json": {
+      "sha": "fcc6274f11aac63ec9e6ca6a4ec1ad537c8c1f21",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/frontend/vite.config.ts": {
+      "sha": "a7704a8f4ae1a6451bb97099d28fa4432d5031b5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/report_pdf.py": {
+      "sha": "b749f2706c31dca08daab2f137934371420cf17a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/server.py": {
+      "sha": "9fb320ba9a10bf85d58160fdd2c826bd1f0cfb2b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/static/assets/index-B1JzV4Vu.js": {
+      "sha": "a54671b386b6f53834be80205d2376eeba59ffae",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/static/assets/index-CrLE9rrV.css": {
+      "sha": "1185e0485779000fbc9623049457e1c53db78da7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/static/index.html": {
+      "sha": "64468093a3e04ffe4c3a29372d4fc2672b8de88e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/static/logo.png": {
+      "sha": "699eb83737137673585c5d23f4b1d5865a7344aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/interface/viewer/transcript.py": {
+      "sha": "4c3cf0450dd2bdcdda1333ceebe902def0f30e82",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/llm/__init__.py": {
+      "sha": "0d3f95460d0f5fdf38f27f41f7e3caedbc5a9930",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/llm/compaction.py": {
+      "sha": "ecdb9a83171b7bd79fcbf5a8d5a5a9529ecd8236",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/llm/context_budget.py": {
+      "sha": "baa02c4b37fc86c12680cc8397af3f533f38f8ec",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/llm/request_log.py": {
+      "sha": "eda0d222ed9b87ea0a9f5e41b5465428795e7a4a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/llm/warmup.py": {
+      "sha": "c46d0b1aa569dffb7bdc75db6b63d22fc679ebfa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/__init__.py": {
+      "sha": "dca4114b7a6777fdc3fb0cc3d7e74f8fa4f8c6ad",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/coverage.py": {
+      "sha": "c519853accc64db9853040ebcbe1be00afb56c2b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/dedupe.py": {
+      "sha": "93f9ad8aa64d28300e4b23001b0444082823f229",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/pricing.py": {
+      "sha": "57c899592167a582bb7b9aab3fe2721a8a95ec7e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/runs.py": {
+      "sha": "ae27a60ff47583e831a2f17aa0196ba6e9ae19c8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/sarif.py": {
+      "sha": "821fffbc03480daa96f1dcc8916f48e7937674fe",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/state.py": {
+      "sha": "fd0ebd944944a7b406c0e3b541636769efa19b5b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/usage.py": {
+      "sha": "bb20b254d4294f657c0f005ba5b327d969ba40c3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/report/writer.py": {
+      "sha": "cf858f7d71e718a4001cef3312e3008ee1685311",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/__init__.py": {
+      "sha": "2703633d8cf20f7ac2386c8b62d4325ffd5f107f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/backends.py": {
+      "sha": "0cb2218fd5c554e113171e02138a1b722e9b42c5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/caido_bootstrap.py": {
+      "sha": "a9c7c82aef87e0109e87b2d8dc02af5fb37731af",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/caido_handle.py": {
+      "sha": "5b1d1c748051fc4affaefa481d1cb5c1eec5eb67",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/docker_client.py": {
+      "sha": "969267d53261a6c8ff7c20c5d8bea0b5d9397968",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/docker_connection.py": {
+      "sha": "890d54b1e898fbd5f8e03a8fc8c4fbaebd898031",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/session_manager.py": {
+      "sha": "a8447ebbe3b47cc9db393cc4a938e8194f11015b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/runtime/status.py": {
+      "sha": "42717d129602bb527e457b3b428606cb2da3853f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/README.md": {
+      "sha": "87a48ddfadf791877ef263302e28c03ebc6e9fc0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/__init__.py": {
+      "sha": "1e66fae0b401e289a5261a1773a1377b7d2db489",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/analysis/counterevidence.md": {
+      "sha": "fd90a251ba316bb33f12c496400c0894b862a9bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/analysis/fix_verification.md": {
+      "sha": "6e107fab1a7177748b3229eb96b88be0caf324e0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/analysis/severity_calibration.md": {
+      "sha": "97ebe84f1520337fdd3e7fc07d077cb352603dde",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/analysis/source_aware_discovery.md": {
+      "sha": "ef13cde80462ba87e9b1c7ec8e6cf2086861da4b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/cloud/.gitkeep": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/cloud/aws.md": {
+      "sha": "82cc6137102cfb9fe346dc403c64e027df31497c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/cloud/azure.md": {
+      "sha": "c7f13957932a4849672c4c0b4f984236f1bc93dc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/cloud/gcp.md": {
+      "sha": "2c721594531c7ad12450a4e02e162cff72ff0301",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/cloud/kubernetes.md": {
+      "sha": "42ecfeeaa9832334dff4067a134be5492ef210eb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/coordination/root_agent.md": {
+      "sha": "fa88aaa5adbfe93bb7fb81f0554a954776c23a2f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/coordination/source_aware_whitebox.md": {
+      "sha": "d8849e638548556e34d49a58b5e347feb30f3f30",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/custom/.gitkeep": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/custom/api_spec_testing.md": {
+      "sha": "d3d9285b1491019fc23712d4a949fd652037ec28",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/custom/dependency_cve_scanning.md": {
+      "sha": "9c5139c3478bfbb3650b4b226fdd7728335e7b14",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/custom/npx_confusion.md": {
+      "sha": "d2b55ec7449db3856a9df3516b039e33f3532e25",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/custom/source_aware_sast.md": {
+      "sha": "fee2fd9211a403386e45e50c7754b180e1ddb999",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/frameworks/django.md": {
+      "sha": "143e6e905aa2a1530d782528a780294c4c58a04c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/frameworks/fastapi.md": {
+      "sha": "5cd6d14db067c6e34bdee161ac1fe05cbf845e3d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/frameworks/nestjs.md": {
+      "sha": "7fcfafec41d19a9588dcd5f30d1c7422773562e8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/frameworks/nextjs.md": {
+      "sha": "4bdb0be91089f094443d200b36e76990ec974638",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/protocols/graphql.md": {
+      "sha": "095ab84174bc7105a57b2419f7d7e91fa21fd4db",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/protocols/oauth.md": {
+      "sha": "ea99aa864cd5f977fabcced096047d1b861189a0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/reconnaissance/.gitkeep": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/reconnaissance/asset_discovery.md": {
+      "sha": "ce674fba1f79c55f13327deb3353b73dd8b62c70",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/reconnaissance/infrastructure_lifecycle.md": {
+      "sha": "fe43bafbf8e7cf9389b4a92b1865816cff15a4ff",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/scan_modes/deep.md": {
+      "sha": "af2b85dd0a3f24605cb78878211a320f51ad006c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/scan_modes/diff.md": {
+      "sha": "49a7d14c1b0019ed71452e4fc63c527bb98e6cef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/scan_modes/quick.md": {
+      "sha": "a8824786eafe0269cdaeb0990f9c4a92963b7ee8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/scan_modes/standard.md": {
+      "sha": "b7a37395c011b9e13b982426fbd9301e9e85de90",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/active_directory.md": {
+      "sha": "4944c2060560544cca22f9df23038821b0bcd47c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/auth0.md": {
+      "sha": "8c6f559ab9014b71cdb9c0a92eab3b30f81c89c0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/electron_desktop_apps.md": {
+      "sha": "40c1363d2a50afddaab81b35347fa2beec9d1271",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/firebase.md": {
+      "sha": "341040331fe54371b45d215097de90960baa8f17",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/grafana_prometheus.md": {
+      "sha": "1d5071b1869fad8b457c50d529bd8a5cbe18b236",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/llm_applications.md": {
+      "sha": "4fcd7b66e47a366b8644fae4e053174f30ccdc85",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/technologies/supabase.md": {
+      "sha": "0a39f176c2b7f0ff6ac42ccf12949280d136dfa5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/agent_browser.md": {
+      "sha": "efc59cdd96ee3c19ef4f81771c13e8a04b71c257",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/ffuf.md": {
+      "sha": "aa44b4cd56ae0e24ac009729b502d946277e0ac7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/httpx.md": {
+      "sha": "408d84b78410a8b1ad1edb3bd0d3faccb91ffc50",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/hurl.md": {
+      "sha": "57a73e0ad2b8259a20dda84e2b42bc4dcb7380b0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/hypothesis.md": {
+      "sha": "5340198ed038b4d79410e2b72762c734c9380092",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/katana.md": {
+      "sha": "7bece1099864e9a24f4770433d1f7a85bad155d3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/naabu.md": {
+      "sha": "f39d44bb9b653a372e7dce44de375b623898642a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/nmap.md": {
+      "sha": "831b4c6640e4c35e6e05a49c328d6ce4f3937033",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/nuclei.md": {
+      "sha": "760891e30b3fb243237b54cd3132ad6fb78a4d6c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/python.md": {
+      "sha": "b38cdaee37f4417dd193da897a15cea8bfb47053",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/semgrep.md": {
+      "sha": "55cfe8d920c3c37370ee7448bd909325a3501a02",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/sqlmap.md": {
+      "sha": "0226987c66a143fea1d7dd7ce6106c1ac3a5628f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/tooling/subfinder.md": {
+      "sha": "581a8135ff3fd6f89675aea1ce0f6139a7fedf8f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/agentic_system_security.md": {
+      "sha": "d87472ce8164aff0e62225ce6970be7f392daf82",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/argument_injection.md": {
+      "sha": "4119156ed297913291a2bb435cda302e5ad5c17d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/authentication_jwt.md": {
+      "sha": "4458b1bef0a3557e61a02478f4d9e77e9a6c08ee",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/broken_function_level_authorization.md": {
+      "sha": "d53f0ac6d295bc443150983d03516a1e96ab88a1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/browser_security.md": {
+      "sha": "f76ffc6418285e8e477b5d95274a05fc5b2b1de2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/business_logic.md": {
+      "sha": "63f14b9fc8a72c02caf0b22292dfd6ae7896ace8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/csrf.md": {
+      "sha": "10837d63efc6497d8939797e4f3ef8e8c85d73b1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/header_injection.md": {
+      "sha": "0979ff2a841e110cba975b7b8f5bb733b2314464",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/http_request_smuggling.md": {
+      "sha": "30660e39653628536428f6372d3c2378a1ec88ef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/idor.md": {
+      "sha": "cf6f4f3a7eb7bc3e12c8add12683268e77bc4889",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/information_disclosure.md": {
+      "sha": "5c09f3ab6a08062459aa06d9f241cfe1cd48967b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/insecure_deserialization.md": {
+      "sha": "a35346c014e942d504d7998ce7d43ce003261faf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/insecure_file_uploads.md": {
+      "sha": "4ce0ae22cf0f5bbfc8761dc22e7fd0e7144026a6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/llm_prompt_injection.md": {
+      "sha": "4f63f525f051b850a1251515ab02d10b29a74791",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/mass_assignment.md": {
+      "sha": "8450a25cc0f53065ab292ba07a6fa745798a05f8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/nosql_injection.md": {
+      "sha": "18f9c539c581093b2c3a334ccfa7a2e80b1dd361",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/open_redirect.md": {
+      "sha": "eb72bce4e08f5e84fa45a806cf0476f76a04df5a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/path_traversal_lfi_rfi.md": {
+      "sha": "6de0b0e0dbc7afcfbdf6c4f7aa5a4a3e0bf66e29",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/prototype_pollution.md": {
+      "sha": "21be5a8dc6888562275f37f20e9b12b9b128fd1e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/race_conditions.md": {
+      "sha": "d413e37c8b0501f0a664fe673144bd5e460431e7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/rce.md": {
+      "sha": "3769b83d69a79bb6dc5dc238ec134688dede7c33",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/semantic_confusion.md": {
+      "sha": "cdd580b4b5fdb39899bdd22d8ffe9139de2041d9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/sql_injection.md": {
+      "sha": "ed45eff815d652633819602a7fd508b539721e94",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/ssrf.md": {
+      "sha": "f0fc66bd6fb6e25a52dd4475f0085399dec480cd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/ssti.md": {
+      "sha": "c5f8d1cd1be765d90d3dc52fe52a000d5670b325",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/subdomain_takeover.md": {
+      "sha": "5f9026aa7e114344e58959363d19632e5aed5b8e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/weak_password_detection.md": {
+      "sha": "d9e52979dd3fe383cd4ab30e063f0b7331dd177b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/xss.md": {
+      "sha": "a17db5bb3833188c5683c2f521ca3ca402daea5f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/skills/vulnerabilities/xxe.md": {
+      "sha": "2f01435279a8578a8d1efe46509ad82940ec710a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/README.md": {
+      "sha": "3985093ef008effc373b70f0d4310a2d3eb0c601",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/__init__.py": {
+      "sha": "30cc3b21d065d1576d7a594b9b8b03fe31de8d76",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/_common.py": {
+      "sha": "f7f2866ce9562e3aee7d9ff90aea11079cf1bcfa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/logging.py": {
+      "sha": "40391cc14952590802352a4dce19e67095c35f82",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/posthog.py": {
+      "sha": "a7cc284d4add8d4a6a2de251526299b054c238b2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/telemetry/scarf.py": {
+      "sha": "dd5a342d9fe78cb4ae50a7acd6306ce08cb97bd9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/__init__.py": {
+      "sha": "ab4dadcf7315481c4e1f3809d9324b940ce31f7e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/agent_browser/README.md": {
+      "sha": "ebdfb3a7f797a19a2edd49012f270a5b5bb13d56",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/agents_graph/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/agents_graph/tools.py": {
+      "sha": "a26c1dc443abc303cee797dcf7933d5b543b52ca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/apply_patch/README.md": {
+      "sha": "6598b83e5530a264c6eeeeac77de6b90e147f86c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/coverage/__init__.py": {
+      "sha": "f7e1a9e677bf61822ab7e36723a1e0f30ed80b3c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/coverage/tools.py": {
+      "sha": "94c31fb987e3e2b965b28bde4f76b97b49368d05",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/finish/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/finish/tool.py": {
+      "sha": "e3dcb7aee263e55c11ef9dfc3b5c54196a617205",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/load_skill/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/load_skill/tool.py": {
+      "sha": "83f70f8dfb1f96bdb99d7395b48364b8926684ec",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/__init__.py": {
+      "sha": "a0de571a829866f9c7d9e8afba1e7d9d5cf8f48c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/agent_tools.py": {
+      "sha": "1033d3349579320b6696833eb310b812056e0b54",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/client.py": {
+      "sha": "b1f3f902c90ed713bf9783f4899e386fcecc7029",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/config.py": {
+      "sha": "a5caa170b97fe3edbf91270c3f5492f03e45e028",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/failures.py": {
+      "sha": "a5b82ca875e2eb8562c4641bcc6913265407608a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/loader.py": {
+      "sha": "168ec8fb06b92250cac015ee6976c4880eea79cc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/naming.py": {
+      "sha": "dff2726c4939dab2c518dfa90c17883015451095",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/registry.py": {
+      "sha": "6e87c958bf75a187f24dcdf0425a65f6140fbf06",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/mcp/session.py": {
+      "sha": "9cf8540862424179cc49df504e9c1863c3fd2808",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/notes/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/notes/tools.py": {
+      "sha": "065f8526c6b3c6a9edd81bc854490c822a93542f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/nullish.py": {
+      "sha": "0f71271fb7736e95a2c0d61b4fcb98f80e2c32a3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/output_store.py": {
+      "sha": "b141e97fa7a8226d1fcc2d9ca04f2f8e44537934",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/proxy/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/proxy/caido_api.py": {
+      "sha": "af81b50089febc52e9c8aa08ff77312b42555d11",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/proxy/tools.py": {
+      "sha": "0dc2a03c78a844279b0d17655403c48f90ab2d49",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/reporting/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/reporting/tool.py": {
+      "sha": "e98201996bbba676bf36e762c06a2a481fbe6774",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/shell/README.md": {
+      "sha": "b842e31709b36a616eded6ff0bcf440bae30a0b0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/thinking/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/thinking/tool.py": {
+      "sha": "8da93b13ce78f6f04fb303f65c2e48bfacf3bb63",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/threat_model/__init__.py": {
+      "sha": "a20a924a5bc926d080f28a284cfc56960a25d115",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/threat_model/tools.py": {
+      "sha": "1015f45740e5259bdc6a5aa736269e494cb5f54c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/todo/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/todo/tools.py": {
+      "sha": "135f3bc026ddc395f1536d9a60135b5b678134be",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/view_image/README.md": {
+      "sha": "cd4c6229c810bc77d23e291eeaae35386dcdb1ea",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/wait_for_user/__init__.py": {
+      "sha": "01ca9092d598afe9ecd99a642d6173c5a828d7e2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/wait_for_user/tool.py": {
+      "sha": "970acb9dc240d5c12c3ec696798a0fccd9ef96bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/web_search/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/tools/web_search/tool.py": {
+      "sha": "f525b1ea49bc9508746950d1c346e703be7911f9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/utils/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/utils/api_spec.py": {
+      "sha": "db3a77388bda6589d1f2260768072435eb03e69f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/utils/resource_paths.py": {
+      "sha": "6a0ab44151975cc9e80d0fda0cbf475ee0cc3c42",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/utils/secret_files.py": {
+      "sha": "023aa87f10062ecb52c6dfc0e227e6ea7366afd0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/__init__.py": {
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/conftest.py": {
+      "sha": "946ab206e9b2f80fa38292e39746b8f90e4f1053",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_agent_factory_shell.py": {
+      "sha": "0109bf527da3d813704dff7b2099abf9afd3784a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_agent_factory_tool_arguments.py": {
+      "sha": "d75039445ba0f432feb1bbe8843b5bd60fa43e0b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_agent_graph_coordination.py": {
+      "sha": "9694656a5c257ba520fb656388faf433fe45099d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_agent_tool_registration.py": {
+      "sha": "e459670b011b3efbe853c63b77e9797c54bac9f3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_api_spec.py": {
+      "sha": "d7979d358aeb9db6505f7152638b01d6fde8a692",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_api_spec_targets.py": {
+      "sha": "bba0aba5598c2316ee9132acb975e7021866bf3e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_auth_cli.py": {
+      "sha": "9b66a2dbb570d2dc0ea10bee57c097073cf13905",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_budget_pause_policy.py": {
+      "sha": "ad7b3af02ab039774415e92995337bc58515bce2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_caido_bootstrap.py": {
+      "sha": "98e42a94d64075012eea308dd1636784f8f24d99",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_caido_handle.py": {
+      "sha": "84d8ce8a688650814d4f5a0398dd014bd572ec6e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cli_fail_on.py": {
+      "sha": "915342e60697e98e77e4163403470fca8d1c69ba",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cli_mcp_config.py": {
+      "sha": "a63f6efe6fad59944c5fd09cf6729f1d222ce183",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cli_resume_picker.py": {
+      "sha": "4d00380f85baeabbd4882e3d3a5e9863ec4b9a5a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cli_target_list.py": {
+      "sha": "d20230b161ee384eb16b7943b6d15040814134bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_cli.py": {
+      "sha": "41962b9dbf74d17b71a29bd3da97f2e9529ec60e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_cli_runtime.py": {
+      "sha": "4e2a5e5c6affc008b383f9225c8984ee5325ecfb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_idempotency.py": {
+      "sha": "0da8dbb9344ff4c7bef0f68ee59488eb6a01d1e0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_payment_proxy.py": {
+      "sha": "b940e680d3c30499971ab7ebea293a0ef18967cc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_session.py": {
+      "sha": "70349c1abe8818205ea2e4c943eb5ada06347247",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_source_upload.py": {
+      "sha": "dcd40baa8f22ac6d5564204e54e337f6edf7fc70",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cloud_wallet.py": {
+      "sha": "6efd202fb729d5f0e6902e99bce59bb040c6ac08",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_codex_auth.py": {
+      "sha": "98242d8ac5e7064b7300202d30f6759f41e928bd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_codex_streaming.py": {
+      "sha": "a733ea49ba7761ea45d95eb0142ead164d8bb8c7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_compaction.py": {
+      "sha": "2d73d9acf1f0302c024b3bb3091732ead8585318",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_completions.py": {
+      "sha": "f9f9157e1a875210315a0d4a9fb4d519337e5f08",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_config_loader.py": {
+      "sha": "d083236a5a8617194a4883fecb42d4e5e648144d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_console_logging.py": {
+      "sha": "183ced1021b1a2824024cf75613a250d24416dab",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_context_budget.py": {
+      "sha": "8c06fa49f22d6dde5e5c69564b76aae838b1aee6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_cost_tracking.py": {
+      "sha": "572143eb128cdbd9d3cb8fcb1f17b909416858e2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_coverage_tool.py": {
+      "sha": "3061dd89ea59c5bf1f5e1c47218d0ba20ffd7070",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_dedupe_model.py": {
+      "sha": "809867b167457be4204d59894032fcbdafd88f4a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_disable_streaming.py": {
+      "sha": "9bbb13a6f0a135f208952060e2cec75e3c455787",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_docker_client_delete.py": {
+      "sha": "ef93723c88b2c2fa0ed88398cd29e9c250fd6cac",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_docker_connection.py": {
+      "sha": "5ea73dc8eddb5c88b78c5efd9d1b1d56a5b92700",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_e2e_budget_lifecycle.py": {
+      "sha": "8725fec2d4e7501ad105d3f568bcd658384eda7e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_execution.py": {
+      "sha": "0daf0da243ad67f435031284672bdbae39535a4f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_execution_request_log.py": {
+      "sha": "426c4d4795926e757c1e75e6224a5458ffb1c24e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_execution_transient_retry.py": {
+      "sha": "f027693248ffb9af37626b7feb5b11f8262cd8fa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_fenced_code.py": {
+      "sha": "be3b473ccfeaa9f2d9b5900d0a9ed442020e12ea",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_finish_coverage_gate.py": {
+      "sha": "52a19a7d9d70ec13108b639474b790bb7250d06c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_go_tui_runtime.py": {
+      "sha": "08cf1f4c61c141196ddbe1b7ee09178a003a0365",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_hooks.py": {
+      "sha": "975a99b8cf23afb2a447c35d4c6d7935cc607d6d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_import_warmup.py": {
+      "sha": "b757a21c1f6b3bf42a7c5bd9bcf9a9ea1e42435e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_inputs.py": {
+      "sha": "2bdde73a616a5d6d5f3e4111af75aab34c5d45de",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_install_script.py": {
+      "sha": "67ca48437c95c3a4316f58e3a1c55f671f7e2893",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_list_reports.py": {
+      "sha": "2542da2207695faf324d13c657876c641f2c8ff9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_llm_extra_headers.py": {
+      "sha": "f2910156746e0f675a72241e0b0e8801bd3484c9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_llm_request_log.py": {
+      "sha": "41bbc8843412def71f5ab3fb57b01a6438fdd9b2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_local_sources.py": {
+      "sha": "a799192de802b2a4fd65cdac0f9aff930877320c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_main_launch.py": {
+      "sha": "21af058358e4a66689f6c0ae628a39f4f84a692c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_mcp_client.py": {
+      "sha": "fcbac3745f1bd1a8f278a77b8108c15daa8c5368",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_mcp_resilience.py": {
+      "sha": "209acf1c5993e2b5c73e6d9907c0580521983eab",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_model_retry.py": {
+      "sha": "4cbffbcd18d2ff188d7348cbca118a3883055604",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_models.py": {
+      "sha": "aafbaf40c79ac554fbb6d5a9b70074471840d164",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_notes.py": {
+      "sha": "3729dd7d2a76d86145b903492981947d38789c00",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_output_store.py": {
+      "sha": "a257091838f37befa964d97ab2c9873a5719813b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_packaging.py": {
+      "sha": "6e3a2261082368f08b9e10859e945a5735d5a110",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_preflight_header_values.py": {
+      "sha": "d6595adf86cd534a577b8aa72b9ccb34d3f101ca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_preflight_timeout.py": {
+      "sha": "cf2192f884b3c6455a86350d07f596d988314f21",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_pricing.py": {
+      "sha": "8916982d30167cc0c13c168e05bc8ae9edadd962",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_provider_dependencies.py": {
+      "sha": "4dd87cc6a57a8cd4e82135460fbb7cb3f2f17ab5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_proxy_client.py": {
+      "sha": "ec21925caae30ce600b61e17eaa11f6f31e43621",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_pty_warning_filter.py": {
+      "sha": "7cd14fca1b06a259b27e5c41c4fdc6c694059799",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_report_coverage.py": {
+      "sha": "76200edf8f3917884baaaf1d193cdae5d8f2a0ff",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_report_pdf.py": {
+      "sha": "61d1f2058b61680eca53a5ab978d118e41965545",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_report_writer.py": {
+      "sha": "9b84901017a82b8f2b53913a16d0d5e3766ac53d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_reporting_fields.py": {
+      "sha": "a188734549bcc93590f25f9ed48ed13b00d02e05",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_reporting_tool.py": {
+      "sha": "55122334074c7389020e66475a1b267bdc108e03",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_resume_picker.py": {
+      "sha": "31bbf9ec78f075beffb5b77300f01c8db31dfc49",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_run_summaries.py": {
+      "sha": "2a2380141981cab6ac132271ee1c6f9dc704d8b3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_runner_interrupt.py": {
+      "sha": "054f5b7a2e5bcb9afcaf6ec736afda6b5cfa046c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_runner_mcp.py": {
+      "sha": "62d6fab191f4f587ab2c93beef9b3a8df995b630",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_runner_rate_limit.py": {
+      "sha": "3110ae2cb06705829df60c55cdcd834adca594e9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_runner_root_prompt.py": {
+      "sha": "a564a3ea1b418e1eb13c9e9c7f7e727cd665b639",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_runner_teardown.py": {
+      "sha": "d7e9645d0d1eaea9ea3eacf8a30280f544b033f0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_sarif.py": {
+      "sha": "61ffc39bbdcf1083f603227f3f74616ee95ae10f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_sarif_stride.py": {
+      "sha": "c27f674983282618776a3d9be0e0bb0c6e236ed6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_secret_files.py": {
+      "sha": "f93c3541850b00499aedfcdf0a698a3f7561f5d1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_session_entries.py": {
+      "sha": "a15e259b8a07f8770b6ef48e8caef2abebf652c4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_session_fd.py": {
+      "sha": "7adb814452348b2e387ac7433f7c3bbfa1adedf6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_skill_dir_extension.py": {
+      "sha": "1aae8364ab145a04e2964ede82136924dc901762",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_state_coverage_artifact.py": {
+      "sha": "5c090a6d334fa1997ea958aef6c0e848f2f5063b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_state_repo_context.py": {
+      "sha": "b0a6eb315b88c0fac8ae6c9cc4872f5df9334a08",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_stream_idle_timeout.py": {
+      "sha": "f45035bf140e7fcbb538f90bba5d3ae866ff2f06",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_telemetry_errors.py": {
+      "sha": "5e3b7c148a7d32630a87b2efae1edf1c3f6414a7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_telemetry_resume.py": {
+      "sha": "9a0f92fd9ab58e8fbbd7c7c7ffcd5cc9a16dc297",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_threat_model_tool.py": {
+      "sha": "5b378b07326b2fe4af60abec36cf44a00b789dd9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_todo.py": {
+      "sha": "036bcacc310899721e2937e7dca6b7cf7a5cb9ef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tool_call_ids.py": {
+      "sha": "2647315f894bc82f549336dd98f696179f4a1a03",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tool_call_ids_providers.py": {
+      "sha": "e6dfda29a1f1a63319ccd2a39d92f4547dbf60c7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tool_call_limits.py": {
+      "sha": "2c34a2139c82c692ffd35e7bb42345192f4d3289",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tool_param_descriptions.py": {
+      "sha": "9226e1073486583dc6065f1db5d827204f0643c3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tui_backend_controller.py": {
+      "sha": "ec96912a3770c6e517e65d89b2012bce341e5535",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tui_backend_server.py": {
+      "sha": "957b9b5ca9c27e2dc8c89936f8e76cf7f1c23775",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tui_protocol_conformance.py": {
+      "sha": "3b5500ef3e97a66ab758ca352cb8e0a1c3ec8882",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tui_resume_history.py": {
+      "sha": "2d780f38d67560504ae8eb7c26caed9d98157f3a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_unknown_tool_recovery.py": {
+      "sha": "bc6e747efb6c2bf0876c97e1436362a1b4759286",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_unraisable_hook.py": {
+      "sha": "29d4cae54a337bc4d074fd09699560d2517f8cf0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_update_check.py": {
+      "sha": "e67966d1c4a0af67987679bc74a280b2ca60ec07",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_usage_subscription.py": {
+      "sha": "71fea441e354b1ccd6bdd19e1ffdb87309ebf383",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_utf8_streams.py": {
+      "sha": "d2174859263b02228a4acb0c192f76cc4eb0c51b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_viewer.py": {
+      "sha": "5fb95b7b628e27cca38ba5235ed8b4d3f1433022",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_viewer_auth.py": {
+      "sha": "662f84f10a057318fdf153fd3c06f2f09ab2f55a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_viewer_runs_gating.py": {
+      "sha": "817804372e6d5b4a17f8c7231c2cac8db2579a52",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_wait_dedupe.py": {
+      "sha": "9cbe6392f4be40c77ef69bcc6384b03bfe0100ad",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_wait_for_user.py": {
+      "sha": "29881f57f7a4c2b59b9d1f02a6d2a58ea7d92624",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_web_search.py": {
+      "sha": "6aff26ba14c54ee852836ef0dfee2d2e8518a2d5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_workspace_files.py": {
+      "sha": "6415a09c125e7ec130bb50037eb3cbf58552d4ce",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "uv.lock": {
+      "sha": "ca20930d7ff87f1ba504fa451a81f0195f8b9518",
+      "mode": "100644",
+      "type": "blob"
+    }
+  }
+}

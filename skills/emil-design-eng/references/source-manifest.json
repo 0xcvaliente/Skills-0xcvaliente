@@ -1,0 +1,17 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/emil-design-eng/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939"
+    },
+    {
+      "original_path": "performance-cheatsheet.md",
+      "stored_path": "references/performance-cheatsheet.md",
+      "sha256": "016c7294ddd5fa17fd97b7125ffb799ffb94e27a9b465a6fbaedfd92685d4583"
+    }
+  ]
+}

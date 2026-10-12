@@ -1,0 +1,21 @@
+{
+  "reviewed_on": "2026-10-09",
+  "upstream_repository": "https://github.com/colbymchenry/codegraph",
+  "reviewed_main_revision": "b635dd467f0578926a9c01a37b9d28d2b26689f1",
+  "runtime_version": "1.6.2",
+  "runtime_source_revision": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+  "runtime_source_tag": "v1.6.2",
+  "runtime_npm_package": "@colbymchenry/codegraph",
+  "distribution": "External runtime; original Codex integration guidance and compatibility helper only.",
+  "reviewed_source_sha256": {
+    "LICENSE": "e6d98f98c666bebe065ac2492a0a19232cc318d4d67bac3ca42ffb77bacc8809",
+    "package.json": "a1fd8eaecbf5e3fb3662e63e915c70af5e3ed20cc05235ffd18c593ab95f9736",
+    "src/bin/codegraph.ts": "9acd8d3c0cc52eb09779c6111afa8caa6c4f65481a693ba66b614c74ff2e0beb",
+    "src/installer/targets/codex.ts": "b613e54b2f99367a1cb528d2d70f4141381db2567d2509aaf5c4fab3a82597ca",
+    "src/installer/index.ts": "f1c5954c116fafac5f9f64d2a09fe7cf22d460af506345c0b1f171c7a7d32eb8",
+    "src/mcp/server-instructions.ts": "88310566d5a15ca4bb601030d11af00f811821e77e728c0b1f993478205a7e76",
+    "src/mcp/tools.ts": "40b6e73315adf94dd09a367ab2a1f54b99a1909215cd3d3b571bfb3fdf4a42f0",
+    "src/telemetry/index.ts": "83e159776f79dff42cb04f497717289caf33548237ae6974c4e83bbc81cd1752",
+    "scripts/pack-npm.sh": "7fc0fdea5063114de25cecc8578ea00b7f47b1732ddcd111aa98521f018f47ae"
+  }
+}

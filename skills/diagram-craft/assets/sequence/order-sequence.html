@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order flow — sequence companion</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8faf9;color:#1d2e31;font:16px/1.6 Arial,Helvetica,sans-serif}
+main{max-width:1536px;margin:auto;padding:42px 28px 52px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#1d625e;margin:0 0 8px}h1{font-size:36px;line-height:1.16;letter-spacing:-.02em;margin:0 0 14px}h2{font-size:22px;line-height:1.3;margin:0 0 12px}p{max-width:74ch;margin:0 0 14px}.lede{font-size:18px;color:#59686b}.canvas{width:100%;overflow:auto;border:1px solid #a7b3b4;border-radius:12px;background:#f8faf9;margin-top:22px}.canvas svg{display:block;width:1480px;height:auto;max-width:none}.scroll-note{font-size:14px;color:#59686b;margin:8px 0 30px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:30px}.panel{background:#fff;border:1px solid #a7b3b4;border-radius:10px;padding:24px}.panel ol,.panel ul{padding-left:22px;margin:0}.panel li{margin:0 0 8px}.note{border-left:3px solid #1d625e;padding-left:15px}a{color:#1d625e;text-decoration-thickness:1px;text-underline-offset:3px}a:focus-visible{outline:3px solid #1d625e;outline-offset:4px}.table-scroll{overflow:auto;width:100%}table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:11px 12px;border-bottom:1px solid #d8dfdf}th{background:#e9f3f1}th:first-child,td:first-child{width:100px}th:last-child,td:last-child{width:160px}code{font:13px/1.5 ui-monospace,monospace}.handoff{font-size:14px;color:#59686b;margin-top:20px}
+@media(max-width:700px){main{padding:25px 16px 36px}h1{font-size:29px}.lede{font-size:17px}.columns{grid-template-columns:1fr;gap:16px}.panel{padding:19px}.canvas{border-radius:8px}}
+@media print{main{padding:0}.canvas{overflow:visible;border:none}.canvas svg{width:100%;min-width:0}.scroll-note{display:none}.columns{grid-template-columns:1fr 1fr;gap:16px}.panel{padding:14px;break-inside:avoid}h1{font-size:28px}h2{font-size:19px}table{min-width:0}tr{break-inside:avoid}body{font-size:12px}.lede{font-size:14px}a{color:inherit}#evidence{break-before:page}}
+</style></head><body><main>
+<p class="eyebrow">ORDER PROCESSING · SEQUENCE</p>
+<h1>Acceptance first. Fulfilment later.</h1>
+<p class="lede">Authorization gates every order. An allowed request stores the order and queues work before returning 202; fulfilment and its final state happen afterward.</p>
+<div class="canvas" tabindex="0" role="region" aria-label="Order sequence diagram; scroll horizontally to see all participants"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 1180" width="1480" height="1180" role="img" aria-labelledby="order-title order-desc">
+<title id="order-title">Order flow: authorization, acceptance and asynchronous fulfilment</title>
+<desc id="order-desc">Time runs downward through Browser, API, Database, Queue, Worker and Fulfilment lanes. Authorization denial returns 403 and ends the path. The allowed branch stores an order, publishes a job and returns 202 before the later queued phase. The worker calls fulfilment, then records complete on success or failed on failure. State updates are shown as worker self-actions because their storage target is unspecified. Retry policy is unknown.</desc>
+<defs>
+<marker id="order-filled" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12 Z" fill="#37484b"/></marker>
+<marker id="order-open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#37484b" stroke-width="1.5"/></marker>
+</defs>
+<rect x="0" y="0" width="1480" height="1180" fill="#f8faf9"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="60" y="254" width="1370" height="818" rx="4" fill="#ffffff" stroke="#37484b" stroke-width="1.5"/>
+<path d="M60 254 H120 V284 H60" fill="#e9f3f1" stroke="#37484b" stroke-width="1.5"/>
+<text x="76" y="275" font-size="15" font-weight="700" fill="#1d2e31" text-anchor="start" >alt</text>
+<path d="M60 366 H1430" stroke="#37484b" stroke-width="1.5" stroke-dasharray="7 5"/>
+<rect x="588" y="760" width="818" height="294" rx="3" fill="#ffffff" stroke="#37484b" stroke-width="1.5"/>
+<path d="M588 760 H648 V790 H588" fill="#e9f3f1" stroke="#37484b" stroke-width="1.5"/>
+<text x="604" y="781" font-size="15" font-weight="700" fill="#1d2e31" text-anchor="start" >alt</text>
+<path d="M588 900 H1406" stroke="#37484b" stroke-width="1.5" stroke-dasharray="7 5"/>
+<path d="M178 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="browser" data-x="86" data-y="44" data-w="184" data-h="68">
+<rect x="86" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="178" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="browser">Browser</text>
+</g>
+<path d="M402 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="api" data-x="310" data-y="44" data-w="184" data-h="68">
+<rect x="310" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="402" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="api">API</text>
+</g>
+<path d="M646 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="database" data-x="554" data-y="44" data-w="184" data-h="68">
+<rect x="554" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="646" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="database">Database</text>
+</g>
+<path d="M866 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="queue" data-x="774" data-y="44" data-w="184" data-h="68">
+<rect x="774" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="866" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="queue">Queue</text>
+</g>
+<path d="M1100 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="worker" data-x="1008" data-y="44" data-w="184" data-h="68">
+<rect x="1008" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="1100" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="worker">Worker</text>
+</g>
+<path d="M1326 112 V1088" stroke="#7c8d8f" stroke-width="1.5" stroke-dasharray="5 6"/>
+<g data-node="fulfilment" data-x="1234" data-y="44" data-w="184" data-h="68">
+<rect x="1234" y="44" width="184" height="68" rx="9" fill="#ffffff" stroke="#7c8d8f" stroke-width="1.5"/>
+<text x="1326" y="85" font-size="19" font-weight="700" fill="#1d2e31" text-anchor="middle" data-node-text="fulfilment">Fulfilment</text>
+</g>
+<rect x="128" y="259" width="122" height="23" fill="#ffffff"/>
+<text x="134" y="276" font-size="15" font-weight="700" fill="#1d2e31" text-anchor="start" >Authorization</text>
+<rect x="655" y="765" width="156" height="23" fill="#ffffff"/>
+<text x="661" y="782" font-size="15" font-weight="700" fill="#1d2e31" text-anchor="start" >Fulfilment result</text>
+<polyline data-edge="e1" points="178,165 402,165" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)" />
+<g data-label="e1" data-x="222.0" data-y="127" data-w="136" data-h="32">
+<rect x="222.0" y="127" width="136" height="32" fill="#ffffff" rx="3"/>
+<text x="290.0" y="150" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Submit order</text>
+</g>
+<polyline data-edge="e2" points="402,203 468,203 468,234 402,234" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)"/>
+<g data-label="e2" data-x="479" data-y="199" data-w="174" data-h="32">
+<rect x="479" y="199" width="174" height="32" fill="#ffffff" rx="3"/>
+<text x="486" y="222" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >Check authorization</text>
+</g>
+<g data-label="denied-guard" data-x="75" data-y="287" data-w="83" data-h="32">
+<rect x="75" y="287" width="83" height="32" fill="#ffffff" rx="3"/>
+<text x="82" y="310" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >[denied]</text>
+</g>
+<polyline data-edge="e3" points="402,339 178,339" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" stroke-dasharray="7 5"/>
+<g data-label="e3" data-x="221.0" data-y="301" data-w="138" data-h="32">
+<rect x="221.0" y="301" width="138" height="32" fill="#ffffff" rx="3"/>
+<text x="290.0" y="324" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >403 Forbidden</text>
+</g>
+<text x="483" y="342" font-size="15" font-weight="400" fill="#59686b" text-anchor="start" >Path ends immediately</text>
+<g data-label="allowed-guard" data-x="75" data-y="374" data-w="92" data-h="32">
+<rect x="75" y="374" width="92" height="32" fill="#ffffff" rx="3"/>
+<text x="82" y="397" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >[allowed]</text>
+</g>
+<polyline data-edge="e4" points="402,440 646,440" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)" />
+<g data-label="e4" data-x="468.0" data-y="402" data-w="112" data-h="32">
+<rect x="468.0" y="402" width="112" height="32" fill="#ffffff" rx="3"/>
+<text x="524.0" y="425" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Store order</text>
+</g>
+<polyline data-edge="e5" points="402,500 866,500" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" />
+<g data-label="e5" data-x="579.0" data-y="462" data-w="110" data-h="32">
+<rect x="579.0" y="462" width="110" height="32" fill="#ffffff" rx="3"/>
+<text x="634.0" y="485" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Publish job</text>
+</g>
+<polyline data-edge="e6" points="402,560 178,560" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" stroke-dasharray="7 5"/>
+<g data-label="e6" data-x="223.5" data-y="522" data-w="133" data-h="32">
+<rect x="223.5" y="522" width="133" height="32" fill="#ffffff" rx="3"/>
+<text x="290.0" y="545" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >202 Accepted</text>
+</g>
+<text x="938" y="561" font-size="15" font-weight="600" fill="#59686b" text-anchor="start" >Accepted ≠ fulfilled</text>
+<rect x="77" y="590" width="1336" height="52" rx="6" fill="#e9f3f1"/>
+<text x="95" y="623" font-size="16" font-weight="700" fill="#1d625e" text-anchor="start" >LATER  /  ASYNCHRONOUS WORK</text>
+<text x="682" y="623" font-size="15" font-weight="400" fill="#1d625e" text-anchor="start" >Queue decouples the worker from the API response</text>
+<polyline data-edge="e7" points="866,687 1100,687" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" />
+<g data-label="e7" data-x="929.0" data-y="649" data-w="108" data-h="32">
+<rect x="929.0" y="649" width="108" height="32" fill="#ffffff" rx="3"/>
+<text x="983.0" y="672" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Deliver job</text>
+</g>
+<polyline data-edge="e8" points="1100,741 1326,741" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)" />
+<g data-label="e8" data-x="1144.0" data-y="703" data-w="138" data-h="32">
+<rect x="1144.0" y="703" width="138" height="32" fill="#ffffff" rx="3"/>
+<text x="1213.0" y="726" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Call fulfilment</text>
+</g>
+<g data-label="success-guard" data-x="659" data-y="793" data-w="114" data-h="32">
+<rect x="659" y="793" width="114" height="32" fill="#ffffff" rx="3"/>
+<text x="666" y="816" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >[succeeded]</text>
+</g>
+<polyline data-edge="fulfilment-success" points="1326,843 1100,843" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" stroke-dasharray="7 5"/>
+<g data-label="fulfilment-success" data-x="1171.0" data-y="805" data-w="84" data-h="32">
+<rect x="1171.0" y="805" width="84" height="32" fill="#ffffff" rx="3"/>
+<text x="1213.0" y="828" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Success</text>
+</g>
+<polyline data-edge="e9" points="1100,867 1145,867 1145,890 1100,890" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)"/>
+<g data-label="e9" data-x="1158" data-y="862" data-w="187" data-h="32">
+<rect x="1158" y="862" width="187" height="32" fill="#ffffff" rx="3"/>
+<text x="1165" y="885" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >Mark order complete</text>
+</g>
+<g data-label="failure-guard" data-x="659" data-y="907" data-w="74" data-h="32">
+<rect x="659" y="907" width="74" height="32" fill="#ffffff" rx="3"/>
+<text x="666" y="930" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >[failed]</text>
+</g>
+<polyline data-edge="fulfilment-failure" points="1326,959 1100,959" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" stroke-dasharray="7 5"/>
+<g data-label="fulfilment-failure" data-x="1175.5" data-y="921" data-w="75" data-h="32">
+<rect x="1175.5" y="921" width="75" height="32" fill="#ffffff" rx="3"/>
+<text x="1213.0" y="944" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="middle" >Failure</text>
+</g>
+<g data-label="retry-unknown" data-x="831" data-y="961" data-w="185" data-h="32">
+<rect x="831" y="961" width="185" height="32" fill="#ffffff" rx="3"/>
+<text x="838" y="984" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >Retry policy: unknown</text>
+</g>
+<polyline data-edge="e10" points="1100,1009 1145,1009 1145,1033 1100,1033" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)"/>
+<g data-label="e10" data-x="1158" data-y="1005" data-w="164" data-h="32">
+<rect x="1158" y="1005" width="164" height="32" fill="#ffffff" rx="3"/>
+<text x="1165" y="1028" font-size="17" font-weight="400" fill="#1d2e31" text-anchor="start" >Record failed state</text>
+</g>
+<text x="61" y="1111" font-size="15" font-weight="400" fill="#59686b" text-anchor="start" >State updates are worker self-actions; their storage target is unspecified.</text>
+<path d="M70 1150 H138" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-filled)"  aria-hidden="true"/>
+<text x="153" y="1156" font-size="15" font-weight="400" fill="#59686b" text-anchor="start" >Call / state write</text>
+<path d="M400 1150 H468" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)" stroke-dasharray="7 5" aria-hidden="true"/>
+<text x="483" y="1156" font-size="15" font-weight="400" fill="#59686b" text-anchor="start" >Return / outcome</text>
+<path d="M740 1150 H808" fill="none" stroke="#37484b" stroke-width="2" marker-end="url(#order-open)"  aria-hidden="true"/>
+<text x="823" y="1156" font-size="15" font-weight="400" fill="#59686b" text-anchor="start" >Asynchronous message</text>
+<text x="1131" y="1156" font-size="15" font-weight="600" fill="#59686b" text-anchor="start" >Time reads ↓</text>
+</g></svg></div>
+<p class="scroll-note">Read time downward. Dashed arrows are returns; open solid arrows are asynchronous messages. On a narrow screen, scroll the diagram or read the flow below.</p>
+<div class="columns"><section class="panel" aria-labelledby="flow-heading"><h2 id="flow-heading">The flow in words</h2>
+<ol><li>The browser submits an order to the API.</li><li>The API checks authorization. If denied, it returns <code>403</code> immediately and the path ends.</li><li>If allowed, the API stores an order in the database, publishes a job to the queue, then returns <code>202</code>.</li><li>A worker later receives the queued job and calls the fulfilment service.</li><li>Success leads to an order marked complete. Failure leads to a recorded failed state.</li></ol>
+</section><section class="panel" aria-labelledby="scope-heading"><h2 id="scope-heading">Known limits</h2>
+<p class="note"><strong>Retry policy is unknown.</strong> The diagram does not introduce a retry loop, retry count, backoff or dead-letter path.</p>
+<p>The worker's state updates are shown as self-actions. The brief does not specify where the worker records state, so no storage target is added.</p>
+<p>Fulfilment outcomes appear as responses for readability. Storage/publish failures, queue delivery guarantees, timing durations and message fields are unspecified.</p>
+<p><code>202</code> describes the API response before later processing; it does not mean fulfilment succeeded.</p>
+</section></div>
+<section class="panel" id="evidence" aria-labelledby="evidence-heading"><h2 id="evidence-heading">Evidence ledger</h2>
+<p>All supplied claims come from the order-flow brief. There is no implementation source or observed runtime evidence.</p>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>Statement</th><th>Status</th></tr></thead><tbody><tr><td><code>e1</code></td><td>Browser → API: submit order</td><td>user-provided</td></tr>
+<tr><td><code>e2</code></td><td>API checks authorization</td><td>user-provided</td></tr>
+<tr><td><code>e3</code></td><td>If denied, API → Browser: 403 immediately; no allowed path work</td><td>user-provided</td></tr>
+<tr><td><code>e4</code></td><td>If allowed, API → Database: store order</td><td>user-provided</td></tr>
+<tr><td><code>e5</code></td><td>After storing, API → Queue: publish job</td><td>user-provided</td></tr>
+<tr><td><code>e6</code></td><td>After publishing, API → Browser: 202</td><td>user-provided</td></tr>
+<tr><td><code>e7</code></td><td>Later, Queue → Worker: job received asynchronously</td><td>user-provided</td></tr>
+<tr><td><code>e8</code></td><td>Worker → Fulfilment: call service</td><td>user-provided</td></tr>
+<tr><td><code>e9</code></td><td>If fulfilment succeeds, Worker marks order complete</td><td>user-provided</td></tr>
+<tr><td><code>e10</code></td><td>If fulfilment fails, Worker records failed state</td><td>user-provided</td></tr>
+<tr><td><code>m1</code></td><td>Storage target for the worker&#x27;s state updates is unspecified; shown as worker self-actions</td><td>explicit unknown</td></tr>
+<tr><td><code>m2</code></td><td>Fulfilment outcome is represented as a response to the worker call</td><td>notation inference</td></tr>
+<tr><td><code>u1</code></td><td>Retry policy is unknown; no retry loop is drawn</td><td>explicit unknown</td></tr>
+<tr><td><code>u2</code></td><td>Store/publish failures, delivery guarantees and message payload details are unspecified</td><td>omitted details</td></tr></tbody></table></div></section>
+<p class="handoff">Editable vector: <a href="order-sequence.svg">order-sequence.svg</a> · Authoring source: <a href="build_diagram.py">build_diagram.py</a> · Model and evidence: <a href="evidence.json">evidence.json</a>. Style: Porcelain and ink; local system fonts and no external assets.</p>
+</main></body></html>

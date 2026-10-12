@@ -1,0 +1,11 @@
+Strix Codex
+
+Adapted from usestrix/strix: https://github.com/usestrix/strix
+Reviewed source revision: 62b496430da5df5e9e79a190e7af6f92529883a3
+Upstream copyright: Copyright 2025 OmniSecure Inc.
+Upstream and adaptation license: Apache License, Version 2.0 (see LICENSE).
+
+Modified adaptation authored for 0xcvaliente/codex-skills on 2026-10-08.
+Consumer workflows and selected methodology were rewritten for native Codex
+tools. An original read-only upstream checker and regression tests were added.
+This package does not include Strix's engine or imply upstream endorsement.

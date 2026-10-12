@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From request to background work</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f7f4ec;color:#172b36;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1280px;margin:auto;padding:36px 24px}header{max-width:760px;margin-bottom:24px}h1{font-size:clamp(26px,4vw,42px);line-height:1.12;letter-spacing:-.035em;margin:8px 0 16px}h2{font-size:20px;margin:28px 0 12px}p{margin:0 0 12px}.eyebrow{color:#50636d;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.canvas,.table-wrap{max-width:100%;overflow-x:auto}.canvas{border:1px solid #7d898a;border-radius:8px}.canvas svg{display:block;width:100%;min-width:1160px;height:auto}.canvas:focus-visible,.table-wrap:focus-visible{outline:3px solid #be3b21;outline-offset:3px}.hint{color:#50636d;font-size:13px;margin-top:10px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:13px;text-align:left}th,td{padding:10px 12px;border-bottom:1px solid #7d898a;vertical-align:top}td:last-child{overflow-wrap:anywhere}thead{background:#ffffff}th{font-weight:650;white-space:nowrap}li{margin-bottom:6px}
+@media(max-width:600px){main{padding:24px 16px}}@media print{body{font-size:12px}main{max-width:none;padding:0}header{max-width:none;margin-bottom:12px}h1{font-size:26px;margin:4px 0 10px}h2{font-size:16px;break-after:avoid}.canvas svg{min-width:0;width:auto;max-width:100%;height:auto;max-height:135mm;margin:auto}.canvas{overflow:visible;break-inside:avoid}.hint{display:none}table{min-width:0;font-size:10px}th,td{padding:6px}tr{break-inside:avoid}}
+</style></head><body><main><header><p class="eyebrow">Diagram Craft · editable system view</p><h1>From request to background work</h1><p>The API writes the record synchronously, then publishes queued work. A worker processes the queue; completion notifications are proposed.</p></header>
+<div class="canvas" tabindex="0" role="region" aria-label="Scrollable diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 620" width="1160" height="620" role="img" aria-labelledby="dc-0d225c179a-title dc-0d225c179a-desc" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+<title id="dc-0d225c179a-title">From request to background work</title>
+<desc id="dc-0d225c179a-desc">The API writes the record synchronously, then publishes queued work. A worker processes the queue; completion notifications are proposed.</desc>
+<defs><marker id="dc-0d225c179a-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#50636d"/></marker></defs>
+<rect width="1160" height="620" fill="#f7f4ec" aria-hidden="true"/>
+<rect x="430" y="50" width="710" height="500" rx="8" fill="none" stroke="#7d898a" stroke-dasharray="4 4"/>
+<text x="446" y="74" font-size="13" font-weight="600" fill="#50636d" text-anchor="start"><tspan x="446" dy="0">APPLICATION PLATFORM</tspan></text>
+<polyline data-edge="submit" points="280,160 470,160" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)"/>
+<polyline data-edge="persist" points="710,160 880,160" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)"/>
+<polyline data-edge="publish" points="590,220 590,390" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<polyline data-edge="consume" points="710,450 880,450" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<polyline data-edge="complete" points="990,510 990,575 170,575 170,510" fill="none" stroke="#50636d" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0d225c179a-arrow)" stroke-dasharray="6 5"/>
+<g id="dc-0d225c179a-node-client" data-node="client" data-x="60" data-y="100" data-w="220" data-h="120">
+<rect x="60" y="100" width="220" height="120" rx="6" fill="#ffffff" stroke="#7d898a" stroke-width="1.5"/>
+<text x="78" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="client"><tspan x="78" dy="0">Web client</tspan></text>
+<text x="78" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="client"><tspan x="78" dy="0">Request origin</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-api" data-node="api" data-x="470" data-y="100" data-w="240" data-h="120">
+<rect x="470" y="100" width="240" height="120" rx="6" fill="#fdeee6" stroke="#be3b21" stroke-width="2"/>
+<text x="488" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="api"><tspan x="488" dy="0">Orders API</tspan></text>
+<text x="488" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="api"><tspan x="488" dy="0">Validate · store · publish</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-database" data-node="database" data-x="880" data-y="100" data-w="220" data-h="120">
+<rect x="880" y="100" width="220" height="120" rx="6" fill="#ffffff" stroke="#7d898a" stroke-width="1.5"/>
+<path d="M890 109 H1090 M890 211 H1090" stroke="#7d898a" fill="none"/>
+<text x="898" y="157.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="database"><tspan x="898" dy="0">Order database</tspan></text>
+<text x="898" y="183.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="database"><tspan x="898" dy="0">Durable records</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-queue" data-node="queue" data-x="470" data-y="390" data-w="240" data-h="120">
+<rect x="470" y="390" width="240" height="120" rx="6" fill="#ffffff" stroke="#7d898a" stroke-width="1.5"/>
+<path d="M480 399 H700 M480 501 H700" stroke="#7d898a" fill="none"/>
+<text x="488" y="447.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="queue"><tspan x="488" dy="0">Job queue</tspan></text>
+<text x="488" y="473.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="queue"><tspan x="488" dy="0">Asynchronous boundary</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-worker" data-node="worker" data-x="880" data-y="390" data-w="220" data-h="120">
+<rect x="880" y="390" width="220" height="120" rx="6" fill="#ffffff" stroke="#7d898a" stroke-width="1.5"/>
+<text x="898" y="447.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="worker"><tspan x="898" dy="0">Fulfilment worker</tspan></text>
+<text x="898" y="473.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="worker"><tspan x="898" dy="0">Consumes queued jobs</tspan></text>
+</g>
+<g id="dc-0d225c179a-node-notification" data-node="notification" data-x="60" data-y="390" data-w="220" data-h="120">
+<rect x="60" y="390" width="220" height="120" rx="6" fill="#ffffff" stroke="#7d898a" stroke-width="1.5"/>
+<text x="78" y="436.5" font-size="18" font-weight="650" fill="#172b36" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">Notifications</tspan></text>
+<text x="78" y="462.5" font-size="13" font-weight="400" fill="#50636d" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">Completion events</tspan></text>
+<text x="78" y="495" font-size="11" font-weight="700" fill="#172b36" text-anchor="start" data-node-text="notification"><tspan x="78" dy="0">PROPOSED</tspan></text>
+</g>
+<g data-label="submit" data-x="300" data-y="115" data-w="150" data-h="30"><rect x="300" y="115" width="150" height="30" rx="4" fill="#f7f4ec"/>
+<text x="308" y="134" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="308" dy="0">Submit order</tspan></text>
+</g>
+<g data-label="persist" data-x="735" data-y="115" data-w="120" data-h="30"><rect x="735" y="115" width="120" height="30" rx="4" fill="#f7f4ec"/>
+<text x="743" y="134" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="743" dy="0">Write record</tspan></text>
+</g>
+<g data-label="publish" data-x="610" data-y="280" data-w="150" data-h="30"><rect x="610" y="280" width="150" height="30" rx="4" fill="#f7f4ec"/>
+<text x="618" y="299" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="618" dy="0">Publish job</tspan></text>
+</g>
+<g data-label="consume" data-x="735" data-y="405" data-w="120" data-h="30"><rect x="735" y="405" width="120" height="30" rx="4" fill="#f7f4ec"/>
+<text x="743" y="424" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="743" dy="0">Deliver job</tspan></text>
+</g>
+<g data-label="complete" data-x="445" data-y="553" data-w="280" data-h="30"><rect x="445" y="553" width="280" height="30" rx="4" fill="#f7f4ec"/>
+<text x="453" y="572" font-size="13" font-weight="400" fill="#172b36" text-anchor="start"><tspan x="453" dy="0">Completion event · proposed</tspan></text>
+</g>
+</svg></div>
+<p class="hint">On narrow screens, scroll the diagram horizontally. The relationships and evidence are also listed below.</p>
+<h2>Notes and assumptions</h2><ul><li>Synthetic example: this does not describe an observed production deployment.</li><li>Dashed routes mean asynchronous messages; the proposed notification path is also named explicitly.</li><li>The platform group describes scope, not an established trust or hosting boundary.</li><li>Retries, failure handling, ordering guarantees, and idempotency are unspecified.</li></ul>
+<h2>Entities and evidence</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Entity evidence table"><table><thead><tr><th scope="col">ID</th><th scope="col">Entity</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">client</th><td>Web client</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">api</th><td>Orders API</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">database</th><td>Order database</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">queue</th><td>Job queue</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">worker</th><td>Fulfilment worker</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">notification</th><td>Notifications</td><td>proposed</td><td>Example design proposal</td></tr></tbody></table></div>
+<h2>Relationships and evidence</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Relationship evidence table"><table><thead><tr><th scope="col">ID</th><th scope="col">Direction</th><th scope="col">Meaning</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">submit</th><td>client → api</td><td>Submit order</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">persist</th><td>api → database</td><td>Write record</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">publish</th><td>api → queue</td><td>Publish job</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">consume</th><td>queue → worker</td><td>Deliver job</td><td>provided</td><td>Synthetic example brief</td></tr><tr><th scope="row">complete</th><td>worker → notification</td><td>Completion event · proposed</td><td>proposed</td><td>Example design proposal</td></tr></tbody></table></div>
+</main></body></html>

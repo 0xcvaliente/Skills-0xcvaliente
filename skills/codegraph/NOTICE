@@ -1,0 +1,14 @@
+CodeGraph for Codex is original integration guidance and a compatibility helper
+maintained in 0xcvaliente/codex-skills.
+
+It integrates CodeGraph by Colby Mchenry:
+https://github.com/colbymchenry/codegraph
+Reviewed release: v1.6.2
+Reviewed release source: 6560052a6f856855d3f71eee838fd66ccfa4285d
+
+CodeGraph is MIT licensed, Copyright (c) 2026 Colby Mchenry.
+Its license notice is retained in LICENSE. The runtime is not bundled here.
+Original integration material is also provided under the MIT terms in LICENSE,
+Copyright (c) 2026 0xcvaliente.
+
+This package is not affiliated with or endorsed by CodeGraph or OpenAI.

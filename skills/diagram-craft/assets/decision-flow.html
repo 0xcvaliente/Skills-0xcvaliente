@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An authorization gate with explicit outcomes</title><style>
+*{box-sizing:border-box}body{margin:0;background:#13232c;color:#f5f1e7;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1280px;margin:auto;padding:36px 24px}header{max-width:760px;margin-bottom:24px}h1{font-size:clamp(26px,4vw,42px);line-height:1.12;letter-spacing:-.035em;margin:8px 0 16px}h2{font-size:20px;margin:28px 0 12px}p{margin:0 0 12px}.eyebrow{color:#b5c5cb;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.canvas,.table-wrap{max-width:100%;overflow-x:auto}.canvas{border:1px solid #798b95;border-radius:8px}.canvas svg{display:block;width:100%;min-width:1160px;height:auto}.canvas:focus-visible,.table-wrap:focus-visible{outline:3px solid #ffb499;outline-offset:3px}.hint{color:#b5c5cb;font-size:13px;margin-top:10px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:13px;text-align:left}th,td{padding:10px 12px;border-bottom:1px solid #798b95;vertical-align:top}td:last-child{overflow-wrap:anywhere}thead{background:#1b303b}th{font-weight:650;white-space:nowrap}li{margin-bottom:6px}
+@media(max-width:600px){main{padding:24px 16px}}@media print{body{font-size:12px}main{max-width:none;padding:0}header{max-width:none;margin-bottom:12px}h1{font-size:26px;margin:4px 0 10px}h2{font-size:16px;break-after:avoid}.canvas svg{min-width:0;width:auto;max-width:100%;height:auto;max-height:135mm;margin:auto}.canvas{overflow:visible;break-inside:avoid}.hint{display:none}table{min-width:0;font-size:10px}th,td{padding:6px}tr{break-inside:avoid}}
+</style></head><body><main><header><p class="eyebrow">Diagram Craft · editable system view</p><h1>An authorization gate with explicit outcomes</h1><p>A valid token reaches policy evaluation. An invalid token returns 401; an allowed policy returns the resource, while a denied policy returns 403.</p></header>
+<div class="canvas" tabindex="0" role="region" aria-label="Scrollable diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 760" width="1160" height="760" role="img" aria-labelledby="dc-0454c96076-title dc-0454c96076-desc" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+<title id="dc-0454c96076-title">An authorization gate with explicit outcomes</title>
+<desc id="dc-0454c96076-desc">A valid token reaches policy evaluation. An invalid token returns 401; an allowed policy returns the resource, while a denied policy returns 403.</desc>
+<defs><marker id="dc-0454c96076-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#b5c5cb"/></marker></defs>
+<rect width="1160" height="760" fill="#13232c" aria-hidden="true"/>
+<polyline data-edge="validate" points="280,160 480,160" fill="none" stroke="#b5c5cb" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0454c96076-arrow)"/>
+<polyline data-edge="invalid" points="700,160 880,160" fill="none" stroke="#b5c5cb" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0454c96076-arrow)"/>
+<polyline data-edge="valid" points="590,250 590,360" fill="none" stroke="#b5c5cb" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0454c96076-arrow)"/>
+<polyline data-edge="denied" points="700,450 880,450" fill="none" stroke="#b5c5cb" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0454c96076-arrow)"/>
+<polyline data-edge="allowed" points="590,540 590,640" fill="none" stroke="#b5c5cb" stroke-width="2" stroke-linejoin="round" marker-end="url(#dc-0454c96076-arrow)"/>
+<g id="dc-0454c96076-node-request" data-node="request" data-x="60" data-y="100" data-w="220" data-h="120">
+<rect x="60" y="100" width="220" height="120" rx="6" fill="#1b303b" stroke="#798b95" stroke-width="1.5"/>
+<text x="78" y="157.5" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="start" data-node-text="request"><tspan x="78" dy="0">Receive request</tspan></text>
+<text x="78" y="183.5" font-size="13" font-weight="400" fill="#b5c5cb" text-anchor="start" data-node-text="request"><tspan x="78" dy="0">Protected resource</tspan></text>
+</g>
+<g id="dc-0454c96076-node-token" data-node="token" data-x="480" data-y="70" data-w="220" data-h="180">
+<polygon points="590.0,70 700,160.0 590.0,250 480,160.0" fill="#1b303b" stroke="#798b95" stroke-width="2"/>
+<text x="590.0" y="155.0" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="middle" data-node-text="token"><tspan x="590.0" dy="0">Token</tspan><tspan x="590.0" dy="23">valid?</tspan></text>
+</g>
+<g id="dc-0454c96076-node-unauthorized" data-node="unauthorized" data-x="880" data-y="100" data-w="220" data-h="120">
+<rect x="880" y="100" width="220" height="120" rx="6" fill="#1b303b" stroke="#798b95" stroke-width="1.5"/>
+<text x="898" y="157.5" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="start" data-node-text="unauthorized"><tspan x="898" dy="0">Return 401</tspan></text>
+<text x="898" y="183.5" font-size="13" font-weight="400" fill="#b5c5cb" text-anchor="start" data-node-text="unauthorized"><tspan x="898" dy="0">Invalid token</tspan></text>
+</g>
+<g id="dc-0454c96076-node-policy" data-node="policy" data-x="480" data-y="360" data-w="220" data-h="180">
+<polygon points="590.0,360 700,450.0 590.0,540 480,450.0" fill="#512d26" stroke="#ffb499" stroke-width="2"/>
+<text x="590.0" y="445.0" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="middle" data-node-text="policy"><tspan x="590.0" dy="0">Access</tspan><tspan x="590.0" dy="23">allowed?</tspan></text>
+</g>
+<g id="dc-0454c96076-node-forbidden" data-node="forbidden" data-x="880" data-y="390" data-w="220" data-h="120">
+<rect x="880" y="390" width="220" height="120" rx="6" fill="#1b303b" stroke="#798b95" stroke-width="1.5"/>
+<text x="898" y="447.5" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="start" data-node-text="forbidden"><tspan x="898" dy="0">Return 403</tspan></text>
+<text x="898" y="473.5" font-size="13" font-weight="400" fill="#b5c5cb" text-anchor="start" data-node-text="forbidden"><tspan x="898" dy="0">Policy denied access</tspan></text>
+</g>
+<g id="dc-0454c96076-node-resource" data-node="resource" data-x="480" data-y="640" data-w="220" data-h="100">
+<rect x="480" y="640" width="220" height="100" rx="6" fill="#1b303b" stroke="#798b95" stroke-width="1.5"/>
+<text x="498" y="687.5" font-size="18" font-weight="650" fill="#f5f1e7" text-anchor="start" data-node-text="resource"><tspan x="498" dy="0">Return resource</tspan></text>
+<text x="498" y="713.5" font-size="13" font-weight="400" fill="#b5c5cb" text-anchor="start" data-node-text="resource"><tspan x="498" dy="0">Authorized request</tspan></text>
+</g>
+<g data-label="validate" data-x="300" data-y="115" data-w="160" data-h="30"><rect x="300" y="115" width="160" height="30" rx="4" fill="#13232c"/>
+<text x="308" y="134" font-size="13" font-weight="400" fill="#f5f1e7" text-anchor="start"><tspan x="308" dy="0">Validate token</tspan></text>
+</g>
+<g data-label="invalid" data-x="735" data-y="115" data-w="110" data-h="30"><rect x="735" y="115" width="110" height="30" rx="4" fill="#13232c"/>
+<text x="743" y="134" font-size="13" font-weight="400" fill="#f5f1e7" text-anchor="start"><tspan x="743" dy="0">No</tspan></text>
+</g>
+<g data-label="valid" data-x="610" data-y="285" data-w="100" data-h="30"><rect x="610" y="285" width="100" height="30" rx="4" fill="#13232c"/>
+<text x="618" y="304" font-size="13" font-weight="400" fill="#f5f1e7" text-anchor="start"><tspan x="618" dy="0">Yes</tspan></text>
+</g>
+<g data-label="denied" data-x="735" data-y="405" data-w="110" data-h="30"><rect x="735" y="405" width="110" height="30" rx="4" fill="#13232c"/>
+<text x="743" y="424" font-size="13" font-weight="400" fill="#f5f1e7" text-anchor="start"><tspan x="743" dy="0">No</tspan></text>
+</g>
+<g data-label="allowed" data-x="610" data-y="572" data-w="100" data-h="30"><rect x="610" y="572" width="100" height="30" rx="4" fill="#13232c"/>
+<text x="618" y="591" font-size="13" font-weight="400" fill="#f5f1e7" text-anchor="start"><tspan x="618" dy="0">Yes</tspan></text>
+</g>
+</svg></div>
+<p class="hint">On narrow screens, scroll the diagram horizontally. The relationships and evidence are also listed below.</p>
+<h2>Notes and assumptions</h2><ul><li>Synthetic example: token refresh, expiration races, and policy-service failures are outside this brief.</li><li>Diamond labels are questions. Every shown decision has labeled, distinct outcomes.</li></ul>
+<h2>Entities and evidence</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Entity evidence table"><table><thead><tr><th scope="col">ID</th><th scope="col">Entity</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">request</th><td>Receive request</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">token</th><td>Token valid?</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">unauthorized</th><td>Return 401</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">policy</th><td>Access allowed?</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">forbidden</th><td>Return 403</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">resource</th><td>Return resource</td><td>provided</td><td>Synthetic authorization brief</td></tr></tbody></table></div>
+<h2>Relationships and evidence</h2><div class="table-wrap" tabindex="0" role="region" aria-label="Relationship evidence table"><table><thead><tr><th scope="col">ID</th><th scope="col">Direction</th><th scope="col">Meaning</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">validate</th><td>request → token</td><td>Validate token</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">invalid</th><td>token → unauthorized</td><td>No</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">valid</th><td>token → policy</td><td>Yes</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">denied</th><td>policy → forbidden</td><td>No</td><td>provided</td><td>Synthetic authorization brief</td></tr><tr><th scope="row">allowed</th><td>policy → resource</td><td>Yes</td><td>provided</td><td>Synthetic authorization brief</td></tr></tbody></table></div>
+</main></body></html>

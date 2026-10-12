@@ -1,0 +1,144 @@
+{
+  "source": {
+    "id": "brief",
+    "kind": "supplied brief",
+    "text": "The browser submits an order to the API. The API checks authorization: a denial returns 403 immediately; allowed requests store an order in the database, publish a job to a queue, then return 202. A worker later receives that job, calls the fulfilment service, and marks the order complete if fulfilment succeeds. On fulfilment failure, the worker records a failed state; retry policy is unknown."
+  },
+  "entities": [
+    {
+      "id": "browser",
+      "label": "Browser",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "api",
+      "label": "API",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "database",
+      "label": "Database",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "queue",
+      "label": "Queue",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "worker",
+      "label": "Worker",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "fulfilment",
+      "label": "Fulfilment",
+      "source": "brief",
+      "status": "user-provided"
+    }
+  ],
+  "relationships_and_notes": [
+    {
+      "id": "e1",
+      "statement": "Browser \u2192 API: submit order",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e2",
+      "statement": "API checks authorization",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e3",
+      "statement": "If denied, API \u2192 Browser: 403 immediately; no allowed path work",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e4",
+      "statement": "If allowed, API \u2192 Database: store order",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e5",
+      "statement": "After storing, API \u2192 Queue: publish job",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e6",
+      "statement": "After publishing, API \u2192 Browser: 202",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e7",
+      "statement": "Later, Queue \u2192 Worker: job received asynchronously",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e8",
+      "statement": "Worker \u2192 Fulfilment: call service",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e9",
+      "statement": "If fulfilment succeeds, Worker marks order complete",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "e10",
+      "statement": "If fulfilment fails, Worker records failed state",
+      "source": "brief",
+      "status": "user-provided"
+    },
+    {
+      "id": "m1",
+      "statement": "Storage target for the worker's state updates is unspecified; shown as worker self-actions",
+      "source": "brief",
+      "status": "explicit unknown"
+    },
+    {
+      "id": "m2",
+      "statement": "Fulfilment outcome is represented as a response to the worker call",
+      "source": "brief",
+      "status": "notation inference"
+    },
+    {
+      "id": "u1",
+      "statement": "Retry policy is unknown; no retry loop is drawn",
+      "source": "brief",
+      "status": "explicit unknown"
+    },
+    {
+      "id": "u2",
+      "statement": "Store/publish failures, delivery guarantees and message payload details are unspecified",
+      "source": "brief",
+      "status": "omitted details"
+    }
+  ],
+  "style": {
+    "name": "Porcelain and ink",
+    "tokens": {
+      "background": "#f8faf9",
+      "surface": "#ffffff",
+      "text": "#1d2e31",
+      "secondary": "#59686b",
+      "border": "#7c8d8f",
+      "connector": "#37484b",
+      "accent": "#1d625e",
+      "accent_surface": "#e9f3f1"
+    }
+  }
+}

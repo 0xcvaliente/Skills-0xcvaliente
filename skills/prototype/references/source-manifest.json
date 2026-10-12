@@ -1,0 +1,17 @@
+{
+  "source_repository": "emilkowalski/skills",
+  "source_revision": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "reviewed_on": "2026-10-08",
+  "files": [
+    {
+      "original_path": "skills/prototype/PICKER.md",
+      "stored_path": "PICKER.md",
+      "sha256": "31a55eec94715cc79942e91e172e539e3031dcd5e2e5ee7c1446cf2caee960a6"
+    },
+    {
+      "original_path": "skills/prototype/SKILL.md",
+      "stored_path": "references/upstream-SKILL.md.source",
+      "sha256": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9"
+    }
+  ]
+}
