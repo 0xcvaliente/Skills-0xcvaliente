@@ -19,8 +19,8 @@ Skills follow the open [Agent Skills](https://agentskills.io) format: a folder w
 ## Script install
 
 ```sh
-git clone https://github.com/0xcvaliente/agent-skills-0xcvaliente.git
-cd agent-skills-0xcvaliente
+git clone https://github.com/0xcvaliente/Skills-0xcvaliente.git
+cd Skills-0xcvaliente
 
 scripts/install.sh --list                      # skills and targets
 scripts/install.sh --target agents             # ~/.agents/skills (Codex, Gemini CLI, Copilot, OpenCode)
@@ -30,7 +30,7 @@ scripts/install.sh --target project --dest ./.agents/skills   # into a project
 scripts/install.sh --copy --target agents      # copy instead of symlink
 ```
 
-By default each skill is **symlinked**, so `git pull` updates installed skills. Existing destinations are skipped, never overwritten. Pass `--force` to replace.
+By default each skill is **symlinked**, so `git pull` updates installed skills. The installer symlinks skills into `~/.claude/skills` (`--target claude`) and `~/.agents/skills` (`--target agents`). Existing destinations are skipped, never overwritten; pass `--force` to replace existing copies or links.
 
 Start a new session after installing; most hosts read skills at startup.
 

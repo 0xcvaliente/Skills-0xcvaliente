@@ -1,8 +1,8 @@
-# agent-skills-0xcvaliente
+# Skills-0xcvaliente
 
 A curated library of 46 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
-This repository is the model-agnostic successor to [`claude-skills-0xcvaliente`](https://github.com/0xcvaliente/claude-skills-0xcvaliente) and [`codex-skills-deprecated`](https://github.com/0xcvaliente/codex-skills-deprecated). Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
+This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
 A **skill** is a folder with a `SKILL.md`. Its frontmatter (`name`, `description`) tells the agent what the skill does and when to use it. The body holds instructions, plus optional `references/`, `scripts/` and `assets/` the agent reads only when needed. Installing a skill adds no runtime code to your projects.
 
@@ -13,19 +13,21 @@ A **skill** is a folder with a `SKILL.md`. Its frontmatter (`name`, `description
 - [Skill catalog](#skill-catalog)
 - [Requirements by skill](#requirements-by-skill)
 - [Anatomy of a skill](#anatomy-of-a-skill)
+- [Updating, adding and removing skills](#updating-adding-and-removing-skills)
+- [Troubleshooting](#troubleshooting)
 - [Contributing and validation](#contributing-and-validation)
 - [Licensing](#licensing)
 
 ## Quick start
 
 ```sh
-git clone https://github.com/0xcvaliente/agent-skills-0xcvaliente.git
-cd agent-skills-0xcvaliente
+git clone https://github.com/0xcvaliente/Skills-0xcvaliente.git
+cd Skills-0xcvaliente
 scripts/install.sh --target agents          # ~/.agents/skills: Codex, Gemini CLI, Copilot, OpenCode, ...
 scripts/install.sh --target claude          # ~/.claude/skills: Claude Code
 ```
 
-Skills are symlinked, so `git pull` updates them. Start a new agent session afterwards. Per-host folders, project-level installs and the no-skills fallback are in [INSTALL.md](INSTALL.md).
+The installer symlinks each skill into `~/.claude/skills` (`--target claude`) and `~/.agents/skills` (`--target agents`), so `git pull` updates them. Existing copies are skipped unless you pass `--force`, which replaces them. Start a new agent session afterwards. Per-host folders, project-level installs and the no-skills fallback are in [INSTALL.md](INSTALL.md).
 
 ## How to use the skills
 
@@ -176,6 +178,22 @@ skills/<name>/
 ```
 
 Only the frontmatter is always in context; the rest loads when the skill is used. Skills adapted from upstream sources keep `references/provenance.md` (and `source-manifest.json` / `upstream-SKILL.md.source`) recording where they came from and what changed. `references/agent-notes.md` (formerly `claude-notes.md`) holds the host-neutral runtime notes for the Emil Kowalski–derived set.
+
+## Updating, adding and removing skills
+
+**Update.** Symlinked installs follow the repository: run `git pull` in your clone. Copied installs (`--copy` or a manual `cp -R`) must be re-copied, or re-run the installer with `--force` to replace them. Start a new agent session afterwards.
+
+**Add.** Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep `name` identical to the folder, put long material in `references/`, add a catalog row, run `python3 scripts/validate.py`, then re-run the installer.
+
+**Remove.** Delete the installed entry, for example `rm ~/.agents/skills/<name>` or `rm ~/.claude/skills/<name>`. For a symlink this removes only the link and leaves the repository copy.
+
+## Troubleshooting
+
+- **A skill never triggers.** Check that `<skills dir>/<name>/SKILL.md` exists in the folder your host reads (see [INSTALL.md](INSTALL.md)), restart the session, then invoke the skill by name. If explicit use works but automatic matching does not, make its `description` more specific about when to use it.
+- **The wrong skill triggers.** Name the skill you want, or uninstall overlapping skills you do not use.
+- **A script fails.** Check [Requirements by skill](#requirements-by-skill). Script-based skills expect `python3` on `PATH`.
+- **Broken symlinks after moving the repository.** Re-run the installer with `--force` from the new location.
+- **Installer skipped a skill.** The destination already exists; pass `--force` to replace it.
 
 ## Contributing and validation
 

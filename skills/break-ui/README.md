@@ -63,7 +63,7 @@ request, implement and verify them rather than imposing another permission step.
 
 ## Validation and license
 
-From the root of the `agent-skills-0xcvaliente` repository, run
+From the root of the `Skills-0xcvaliente` repository, run
 `python3 scripts/validate.py skills/<name>` to check the structure of this package.
 
 Structural validation and source hashes do not establish runtime UI quality.

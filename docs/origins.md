@@ -1,6 +1,6 @@
 # Origins
 
-Each skill keeps its upstream attribution and license. Where a package records its source (`references/provenance.md`, `source-manifest.json`, `upstream-SKILL.md.source`), this table repeats it. The adaptation history for most skills is: upstream source → Codex version in [`codex-skills-deprecated`](https://github.com/0xcvaliente/codex-skills-deprecated) → Claude Code version in [`claude-skills-0xcvaliente`](https://github.com/0xcvaliente/claude-skills-0xcvaliente) → this host-neutral version.
+Each skill keeps its upstream attribution and license. Where a package records its source (`references/provenance.md`, `source-manifest.json`, `upstream-SKILL.md.source`), this table repeats it. The adaptation history for most skills is: upstream source → Codex version (`codex-skills-deprecated`) → Claude Code version (`claude-skills-0xcvaliente`) → this host-neutral version. This repository is consolidated from `claude-skills-0xcvaliente`, `agent-skills-0xcvaliente` and `codex-skills-deprecated`, which have been retired.
 
 | Skills | Upstream | Notes |
 |---|---|---|
