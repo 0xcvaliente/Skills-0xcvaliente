@@ -22,6 +22,7 @@ Choose a focused companion when installed; retain the relevant local references 
 | Find worthwhile opportunities without changing code | `find-animation-opportunities` |
 | Name an effect from a description or recording | `animation-vocabulary` |
 | Build Expo or React Native motion | `animate-expo` |
+| Fix dropped frames from property choice, main-thread load, or per-frame React state | `animation-performance` |
 | Build a requested tactile or Apple-inspired control | `apple-design` |
 | Measure, reconstruct, debug, tune gestures, or add sparse sound | `ui-animation` |
 
@@ -239,7 +240,7 @@ Maintenance only: when changing Discovery routing or the gate, run the scenarios
 
 ## Sources
 
-Interface SFX gating taken from Craft (gustavo-fior) and Raphael Salaja's web-sound writing. Novelty 90/10 split, one-shot intro gating, and `animation-play-state` on loops taken from Rauno Freiberg. The Emil Kowalski collection is now integrated as 14 focused adapted packages, reviewed at revision `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`; the routing table above keeps this package's measurement, debugging, gesture, and sound capabilities. Gustavo Fior's full Craft package is not bundled. Clip-path and proportional scale already lived here.
+Interface SFX gating taken from Craft (gustavo-fior) and Raphael Salaja's web-sound writing. Novelty 90/10 split, one-shot intro gating, and `animation-play-state` on loops taken from Rauno Freiberg. The Emil Kowalski collection is now integrated as 15 focused adapted packages, 14 reviewed at revision `e8a175de22ae1e49370fc144c1f3bb9aeedf988d` plus `animation-performance` at `2d228630ba1446365f614a108cb8252f1feda202`; the routing table above keeps this package's measurement, debugging, gesture, and sound capabilities. Gustavo Fior's full Craft package is not bundled. Clip-path and proportional scale already lived here.
 
 ## Related skills
 

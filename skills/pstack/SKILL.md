@@ -7,8 +7,8 @@ license: MIT
 # Pstack
 
 Go deep first, write less code, and prove the result against the real artifact.
-This is one host-neutral Agent Skill adapting pstack 0.15.15 by Lauren Tan. All 164 upstream
-files are retained with their original bytes, including 27 workflows, 24
+This is one host-neutral Agent Skill adapting pstack 0.15.24 by Lauren Tan. All 169 upstream
+files are retained with their original bytes, including 30 workflows, 24
 principles, 23 playbooks, two agent definitions, and the three-workflow Benny pack.
 
 ## Start and route
@@ -39,6 +39,7 @@ principles, 23 playbooks, two agent definitions, and the three-workflow Benny pa
 | Compare designs, partition coverage, or challenge a diff | `architect`, `arena`, `swarm`, `interrogate`, or `blast-radius`. |
 | Check a PR, deliver a stack, resume, pause, or run a long task | Delivery and coordination playbooks. |
 | Configure pstack, capture lessons, create a verifier, or improve prose | Setup, maintenance, and writing workflows. |
+| Sharpen the approach, restate the goal, or catch up after a long run | `sharpen`, `in-your-own-words`, `ketchup`. Explicit requests only (see Native workflows). |
 | Set up or run Benny triage/reproduction | [Benny on any host](references/benny.md), then its linked source workflow. |
 
 Accept "use pstack, `<workflow>`, `<task>`" in any host, or the host's shorthand
@@ -70,7 +71,9 @@ web, ask-the-user, task list, browser automation, MCP) as mapped in the host
 runtime adaptation. Delegate to subagents only if the host supports them and the
 user or applicable project instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`,
 or `.github/copilot-instructions.md`) authorize it; explicit `arena` or `swarm`
-requests express parallel intent. Otherwise run the same steps sequentially
+requests express parallel intent. The conversation that receives `poteto-mode`
+runs its playbook itself; delegates take slices of the work, never the
+playbook. Otherwise run the same steps sequentially
 yourself and label the independence limit. Inherit the current model unless an available, explicitly chosen role
 configuration says otherwise. Do not copy Cursor model names.
 

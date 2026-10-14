@@ -366,14 +366,27 @@ def extract_svg(content):
     parser.feed(content)
     if parser.depth or len(parser.svgs) != 1:
         raise ValueError("extraction requires exactly one well-formed inline SVG")
-    svg = parser.svgs[0]
+    svg = normalize_svg(parser.svgs[0])
+    ET.fromstring(svg)
+    return svg
+
+
+def normalize_svg(svg):
     if not re.search(r'<svg\b[^>]*\bxmlns\s*=', svg):
         svg = svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"', 1)
     # HTML entities are not all valid XML entities; normalize them to Unicode.
     svg = re.sub(r"&([A-Za-z][A-Za-z0-9]+);", lambda m: m.group(0) if m.group(1) in
                  ("amp", "lt", "gt", "quot", "apos") else html.unescape(m.group(0)), svg)
-    ET.fromstring(svg)
     return svg
+
+
+def inline_svgs(content):
+    """Every top-level inline SVG in a document, normalized for XML parsing."""
+    parser = SVGParser()
+    parser.feed(content)
+    if parser.depth:
+        raise ValueError("unclosed inline SVG")
+    return [normalize_svg(svg) for svg in parser.svgs]
 
 
 def offline_font_findings(content):
@@ -384,6 +397,134 @@ def offline_font_findings(content):
         stack = stack.strip()
         if stack and not stack.lower().startswith(("inherit", "var(")) and not generic.search(stack):
             findings.append(f"font stack without generic fallback: {stack[:60]}")
+    return findings
+
+
+SVG_NS = "{http://www.w3.org/2000/svg}"
+# Parts of an SVG that are never painted directly, or whose geometry needs real rendering to judge.
+NOT_PAINTED = {"defs", "clipPath", "mask", "marker", "symbol", "pattern", "metadata", "title", "desc", "style", "script"}
+ALPHA_PAINT = re.compile(r"^\s*(?:rgba|hsla)\(|^\s*#(?:[0-9a-fA-F]{4}|[0-9a-fA-F]{8})\s*$", re.IGNORECASE)
+
+
+def _num(value):
+    """Plain user-unit number (optional px), or None for percentages, other units, or missing values."""
+    match = re.fullmatch(r"\s*([-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?)(?:px)?\s*", value or "")
+    return float(match.group(1)) if match else None
+
+
+def _shape_box(el):
+    """Axis-aligned box (x0, y0, x1, y1) for simple shapes; None when not measurable or not rendered."""
+    tag = el.tag.replace(SVG_NS, "")
+    a = lambda k, d=None: _num(el.get(k, d))
+    if tag == "rect":
+        x, y, w, h = a("x", "0"), a("y", "0"), a("width"), a("height")
+        return None if None in (x, y, w, h) or w <= 0 or h <= 0 else (x, y, x + w, y + h)
+    if tag == "circle":
+        x, y, r = a("cx", "0"), a("cy", "0"), a("r")
+        return None if None in (x, y, r) or r <= 0 else (x - r, y - r, x + r, y + r)
+    if tag == "ellipse":
+        x, y, rx, ry = a("cx", "0"), a("cy", "0"), a("rx"), a("ry")
+        return None if None in (x, y, rx, ry) or rx <= 0 or ry <= 0 else (x - rx, y - ry, x + rx, y + ry)
+    if tag == "line":
+        v = [a("x1", "0"), a("y1", "0"), a("x2", "0"), a("y2", "0")]
+        return None if None in v else (min(v[0], v[2]), min(v[1], v[3]), max(v[0], v[2]), max(v[1], v[3]))
+    if tag in ("polyline", "polygon"):
+        nums = re.findall(r"[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?", el.get("points", ""))
+        if len(nums) < 2:
+            return None
+        xs, ys = [float(n) for n in nums[0::2]], [float(n) for n in nums[1::2]]
+        return min(xs), min(ys), max(xs), max(ys)
+    if tag == "text":
+        x, y = a("x", "0"), a("y", "0")
+        return None if None in (x, y) else (x, y, x, y)
+    return None
+
+
+def _hidden(el):
+    style = el.get("style", "")
+    return (el.get("display") == "none" or el.get("visibility") == "hidden" or el.get("clip-path") or el.get("mask")
+            or re.search(r"display\s*:\s*none|visibility\s*:\s*hidden", style) is not None)
+
+
+def viewbox_findings(root, label="svg"):
+    """Report simple shapes painted outside the viewBox, which exporters and viewers clip silently.
+
+    Only untransformed, directly measurable shapes are judged; paths, transforms, clipped or hidden
+    content are skipped, so a clean result is not proof that nothing is cut off."""
+    vb = root.get("viewBox")
+    if vb:
+        parts = [_num(p) for p in re.split(r"[\s,]+", vb.strip())]
+        if len(parts) != 4 or None in parts or parts[2] <= 0 or parts[3] <= 0:
+            return [f"{label}: viewBox is not four numbers with positive size"]
+        x0, y0 = parts[0], parts[1]
+        x1, y1 = x0 + parts[2], y0 + parts[3]
+    else:
+        w, h = _num(root.get("width")), _num(root.get("height"))
+        if not w or not h:
+            return [f"{label}: no viewBox or numeric width/height; size cannot be checked"]
+        x0, y0, x1, y1 = 0, 0, w, h
+    findings = []
+
+    def walk(el):
+        tag = el.tag.replace(SVG_NS, "")
+        if tag in NOT_PAINTED or _hidden(el) or el.get("transform"):
+            return
+        box = _shape_box(el)
+        if box and (box[0] < x0 - 0.01 or box[1] < y0 - 0.01 or box[2] > x1 + 0.01 or box[3] > y1 + 0.01):
+            ident = el.get("id") or el.get("data-node") or el.get("data-edge") or ""
+            findings.append(f"{label}: <{tag}{' ' + ident if ident else ''}> extends outside the viewBox")
+        for child in el:
+            walk(child)
+
+    for child in root:
+        walk(child)
+    return findings
+
+
+def export_findings(content, html_document=None):
+    """Portability problems in an HTML or SVG export: alpha paint, CDATA, unscoped styles, bad refs, clipping."""
+    try:
+        svgs = inline_svgs(content)
+    except ValueError as exc:
+        return [f"inline SVG cannot be read: {exc}"]
+    if not svgs:
+        return ["no inline SVG found"]
+    findings, seen = [], {}
+    for index, source in enumerate(svgs, 1):
+        label = f"svg {index}"
+        try:
+            root = ET.fromstring(source)
+        except ET.ParseError as exc:
+            findings.append(f"{label}: not well-formed XML ({exc})")
+            continue
+        findings.extend(viewbox_findings(root, label))
+        ids = {el.get("id") for el in root.iter() if el.get("id")}
+        for name in ids:
+            if name in seen:
+                findings.append(f"{label}: id {name!r} also used by svg {seen[name]}; namespace IDs when embedding")
+            seen.setdefault(name, index)
+        for el in root.iter():
+            declared = dict((k.strip().lower(), v.strip()) for k, _, v in
+                            (d.partition(":") for d in el.get("style", "").split(";")) if k.strip())
+            for attr in ("fill", "stroke", "stop-color", "flood-color"):
+                for value in (el.get(attr), declared.get(attr)):
+                    if value and ALPHA_PAINT.search(value.replace("!important", "").strip()):
+                        findings.append(f"{label}: {attr}={value[:32]!r} carries alpha in a paint value; "
+                                        f"use an opaque color with {attr.replace('-color', '')}-opacity")
+            refs = re.findall(r"url\(\s*['\"]?#([^)'\"\s]+)", " ".join(el.attrib.values()))
+            refs += [v[1:] for k, v in el.attrib.items() if k.split("}")[-1] == "href" and v.startswith("#")]
+            for ref in refs:
+                if ref not in ids:
+                    findings.append(f"{label}: reference to missing id {ref!r}")
+        for style in root.iter(SVG_NS + "style"):
+            text = style.text or ""
+            if len(svgs) > 1:
+                for selector in re.findall(r"(?:^|\})\s*([^{}@]+)\{", re.sub(r"/\*.*?\*/", "", text, flags=re.DOTALL)):
+                    if not all(part.strip().startswith(("#", "svg#")) for part in selector.split(",") if part.strip()):
+                        findings.append(f"{label}: style selector {selector.strip()[:40]!r} is not scoped to an ID and can restyle sibling diagrams")
+                        break
+        if html_document and re.search(r"<!\[CDATA\[", source):
+            findings.append(f"{label}: CDATA section in an HTML-embedded SVG is parsed as a comment; use plain escaped text")
     return findings
 
 
@@ -404,8 +545,9 @@ def main():
         content = args.input.read_text(encoding="utf-8")
         if args.command == "check" and args.input.suffix.lower() in {".html", ".htm", ".svg"}:
             findings = offline_font_findings(content)
-            print(json.dumps({"ok": not findings, "offline_fonts": findings}))
-            return 1 if findings else 0
+            export = export_findings(content, args.input.suffix.lower() != ".svg")
+            print(json.dumps({"ok": not findings and not export, "offline_fonts": findings, "export": export}))
+            return 1 if findings or export else 0
         if args.command == "extract":
             if not args.output:
                 parser.error("extract needs --output")

@@ -45,6 +45,6 @@ Install by copying this directory into any [Agent Skills](https://agentskills.io
 
 Preserves brief-led visual direction and adds focused component, prototype, motion, mobile, and resilience companions without substituting their example aesthetics for the user's brief.
 
-The companion collection adapts all 14 skills from [Emil Kowalski](https://github.com/emilkowalski/skills), reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`. Each adapted package includes its original guide, supporting resources, source checksums, Agent notes, and MIT license. Start with [Emil Design Engineering](../emil-design-eng/README.md) or [Animate](../animate/README.md), then select the specific workflow needed.
+The companion collection adapts all 15 skills from [Emil Kowalski](https://github.com/emilkowalski/skills), 14 of them reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`, plus `animation-performance` at `2d228630ba1446365f614a108cb8252f1feda202`. Each adapted package includes its original guide, supporting resources, source checksums, Agent notes, and MIT license. Start with [Emil Design Engineering](../emil-design-eng/README.md) or [Animate](../animate/README.md), then select the specific workflow needed.
 
 The integration changes instructions and routing; it does not install UI libraries, launch an app, or establish device/browser verification by itself. Existing source guides, helpers, probes, fixtures, and evaluation scenarios remain available.

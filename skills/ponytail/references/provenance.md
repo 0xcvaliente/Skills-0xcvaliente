@@ -72,3 +72,16 @@ not this port. Workflow substance is unchanged.
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. README and SKILL.md no longer present the skill as Claude Code-specific: install targets `~/.agents/skills/`, invocation is "use the ponytail skill" (host shorthand optional), and README examples use that form. The "Claude Code port" section above is kept as history. Workflow substance is unchanged.
+
+## Reviewed update
+
+Reviewed 2026-10-15: `9cc65d03aa2da1db7121b912d03596409ee340b8` (5.1.0) to
+`2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5` (v5.2.0). The only skill-text change
+adopted is the debt scan from upstream `57635bd` (`skills/ponytail-debt/SKILL.md`):
+the marker search now uses `git grep --no-index --exclude-standard` so every
+gitignored folder is skipped instead of hard-coded `node_modules`/`dist`/`build`
+excludes. `references/debt.md` carries that form with an ignore-aware `rg`
+fallback; the `-F` handling of user-supplied markers is kept. Hooks, statusline,
+mode persistence, per-agent adapters (OpenCode, Cursor, Qoder, pi, Hermes),
+installers, i18n, and the bench were skipped as before. The README source pin
+was updated to the new revision.

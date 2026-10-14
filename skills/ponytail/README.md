@@ -99,6 +99,6 @@ has been independently benchmarked.
 
 Distributed under the retained upstream [MIT license](LICENSE), copyright
 2026 DietrichGebert. Reviewed source revision:
-[`9cc65d03aa2da1db7121b912d03596409ee340b8`](https://github.com/DietrichGebert/ponytail/tree/9cc65d03aa2da1db7121b912d03596409ee340b8),
-2026-10-09. See [provenance](references/provenance.md) for inspected sources and
+[`2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5`](https://github.com/DietrichGebert/ponytail/tree/2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5)
+(v5.2.0), 2026-10-15. See [provenance](references/provenance.md) for inspected sources and
 adaptation choices. No affiliation or endorsement is claimed.

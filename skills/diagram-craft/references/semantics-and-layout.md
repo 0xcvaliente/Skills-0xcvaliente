@@ -13,6 +13,7 @@ Read the section matching the reader's question. These contracts apply to custom
 | How are records related? | ER/schema | Cardinality, optionality, keys, logical versus physical |
 | What depends on what? | Dependency graph | Declare “uses” versus “is required by”; retain cycles |
 | What changed structurally? | Before/after map | Stable identity, changed nodes/edges |
+| What does the customer see versus what stays hidden? | Service blueprint | Stage order, customer/frontstage/backstage/support layers, the line of visibility |
 | What contains or owns what? | Tree/nested groups | Single parent per child in a tree; cross-links need a graph |
 | What reinforces what? | Causal loop | Known polarity/delays; influence versus transfer |
 | When did it happen? | Timeline | Date spacing versus explicitly ordinal sequence |
@@ -26,6 +27,21 @@ Start from concrete interfaces and ownership boundaries. Label edges with verbs/
 A service is not a machine; a module is not necessarily independently deployed; a cloud logo is not hosting evidence. Containment does not prove trust. Derive boundaries from enforcement or mark them proposed. Separate logical structure from deployment unless the question needs both.
 
 Put sources/consumers along a clear reading direction and stores near their accessing component. Route feedback/failure around the main path. If a queue changes delivery semantics, show it rather than drawing direct delivery. Configuration proves a declared dependency, not production health or observed runtime behavior.
+
+### Containment scopes
+
+Use nesting only when the hierarchy itself is the claim (what sits inside which scope), and draw each level with an inset, a label, and a visibly different fill so the nesting reads. Keep two kinds of scope distinct and never interchange them:
+
+- **Administrative scope** (account, subscription, project, tenant): billing, permission, and lifecycle ownership. It carries no traffic, so draw it as a wide band or outer frame, not as a network boundary.
+- **Traffic scope** (network, subnet, security group, cluster namespace): a boundary that traffic crosses only under an explicit rule. Draw it as a box and derive it from enforcement (rules, policies) or mark it proposed.
+
+Place a managed service (hosted database, queue, object store) in the administrative scope that owns it, not inside a traffic scope. What belongs inside the subnet is the private endpoint or client that reaches it. Drawing the service itself in the subnet claims it sits behind that subnet's rules. Draw peering or other cross-scope paths as labeled connectors between the two traffic scopes they join. Give every scope and node a single immediate parent in the evidence ledger. If a flat zone label ("VNET / SNET-APP") would hide a real hierarchy, nest; if nesting adds nothing, keep zones flat and few.
+
+### Service blueprints
+
+A service blueprint shows how a service is delivered across stages: stages run left to right as equal columns, and layers run top to bottom: optional physical evidence, customer actions, frontstage actions (visible staff or product), backstage actions (work the customer cannot see), and optional support processes. The **line of visibility** between frontstage and backstage is the load-bearing element: draw it heavier than the other dividers and keep every cell on the correct side of it. Lighter dividers can mark the lines of interaction (customer to frontstage) and internal interaction (backstage to support).
+
+Put one action per stage per layer, and write an explicit "none" or "not applicable" in an empty required cell rather than leaving a hole. Waits and system names belong in cell text. Do not turn it into a swimlane: lanes show who hands work to whom with arrows, while a blueprint is a stage-by-layer census. Use a journey map when the point is sentiment with no backstage, a swimlane when ownership and handoff arrows are the claim, and a process flow when the data payloads matter. Emphasize no more than a single cell, the one that carries the point of the figure, such as a breakdown, delay, or transfer between layers. Backstage actions and timings come from observed operations or are labeled inferred or proposed; never invent them to fill a grid. The helper does not render this notation; author it in SVG/HTML with a layer and stage attribute on each cell so the drawing can be compared with its ledger.
 
 ## Flows and swimlanes
 

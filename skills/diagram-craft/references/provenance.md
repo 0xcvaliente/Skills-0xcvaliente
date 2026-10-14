@@ -63,3 +63,32 @@ browser-automation capability statements with an explicit "unverified" fallback;
 one error message in the browser helper no longer mentions a host-bundled
 `NODE_PATH`. The schema, renderer, inspector checks, tests, and examples are
 otherwise unchanged.
+
+## 2026-10-15 upstream review (cathrynlavery/diagram-design, reviewed through `d97c5c7`)
+
+Reviewed the 66 upstream commits from `75f47bb` to `d97c5c7` for ideas only.
+No upstream text, code, schemas, or data contracts were copied; the guidance and
+the new helper checks were written independently here.
+
+Adopted as ideas: a service blueprint diagram type (`9dcaff8`) and architecture
+containment scopes separating administrative from traffic scopes (`a3af885`),
+now guidance in `semantics-and-layout.md` with no new renderer. Export
+robustness (`778bd8b` alpha with presentation opacity, `c959f97` CDATA,
+`e794452` CSS selector scoping, `efcdcaf` live references versus commented
+definitions, `489dbd5` nested icon SVGs and double-hyphen comments) and the
+self-check for content painted outside the viewBox (`1a6a6fc`) became the
+`export_findings` checks behind `diagram.py check` on an HTML/SVG export, with
+tests, plus an "Export robustness" section in `delivery-and-import.md`. Mermaid
+and Excalidraw input edge cases (BOM `3a856cd`, outer Markdown fences `e86841c`,
+bare states `d2efbfb`, sequence fragments across highlight blocks `1a2d5c0`,
+nesting guard `dd5ac3f`) are documented as import guidance only, because this
+package ships no importer. The onboarding source-trust and output-verification
+idea (`d8d7e3b`) became a confirm-before-fetching rule and a verify-inferred-style
+note in `SKILL.md`, without any brand-profile gate.
+
+Skipped: the gallery and navigation (`0482b93`), the type-count guard
+(`3b7c186`, `14f95e2`), chart and geometry verifiers (`be2e736`, `d54f331`,
+`76e7e26`, treemap, heatmap, dumbbell), example re-renders, release and manifest
+bumps, the `--out` error handling (`56940eb`), the multi-PR landing commits
+(`09c1428`, `3560ace`, `4afc31b`) beyond the fixes named above, and the headless
+Chromium doctor (`13b2da4`), since this package has no doctor command.

@@ -1,6 +1,6 @@
 ---
 name: review-animations
-description: "Review a scoped animation diff or component for justified motion, responsiveness, timing, origins, interruption, performance, and accessibility. Return evidence-backed corrections and a calibrated verdict; use improve-animations for a whole-codebase roadmap."
+description: "Review a scoped animation diff or component for justified motion, responsiveness, timing, origins, interruption, performance, and accessibility. Return evidence-backed corrections and a calibrated verdict; use improve-animations for a whole-codebase roadmap and animation-performance to diagnose dropped frames."
 license: MIT
 ---
 

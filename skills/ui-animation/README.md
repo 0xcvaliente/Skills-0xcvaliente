@@ -50,8 +50,8 @@ Install by copying this directory into any [Agent Skills](https://agentskills.io
 
 ## Design collection integration — 2026-10-08
 
-Owns recording analysis, curve fitting, motion diagnosis, gesture mechanics, live tuning, and sparse sound. New web motion routes to `animate`, focused critique to `review-animations`, app-wide improvement plans to `improve-animations`, and discovery to `find-animation-opportunities`. All existing helpers and reference recipes are preserved.
+Owns recording analysis, curve fitting, motion diagnosis, gesture mechanics, live tuning, and sparse sound. New web motion routes to `animate`, focused critique to `review-animations`, app-wide improvement plans to `improve-animations`, discovery to `find-animation-opportunities`, and frame-drop fixes to `animation-performance`. All existing helpers and reference recipes are preserved.
 
-The companion collection adapts all 14 skills from [Emil Kowalski](https://github.com/emilkowalski/skills), reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`. Each adapted package includes its original guide, supporting resources, source checksums, Agent notes, and MIT license. Start with [Emil Design Engineering](../emil-design-eng/README.md) or [Animate](../animate/README.md), then select the specific workflow needed.
+The companion collection adapts all 15 skills from [Emil Kowalski](https://github.com/emilkowalski/skills), 14 of them reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`, plus `animation-performance` at `2d228630ba1446365f614a108cb8252f1feda202`. Each adapted package includes its original guide, supporting resources, source checksums, Agent notes, and MIT license. Start with [Emil Design Engineering](../emil-design-eng/README.md) or [Animate](../animate/README.md), then select the specific workflow needed.
 
 The integration changes instructions and routing; it does not install UI libraries, launch an app, or establish device/browser verification by itself. Existing source guides, helpers, probes, fixtures, and evaluation scenarios remain available.

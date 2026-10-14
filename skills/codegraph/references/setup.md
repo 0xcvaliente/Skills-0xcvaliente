@@ -156,18 +156,34 @@ relying on callers, impact or call paths:
 
 - **JS/TS default imports** can link to the first exported function (often a
   React Router `loader`/`action`) instead of the `export default` declaration.
+  Fixed on upstream main in 33c1436, unreleased as of 2026-10-15; re-check
+  after the next release.
 - **React/Vue tags imported from a package** (`<Button>` from antd, MUI
   `<Typography>`, `<Link>`) can link to an unrelated local component with the
   same name; generic TSX tags such as `<List<Item> …/>` may not link at all.
 - **React Router `lazy` routes** can point at the module's default export rather
-  than the page the loader returns.
+  than the page the loader returns. Fixed on upstream main in a9781b0 (the page
+  the loader picks), with barrel re-export follow-ups 16344af and e30a2c1,
+  unreleased as of 2026-10-15; re-check after the next release.
 - **C++** calls through `std::unique_ptr`/`shared_ptr`/`optional` `->`, bare or
   `this->` method calls, and range-`for` loop variables can resolve by name to
-  the wrong class.
+  the wrong class. Smart-pointer/`optional` `->` calls and calls on declared
+  pointers, values and references are fixed on upstream main in c0f45c7 and
+  fc0da38, unreleased as of 2026-10-15; bare or `this->` method calls and
+  range-`for` loop variables were not individually verified. Re-check after
+  the next release.
 - **Go** calls through a variable bound from a type assertion can link to a
-  same-named method elsewhere.
+  same-named method elsewhere. Fixed on upstream main in 16bc05a (locals bound
+  from a type assertion) and 3de5bef (calls made directly through an
+  assertion), unreleased as of 2026-10-15; re-check after the next release.
 - **Test detection**: files under `unittests/` or `*_unittest/` folders are
   ranked as production code.
+
+Review 2026-10-15: upstream HEAD d0bb9be still has no release after v1.6.2, so
+the pin is unchanged. The annotations above are an upstream-main review only,
+not verified against the pinned runtime. `src/mcp/tools.ts` changed on main
+since v1.6.2, but the default tool exposure did not (still `explore` only,
+`CODEGRAPH_MCP_TOOLS` to widen), so the "defaults to explore only" note holds.
 
 When a release after 1.6.2 ships these fixes, upgrade the pinned version above
 and re-index affected projects.

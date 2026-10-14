@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 46 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 47 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -59,7 +59,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | Skill | Use it to | Example prompt |
 |---|---|---|
 | [`frontend-design`](skills/frontend-design) | Choose a distinctive visual direction (type, color, layout) instead of a templated default. | "Design a landing page for a coffee roastery that doesn't look like a SaaS template" |
-| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop frontend design for landing pages, portfolios and redesigns: infer the brief, pick a direction, avoid templated output. | "Redesign this landing page so it doesn't look AI-generated" |
+| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop art direction (taste-skill v2) for public web pages: draws researched directions from a library, lints and browser-inspects the page, finds open-licence images, and runs a look-and-fix loop. Not for dashboards or app screens. | "Redesign this landing page so it doesn't look AI-generated" |
 | [`ui-design`](skills/ui-design) | Build React/Next/Tailwind UI and audit visual and interaction defects: design systems, dark mode, responsiveness, "UI slop". | "Extract our design system and add dark mode" |
 | [`web-experience-design`](skills/web-experience-design) | Plan and build a whole coherent site or product experience, including cinematic and 3D web. | "Plan and build the new portfolio homepage" |
 | [`web-design-guidelines`](skills/web-design-guidelines) | Review or implement against accessibility, forms, responsive layout, theming, and front-end performance rules. | "Check the signup form against web interface guidelines" |
@@ -70,7 +70,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | [`break-ui`](skills/break-ui) | Stress-test a component with worst-case data, locales, and missing media; reports what breaks. | "Break the ProjectCard with long titles and empty images" |
 | [`ui-verification`](skills/ui-verification) | Run browser probes for focus, hit targets, overflow, themes, failed requests, and performance. | "Verify the nav fix in the browser" |
 | [`mobile-native`](skills/mobile-native) | Fix mobile web/PWA issues: sticky hover, `100vh`, input zoom, safe areas, keyboard layout. | "Inputs zoom in on iOS and the footer jumps under the keyboard" |
-| [`diagram-craft`](skills/diagram-craft) | Produce polished, editable SVG/HTML diagrams (architecture, flows, sequences, states) from code or notes. | "Draw a sequence diagram of the checkout flow from this code" |
+| [`diagram-craft`](skills/diagram-craft) | Produce polished, editable SVG/HTML diagrams (architecture, flows, sequences, states, service blueprints) from code or notes. | "Draw a sequence diagram of the checkout flow from this code" |
 
 ### Motion and animation
 
@@ -78,6 +78,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 |---|---|---|
 | [`animate`](skills/animate) | Implement web UI motion with purposeful timing, interruption, exits, and reduced motion. | "Animate the modal open and close" |
 | [`animate-expo`](skills/animate-expo) | Build React Native/Expo animations, gestures, sheets, and haptics with Reanimated. | "Add a swipe-to-dismiss card in Expo" |
+| [`animation-performance`](skills/animation-performance) | Find why a web animation drops frames and fix it: composite-only properties, main-thread load, per-frame state. | "This drawer drag gets laggy as the list grows" |
 | [`animation-vocabulary`](skills/animation-vocabulary) | Name a motion effect from a description. | "What's it called when a button squishes on press?" |
 | [`find-animation-opportunities`](skills/find-animation-opportunities) | List the state changes that deserve motion and the ones that should stay instant. Read-only. | "Where should this dashboard animate?" |
 | [`review-animations`](skills/review-animations) | Critique an animation diff or component and return a verdict. | "Review the motion in this PR" |
@@ -157,6 +158,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 |---|---|
 | `figma`, `figma-implement-design`, `figma-create-design-system-rules` | Figma MCP server connected to your agent (setup in `skills/figma/references/figma-mcp-config.md`) |
 | `ui-verification`, `strix`, `outlook-email-automation`, `diagram-craft` | A browser automation tool (Playwright, a browser MCP server, or the desktop app's browser pane) |
+| `design-taste-frontend` | Node 18+ for `draw`, `lint` and `assets` scripts; Node 22+ and a local Chrome, Edge or Chromium for `inspect.mjs`; network access for `assets.mjs` (open-licence image sources) |
 | `ui-animation` | Python 3, `ffmpeg` (`brew install ffmpeg`), `pip install opencv-python numpy scipy` |
 | `create-3d-assets` | Blender for mesh work; Python 3 for `scripts/inspect_gltf.py` |
 | `hatch-pet` | Python 3 and an image generation/editing tool |

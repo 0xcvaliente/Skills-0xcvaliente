@@ -62,3 +62,30 @@ Code settings) became capability language (shell, subagents, browser automation)
 with `<skill-dir>` and `~/.agents/skills/` as the install example. The
 authorization, ownership, scope, and data-handling safeguards, the assessment
 method, `upstream.json`, the checker, tests, LICENSE, and NOTICE are unchanged.
+
+## Reviewed update — 2026-10-15
+
+Reviewed the 13 commits from `62b496430da5df5e9e79a190e7af6f92529883a3` to
+`ca20626f844b64e26755b7d78ae206ba8dd3acc9`.
+
+Adopted: `429f621` (#1366), which requires dependency and CVE reports to cite
+every usage site as a code location (file, exact lines, verbatim snippet,
+label) in addition to the manifest line. Rewritten host-neutrally in
+`reporting-and-fixes.md`, with reachability kept separate from severity.
+Re-verified the CLI flags, headless and cloud exit codes, and stream-timeout
+variables in `strix-and-ci.md` against `strix/interface/cli_args.py`,
+`main.py`, `cloud/http.py` and `config/settings.py`; added the deep default
+scan mode, the headless-only `--fail-on`, the `--max-budget-usd` alias, and the
+note that exit 2 also appears for resume-selection errors.
+
+Declined: `87f2d78` (#1520), which removed upstream's caveat that static
+dependency evidence is a prioritization signal and not proof of exploitability
+or of safety. This package keeps and states that caveat, because dropping it
+would weaken safety guidance.
+
+Skipped as engine internals with no effect on the host-neutral workflow:
+runtime sandbox deferral (`4bf7541`, `0f8db1f`, `956a267`), Caido proxy
+logging (`c5854e7`, `d8c00a8`), TUI target boxes (`b68cdb8`, `710fe7b`,
+`442b3c3`), malformed tool-call replay (`ca20626`), tests (`e21f9ce`), and the
+README update note (`f7a32ae`). The file-inventory baseline in `upstream.json`
+was advanced to `ca20626` after this review.

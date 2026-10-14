@@ -95,7 +95,9 @@ Declare `check`, `threads-only`, `drive`, or a requested background monitor.
 `Check on PR` means one status pass; `threads-only` limits work to review
 feedback; `drive` resolves authorized blockers until merge-ready. Requested
 monitoring uses the host's in-session loop or a scheduled routine/cron beyond it,
-if the host offers them.
+if the host offers them. A PR with more than 100 review threads needs paginated
+thread reads; the retained watcher was fixed for this, so a hand-rolled query must
+page too.
 
 Inspect current head, mergeability, required checks, reviews, and unresolved
 threads. Work the lowest unmerged dependency first. One owner coordinates a
@@ -106,12 +108,21 @@ replies follows message authorization. Stop at merge-ready unless merge is autho
 
 ## Shipping
 
-Confirm merge scope and user-owned gates. Verify each PR at its exact current
-head with relevant behavioral proof, checks, and review. Recheck mergeability
-and base drift immediately before merge. Land only the contiguous verified run
-from the root in dependency order. Changed patches need renewed verification.
-A pure rebase preserves evidence only after checking patch equivalence and
-affected dependencies; CI/mergeability still reflect the new head. Respect protections.
+Confirm merge scope and user-owned gates. Use the project's forge CLI or
+integration (GitHub by default); never require Graphite or any particular stacking tool.
+Verify each PR at its exact current head with relevant behavioral proof, checks,
+and review. Only a verdict from a reviewer or verifier that did not write the
+code counts, because an author checks what it meant to build. Green CI and a bot
+approval are inputs, not a verdict. Land only the contiguous verified run
+from the root in dependency order, one PR at a time, bottom first; a verified
+PR above an unverified one waits. Read each PR back after merging, since a
+merge queue can report success while only queueing, and a requested auto-merge
+is not a merge. Changed patches need renewed verification. A pure rebase
+preserves evidence only after checking patch equivalence (for example
+`git patch-id`) and affected dependencies; CI/mergeability still reflect the new
+head. After a merge, retarget the next PR to trunk and push the rebased patch
+with force-with-lease only where those rewrites are authorized. Leave the
+stack alone while it lands, stop at the ceiling of the verified run, and respect protections.
 
 ## Autonomous run
 
@@ -123,8 +134,15 @@ persistence from an active turn; an in-session loop recurs only while the sessio
 ## Orchestrate
 
 For an authorized program, maintain dependencies, owners, branch/worktree
-pointers, exact heads, proof, and operator gates. Partition writes and respect
-concurrency. Count commits, PR changes, and artifacts as progress. Preserve a
+pointers, exact heads, proof, and operator gates. The coordinating chat plans,
+writes briefs, and drains results; it does not author code, and it runs this
+playbook itself rather than handing it to a delegate. Exactly one stacker per
+stack changes topology (chain rebases, force-pushes, base retargets, merges);
+workers never rebase and never retarget or merge PRs, and babysitters report
+conflicts to the stacker. Recompute the frontier (ordered PRs, branches, head
+SHAs) from the forge after every merge or topology change. Choose each
+delegate's reasoning effort and speed for the job (see the runtime notes).
+Partition writes and respect concurrency. Count commits, PR changes, and artifacts as progress. Preserve a
 stuck worker's state before replacement. Standing cadence needs a requested
 host scheduled routine or in-session loop, not an assumed Cursor cloud fleet.
 
@@ -134,12 +152,16 @@ Requires execution scope covering the independent queue and intended merges.
 Stating a plan does not start execution. Keep one owner/branch per independent
 change. Verify code-ready heads, inspect artifacts, absorb relevant base drift,
 and recheck CI/mergeability before authorized merges. Preserve operator gates;
-stop all writes on a hold instruction.
+stop all writes on a hold instruction. Write the final reply as a `ketchup`
+catch-up: each PR's state and verdict, what merged, countersigns, open operator
+gates, and links.
 
 ## Autopilot-stack
 
 Build and verify a dependent queue as one linear stack for the user to land.
-One coordinator owns topology; implementers own slices. Record exact parents
+One coordinator owns topology; implementers own slices. Write the final
+reply as a `ketchup` catch-up with stack root and tip links, a one-line verdict
+per link, and anything parked or excluded with the reason. Record exact parents
 and heads. Re-verify affected proof after conflicts or patch changes. Deliver
 ordered PRs and evidence. Do not merge or arm auto-merge. Rewrites still require
 authorization even when using force-with-lease.
@@ -168,7 +190,9 @@ the actual task; ten agents and performance boxes are not universal requirements
 ## Worktree cleanup
 
 Inventory attached managed and ordinary Git worktrees. Inspect tracked,
-untracked, ignored, unpushed, and nested-repository work. Check PR/merge evidence;
+untracked, ignored, unpushed, and nested-repository work. Check PR/merge evidence
+against the branch PRs actually merge into (the retained auditor takes a base ref
+and otherwise assumes the remote's default branch);
 age or a closed PR does not prove disposability. For requested managed cleanup,
 use the host's managed-worktree tools and preserve needed ignored files separately. Do
 not prune other chats' work or remove simulators incidentally.

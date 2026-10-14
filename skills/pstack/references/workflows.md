@@ -11,6 +11,31 @@ the immediate usage question and supplies a concrete `/pstack <workflow>
 <task>` prompt. Explain capabilities and missing dependencies as needed. No
 global persistent mode or mandatory setup is implied.
 
+## sharpen, in-your-own-words, and ketchup
+
+Explicit-request workflows. Upstream marks each `disable-model-invocation: true`;
+that flag has no effect here, so run them only when the user names them.
+
+- `sharpen`: before starting, ask how a top expert would approach the task (raw
+  sources, real methods, an outside check), what the user is really after, and
+  whether the task is over- or underspecified. Loosen constraints that do not
+  serve the goal, leave the user's choices open, fold in only what improves the
+  work, and always keep one outside check. Do not narrate the framing or hand
+  back a rewritten prompt; then do the work.
+- `in-your-own-words`: restate what you think the user's goals are and the problem
+  they are solving, then wait for correction unless they asked you to proceed.
+- `ketchup`: a read-only catch-up on what changed since the user's last own message
+  (notifications and subagent results are not theirs). Plain short sentences, under
+  150 words including visuals, no hashes, paths, or commands unless the user needs
+  one to act. Open with how many items need them. Show what happened in one small
+  visual (at most four boxes) and each action item as a before/after with your
+  recommendation and what happens if they do not answer (one line for an unasked
+  irreversible step). A visual is a picture (screenshot, video, diagram, chart),
+  not a table. Draw it only from facts you have; if a visible change has no
+  screenshot, mark its box "No screenshot yet" and describe the change in a line
+  under the visual. Never invent numbers or draw a screen you did not capture,
+  mark work done that waits on the user, or take new actions while catching up.
+
 ## how
 
 Trace real entry points, data flow, owners, layering, lifetimes, and exits.
@@ -113,7 +138,9 @@ structural fixes for underlying surprises. Report first unless cleanup was reque
 
 ## unslop, bro, and technical-writing
 
-Unslop tightens requested prose without losing evidence/meaning. Bro restates
+Unslop removes AI patterns from writing: scan for the listed patterns, then
+rewrite, preserving meaning and matching the intended tone. Poteto-mode applies it to
+the final reply too. Bro restates
 the last response plainly. Technical-writing uses the retained layered standard
 to match reader/task, choose document type, order explanations, and write precise
 instructions. Preserve terms, links, and requirements. Do not impose pstack
@@ -141,7 +168,13 @@ skill folder (for example `.agents/skills/verify-<app>/SKILL.md`; also `.claude/
 `.cursor/skills/`, or `.gemini/skills/` as the host requires) or the user's chosen
 location, using a skill-creator skill if one is installed. Include doctor/start/reset, driving commands,
 proof capture, cleanup, and an observed feature map. Adapt retained examples.
-Exercise a real feature before claiming the verifier works.
+Launch must reach a usable state from an empty data directory (migrations and
+seed data included); "ready" means the app is usable, not that a process or
+health check answers. When seed data lacks a precondition a journey needs, report
+the failure in that feature's notes instead of weakening the journey.
+Exercise a real feature before claiming the verifier works. If it was proved in a
+stand-in (a container for a fresh VM, a local stack for a remote one), list the
+setup steps the stand-in did that the real target will not; they stay unverified.
 
 ## maintain-verification-skill
 

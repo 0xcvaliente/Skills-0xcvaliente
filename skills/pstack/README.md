@@ -3,13 +3,13 @@
 Pstack's engineering workflows adapted into one installable, host-neutral Agent Skill
 (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode, or plain chat).
 Based on [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack)
-0.15.15. Go deep first, write less code, and verify the result against the real artifact.
+0.15.24. Go deep first, write less code, and verify the result against the real artifact.
 
-The package includes native host-neutral routing and **all 164 original upstream files**:
+The package includes native host-neutral routing and **all 169 original upstream files**:
 
 | Material | Included |
 |---|---|
-| Main and situational workflows | 27, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, and writing/verification maintenance. |
+| Main and situational workflows | 30, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, writing/verification maintenance, and the explicit-request `sharpen`, `in-your-own-words`, and `ketchup`. |
 | Engineering principles | All 24 full principle sources. |
 | Poteto playbooks | All 23 originals plus host-neutral execution guidance for each. |
 | Agent definitions | Poteto Agent and Comment Sicko as reference prompts. |
@@ -154,7 +154,7 @@ Installed copies do not automatically update when GitHub changes.
 
 MIT, copyright 2026 Lauren Tan. The [original license](LICENSE) is retained in
 the package and source snapshot. Reviewed revision:
-[`ccb5507cec1546dc88135c1139c811e6c59115ba`](https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack),
-2026-10-08. See [provenance and adaptation notes](references/provenance.md).
+[`1e5c90a4b6f249917bd21fe361b3a2a7deb741b8`](https://github.com/cursor/plugins/tree/1e5c90a4b6f249917bd21fe361b3a2a7deb741b8/pstack),
+2026-10-15 (pstack 0.15.24). See [provenance and adaptation notes](references/provenance.md).
 This is a personal host-neutral adaptation, derived from earlier Codex and Claude Code ports;
 no affiliation or endorsement is claimed.

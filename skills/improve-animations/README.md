@@ -1,6 +1,6 @@
 # Improve Animations
 
-Audit existing motion across a requested codebase or subsystem and produce prioritized, self-contained improvement plans. Use for a motion roadmap; use review-animations for a single diff and animate for a focused implementation.
+Audit existing motion across a requested codebase or subsystem and produce prioritized, self-contained improvement plans. Use for a motion roadmap; use review-animations for a single diff, animate for a focused implementation, and animation-performance for frame-drop diagnosis.
 
 Adapted for Agent Skills–compatible agents from [Emil Kowalski’s skills](https://github.com/emilkowalski/skills),
 pinned to [`e8a175de22ae`](https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d).

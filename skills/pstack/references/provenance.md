@@ -83,3 +83,37 @@ Code-only names (Agent tool, AskUserQuestion, TodoWrite, `/loop`, `/schedule`,
 project data moved from `.claude/pstack.json` and `.claude/benny/` to
 `.agents/pstack.json` and `.agents/benny/`. Retained upstream files, the manifest,
 and the license are unchanged.
+
+## Upstream sync 2026-10-15
+
+Refreshed on 2026-10-15 from `ccb5507cec1546dc88135c1139c811e6c59115ba` (0.15.15)
+to `1e5c90a4b6f249917bd21fe361b3a2a7deb741b8` (short `1e5c90a`, 0.15.24), the latest
+commit touching `pstack/` in cursor/plugins. No upstream file was deleted or renamed.
+
+- `references/upstream/` and `references/upstream-manifest.json` were rebuilt from
+  the new revision with the same layout: 169 files (was 164), 57 `SKILL.md`
+  entrypoints stored as `SKILL.md.source` (was 54), bytes and modes unchanged.
+  Added: `skills/sharpen`, `skills/in-your-own-words`, `skills/ketchup` (each
+  `disable-model-invocation: true` upstream), the root `plugin.json`, and
+  `skills/poteto-mode/scripts/check-plan.test.ts`. 82 other files changed, including
+  the orchestrate and shipping playbooks (Graphite removed, one stacker, workers never
+  retarget or merge, per-job subagent effort), poteto-mode and poteto-agent
+  (the receiving chat runs the playbook; delegates only), worktree-audit and
+  worktree-cleanup (MERGED against a chosen base ref), check-plan (fenced code),
+  watch-pr (review-thread pagination), the orch store rewrite,
+  create-verification-skill, the unslop description, the Comment Sicko agent id,
+  and prompt trims across many skills.
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical. No other runnable upstream copy ships outside
+  `references/upstream/`.
+- Local host-neutral layer merged by hand: `SKILL.md`, `README.md`,
+  `references/catalog.md`, `workflows.md`, `playbooks.md`, `host-runtime.md`, and
+  the file count in `tests/test_helpers.py`. Cursor mechanics (Task, `subagent_type`,
+  `generalPurpose`, Graphite, model slugs, cloud environments) were mapped to
+  capability vocabulary rather than copied.
+- Skipped: Cursor plugin metadata and frontmatter keys (no effect here); the
+  `disable-model-invocation` flag (these skills run only on explicit request by
+  instruction); Cursor-specific `.cursor/` paths and cloud-agent mechanics; model
+  slug changes. Retained scripts were not ported or executed. The `SKILL.md`
+  description is unchanged.

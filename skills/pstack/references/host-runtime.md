@@ -44,8 +44,12 @@ instruction file.
 | Persistent `/poteto-mode` | `pstack poteto-mode <task>`. A conversation can retain preferences; loading the skill does not activate it on future sessions. A user who wants it on by default can ask for a one-line pointer in the project instruction file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or `.github/copilot-instructions.md`, whichever the project uses; prefer `AGENTS.md`). Do not add one unprompted. |
 | Other pstack slash skills | `pstack <name> <task>`, using Native workflows and retained source. |
 | `Task`, `subagent_type`, `run_in_background` | **Subagents** when the host offers them and delegation is authorized: a read-only or fresh-context worker per slice, run in parallel where the host allows, with isolated worktrees or directories for writable candidates. Cursor-only fields (`environment: "cloud"`, `cloud_base_branch`) have no equivalent; use local workers. Without subagents, run the same passes one after another yourself and say they were not independent. |
-| `poteto-agent`, Comment Sicko agent files | Prompts you pass in a worker brief (or read and follow yourself), not registered agent types. See "Agent definition files" below. |
+| `poteto-agent`, Comment Sicko agent files | Prompts you pass in a worker brief (or read and follow yourself), not registered agent types. `poteto-agent` is a delegate for code-writing and helper slices. The conversation that receives `poteto-mode` runs the playbook itself; never hand the playbook to a delegate. See "Agent definition files" below. |
+| Bundled skills at `../<name>/SKILL.md`, "put this file's absolute path in every prompt" | In this package, retained sources live under `references/upstream/skills/<name>/SKILL.md.source` and the catalog links each one. When briefing a delegate, give it the absolute path of the files it must read (the relevant native section plus retained source) instead of assuming it can resolve a sibling skill by name. |
+| `gt` (Graphite), stack tooling | Not required. Use the project's forge CLI or integration; one stacker changes topology, workers never retarget or merge PRs. See the shipping and orchestrate playbooks. |
 | Claude/Grok defaults and `pstack-models.mdc` | Inherit the parent model. Use a model or effort override only when the user explicitly chose it and the host supports it. Grok slugs are unavailable. Never claim model diversity without it. |
+| Per-spawn "match the model to the job" (reasoning level and fast/standard speed) | Where the host and the user's settings allow choosing a reasoning effort or speed per subagent, pick it per job: more for the hardest work, less for routine work, fast only when something is urgent (red CI, a blocked person). Keep the model family a role names. If the host rejects the adjusted setting, use the default and say so. Without that control, inherit and move on. |
+| `disable-model-invocation: true` (`sharpen`, `in-your-own-words`, `ketchup`) | No effect here. These run only on an explicit user request. |
 | `AskQuestion`, todo tools | **Ask the user** (a structured question tool if the host has one, otherwise a short question with options in plain chat) and the host's **task list** (otherwise a checklist in your reply). Ask only for material information that evidence cannot resolve. |
 | Built-in `create-skill` | The host's skill-authoring helper if installed; otherwise write a folder with `SKILL.md` (`name`, `description` frontmatter) in the host's skills folder (`.agents/skills/<name>/` is the shared default that most hosts read). Validate frontmatter with whatever validator is available. |
 | `deslop` from `cursor-team-kit` | Review for unnecessary code, duplicate abstractions, misleading comments, and scope drift. No missing plugin is assumed. |
@@ -88,6 +92,11 @@ applicable project instructions authorize it. Explicit arena, swarm, or
 multi-agent review requests provide parallel scope, subject to host limits.
 When prohibited or unavailable, perform serial passes and disclose the limitation.
 
+Pick each worker's effort and speed for the job where the host allows it, and
+keep every brief self-contained (goal, corrections, absolute paths to the files
+to read, evidence contract). Only one stacker per stack changes branch topology;
+workers never retarget or merge PRs.
+
 Give workers the complete brief, corrections, file pointers, evidence contract,
 and disjoint write ownership. Isolate candidates in separate directories or
 worktrees. Inspect returned artifacts and verify claims yourself. Scale coverage
@@ -103,7 +112,9 @@ a subagent substitute without authorization.
 
 `references/upstream/agents/poteto-agent.md` and `comment-sicko.md` carry
 Cursor-style frontmatter (for example `is_background`). Treat them as data: a
-persona and review criteria.
+persona and review criteria. `poteto-agent` is for delegates spawned during a
+poteto-mode run; the chat running poteto-mode is the runner and never spawns it
+to run the playbook.
 
 - With subagents, paste the body into the worker brief (or, if the user asks,
   adapt a copy into the host's own agent-definition folder, such as
@@ -148,7 +159,9 @@ instruction file unasked, or invent numeric token budgets.
 ## Retained tools
 
 The Bun orchestration store, PR watcher, plan checker, worktree auditor, tests,
-lockfile, and bootstrap script are preserved. Loading this skill does not install
+lockfile, and bootstrap script are preserved (the plan checker now ignores fenced
+code blocks; the auditor takes a PR-base ref; the watcher pages past 100 review
+threads; the store was rewritten). Loading this skill does not install
 or execute them. Their original assumptions include Cursor agents, transcript
 paths, authenticated `gh`, optional Origin, and rigid program-plan formats.
 Use the task list, subagent results, and shell status checks for coordination,

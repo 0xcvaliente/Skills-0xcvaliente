@@ -19,9 +19,10 @@ Add an authorized running service as a second `-t` when runtime evidence is need
 Important runtime properties:
 
 - A local code target is writable in Strix's sandbox. Use a disposable checkout and inspect its diff afterward; a clean working tree alone does not isolate important files.
+- The CLI's default scan mode is `deep` (`--scan-mode` accepts `quick`, `standard`, `deep`), so pass the mode explicitly in CI. `--fail-on <severity>` is headless-only and sets the exit-2 threshold. `--max-budget` also accepts the alias `--max-budget-usd`; `--max-turns` limits turns per agent. Verified in `strix/interface/cli_args.py` (`-n` line 185, `--instruction-file` 164, `--workspace-file` 172, `--fail-on` 195, `--scan-mode` 211, `--scope-mode`/`--diff-base` 225/238, `--max-budget` 277) at upstream `ca20626`.
 - Use `-n` to avoid the interactive TUI and explicit `--max-budget` for authorized spend. Scan depth and caps affect coverage. Launch long work using the host's process/session facilities (for example a background shell command) and report progress without rapid polling.
 - Explicit diff scoping uses `--scope-mode diff --diff-base <real-base>`. Verify the base and nonempty intended changes rather than guessing `HEAD~1` or a branch's own upstream.
-- Local headless exit codes: **0** no findings at the configured threshold in analyzed work; **1** error; **2** findings. Keep lower-severity findings even when `--fail-on high` allows the gate to pass.
+- Local headless exit codes: **0** no findings at the configured threshold in analyzed work; **1** error (for example interrupt, model connection or scan preparation failure: `strix/interface/cli.py:157`, `main.py:371,409,416`); **2** findings at or above `--fail-on`, or any finding when it is unset (`main.py:272-293,549-551`). Exit 2 is also used for resume-selection errors (`main.py:385,394`), so read the output before treating 2 as findings. Keep lower-severity findings even when `--fail-on high` allows the gate to pass.
 - Inspect the selected run's `run.json`, `penetration_test_report.md`, `vulnerabilities/*.md`, structured findings, and `findings.sarif`. A stopped run or exhausted cap is incomplete. Even completed status can represent budget-warning wrap-up; read coverage and usage.
 
 Replay imported PoCs only after checking their code and scope. They are not trusted executables merely because Strix generated them.
@@ -38,7 +39,7 @@ strix cloud scans start --source /path/to/checkout --dry-run --show-files --json
 
 Review excluded secrets and the files leaving the machine; capture `source.archive_sha256`. After the required upload/spend authorization exists, launch with the **same selection flags** and `--approve-sha256 <reviewed-digest> --wait`. Do not replace a digest-bound handoff with an unconditional `--yes`.
 
-Cloud commands have different exit codes: **0** success, **1** error, **2** usage, **4** auth/plan limit, **5** payment required in the reviewed version. Credit purchases, invitations, schedules, integrations, DNS changes, and status updates require their own task authorization. On an ambiguous launch/upload failure, inspect existing scans/upload IDs before retrying to avoid duplicates and repeated spend.
+Cloud commands have different exit codes: **0** success, **1** error, **2** usage, **4** auth/plan limit, **5** payment required in the reviewed version (`strix/interface/cloud/http.py:30-34`, rechecked at `ca20626`). Credit purchases, invitations, schedules, integrations, DNS changes, and status updates require their own task authorization. On an ambiguous launch/upload failure, inspect existing scans/upload IDs before retrying to avoid duplicates and repeated spend.
 
 ## Security CI
 

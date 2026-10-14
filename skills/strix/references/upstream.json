@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "usestrix/strix",
-  "reviewed_commit": "62b496430da5df5e9e79a190e7af6f92529883a3",
-  "reviewed_tree": "a41270e6597885a5fbe8e800d5a9da9de64e8313",
+  "reviewed_commit": "ca20626f844b64e26755b7d78ae206ba8dd3acc9",
+  "reviewed_tree": "8d573f1af9ee5e03627fc0a7465ac4a8622b2056",
   "reviewed_default_branch": "main",
-  "reviewed_at": "2026-10-10",
+  "reviewed_at": "2026-10-15",
   "files": {
     ".github/ISSUE_TEMPLATE/bug_report.md": {
       "sha": "85919cefe8ec2acccfbc74c2692b1148b7dc87fd",
@@ -102,7 +102,7 @@
       "type": "blob"
     },
     "README.md": {
-      "sha": "f93b23765be4ad46ab5acf7a111da60f6578a3dd",
+      "sha": "5134c8bd101aff86346c7b648d80575ec5b862ae",
       "mode": "100644",
       "type": "blob"
     },
@@ -387,7 +387,7 @@
       "type": "blob"
     },
     "strix/agents/factory.py": {
-      "sha": "4cd9e0378f240eb568d06c593f99711c223adf10",
+      "sha": "82b633a259b21be2190933ebbda9bb07d8a06622",
       "mode": "100644",
       "type": "blob"
     },
@@ -422,12 +422,17 @@
       "type": "blob"
     },
     "strix/config/models.py": {
-      "sha": "f36c1d9eb80799b6e64c87de520fad48430b3594",
+      "sha": "dfd54cb9b0c32a19ef56058453ec51f246bb8d80",
       "mode": "100644",
       "type": "blob"
     },
     "strix/config/settings.py": {
       "sha": "5aa6da067eef222e114907d519a125917bc81ce8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "strix/config/tool_call_arguments.py": {
+      "sha": "4860ecf8aba709c4a4a62f0640652b63ed27f10f",
       "mode": "100644",
       "type": "blob"
     },
@@ -472,7 +477,7 @@
       "type": "blob"
     },
     "strix/core/runner.py": {
-      "sha": "f9bb494044ce0dcf69ff97b87593b73caa4ebb2c",
+      "sha": "5c5182a6383646d2c6c8f1ac2083e3f522edbb07",
       "mode": "100644",
       "type": "blob"
     },
@@ -712,12 +717,12 @@
       "type": "blob"
     },
     "strix/interface/tui/internal/app/panels.go": {
-      "sha": "86f0fac4e7dc2251f2992def21a16dd96cd53127",
+      "sha": "c9cba8a0ef1d120715b0f890a7d8991d5bf5becd",
       "mode": "100644",
       "type": "blob"
     },
     "strix/interface/tui/internal/app/panels_test.go": {
-      "sha": "0e783e9e721e7540a67f7558a799024235b480d8",
+      "sha": "4528271d5a6f2cee4af19495eb29ae93255229ee",
       "mode": "100644",
       "type": "blob"
     },
@@ -732,7 +737,7 @@
       "type": "blob"
     },
     "strix/interface/tui/internal/app/setup.go": {
-      "sha": "89e5cb2469a1fe51b5d359b20431d586edd23393",
+      "sha": "9b1b17a9cae4fb9b830ac0d9394026e0f285535d",
       "mode": "100644",
       "type": "blob"
     },
@@ -757,7 +762,7 @@
       "type": "blob"
     },
     "strix/interface/tui/internal/app/view.go": {
-      "sha": "a723919e89f177d1d51777239c03352b937e3b14",
+      "sha": "df4acaa2c9df7c9a8aeab77b95ca06188e7f3493",
       "mode": "100644",
       "type": "blob"
     },
@@ -1476,6 +1481,11 @@
       "mode": "100644",
       "type": "blob"
     },
+    "strix/runtime/deferred_session.py": {
+      "sha": "b2f9a7d0244008b87c7e8ca2d53d1b283b9f873d",
+      "mode": "100644",
+      "type": "blob"
+    },
     "strix/runtime/docker_client.py": {
       "sha": "969267d53261a6c8ff7c20c5d8bea0b5d9397968",
       "mode": "100644",
@@ -1487,7 +1497,7 @@
       "type": "blob"
     },
     "strix/runtime/session_manager.py": {
-      "sha": "a8447ebbe3b47cc9db393cc4a938e8194f11015b",
+      "sha": "d92b1fdbd47a569c5d24be1022133ff132cb158e",
       "mode": "100644",
       "type": "blob"
     },
@@ -1572,7 +1582,7 @@
       "type": "blob"
     },
     "strix/skills/custom/dependency_cve_scanning.md": {
-      "sha": "9c5139c3478bfbb3650b4b226fdd7728335e7b14",
+      "sha": "349dd2b796a64a21714f80ae12b3603181426568",
       "mode": "100644",
       "type": "blob"
     },
@@ -2057,7 +2067,7 @@
       "type": "blob"
     },
     "strix/tools/proxy/tools.py": {
-      "sha": "0dc2a03c78a844279b0d17655403c48f90ab2d49",
+      "sha": "d6b09e7ea8bc70bb98af9b41afbba89d7f0a52fb",
       "mode": "100644",
       "type": "blob"
     },
@@ -2067,7 +2077,7 @@
       "type": "blob"
     },
     "strix/tools/reporting/tool.py": {
-      "sha": "e98201996bbba676bf36e762c06a2a481fbe6774",
+      "sha": "791bae7961610d6bfde9a5a0c9f54d3d27378be5",
       "mode": "100644",
       "type": "blob"
     },
@@ -2167,7 +2177,7 @@
       "type": "blob"
     },
     "tests/test_agent_factory_tool_arguments.py": {
-      "sha": "d75039445ba0f432feb1bbe8843b5bd60fa43e0b",
+      "sha": "e7bb746586c02f5fbb9a423a32724ad543d737e7",
       "mode": "100644",
       "type": "blob"
     },
@@ -2302,7 +2312,7 @@
       "type": "blob"
     },
     "tests/test_cost_tracking.py": {
-      "sha": "572143eb128cdbd9d3cb8fcb1f17b909416858e2",
+      "sha": "a855e59d6a961d6c9c69aa6664276604ef184f2b",
       "mode": "100644",
       "type": "blob"
     },
@@ -2313,6 +2323,11 @@
     },
     "tests/test_dedupe_model.py": {
       "sha": "809867b167457be4204d59894032fcbdafd88f4a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_deferred_session.py": {
+      "sha": "774426fb0a460bd6db66ed9aeed2f2b818bf4570",
       "mode": "100644",
       "type": "blob"
     },
@@ -2467,7 +2482,7 @@
       "type": "blob"
     },
     "tests/test_proxy_client.py": {
-      "sha": "ec21925caae30ce600b61e17eaa11f6f31e43621",
+      "sha": "fba20787463daae50962e75ed87e1ef7959574e4",
       "mode": "100644",
       "type": "blob"
     },
@@ -2492,7 +2507,7 @@
       "type": "blob"
     },
     "tests/test_reporting_fields.py": {
-      "sha": "a188734549bcc93590f25f9ed48ed13b00d02e05",
+      "sha": "558a2b64009371c3812a72583fa4862e5e1bc3e5",
       "mode": "100644",
       "type": "blob"
     },
@@ -2502,7 +2517,7 @@
       "type": "blob"
     },
     "tests/test_resume_picker.py": {
-      "sha": "31bbf9ec78f075beffb5b77300f01c8db31dfc49",
+      "sha": "6fab9f6bd20f52a7b2f42e28bb1def6a68f7f9f7",
       "mode": "100644",
       "type": "blob"
     },
@@ -2598,6 +2613,11 @@
     },
     "tests/test_todo.py": {
       "sha": "036bcacc310899721e2937e7dca6b7cf7a5cb9ef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_tool_call_arguments.py": {
+      "sha": "d380f656fa0a2f7005f8809f8fb72969b4cd44d4",
       "mode": "100644",
       "type": "blob"
     },

@@ -1,6 +1,6 @@
 ---
 name: ui-design
-description: Designs and builds React/Next/Tailwind UI and audits visual and interaction defects. Use when asked to "build a landing page", "extract our design system", "add dark mode", "make this responsive", "remove UI slop", or "audit this component". For product decisions use product-design; for browser measurements use ui-verification; for new motion use animate; for motion critique use review-animations; for recording analysis use ui-animation.
+description: Designs and builds React/Next/Tailwind UI and audits visual and interaction defects. Use when asked to "build a landing page", "extract our design system", "add dark mode", "make this responsive", "remove UI slop", or "audit this component". For product decisions use product-design (not bundled here); for browser measurements use ui-verification; for new motion use animate; for motion critique use review-animations; for recording analysis use ui-animation.
 ---
 
 # UI Design
@@ -224,7 +224,7 @@ Taken as compact audit rules and build bullets, not as vendored skills:
 - Jakub Krehel and Gustavo Fior craft notes: OKLCH ramps, optical compensation on dark surfaces, faint grain against banding, squircles on icon tiles only. Nested radius, hit areas, interruptible motion, and image outlines already lived in this collection.
 - Paco Coursey: theme-toggle transition gating already lived in `ui-animation`. SVG-plus-backdrop blur stays in `materials.md`.
 
-Integrated companion collection: [emilkowalski/skills](https://github.com/emilkowalski/skills), reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`. Its 14 adapted packages retain their complete source guides, resources, and MIT notices. Use the focused routing below rather than loading all of them into an audit.
+Integrated companion collection: [emilkowalski/skills](https://github.com/emilkowalski/skills), 14 of them reviewed at `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`, plus `animation-performance` at `2d228630ba1446365f614a108cb8252f1feda202`. Its 15 adapted packages retain their complete source guides, resources, and MIT notices. Use the focused routing below rather than loading all of them into an audit.
 
 Other overlapping collections not bundled:
 

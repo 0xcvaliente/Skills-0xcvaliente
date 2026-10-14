@@ -1,6 +1,6 @@
 # Animate
 
-Build web UI animations and transitions with purposeful timing, interruption, exits, and reduced motion. Use for implementing motion in a component; use review-animations for critique, improve-animations for a motion roadmap, and animate-expo for React Native.
+Build web UI animations and transitions with purposeful timing, interruption, exits, and reduced motion. Use for implementing motion in a component; use review-animations for critique, animation-performance for dropped frames, improve-animations for a motion roadmap, and animate-expo for React Native.
 
 Adapted for Agent Skills–compatible agents from [Emil Kowalski’s skills](https://github.com/emilkowalski/skills),
 pinned to [`e8a175de22ae`](https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d).

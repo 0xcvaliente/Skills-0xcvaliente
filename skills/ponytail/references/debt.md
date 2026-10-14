@@ -6,17 +6,30 @@ Use the repository root when no narrower scope is named.
 Start with a broad search, then inspect candidates in their source context:
 
 ```bash
-rg -n --hidden -g '!.git/**' -g '!node_modules/**' -g '!dist/**' -g '!build/**' \
-  '(shortcut|ponytail):' .
+git grep --no-index --exclude-standard -nE '(#|//|/[*]) ?(shortcut|ponytail):'
 ```
 
-Run from the selected scope. Respect project ignore rules and exclude other
-generated output or vendored directories when relevant. `rg` exit 1 means no
-matches; an actual search error is not a clean ledger. When `rg` is unavailable,
-use a comparable recursive search.
+Run from the selected scope. This skips `.git` and everything the project's
+`.gitignore` files ignore (dependencies, build output, caches, in any stack)
+instead of hard-coding folder names; add other comment prefixes if the stack
+uses them. Respect project ignore rules and exclude other generated output or
+vendored directories when relevant. `git grep` exit 1 means no matches; an
+actual search error is not a clean ledger.
+
+Outside a git repository or without git, use `rg --no-require-git`, which keeps
+reading `.gitignore` and `.ignore` files even when there is no git work tree
+(plain `rg` ignores them outside git). `rg` skips hidden paths such as `.git`
+by default:
+
+```bash
+rg --no-require-git -n -e '(#|//|/[*]) ?(shortcut|ponytail):' .
+```
+
+When neither is available, use a comparable recursive search that skips
+`.git` and ignored paths.
 
 If the user supplies a marker such as `debt TODO`, search that literal with
-`rg -F -e 'TODO'` instead; do not interpolate a supplied marker into shell code
+`git grep --no-index --exclude-standard -nF -e 'TODO'` (or `rg --no-require-git -F -e 'TODO'`) instead; do not interpolate a supplied marker into shell code
 or a regular expression.
 
 Count comments in the language's real comment syntax, including inline and

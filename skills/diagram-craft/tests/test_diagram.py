@@ -81,6 +81,90 @@ class DiagramTests(unittest.TestCase):
         no_generic = '<svg font-family="Inter, Helvetica"></svg>'
         self.assertTrue(any("generic fallback" in f for f in diagram.offline_font_findings(no_generic)))
 
+    def export(self, body, view="0 0 100 50", wrap="{}"):
+        return wrap.format(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{view}">{body}</svg>')
+
+    def test_shipped_exports_pass_export_checks(self):
+        for path in ROOT.glob("assets/**/*.svg"):
+            with self.subTest(path=path.name):
+                self.assertEqual(diagram.export_findings(path.read_text(encoding="utf-8"), False), [])
+
+    def test_content_outside_viewbox_is_flagged(self):
+        inside = self.export('<rect x="0" y="0" width="100" height="50"/>')
+        self.assertEqual(diagram.export_findings(inside), [])
+        for body in ('<rect x="90" y="10" width="20" height="10"/>', '<circle cx="5" cy="5" r="10"/>',
+                     '<polyline points="0,0 120,10"/>', '<text x="10" y="80">late</text>'):
+            with self.subTest(body=body):
+                found = diagram.export_findings(self.export(body))
+                self.assertTrue(any("outside the viewBox" in f for f in found), found)
+
+    def test_viewbox_check_skips_unmeasurable_content(self):
+        for body in ('<g transform="translate(200 0)"><rect width="10" height="10"/></g>',
+                     '<defs><rect x="500" width="10" height="10"/></defs>',
+                     '<rect x="500" width="10" height="10" display="none"/>',
+                     '<rect x="500" width="0" height="10"/>',
+                     '<rect x="50%" width="10" height="10"/>'):
+            with self.subTest(body=body):
+                self.assertEqual(diagram.export_findings(self.export(body)), [])
+
+    def test_viewbox_offset_and_missing_size(self):
+        shifted = self.export('<rect x="-20" y="-20" width="10" height="10"/>', view="-30 -30 100 50")
+        self.assertEqual(diagram.export_findings(shifted), [])
+        bad = self.export("", view="0 0 0 50")
+        self.assertTrue(any("viewBox" in f for f in diagram.export_findings(bad)))
+        bare = '<svg xmlns="http://www.w3.org/2000/svg"><rect width="5" height="5"/></svg>'
+        self.assertTrue(any("cannot be checked" in f for f in diagram.export_findings(bare)))
+
+    def test_alpha_paint_and_dangling_reference_flagged(self):
+        found = diagram.export_findings(self.export('<rect width="5" height="5" fill="rgba(0,0,0,.5)" stroke="#11223380"/>'))
+        self.assertEqual(sum("alpha" in f for f in found), 2)
+        ok = self.export('<rect width="5" height="5" fill="#000" fill-opacity=".5"/>')
+        self.assertEqual(diagram.export_findings(ok), [])
+        dangling = self.export('<path d="M0 0" marker-end="url(#gone)"/>')
+        self.assertTrue(any("missing id 'gone'" in f for f in diagram.export_findings(dangling)))
+
+    def test_alpha_in_inline_style_flagged(self):
+        for style in ("fill:rgba(0,0,0,.5)", "stroke: #11223380 !important", "stop-color:hsla(0,0%,0%,.4);opacity:1"):
+            with self.subTest(style=style):
+                found = diagram.export_findings(self.export(f'<rect width="5" height="5" style="{style}"/>'))
+                self.assertTrue(any("alpha" in f for f in found), found)
+        ok = self.export('<rect width="5" height="5" style="fill:#000;fill-opacity:.5;stroke:rgb(1,2,3)"/>')
+        self.assertEqual(diagram.export_findings(ok), [])
+
+    def test_embedded_figures_need_scoped_ids_and_styles(self):
+        one = self.export('<style>.node{fill:red}</style><rect id="a" width="5" height="5"/>')
+        self.assertEqual(diagram.export_findings(one), [])
+        two = f"<main>{one}{one}</main>"
+        found = diagram.export_findings(two)
+        self.assertTrue(any("also used by" in f for f in found))
+        self.assertTrue(any("not scoped" in f for f in found))
+        scoped = lambda n: self.export(f'<style>#f{n} .node{{fill:red}}</style><rect id="f{n}" width="5" height="5"/>')
+        self.assertEqual(diagram.export_findings(scoped(1) + scoped(2)), [])
+
+    def test_cdata_is_html_only_and_comments_are_inert(self):
+        body = '<style><![CDATA[.a{fill:red}]]></style><!-- note: a-b --><rect width="5" height="5"/>'
+        svg = self.export(body)
+        self.assertEqual(diagram.export_findings(svg, False), [])
+        self.assertTrue(any("CDATA" in f for f in diagram.export_findings(svg, True)))
+
+    def test_nested_icon_svg_does_not_end_the_figure_early(self):
+        nested = self.export('<svg viewBox="0 0 10 10" x="2" y="2" width="10" height="10"><circle r="3" cx="5" cy="5"/></svg><rect x="90" width="20" height="5"/>')
+        found = diagram.export_findings(nested)
+        self.assertEqual(len(diagram.inline_svgs(nested)), 1)
+        self.assertTrue(any("<rect> extends outside" in f for f in found), found)
+
+    def test_check_command_reports_export_findings(self):
+        import subprocess, sys
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "bad.svg"
+            path.write_text(self.export('<rect x="200" width="5" height="5"/>'), encoding="utf-8")
+            run = subprocess.run([sys.executable, str(ROOT / "scripts" / "diagram.py"), "check", str(path)],
+                                 capture_output=True, text=True)
+            self.assertEqual(run.returncode, 1)
+            result = json.loads(run.stdout)
+            self.assertFalse(result["ok"])
+            self.assertTrue(result["export"])
+
     def test_strings_are_escaped_and_model_is_preserved(self):
         self.scene["nodes"][0]["label"] = '<script>alert("x")</script> & café'
         self.scene["notes"] = ["<img src=x onerror=alert(1)>"]
