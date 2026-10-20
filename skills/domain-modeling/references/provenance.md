@@ -11,3 +11,7 @@ Ported from the Codex version on 2026-10-10. The README's install and usage sect
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. README install and examples are host-neutral (`~/.agents/skills/`, "use the skill" phrasing). Skill guidance is unchanged.
+
+## Upstream review 2026-10-20
+
+Checked against mattpocock/skills `5beb35b040e3de97e54fa9e386d7e42d15c295c2`: no changes to `skills/engineering/domain-modeling` since `b0618bc436ad893b3c5e84e55fba86586d34a404`.

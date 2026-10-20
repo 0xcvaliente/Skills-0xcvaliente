@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "usestrix/strix",
-  "reviewed_commit": "ca20626f844b64e26755b7d78ae206ba8dd3acc9",
-  "reviewed_tree": "8d573f1af9ee5e03627fc0a7465ac4a8622b2056",
+  "reviewed_commit": "aa2036f22942eed3ecd142169289a256a2e7acb7",
+  "reviewed_tree": "e9e88dbfad84b502980fc7424b1921f98812e0b6",
   "reviewed_default_branch": "main",
-  "reviewed_at": "2026-10-15",
+  "reviewed_at": "2026-10-20",
   "files": {
     ".github/ISSUE_TEMPLATE/bug_report.md": {
       "sha": "85919cefe8ec2acccfbc74c2692b1148b7dc87fd",
@@ -127,7 +127,7 @@
       "type": "blob"
     },
     "docs/advanced/configuration.mdx": {
-      "sha": "c245b364ce4b14465fccd2bd81bb5a3759e9ee90",
+      "sha": "f14b110f41a14a1e0fdb5f80f213183b6c69a90b",
       "mode": "100644",
       "type": "blob"
     },
@@ -212,7 +212,7 @@
       "type": "blob"
     },
     "docs/llm-providers/local.mdx": {
-      "sha": "58b37509baf110e4c01e4890c66d44fe374740a9",
+      "sha": "cd2ca635c518da1c2e7574efa86c299851f71a67",
       "mode": "100644",
       "type": "blob"
     },
@@ -387,7 +387,7 @@
       "type": "blob"
     },
     "strix/agents/factory.py": {
-      "sha": "82b633a259b21be2190933ebbda9bb07d8a06622",
+      "sha": "ca27e4f9a9014d9cac56531a48c079d8769fe13b",
       "mode": "100644",
       "type": "blob"
     },
@@ -417,17 +417,17 @@
       "type": "blob"
     },
     "strix/config/loader.py": {
-      "sha": "e6edd548411687c8bf0b51f60226e6838634b223",
+      "sha": "9edee5bc0d7a151525ed7499ccdd405406a82310",
       "mode": "100644",
       "type": "blob"
     },
     "strix/config/models.py": {
-      "sha": "dfd54cb9b0c32a19ef56058453ec51f246bb8d80",
+      "sha": "d9127ee8f545bbf2ddf6a7d9f28d2e19f2855120",
       "mode": "100644",
       "type": "blob"
     },
     "strix/config/settings.py": {
-      "sha": "5aa6da067eef222e114907d519a125917bc81ce8",
+      "sha": "22e6c596a93424fba9c1d2716dd487f5b61e1ec6",
       "mode": "100644",
       "type": "blob"
     },
@@ -452,22 +452,22 @@
       "type": "blob"
     },
     "strix/core/agents.py": {
-      "sha": "7e738be1d25c2913167bfceb42485743efe415a5",
+      "sha": "7ff04f0fa5fde9552c3bf429da45d1b5b6e3fdb8",
       "mode": "100644",
       "type": "blob"
     },
     "strix/core/execution.py": {
-      "sha": "87a2bf0295097051aaa3ad9be10532c3e6695717",
+      "sha": "3bb9a5fe6eca3041846c40661bd41a873dd7004a",
       "mode": "100644",
       "type": "blob"
     },
     "strix/core/hooks.py": {
-      "sha": "06650be92753f18aec4d5ab36e6f8e2a1f315f41",
+      "sha": "daddda1ba11c5bfb67b5fb32ea042b68fb166c01",
       "mode": "100644",
       "type": "blob"
     },
     "strix/core/inputs.py": {
-      "sha": "c36f71b6382f88a326537ac289dee8c077963e41",
+      "sha": "7bb2b72c7f5725a7bd857c4189baad83f58f100c",
       "mode": "100644",
       "type": "blob"
     },
@@ -477,7 +477,7 @@
       "type": "blob"
     },
     "strix/core/runner.py": {
-      "sha": "5c5182a6383646d2c6c8f1ac2083e3f522edbb07",
+      "sha": "ae6dc08b3d2bdb4e53f6b5d9998a1d6c8e601791",
       "mode": "100644",
       "type": "blob"
     },
@@ -582,7 +582,7 @@
       "type": "blob"
     },
     "strix/interface/main.py": {
-      "sha": "cc3a0321848125de931b70d2afed101689b1a0f3",
+      "sha": "846a35da9878a299905a774247e6b537d07d81ce",
       "mode": "100644",
       "type": "blob"
     },
@@ -602,7 +602,7 @@
       "type": "blob"
     },
     "strix/interface/scan_setup.py": {
-      "sha": "0af126d017d9a75594ce48c95454b32a708e74e8",
+      "sha": "62176f761a20a49b3e34ee34b56d23749b85be48",
       "mode": "100644",
       "type": "blob"
     },
@@ -1397,7 +1397,7 @@
       "type": "blob"
     },
     "strix/llm/compaction.py": {
-      "sha": "ecdb9a83171b7bd79fcbf5a8d5a5a9529ecd8236",
+      "sha": "6e40a4330f6cfa0c9afbc5eee95104bb3f27cb93",
       "mode": "100644",
       "type": "blob"
     },
@@ -1427,7 +1427,7 @@
       "type": "blob"
     },
     "strix/report/dedupe.py": {
-      "sha": "93f9ad8aa64d28300e4b23001b0444082823f229",
+      "sha": "b1d3e5370be2deb16e7e9cc73a7d795d45dfddd7",
       "mode": "100644",
       "type": "blob"
     },
@@ -1447,7 +1447,7 @@
       "type": "blob"
     },
     "strix/report/state.py": {
-      "sha": "fd0ebd944944a7b406c0e3b541636769efa19b5b",
+      "sha": "104e4af4c5b5e17f1dabfd4419974606491a562e",
       "mode": "100644",
       "type": "blob"
     },
@@ -2172,7 +2172,7 @@
       "type": "blob"
     },
     "tests/test_agent_factory_shell.py": {
-      "sha": "0109bf527da3d813704dff7b2099abf9afd3784a",
+      "sha": "c924af191dfa706079ace91676c011ccd8232c6a",
       "mode": "100644",
       "type": "blob"
     },
@@ -2207,7 +2207,7 @@
       "type": "blob"
     },
     "tests/test_budget_pause_policy.py": {
-      "sha": "ad7b3af02ab039774415e92995337bc58515bce2",
+      "sha": "c5ddab8a78c311e1cf22e25add9565b43772ca33",
       "mode": "100644",
       "type": "blob"
     },
@@ -2287,7 +2287,7 @@
       "type": "blob"
     },
     "tests/test_compaction.py": {
-      "sha": "2d73d9acf1f0302c024b3bb3091732ead8585318",
+      "sha": "edf31edb7f5f35deb93cac75031a9308efc59430",
       "mode": "100644",
       "type": "blob"
     },
@@ -2297,7 +2297,7 @@
       "type": "blob"
     },
     "tests/test_config_loader.py": {
-      "sha": "d083236a5a8617194a4883fecb42d4e5e648144d",
+      "sha": "463853d222b39f02c2c5f1d5e97a22faf3dd1d3e",
       "mode": "100644",
       "type": "blob"
     },
@@ -2312,7 +2312,7 @@
       "type": "blob"
     },
     "tests/test_cost_tracking.py": {
-      "sha": "a855e59d6a961d6c9c69aa6664276604ef184f2b",
+      "sha": "4f12bc0ea188374193e1a214aebaed48de3470e3",
       "mode": "100644",
       "type": "blob"
     },
@@ -2322,7 +2322,7 @@
       "type": "blob"
     },
     "tests/test_dedupe_model.py": {
-      "sha": "809867b167457be4204d59894032fcbdafd88f4a",
+      "sha": "ab01345a89f865a38b1b15d380a8e3ce7a397abe",
       "mode": "100644",
       "type": "blob"
     },
@@ -2392,7 +2392,7 @@
       "type": "blob"
     },
     "tests/test_inputs.py": {
-      "sha": "2bdde73a616a5d6d5f3e4111af75aab34c5d45de",
+      "sha": "f54d371777694fa8f4906b7e522e332924a8d611",
       "mode": "100644",
       "type": "blob"
     },
@@ -2403,6 +2403,11 @@
     },
     "tests/test_list_reports.py": {
       "sha": "2542da2207695faf324d13c657876c641f2c8ff9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_llm_extra_body.py": {
+      "sha": "d5cfeddc4d71cc8e8bf3ad7365979aaa153c69c9",
       "mode": "100644",
       "type": "blob"
     },
@@ -2467,7 +2472,7 @@
       "type": "blob"
     },
     "tests/test_preflight_timeout.py": {
-      "sha": "cf2192f884b3c6455a86350d07f596d988314f21",
+      "sha": "6ca4cf779269edf8daaa629148c311ae2ba4632c",
       "mode": "100644",
       "type": "blob"
     },
@@ -2527,27 +2532,27 @@
       "type": "blob"
     },
     "tests/test_runner_interrupt.py": {
-      "sha": "054f5b7a2e5bcb9afcaf6ec736afda6b5cfa046c",
+      "sha": "b6271407b9b814360ff7a0b8b28ab662cee2e06d",
       "mode": "100644",
       "type": "blob"
     },
     "tests/test_runner_mcp.py": {
-      "sha": "62d6fab191f4f587ab2c93beef9b3a8df995b630",
+      "sha": "74f73c36bd8845a525ec7e026ef8717068419d82",
       "mode": "100644",
       "type": "blob"
     },
     "tests/test_runner_rate_limit.py": {
-      "sha": "3110ae2cb06705829df60c55cdcd834adca594e9",
+      "sha": "d6bad9aefa268cb35b74bfae4bda28c4e418b90a",
       "mode": "100644",
       "type": "blob"
     },
     "tests/test_runner_root_prompt.py": {
-      "sha": "a564a3ea1b418e1eb13c9e9c7f7e727cd665b639",
+      "sha": "8c2e2047c316e5231383778026221f3955e55434",
       "mode": "100644",
       "type": "blob"
     },
     "tests/test_runner_teardown.py": {
-      "sha": "d7e9645d0d1eaea9ea3eacf8a30280f544b033f0",
+      "sha": "e3c436960a13e54a27426150ce22fbf036c83b76",
       "mode": "100644",
       "type": "blob"
     },

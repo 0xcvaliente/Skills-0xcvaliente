@@ -67,3 +67,19 @@ A timeout or unavailable MCP catalog limits coverage. Inspect the run's status a
 sanitized error/provider details before retrying or changing limits; do not turn
 an incomplete attempt into a clean security result. These are Strix settings,
 not the agent host's settings, and this instruction package does not change either runtime.
+
+Optional engine settings that appear in run artifacts or configuration (verified in
+`docs/advanced/configuration.mdx` and `strix/config/settings.py` at upstream `aa2036f`;
+confirm the installed version supports them):
+
+- `STRIX_RUN_RECORD_TIMINGS` (default off) adds per-request and per-tool-call timing
+  records, `llm_requests` and `tool_calls`, to `run.json`, roughly 0.5 MB on a typical
+  scan. They help diagnose slow or timed-out runs; they are not findings or coverage
+  evidence, and a missing key just means the setting was off.
+- `LLM_EXTRA_BODY` and `DEDUPE_LLM_EXTRA_BODY` take a JSON object of extra provider
+  request fields. They are unvalidated and can override fields the engine sends, so do
+  not set `model`, `messages`, `tools`, or `stream`. A dedicated dedupe model never
+  inherits the main model's headers or body fields; keep provider identifiers and
+  credentials out of CI logs and shared configuration, as with `LLM_EXTRA_HEADERS`.
+- A run paused by an operator, or parked at a budget limit, is incomplete. Resume or
+  rerun it before treating its report as a clean result.

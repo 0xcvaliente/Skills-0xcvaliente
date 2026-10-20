@@ -59,7 +59,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | Skill | Use it to | Example prompt |
 |---|---|---|
 | [`frontend-design`](skills/frontend-design) | Choose a distinctive visual direction (type, color, layout) instead of a templated default. | "Design a landing page for a coffee roastery that doesn't look like a SaaS template" |
-| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop art direction (taste-skill v2) for public web pages: draws researched directions from a library, lints and browser-inspects the page, finds open-licence images, and runs a look-and-fix loop. Not for dashboards or app screens. | "Redesign this landing page so it doesn't look AI-generated" |
+| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop art direction (taste-skill v2.1) for public web pages and app screens (dashboards, admin views, settings): draws researched directions from a library, lints and browser-inspects the page, finds open-licence images, and runs a look-and-fix loop. | "Redesign this landing page so it doesn't look AI-generated" |
 | [`ui-design`](skills/ui-design) | Build React/Next/Tailwind UI and audit visual and interaction defects: design systems, dark mode, responsiveness, "UI slop". | "Extract our design system and add dark mode" |
 | [`web-experience-design`](skills/web-experience-design) | Plan and build a whole coherent site or product experience, including cinematic and 3D web. | "Plan and build the new portfolio homepage" |
 | [`web-design-guidelines`](skills/web-design-guidelines) | Review or implement against accessibility, forms, responsive layout, theming, and front-end performance rules. | "Check the signup form against web interface guidelines" |

@@ -152,9 +152,10 @@ Requires execution scope covering the independent queue and intended merges.
 Stating a plan does not start execution. Keep one owner/branch per independent
 change. Verify code-ready heads, inspect artifacts, absorb relevant base drift,
 and recheck CI/mergeability before authorized merges. Preserve operator gates;
-stop all writes on a hold instruction. Write the final reply as a `ketchup`
-catch-up: each PR's state and verdict, what merged, countersigns, open operator
-gates, and links.
+stop all writes on a hold instruction. Every later change to a verified patch
+needs a fresh check. Write the final reply as a `ketchup`
+catch-up: each PR's state and verdict, what merged, countersigns, every open
+operator gate as a call with your pick, and links.
 
 ## Autopilot-stack
 

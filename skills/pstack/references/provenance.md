@@ -117,3 +117,52 @@ commit touching `pstack/` in cursor/plugins. No upstream file was deleted or ren
   instruction); Cursor-specific `.cursor/` paths and cloud-agent mechanics; model
   slug changes. Retained scripts were not ported or executed. The `SKILL.md`
   description is unchanged.
+
+## Upstream sync 2026-10-20
+
+Refreshed on 2026-10-20 from `1e5c90a4b6f249917bd21fe361b3a2a7deb741b8` (0.15.24)
+to `88d47514b82e7c44f00f2b2a72ff6dd12158038c` (short `88d4751`, plugin manifests
+read 0.15.29), the latest commit touching `pstack/` in cursor/plugins. The most
+recent version-bump commit message said 0.15.28; the manifests at this revision say
+0.15.29, which is the version recorded. No upstream file was deleted or renamed.
+
+- `references/upstream/` and `references/upstream-manifest.json` were rebuilt from
+  the new revision with the same layout: 172 files (was 169), 59 `SKILL.md`
+  entrypoints stored as `SKILL.md.source` (was 57), bytes and modes unchanged.
+  Added: `skills/create-formal-verification-skill`,
+  `skills/maintain-formal-verification-skill` (each `disable-model-invocation: true`
+  upstream), and `docs/harness/claude-code.md`. 32 other files changed: the root and
+  Cursor plugin manifests (version), the README and all guide chapters, correct,
+  ketchup, sharpen (restored to the original prompt: it rewrites the prompt and
+  returns only the rewrite instead of doing the task), swarm (intro paragraph, the
+  set-N step, and a duplicate result-table line removed), setup-pstack (new step 8
+  offering a formal verification skill), poteto-help and its recipes, poteto-mode,
+  make-bot-ui and poteto-mode (frontmatter `name` now matches the folder name), the
+  principle skills (attack-the-premise, fix-root-causes, make-operations-idempotent,
+  migrate-callers-then-delete-legacy-apis, test-behavior-not-implementation,
+  type-system-discipline), typescript-best-practices (brands come from a verifying
+  type guard, not `as`), and interrogate's lead-judgment reference (two sections
+  trimmed). ketchup now helps the user understand each change and lists every call
+  waiting on them with a pick, evidence, and risk, and the reply grows with the
+  number of items.
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical.
+- Local host-neutral layer merged by hand: `SKILL.md` (counts, version, routing row
+  for formal verification, root-cause and behavioral-test wording), `README.md`,
+  `references/catalog.md` (two new workflows, changed descriptions, the Claude Code
+  adapter file), `workflows.md` (new sharpen and ketchup behavior, two new workflow
+  sections, setup offers, poteto-help mentions), `playbooks.md` (autopilot-full
+  wording), `host-runtime.md` (explicit-request list, adapter note), `benny.md`
+  (Cursor-only note), and the file count in `tests/test_helpers.py`. Cursor
+  mechanics were mapped to the capability vocabulary rather than copied.
+- Skipped: the Claude Code install steps, `pstack:` command prefixes, the generated
+  `harness/pstack/` tree, and the adapter's tool, subagent-field, model, and
+  `~/.claude/rules` mappings (the host-neutral capability vocabulary already covers
+  them; the file is retained as reference only); Cursor plugin metadata and
+  frontmatter keys; the `disable-model-invocation` flag (these skills run only on
+  explicit request by instruction); Cursor-only features (Automations, Bugbot,
+  cloud agents); the swarm trims and the interrogate lead-judgment trims (the local
+  guidance never carried that text); typescript-best-practices snippet changes
+  (retained source covers them). Retained scripts were not ported or executed. The
+  `SKILL.md` description is unchanged.

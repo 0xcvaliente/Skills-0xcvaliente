@@ -1,6 +1,6 @@
 ---
 name: ui-verification
-description: Runs scoped browser probes for focus, hit targets, overflow, themes, request failures, and performance attribution, with evidence linked to UI rule IDs. Use when asked to "verify this in the browser", "reproduce this finding", or "check the fix". For source audits and severity use ui-design; field metrics require RUM or CrUX.
+description: Runs scoped browser probes for focus, hit targets, overflow, themes, request failures, and performance attribution, with evidence linked to UI rule IDs. Use when asked to "verify this in the browser", "reproduce this finding", "check the fix", or "review before and after screenshots". For source audits and severity use ui-design; field metrics require RUM or CrUX.
 ---
 
 # UI Verification
@@ -10,7 +10,7 @@ Runtime requirements: access to the target app and a capable browser driver. Bun
 Owns the browser session. Every other UI skill in this repo reasons about source and infers what the user will see; this one loads the page and measures it.
 
 - **IS:** booting the app, driving it with a browser, and running the probes that decide a rule at runtime: computed boxes, injected failures, observed layout shift, a scripted Tab walk, an axe scan per theme. Output is findings keyed to rule ids with reproducible evidence, plus the clearing re-run after a fix.
-- **IS NOT:** finding defects by reading source or deciding their tier and ship verdict (`ui-design` Audit mode owns both); building or restyling UI (`ui-design` Build); authoring a durable test suite (write Playwright tests); pixel-diff regression against a baseline (Chromatic, Percy); field performance (RUM or CrUX; Lighthouse is a lab tool).
+- **IS NOT:** finding defects by reading source or deciding their tier and ship verdict (`ui-design` Audit mode owns both); building or restyling UI (`ui-design` Build); authoring a durable test suite (write Playwright tests); persistent pixel-baseline approval workflows (Chromatic, Percy); field performance (RUM or CrUX; Lighthouse is a lab tool).
 
 The division of labour is the point. A static audit reports what the code will probably do; it cannot see a 40px control whose hit area a pseudo-element already expands to 44, or a retry button wired to nothing. This skill reproduces or kills each of those, so a finding arrives with a measurement instead of a confidence.
 
@@ -36,7 +36,8 @@ The division of labour is the point. A static audit reports what the code will p
 | A `ui-design` audit emitted findings and the user wants them confirmed | Run only the probes those rule ids map to, in `references/rule-coverage.md` |
 | No audit ran; the user points at a route or a running app | Detect features, run the full battery on the resolved routes |
 | A fix just landed for a previously reproduced finding | Run the clearing re-run only (step 5) |
-| The user asks for captures across themes or widths | `probes/theme-locale-matrix.md` alone |
+| The user asks for captures across themes or widths | `probes/theme-locale-matrix.md`, then the visual review step below |
+| The user asks to review a UI change or named screenshot states | Read [references/visual-review.md](./references/visual-review.md) for matched before/after captures, image inspection, and suspicious duplicates |
 | A `design-system.md` claims a scale and someone needs it checked | Read the claimed values off computed styles on a real page; a theme value the build overrides never reaches the browser |
 
 Nothing here assigns a tier or a ship verdict. Hand reproduced findings back with their evidence and let `ui-design`'s `references/ship-readiness.md` tier them; two skills tiering the same finding is how the tiers drift apart.
@@ -101,6 +102,8 @@ Each probe file carries its own recipe. Three rules hold across all of them:
 - **One probe, one route, one viewport, one theme.** Never fold two conditions into one run: when the result surprises you, you need to know which axis produced it.
 - **Repeat uncertain measurements.** Retry timing-sensitive or inconsistent results under controlled conditions. A deterministic failure with a captured trigger needs no duplicate run. A result that flips remains inconclusive until its conditions are understood.
 
+For UI-change and named-state captures, open and inspect the images yourself before reporting, following [references/visual-review.md](./references/visual-review.md). Record visual observations separately from measured probe results.
+
 ## 4. Decide each finding
 
 Three outcomes, and the middle one is the one that earns this skill its keep.
@@ -134,7 +137,7 @@ Where this skill runs standalone, render the same terminal adapter with `SHIP VE
 ## Honesty rules
 
 - **A skipped probe is not a passed probe.** Report every probe that did not run, with the reason (no route, auth required, driver lacks interception, app would not build). A report that silently omits them reads as coverage it does not have.
-- **A screenshot is evidence, not a verdict.** Probes decide on measurements. Captures exist so a human can check the measurement, and for the two questions no measurement settles: whether the dark theme looks right, and whether the pseudo-locale broke the layout or merely the prose.
+- **A screenshot is evidence, not a verdict.** Probes decide on measurements. The agent inspects captures before handing them off, and they let a human check the measurement and answer the two questions no measurement settles: whether the dark theme looks right, and whether the pseudo-locale broke the layout or merely the prose. Visual observations complement measured results; a screenshot is never proof that a flow is correct.
 - **Do not widen into a redesign.** This skill reports what it measured. A finding that needs a new type scale names the mode to run next, exactly as an audit does.
 - **The app is the subject, not the harness.** A failure caused by the probe itself (a selector that never resolved, a route interception that swallowed the wrong request) is a harness bug. Fix the probe and re-run; never report it as a defect in the app.
 - **Numbers carry their units and their conditions.** `44x44px at 360px width with touch emulation on` is a measurement. `too small` is the inference this skill exists to replace.

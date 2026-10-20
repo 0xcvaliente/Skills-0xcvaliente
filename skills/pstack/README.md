@@ -3,18 +3,18 @@
 Pstack's engineering workflows adapted into one installable, host-neutral Agent Skill
 (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode, or plain chat).
 Based on [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack)
-0.15.24. Go deep first, write less code, and verify the result against the real artifact.
+0.15.29. Go deep first, write less code, and verify the result against the real artifact.
 
-The package includes native host-neutral routing and **all 169 original upstream files**:
+The package includes native host-neutral routing and **all 172 original upstream files**:
 
 | Material | Included |
 |---|---|
-| Main and situational workflows | 30, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, writing/verification maintenance, and the explicit-request `sharpen`, `in-your-own-words`, and `ketchup`. |
+| Main and situational workflows | 32, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, writing/verification maintenance, formal verification (`create-formal-verification-skill`, `maintain-formal-verification-skill`), and the explicit-request `sharpen`, `in-your-own-words`, and `ketchup`. |
 | Engineering principles | All 24 full principle sources. |
 | Poteto playbooks | All 23 originals plus host-neutral execution guidance for each. |
 | Agent definitions | Poteto Agent and Comment Sicko as reference prompts. |
 | Benny | Setup, triage, reproduction/fix, templates, control contracts, and routing/feature-map examples. |
-| Documentation and assets | Full upstream README, ten-chapter guide, illustrations, logo, manifest, and license. |
+| Documentation and assets | Full upstream README, ten-chapter guide, the original single-host adapter notes, illustrations, logo, manifest, and license. |
 | Tools | Original Bun orchestration store, PR watcher, tests, plan checker, worktree audit, bootstrap, and lockfile. |
 | Native helpers | Portable decision logger and an offline complete-source integrity checker. |
 
@@ -65,6 +65,8 @@ into chat or the project's instruction file.
 /pstack babysit check PR 123 and report outstanding blockers.
 
 /pstack create-verification-skill for this app using its existing harness.
+
+/pstack create-formal-verification-skill prove this invariant holds even when retries interleave.
 
 /pstack help choose a workflow for this task.
 
@@ -154,7 +156,7 @@ Installed copies do not automatically update when GitHub changes.
 
 MIT, copyright 2026 Lauren Tan. The [original license](LICENSE) is retained in
 the package and source snapshot. Reviewed revision:
-[`1e5c90a4b6f249917bd21fe361b3a2a7deb741b8`](https://github.com/cursor/plugins/tree/1e5c90a4b6f249917bd21fe361b3a2a7deb741b8/pstack),
-2026-10-15 (pstack 0.15.24). See [provenance and adaptation notes](references/provenance.md).
+[`88d47514b82e7c44f00f2b2a72ff6dd12158038c`](https://github.com/cursor/plugins/tree/88d47514b82e7c44f00f2b2a72ff6dd12158038c/pstack),
+2026-10-20 (pstack 0.15.29). See [provenance and adaptation notes](references/provenance.md).
 This is a personal host-neutral adaptation, derived from earlier Codex and Claude Code ports;
 no affiliation or endorsement is claimed.

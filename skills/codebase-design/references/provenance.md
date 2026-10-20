@@ -11,3 +11,7 @@ Ported from the Codex version on 2026-10-10. The README's install and usage sect
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. DESIGN-IT-TWICE.md now asks for the host's subagent facility (sequential work if none) instead of naming the Agent tool; README install and examples are host-neutral.
+
+## Upstream review 2026-10-20
+
+Checked against mattpocock/skills `5beb35b040e3de97e54fa9e386d7e42d15c295c2`: no changes to `skills/engineering/codebase-design` since `b0618bc436ad893b3c5e84e55fba86586d34a404`.

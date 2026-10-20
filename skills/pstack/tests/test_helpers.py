@@ -17,7 +17,7 @@ class PackageIntegrityTests(unittest.TestCase):
     def test_complete_package(self):
         manifest, problems = CHECKER.verify(ROOT)
         self.assertEqual(problems, [])
-        self.assertEqual(len(manifest["files"]), 169)
+        self.assertEqual(len(manifest["files"]), 172)
 
     def test_changed_missing_and_unlisted_source_are_rejected(self):
         with tempfile.TemporaryDirectory() as directory:

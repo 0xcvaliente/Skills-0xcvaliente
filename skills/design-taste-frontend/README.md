@@ -1,16 +1,16 @@
 # design-taste-frontend
 
-Anti-slop art direction for public-facing web pages (landing pages, marketing sites, portfolios, one-pagers, redesigns). This is taste-skill v2 by Leonxlnx (MIT), vendored from upstream at revision 9da1763. Not for dashboards or app screens.
+Anti-slop art direction for public-facing web pages (landing pages, marketing sites, portfolios, one-pagers, redesigns) and, since v2.1, app screens (dashboards, admin and analytics views, settings, inboxes). This is taste-skill v2.1.1 by Leonxlnx (MIT), vendored from upstream at revision 63aba5f.
 
 What v2 does: it deals researched design directions from a local library (`scripts/draw.mjs`), enforces a house style with a static linter (`scripts/lint.mjs`) and a real-browser inspector (`scripts/inspect.mjs`), finds open-licence pictures (`scripts/assets.mjs`), and runs a look-and-fix loop on screenshots.
 
 ## Layout
 
 - `SKILL.md`: the workflow (verbatim upstream v2).
-- `references/`: type, colour, layout, copy, imagery, motion, critique, tells, research (verbatim upstream); `upstream-README.md.source` is the upstream README kept verbatim for reference only (it contains host-specific install paths); `provenance.md` is the import log.
+- `references/`: type, colour, layout, copy, imagery, motion, critique, tells, research, app screens, scenes (verbatim upstream); `upstream-README.md.source` is the upstream README kept verbatim for reference only (it contains host-specific install paths); `provenance.md` is the import log.
 - `library/`: JSON data the draw script reads. Use the script; do not read it whole.
-- `scripts/`: `draw`, `lint`, `inspect`, `assets` (`.mjs`) and `lib/`.
-- `assets/`: optional neutral `base.css` and `base.js`.
+- `scripts/`: `draw`, `lint`, `inspect`, `assets`, `scenes` (`.mjs`) and `lib/`.
+- `assets/`: optional neutral `base.css` and `base.js`, plus `app.css`, `charts.js` and `scenes/` for app screens and scroll scenes.
 - `evals/evals.json`: upstream evaluation prompts.
 
 `SKILL.md` and every supporting file are verbatim upstream v2. Only this README and `provenance.md` are local.

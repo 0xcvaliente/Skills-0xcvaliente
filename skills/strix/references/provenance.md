@@ -89,3 +89,28 @@ logging (`c5854e7`, `d8c00a8`), TUI target boxes (`b68cdb8`, `710fe7b`,
 `442b3c3`), malformed tool-call replay (`ca20626`), tests (`e21f9ce`), and the
 README update note (`f7a32ae`). The file-inventory baseline in `upstream.json`
 was advanced to `ca20626` after this review.
+
+## Reviewed update — 2026-10-20
+
+Reviewed the 8 commits from `ca20626f844b64e26755b7d78ae206ba8dd3acc9` to
+`aa2036f22942eed3ecd142169289a256a2e7acb7`. No consumer skill, knowledge pack,
+system prompt, AGENTS.md, README, reporting-tool semantics, CLI flag, or exit
+code changed in this range; all 30 changed files are engine code, tests, and two
+documentation pages.
+
+Adopted (documentation only, in `strix-and-ci.md`): the new optional
+`STRIX_RUN_RECORD_TIMINGS` setting that adds `llm_requests` and `tool_calls`
+timing records to `run.json` (`f4a7413`, `aa2036f`), and the `LLM_EXTRA_BODY` /
+`DEDUPE_LLM_EXTRA_BODY` settings (`972f509`, #1495) with upstream's cautions:
+fields are unvalidated, must not override request-shaping fields, and a
+dedicated dedupe model never inherits the main model's headers or body fields.
+Also noted that an operator-paused or budget-parked run is incomplete
+(`6bd1cea`, `a0f8ea2`), consistent with the existing incomplete-run guidance.
+No authorization, ownership, or data-handling safeguard was changed.
+
+Skipped as engine internals with no effect on the host-neutral workflow: the
+`exec_command` 30 s yield-cap and non-TTY description text (`5e9e69a`,
+`2b98deb`), the running-process marker matching (`ee22e2b`), pause and budget
+policy mechanics beyond the incomplete-run note, config-file decoding of saved
+dict settings, and the new tests. The file-inventory baseline in `upstream.json`
+was advanced to `aa2036f` after this review.

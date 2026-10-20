@@ -141,6 +141,21 @@ class DiagramTests(unittest.TestCase):
         scoped = lambda n: self.export(f'<style>#f{n} .node{{fill:red}}</style><rect id="f{n}" width="5" height="5"/>')
         self.assertEqual(diagram.export_findings(scoped(1) + scoped(2)), [])
 
+    def test_selector_scan_reads_grouped_rules_and_ignores_comment_text_in_strings(self):
+        css = ('@layer base,theme;@media print{.a{fill:red}#f1 .b{fill:blue}}@keyframes k{from{opacity:0}}'
+               '@font-face{font-family:x}[data-label="a/*b"] .c{fill:red}/* .gone{} */.d{content:"}"}')
+        self.assertEqual(diagram.css_selectors(css), [".a", "#f1 .b", '[data-label="a/*b"] .c', ".d"])
+
+    def test_unscoped_rule_inside_media_is_flagged_when_figures_share_a_page(self):
+        def figure(n, css):
+            return self.export(f'<style>{css}</style><rect id="f{n}" width="5" height="5"/>')
+        loose = figure(1, "@media print{.node{fill:#000}}") + figure(2, "#f2 .node{fill:red}")
+        self.assertTrue(any("not scoped" in f for f in diagram.export_findings(f"<main>{loose}</main>")))
+        scoped = figure(1, "@media print{#f1 .node{fill:#000}}") + figure(2, "@media print{#f2 .node{fill:#000}}")
+        self.assertFalse(any("not scoped" in f for f in diagram.export_findings(f"<main>{scoped}</main>")))
+        quoted = figure(1, '#f1 [data-label="a/*b"] .node{fill:red}') + figure(2, "#f2 .node{fill:red}")
+        self.assertFalse(any("not scoped" in f for f in diagram.export_findings(f"<main>{quoted}</main>")))
+
     def test_cdata_is_html_only_and_comments_are_inert(self):
         body = '<style><![CDATA[.a{fill:red}]]></style><!-- note: a-b --><rect width="5" height="5"/>'
         svg = self.export(body)

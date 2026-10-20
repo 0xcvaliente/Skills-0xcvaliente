@@ -8,33 +8,47 @@ replace host mechanics while retaining pstack's engineering methods.
 
 `poteto-mode` selects a playbook and relevant principles. `poteto-help` answers
 the immediate usage question and supplies a concrete `/pstack <workflow>
-<task>` prompt. Explain capabilities and missing dependencies as needed. No
+<task>` prompt. It mentions `create-verification-skill` when no way to drive the
+app exists and the question is about proof, and `create-formal-verification-skill`
+when none exists for a race, invariant, or case tests rarely hit (or
+`maintain-formal-verification-skill` when the covered code changed after the
+recorded sync commit). Explain capabilities and missing dependencies as needed. No
 global persistent mode or mandatory setup is implied.
 
 ## sharpen, in-your-own-words, and ketchup
 
-Explicit-request workflows. Upstream marks each `disable-model-invocation: true`;
+Explicit-request workflows (the two formal verification workflows below follow the same rule). Upstream marks each `disable-model-invocation: true`;
 that flag has no effect here, so run them only when the user names them.
 
-- `sharpen`: before starting, ask how a top expert would approach the task (raw
-  sources, real methods, an outside check), what the user is really after, and
-  whether the task is over- or underspecified. Loosen constraints that do not
-  serve the goal, leave the user's choices open, fold in only what improves the
-  work, and always keep one outside check. Do not narrate the framing or hand
-  back a rewritten prompt; then do the work.
+- `sharpen`: make the prompt deeper, not bigger, then return the rewrite. The
+  input is a prompt the user is about to send, not a task to start. Before
+  rewriting, say what a top professional in the field would do that the prompt
+  does not ask for, name the rawest material they would start from instead of
+  what has already been digested, name the specific methods and tools they would
+  use, and say what other than the agent or the user would show the result is
+  right. Then rewrite the prompt to ask for exactly that and leave the user's
+  choices open. Return only the rewritten prompt; do not do the task, and do not
+  add scope, actions, or authorization the user did not give.
 - `in-your-own-words`: restate what you think the user's goals are and the problem
   they are solving, then wait for correction unless they asked you to proceed.
 - `ketchup`: a read-only catch-up on what changed since the user's last own message
-  (notifications and subagent results are not theirs). Plain short sentences, under
-  150 words including visuals, no hashes, paths, or commands unless the user needs
-  one to act. Open with how many items need them. Show what happened in one small
-  visual (at most four boxes) and each action item as a before/after with your
-  recommendation and what happens if they do not answer (one line for an unasked
-  irreversible step). A visual is a picture (screenshot, video, diagram, chart),
-  not a table. Draw it only from facts you have; if a visible change has no
-  screenshot, mark its box "No screenshot yet" and describe the change in a line
-  under the visual. Never invent numbers or draw a screen you did not capture,
-  mark work done that waits on the user, or take new actions while catching up.
+  (notifications and subagent results are not theirs). Help them understand each
+  change, then lay out every call waiting on them so they can decide from the
+  reply alone. Plain short sentences, no hashes, paths, or commands unless the
+  user needs one to act. Spend words on the calls, not the story: what happened
+  in under 100 words (pictures not counted), about 30 words per item, and a reply
+  that grows with the number of items. Never cut or shrink items to fit a count,
+  and never substitute a link for an item. Open with one short sentence naming
+  what waits on the user. Show screenshots and videos inline first, then a diagram
+  only where a picture beats sentences (a stack with each PR's state, a
+  before/after, options side by side), then one short bullet per thing they asked
+  for. For each call give your pick, what it changes for users, the evidence, and
+  its risk ("unknown" for a missing fact), riskiest first; a call between options
+  lists every option weighed with its gain and cost. Never draw a status list or
+  disconnected boxes. A visual is a picture, not a table. If a visible change has
+  no screenshot, mark its line "No screenshot yet". Never invent numbers or draw
+  a screen you did not capture, mark work done that waits on the user, or take new
+  actions while catching up.
 
 ## how
 
@@ -160,6 +174,43 @@ dependencies, evidence gates, and stopping conditions. Experiment on empirical
 forks, log decisions, and revise hypotheses when observations disagree. Use a
 simpler bundled route when it fits.
 
+## create-formal-verification-skill
+
+Explicit-request workflow. Find the part of the repo where a break harms users and
+tests reach the least (races, retries, state machines, parsers, unsafe code); ask
+only what the code cannot answer. Choose the tool that answers the question at
+the lowest cost: a model checker (TLA+ is the default for ordering questions in
+any language), a code-level verifier, or a proof for properties that must hold at
+every size. If no verifier runs on the language, say so and test the real code
+with generated inputs rather than a hand model. Every part of the model points at
+code a reviewer can open, and each property is shown failing on a broken variant.
+When the current code breaks the property, report the counterexample in the
+code's terms; do not weaken the property or model, and do not change product
+code unless asked. State scope, bounds, and assumptions honestly. Write a
+project-local skill (same placement as `create-verification-skill`) with
+frontmatter, a coverage record of files and functions, one rerun command, and the
+commit at which the verification was last confirmed to describe them. Follow it
+once on a scratch break, then drop the break. Hand off the property, tool and
+why, bounds, findings, how to run it, and what it does not cover.
+
+## maintain-formal-verification-skill
+
+Explicit-request workflow for a verify skill that runs a model checker, prover, or
+code-level verifier against named code, including one `create-formal-verification-skill`
+made. Find each check and its recorded sync commit (else the last commit that
+changed the verification files, and say so). Run it as is first, then read every
+change to covered code since the sync commit, including moved code and new code
+that touches guarded state, and classify each as no effect, verification no longer
+describes the code, promise changed on purpose (cite evidence), or promise possibly
+broken. Update the verification from the code, not from the result; change a
+property only for an evidenced intended change and record old and new wording.
+Rerun: a pass needs a deliberate break to show it can still fail, and a failure is
+replayed against the real code to decide drift versus bug. Report each check as
+in sync, updated, bug, or blocked. Edit only verification files unless the user
+asks otherwise, never weaken a property to pass, move the sync commit only after
+confirming the code at that commit, and keep verification updates in a change of
+their own.
+
 ## create-verification-skill
 
 Inspect how the project starts, resets, authenticates, and can be driven. Reuse
@@ -189,7 +240,10 @@ Use optional project configuration from Host runtime adaptation. Inspect
 existing choices/capabilities; default roles to inherit. Resolve only material
 missing preferences for delegation, supported models, or verification commands.
 Preserve unrelated settings. Explain that the file is workflow data, not a
-host setting such as a settings file or a model command.
+host setting such as a settings file or a model command. After configuration,
+offer once each (never push) to generate a verification skill and a formal
+verification skill for the project, unless it already has one; accepting runs the
+matching create workflow.
 
 ## automate-me
 

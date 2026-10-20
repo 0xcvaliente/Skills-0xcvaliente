@@ -85,3 +85,20 @@ fallback; the `-F` handling of user-supplied markers is kept. Hooks, statusline,
 mode persistence, per-agent adapters (OpenCode, Cursor, Qoder, pi, Hermes),
 installers, i18n, and the bench were skipped as before. The README source pin
 was updated to the new revision.
+
+## Reviewed update — 2026-10-20
+
+Reviewed 2026-10-20: `2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5` (v5.2.0) to
+`09c434ab73ca43761c5d8b0c5d341926c2fba710` (v5.3.2). Adopted: the intent of
+upstream `84740e3` (removed the misleading "stop ponytail-debt / normal mode to
+revert" lines from the one-shot debt and gain skills). Our SKILL.md and
+references already treat debt, gain, review, audit, and help as one-shot
+requests that change no level, so no text change was needed. Skipped: the
+Claude Code band and board (`/ponytail band`, band import, `hooks/band/`,
+help-skill "Band" section, README "New in 5.3"), Windows hook timeouts and map
+buffer fixes, the Hermes and Qoder fixes, Codex plugin icon, Cursor docs, CI
+workflow, the `argument-hint` change (this package has no argument hint; `off`
+is already in the request table), plugin manifests and version bumps, i18n
+READMEs, and the Windows-only benchmark cleanup fix (`proc.wait`; no benchmark
+claims or LICENSE changes). No hooks, telemetry, or band UI were imported. The
+README source pin was updated to the new revision.

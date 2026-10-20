@@ -7,8 +7,8 @@ license: MIT
 # Pstack
 
 Go deep first, write less code, and prove the result against the real artifact.
-This is one host-neutral Agent Skill adapting pstack 0.15.24 by Lauren Tan. All 169 upstream
-files are retained with their original bytes, including 30 workflows, 24
+This is one host-neutral Agent Skill adapting pstack 0.15.29 by Lauren Tan. All 172 upstream
+files are retained with their original bytes, including 32 workflows, 24
 principles, 23 playbooks, two agent definitions, and the three-workflow Benny pack.
 
 ## Start and route
@@ -39,7 +39,8 @@ principles, 23 playbooks, two agent definitions, and the three-workflow Benny pa
 | Compare designs, partition coverage, or challenge a diff | `architect`, `arena`, `swarm`, `interrogate`, or `blast-radius`. |
 | Check a PR, deliver a stack, resume, pause, or run a long task | Delivery and coordination playbooks. |
 | Configure pstack, capture lessons, create a verifier, or improve prose | Setup, maintenance, and writing workflows. |
-| Sharpen the approach, restate the goal, or catch up after a long run | `sharpen`, `in-your-own-words`, `ketchup`. Explicit requests only (see Native workflows). |
+| Check a race, invariant, or other property that tests rarely reach, or bring that check back in line with changed code | `create-formal-verification-skill`, `maintain-formal-verification-skill`. Explicit requests only (see Native workflows). |
+| Rewrite a prompt deeper, restate the goal, or catch up after a long run | `sharpen`, `in-your-own-words`, `ketchup`. Explicit requests only (see Native workflows). |
 | Set up or run Benny triage/reproduction | [Benny on any host](references/benny.md), then its linked source workflow. |
 
 Accept "use pstack, `<workflow>`, `<task>`" in any host, or the host's shorthand
@@ -55,9 +56,11 @@ registered commands.
   Prefer structures that make invalid states hard to express.
 - Choose the smallest complete solution. Remove obsolete callers and dead layers
   when the migration permits it. Keep requirements and necessary controls.
-- Reproduce defects, narrow hypotheses with runtime evidence, fix the mechanism,
-  and re-run the original trigger on the same surface.
-- Use meaningful behavioral tests. A build alone does not prove a runtime or
+- Reproduce defects, narrow hypotheses with runtime evidence, fix the mechanism
+  where the system first went wrong (a guard is a fix only when the state it
+  handles is legitimate), and re-run the original trigger on the same surface.
+- Use meaningful behavioral tests that fail when observable behavior breaks and
+  survive internal refactors. A build alone does not prove a runtime or
   visual claim. Measure performance against comparable workloads and repeat runs.
 - Break substantial work into verifiable units. Record long-task decisions and
   evidence with [the decision-log helper](scripts/decision-log.sh).

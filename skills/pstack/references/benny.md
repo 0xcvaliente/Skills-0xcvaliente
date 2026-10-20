@@ -2,7 +2,10 @@
 
 Benny is pstack's optional issue-triage and bounded reproduction/fix pack. The
 entire [original pack](upstream/automations/benny/README.md) is preserved. Installing
-this skill does not enable Benny, connect services, or create schedules.
+this skill does not enable Benny, connect services, or create schedules. The
+original pack runs on Cursor Automations and upstream describes it as Cursor-only;
+on another host its triggers, wakes, and schedules need that host's own scheduling
+and must be requested and authorized explicitly.
 
 Use [Host runtime adaptation](host-runtime.md), then read the relevant source:
 

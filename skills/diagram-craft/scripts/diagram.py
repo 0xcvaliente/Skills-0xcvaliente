@@ -481,6 +481,71 @@ def viewbox_findings(root, label="svg"):
     return findings
 
 
+GROUPING_AT_RULES = {"media", "supports", "layer", "container", "document"}
+
+
+def css_selectors(css):
+    """Selector preludes of the style rules in a stylesheet, including rules nested in grouping at-rules.
+
+    Comments are dropped only outside quoted strings; keyframe, font-face and other non-grouping
+    blocks are skipped; a bare statement such as `@layer a, b;` or `@import ...;` has no selector."""
+    out, i, n, depth_limit = [], 0, len(css), 64
+
+    def scan(start, depth):
+        pos, begin, prelude = start, start, []
+        while pos < n:
+            ch = css[pos]
+            if ch in "\"'":
+                end = pos + 1
+                while end < n and css[end] != ch:
+                    end += 2 if css[end] == "\\" else 1
+                pos = end + 1
+                continue
+            if css.startswith("/*", pos):
+                prelude.append(css[begin:pos])
+                close = css.find("*/", pos + 2)
+                pos = begin = n if close < 0 else close + 2
+                continue
+            if ch == ";":
+                prelude, pos = [], pos + 1
+                begin = pos
+                continue
+            if ch == "}":
+                return pos + 1
+            if ch == "{":
+                head = "".join(prelude + [css[begin:pos]]).strip()
+                body_start = pos + 1
+                name = re.match(r"@([-\w]+)", head)
+                if name and name.group(1).lower() in GROUPING_AT_RULES and depth < depth_limit:
+                    pos = scan(body_start, depth + 1)
+                else:
+                    if head and not name:
+                        out.append(head)
+                    level, pos = 1, body_start
+                    while pos < n and level:
+                        c = css[pos]
+                        if c in "\"'":
+                            end = pos + 1
+                            while end < n and css[end] != c:
+                                end += 2 if css[end] == "\\" else 1
+                            pos = end
+                        elif css.startswith("/*", pos):
+                            close = css.find("*/", pos + 2)
+                            pos = n if close < 0 else close + 1
+                        elif c == "{":
+                            level += 1
+                        elif c == "}":
+                            level -= 1
+                        pos += 1
+                prelude, begin = [], pos
+                continue
+            pos += 1
+        return pos
+
+    scan(0, 0)
+    return out
+
+
 def export_findings(content, html_document=None):
     """Portability problems in an HTML or SVG export: alpha paint, CDATA, unscoped styles, bad refs, clipping."""
     try:
@@ -519,7 +584,7 @@ def export_findings(content, html_document=None):
         for style in root.iter(SVG_NS + "style"):
             text = style.text or ""
             if len(svgs) > 1:
-                for selector in re.findall(r"(?:^|\})\s*([^{}@]+)\{", re.sub(r"/\*.*?\*/", "", text, flags=re.DOTALL)):
+                for selector in css_selectors(text):
                     if not all(part.strip().startswith(("#", "svg#")) for part in selector.split(",") if part.strip()):
                         findings.append(f"{label}: style selector {selector.strip()[:40]!r} is not scoped to an ID and can restyle sibling diagrams")
                         break

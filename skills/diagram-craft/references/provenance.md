@@ -92,3 +92,44 @@ Skipped: the gallery and navigation (`0482b93`), the type-count guard
 bumps, the `--out` error handling (`56940eb`), the multi-PR landing commits
 (`09c1428`, `3560ace`, `4afc31b`) beyond the fixes named above, and the headless
 Chromium doctor (`13b2da4`), since this package has no doctor command.
+
+## Inspiration review — 2026-10-20
+
+Reviewed the upstream commits from `d97c5c7` through
+[`f2f4d49ea8d632f17cf196ba26599277a93f767b`](https://github.com/cathrynlavery/diagram-design/tree/f2f4d49ea8d632f17cf196ba26599277a93f767b)
+(v2.6.115) for ideas only, including the changes to its SVG export, PNG export,
+draw.io and Mermaid extraction scripts and its loop reference. No upstream text,
+code, tests, or data were copied; the guidance and the fix below were written
+independently here.
+
+Adopted as ideas:
+
+- Conditional CSS in exports (`1553bf1`, media conditions kept; related
+  `02b0ff9` comment-looking text in CSS strings, `da999a1` CSS-escaped local
+  references). Our package has no CSS-carrying exporter, so these are
+  verification notes in `delivery-and-import.md`. One of our own checks had the
+  matching weakness: the scoped-selector test in `diagram.py check` ignored every
+  rule nested inside `@media`/`@supports`/`@layer`/`@container` and could strip
+  comment-looking text inside quoted selectors. It now reads grouped rules with
+  a small string-aware scanner (`css_selectors`), with regression tests.
+- Mermaid and draw.io import edge cases (`c633741` statements after the
+  flowchart header semicolon, `64203b7` whitespace before a pipe label,
+  `3f73d31` invisible links, `880b383` single-line state notes, `15d44ae`
+  hidden draw.io cells): import guidance only, since this package ships no
+  importer.
+- PNG export (`5695d3d`): a verification note (pixel size equals viewBox times
+  scale, no clipped edge, fallback-typography disclosure). Our browser helper
+  already waits for fonts and widens the page wrapper; it does not yet release
+  arbitrary clipping ancestors of a user-supplied page, which is recorded as a
+  limit rather than changed, because Playwright was not available in this
+  environment to run `tests/test_browser.cjs`.
+- System-font mode also dropping carried `@font-face` (from the `--system-fonts`
+  doc change): added to the export notes.
+
+Skipped: plugin-manifest version bumps, Qoder/Factory/Codex host packaging,
+maintainer-policy and merge-gate changes, upstream's packaged PNG renderer
+refactor and its test suites, `@scope`/animation-name refusal logic (no exporter
+here), the architecture containment important-priority fix (`4ebfd0c`, no such
+verifier here), documentation anchor fixes, and the loop station-0 wording
+(`05a858c`): this package ships no loop diagram type, so there is no station
+placement formula to correct.

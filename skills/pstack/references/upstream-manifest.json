@@ -2,18 +2,18 @@
   "schema_version": 1,
   "source_repository": "cursor/plugins",
   "source_directory": "pstack",
-  "source_version": "0.15.24",
-  "source_revision": "1e5c90a4b6f249917bd21fe361b3a2a7deb741b8",
-  "reviewed_on": "2026-10-15",
-  "source_url": "https://github.com/cursor/plugins/tree/1e5c90a4b6f249917bd21fe361b3a2a7deb741b8/pstack",
+  "source_version": "0.15.29",
+  "source_revision": "88d47514b82e7c44f00f2b2a72ff6dd12158038c",
+  "reviewed_on": "2026-10-20",
+  "source_url": "https://github.com/cursor/plugins/tree/88d47514b82e7c44f00f2b2a72ff6dd12158038c/pstack",
   "filename_adaptation": "SKILL.md -> SKILL.md.source; file bytes are unchanged",
   "files": [
     {
       "original_path": ".cursor-plugin/plugin.json",
       "stored_path": "references/upstream/.cursor-plugin/plugin.json",
       "git_mode": "100644",
-      "git_blob_sha": "26d0f6d023ebf45c3d2f17e707d50852fbc86946",
-      "sha256": "cb705d5264bd77d466967ef3a0ab5ea91eb546849edbd311f4b80c78deccd98f"
+      "git_blob_sha": "fe3321bdc728fe8dbd74c925e9913c4954450ecc",
+      "sha256": "079de0bc2c331df98ecf388b84c938a3a61910f49a1cc37e680d9e2ca9bcd324"
     },
     {
       "original_path": ".gitignore",
@@ -33,8 +33,8 @@
       "original_path": "README.md",
       "stored_path": "references/upstream/README.md",
       "git_mode": "100644",
-      "git_blob_sha": "dbbef9bca8be42b06cf6930e12c9227ff5e047a1",
-      "sha256": "193fa128aab7818b5244883befe6d79e69b4143e3a51a3d1e30efe99d31b40c3"
+      "git_blob_sha": "9fde3a06f75245313b7e257de5603e2fbe721368",
+      "sha256": "b928886260bd551b0c8f3e58617a5dc3ad8dfc1293d096b1ef81b84007532486"
     },
     {
       "original_path": "agents/comment-sicko.md",
@@ -145,78 +145,78 @@
       "original_path": "docs/guide/01-setup.md",
       "stored_path": "references/upstream/docs/guide/01-setup.md",
       "git_mode": "100644",
-      "git_blob_sha": "62420df8255f5f3de03f3977e64bc0f34dbdc073",
-      "sha256": "86d0330f245d16254a2069955f993c15d96cf29cd1a73690a0164074b7ac1190"
+      "git_blob_sha": "2c2ef341357ea7c39c8b831ee8c8669b17e85475",
+      "sha256": "384655bdecc713122ca69a485723c58462002a1d512415e94e48597d0dce2fa5"
     },
     {
       "original_path": "docs/guide/02-poteto-mode.md",
       "stored_path": "references/upstream/docs/guide/02-poteto-mode.md",
       "git_mode": "100644",
-      "git_blob_sha": "8341604aebe418077003b10a894ebcaff2a9ce0d",
-      "sha256": "979f61ca3d44cb8e68affda40327d32797e93fa9cc53ced7444c15e2600897e1"
+      "git_blob_sha": "89c594b3eb4fe53ef4a6b12a93e29dfde0bd337a",
+      "sha256": "d168829def6c410b1afd87d1a6eb297df385f89faa9b31260684074e9e4eb52a"
     },
     {
       "original_path": "docs/guide/03-understand.md",
       "stored_path": "references/upstream/docs/guide/03-understand.md",
       "git_mode": "100644",
-      "git_blob_sha": "e15bea0520eff6e03df789a22cd4224daee04bd6",
-      "sha256": "0090afa9b8670adf175466a2a973ff4349e95ed67d2aa8cebdfc55ff4b7382c9"
+      "git_blob_sha": "e26661f913e2ba31a0f043df3ede772461fd6a96",
+      "sha256": "1ac97cbad51c15c18b3aade8634d81c8bbe50d2b3135c75c113ddb2a6dcb7af0"
     },
     {
       "original_path": "docs/guide/04-design.md",
       "stored_path": "references/upstream/docs/guide/04-design.md",
       "git_mode": "100644",
-      "git_blob_sha": "61d5bbb591c93e432fafe77259cd62a7aaf1cce8",
-      "sha256": "31f2abe6e9b29feafd1a9eece8f4fe21992f86b8c19ab2e9b5c11a20f36587e7"
+      "git_blob_sha": "65862086a58780b258fdb490dcafedd75b9cce18",
+      "sha256": "cff616278303b533e617c5c4408af6d28895edbb8687d6ce99bb5dd1f6644a6c"
     },
     {
       "original_path": "docs/guide/05-build-and-clean.md",
       "stored_path": "references/upstream/docs/guide/05-build-and-clean.md",
       "git_mode": "100644",
-      "git_blob_sha": "fc48a46df4f3e7f980522d40571367d4b809733b",
-      "sha256": "a93cc7771f7b35c7b54d0120b6f66e8367794ce6791237e889a30e7585c190fa"
+      "git_blob_sha": "dbadc3d41294ab2cc3cde04f96b861dd294e496e",
+      "sha256": "1284e80595ae4f214dfa7c5c5f7758ff90a47b3273aa7b8142e51e574f5c5290"
     },
     {
       "original_path": "docs/guide/06-verify-and-ship.md",
       "stored_path": "references/upstream/docs/guide/06-verify-and-ship.md",
       "git_mode": "100644",
-      "git_blob_sha": "007ea2cab45724e48e0ab8f52e52bf7957f694f2",
-      "sha256": "3ef0eed5ea084dfbbaf1b1ae9e08d84f2c8a2b536ffb3ef5226710bf105f70e6"
+      "git_blob_sha": "3c7b3c4dd0a256165f308f051b7125b9c5b37b62",
+      "sha256": "5c16c88bf377bf5ea5ffd4cd9dc1a83f19a0415090cc4645865d16a5500d1cab"
     },
     {
       "original_path": "docs/guide/07-overnight.md",
       "stored_path": "references/upstream/docs/guide/07-overnight.md",
       "git_mode": "100644",
-      "git_blob_sha": "cbad0672355927da4aa86547c5e5e108b354a4e2",
-      "sha256": "d7bd33a3d880768688dff4c1c2b5481ca9f0f194f5d97e44b65c9f96624d3ff0"
+      "git_blob_sha": "dd4230d8cc242638095f648f5f3e7b5bd46f61a9",
+      "sha256": "b767a5dc5d7257efdb5cc8cfac92acfbb18fe8e023a3438339f4b45ce4a9264a"
     },
     {
       "original_path": "docs/guide/08-principles.md",
       "stored_path": "references/upstream/docs/guide/08-principles.md",
       "git_mode": "100644",
-      "git_blob_sha": "0aaec930c3e6ca6a014087194d519048dd52b764",
-      "sha256": "73c3db659d356d4aa6d7674d30d0db46fab2bdd60152fca717c2d1772a042bdc"
+      "git_blob_sha": "d2921500bb44643ac3f841fa03e19e0b3a240c8b",
+      "sha256": "0b26b85292f0c09768abe727c9e92987dbf81f5b439a4871034c2fd1c4cb1723"
     },
     {
       "original_path": "docs/guide/09-make-it-yours.md",
       "stored_path": "references/upstream/docs/guide/09-make-it-yours.md",
       "git_mode": "100644",
-      "git_blob_sha": "321caaf9169aba31c69996fcf0de9c9423b24188",
-      "sha256": "157e0c20ad3c657857c2fbbea3afd26895b71b8f68475bc56f4c382dcdd0e118"
+      "git_blob_sha": "8d1c4b4f951bbb203ff1288e02ce91e8b6832a43",
+      "sha256": "50642f7f894988f7c263700f46478e7aed7eb94a257683350d91a9a0d70dc141"
     },
     {
       "original_path": "docs/guide/10-recipes-and-pitfalls.md",
       "stored_path": "references/upstream/docs/guide/10-recipes-and-pitfalls.md",
       "git_mode": "100644",
-      "git_blob_sha": "68751e7c02bde6e7b0620b9469c0e10b5e022168",
-      "sha256": "c652474764b08da4a6364d85f5d03cf1fc1cf35e9d7c549348fb66e2d09f7b1f"
+      "git_blob_sha": "4569129baf6acee770f11f57b94629d82a41c6bd",
+      "sha256": "006d8282db567aeae57398d5de1f3a802af2e3ac1a1f564198c384183fca3f92"
     },
     {
       "original_path": "docs/guide/README.md",
       "stored_path": "references/upstream/docs/guide/README.md",
       "git_mode": "100644",
-      "git_blob_sha": "627bfb222f5a6b0f544809de2ef43ec056ee684f",
-      "sha256": "49d92cfe91e01c04bd1150e5b000ee4fd4dfda8ce789b66a9dda98f7e5456e00"
+      "git_blob_sha": "17422b9921f1179b2a2b7137805267225ab271c2",
+      "sha256": "5c888d034d38f380789fad57c2c6fa7307ace803a0622cdde9e57fa2afe182de"
     },
     {
       "original_path": "docs/guide/images/design.jpg",
@@ -261,11 +261,18 @@
       "sha256": "2a76b52007a1cd2866ba67fd47d7d9ef3e1118bb5a09c4665eee8c3f161bd09a"
     },
     {
+      "original_path": "docs/harness/claude-code.md",
+      "stored_path": "references/upstream/docs/harness/claude-code.md",
+      "git_mode": "100644",
+      "git_blob_sha": "bf154e6464a6cca96a9627bbe10a628092e8c09e",
+      "sha256": "c79e2283d3a83c6be3dd1cac33f9c074067c95e610ae6e0a16d9fdee84058927"
+    },
+    {
       "original_path": "plugin.json",
       "stored_path": "references/upstream/plugin.json",
       "git_mode": "100644",
-      "git_blob_sha": "4183877095c1af2308d2470461d6eb984e0bef56",
-      "sha256": "5c73bc6047d206cf64d8bfcbeb1d8cf6b46b86b8f782cdf694b42301345d9828"
+      "git_blob_sha": "2b28f689ca144500269499dd0d4ca5ab01891bf4",
+      "sha256": "8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a"
     },
     {
       "original_path": "skills/architect/SKILL.md",
@@ -334,8 +341,15 @@
       "original_path": "skills/correct/SKILL.md",
       "stored_path": "references/upstream/skills/correct/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "c09f486e32935a154dd98daa13aa8187856600fe",
-      "sha256": "bf482bacc972b3f124a4af8bf9364b4b3e280cb5845e44c326ea4f4565e5c904"
+      "git_blob_sha": "c45e06f48a0982ae19f92c6e83a8cd05988097a3",
+      "sha256": "e347045d00c967a0b831ef883cc6ac79d21329aa10b5968637df95de7febf0ba"
+    },
+    {
+      "original_path": "skills/create-formal-verification-skill/SKILL.md",
+      "stored_path": "references/upstream/skills/create-formal-verification-skill/SKILL.md.source",
+      "git_mode": "100644",
+      "git_blob_sha": "b97609fd2649e95ea2960e720b3b581a6c2cb75a",
+      "sha256": "6c934cd15a9583533ff9b7a9cad62775d7e80402d26d3ba7f74f79ea21a1d8eb"
     },
     {
       "original_path": "skills/create-verification-skill/SKILL.md",
@@ -418,8 +432,8 @@
       "original_path": "skills/interrogate/references/lead-judgment.md",
       "stored_path": "references/upstream/skills/interrogate/references/lead-judgment.md",
       "git_mode": "100644",
-      "git_blob_sha": "5ce526097fdd3dfeaf4cd3b126a3f486c3ee36ae",
-      "sha256": "6e5bdf5670eb34017692e9b6c546f36ac7552e6bb9f3f2f3429164fcc46a9361"
+      "git_blob_sha": "3b41346c9c3f5c35453d34f1c77374b7e9346aa9",
+      "sha256": "355f5195a76bc75a655125292369f2a8231a2b61fabe5188d8f1386060922b87"
     },
     {
       "original_path": "skills/interrogate/references/reviewer-prompt.md",
@@ -439,8 +453,15 @@
       "original_path": "skills/ketchup/SKILL.md",
       "stored_path": "references/upstream/skills/ketchup/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "b206a42f38c4c63d3be54f073a9771a6f9ab41e8",
-      "sha256": "d9704b154081af306b6583b2752498d454f9d761e9989ff1f037efd414f86bb4"
+      "git_blob_sha": "9eef27f92f8029137a7bfa7378305b075df9dc4f",
+      "sha256": "f2923ffd14f6fc778f75a47aaed1f317fb5fd00b5701ca769d6446c74106dead"
+    },
+    {
+      "original_path": "skills/maintain-formal-verification-skill/SKILL.md",
+      "stored_path": "references/upstream/skills/maintain-formal-verification-skill/SKILL.md.source",
+      "git_mode": "100644",
+      "git_blob_sha": "5d2f7f2228a3b771ca5b03124fc265ddfc53c5fc",
+      "sha256": "0c96f54293542d3818b68754562b338073958781a9684454611dca37592e2d2c"
     },
     {
       "original_path": "skills/maintain-verification-skill/SKILL.md",
@@ -453,8 +474,8 @@
       "original_path": "skills/make-bot-ui/SKILL.md",
       "stored_path": "references/upstream/skills/make-bot-ui/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "285df7569758a70e62e9f3596a1f829a5b6ba80e",
-      "sha256": "3624c8ef16cf2e48deb2a4049e72c6962a9431c8d6c6af90e7bd7ea0375224ec"
+      "git_blob_sha": "446342ca35a46af771271e0cd901354a61997589",
+      "sha256": "ad19d0bc6764287ec08c2521701974e7dac941f72e4d0fe81a24f4614494586f"
     },
     {
       "original_path": "skills/no-comments/SKILL.md",
@@ -467,8 +488,8 @@
       "original_path": "skills/poteto-help/SKILL.md",
       "stored_path": "references/upstream/skills/poteto-help/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "dc443648ed3f0fdce6398fddde226f184f7e3156",
-      "sha256": "1b0645c25200a19e5863583e117bad684b1b79ba8434823ebf4f6bbcc61e8a75"
+      "git_blob_sha": "3eb02a5bf3ff08e23cf2afc870faa7d674a46459",
+      "sha256": "67c77ee5e91c19809b01d08cc73cc2870a52fb95fc64dc33328bf8ff9e49891c"
     },
     {
       "original_path": "skills/poteto-help/references/prompting.md",
@@ -481,15 +502,15 @@
       "original_path": "skills/poteto-help/references/recipes.md",
       "stored_path": "references/upstream/skills/poteto-help/references/recipes.md",
       "git_mode": "100644",
-      "git_blob_sha": "d13da3a08cd27a29a68dc8bfbc93d0ca6d8a0647",
-      "sha256": "5fb97a805976a82db0aba5cc8943e88d0cb38b17a0d6b8e89a44633677febb1a"
+      "git_blob_sha": "048e0750451aa801a4cf7ed59fa9ed4624c0f1ec",
+      "sha256": "f2d573014f72f7c798b1998b45f4360a8a83e7b8026c4ed9074e56c5a9d49338"
     },
     {
       "original_path": "skills/poteto-mode/SKILL.md",
       "stored_path": "references/upstream/skills/poteto-mode/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "ac3d64ff001a653f6a3c7148fd60e4926d317043",
-      "sha256": "f234661471847cafc4ae9bcb4a9208eb32ed8154ac25b91b2b064ec71bd62167"
+      "git_blob_sha": "21993f546032ca37671d5f1caf39c9a82ab4fa9d",
+      "sha256": "2755f102e7a6d0496b429d1031a22fb353e1f3d523543367caeaae5c4ed6f544"
     },
     {
       "original_path": "skills/poteto-mode/playbooks/authoring-a-skill.md",
@@ -810,8 +831,8 @@
       "original_path": "skills/principle-attack-the-premise/SKILL.md",
       "stored_path": "references/upstream/skills/principle-attack-the-premise/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "f9785ff9fdcf37d1c689e4468da7d611f3b76d4b",
-      "sha256": "c87bd7536f772f8a403ad8155535ee17a1bbec9a353156693eb3bb1520c87ae3"
+      "git_blob_sha": "e9a6d499606992edd9963b80f8f8f57feaccb221",
+      "sha256": "6a932884daad4aa189e9b5d1665226bbc75621d4d2a398fd4003bebd382f4599"
     },
     {
       "original_path": "skills/principle-boundary-discipline/SKILL.md",
@@ -859,8 +880,8 @@
       "original_path": "skills/principle-fix-root-causes/SKILL.md",
       "stored_path": "references/upstream/skills/principle-fix-root-causes/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "5291682d0d604c251efd3ce6009e60e9af925bb8",
-      "sha256": "2131069d285d82fb799458494f2e4ac8759c9c6a60f9e300828c17874f514c6e"
+      "git_blob_sha": "14fc189fa1ec3fb1614b0a3c75557f92943d8f13",
+      "sha256": "8df3c8c3fe57eb0055a5c8efab8ab144557fdf301da70b1cdc77a3a3ef3f3052"
     },
     {
       "original_path": "skills/principle-foundational-thinking/SKILL.md",
@@ -887,15 +908,15 @@
       "original_path": "skills/principle-make-operations-idempotent/SKILL.md",
       "stored_path": "references/upstream/skills/principle-make-operations-idempotent/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "a0834247ca99b09c11441747717a8034d4c22d7c",
-      "sha256": "540738217c3da7bf513b9886924ad6a2bc77e58be867f5bd2e1831c74bf2ce70"
+      "git_blob_sha": "c93f323d694a4d310515ea27165a093d399bc55e",
+      "sha256": "7aa9327cf1f1aa057e95d47a0a78bd88a8f9d556b608866fee939d455a53a019"
     },
     {
       "original_path": "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
       "stored_path": "references/upstream/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "06c7cfd87becc62d614d0af075b792f8ec6eb21d",
-      "sha256": "09978915a4a11990cf0a9a02d9c08cc59e0b7a04c5c24b83aa560fbe4146f75b"
+      "git_blob_sha": "57ddd7b27d06ba4ee9e2d3811880476a18b88df6",
+      "sha256": "580ad9bb1a0994ecb924321ba49efc38a2f85c64e22c76fb133f57a78272a2e6"
     },
     {
       "original_path": "skills/principle-minimize-reader-load/SKILL.md",
@@ -964,15 +985,15 @@
       "original_path": "skills/principle-test-behavior-not-implementation/SKILL.md",
       "stored_path": "references/upstream/skills/principle-test-behavior-not-implementation/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "f5a603e3a0925cdc6363bcc26dfbf587d9a36ec7",
-      "sha256": "b2b73ba42920f9c3174ecdf808ec6e4591b3a9266ada9a05814f386004266d3a"
+      "git_blob_sha": "78c9389bfe707d6d56485ade32c59150958228f9",
+      "sha256": "f7223698623b6a26fea49c751e466b38e6691b1f32ce841d3983e7ffbe2b74a6"
     },
     {
       "original_path": "skills/principle-type-system-discipline/SKILL.md",
       "stored_path": "references/upstream/skills/principle-type-system-discipline/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "4321b83e245d99eded0756c7a74f3fb64e32c36b",
-      "sha256": "2e492cef34bb25a20b9115df61f9ef3a9837e3fda144ffda8079e5f45a1b72e8"
+      "git_blob_sha": "9fa08b0b17d536ce751fffa90134be8fb03699c7",
+      "sha256": "5cdaf79785e3c12b2592b9469ee8c272143eb86ab7a18d8382197cea5fd30106"
     },
     {
       "original_path": "skills/recall/SKILL.md",
@@ -1020,15 +1041,15 @@
       "original_path": "skills/setup-pstack/SKILL.md",
       "stored_path": "references/upstream/skills/setup-pstack/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "90a9e575397fb59f4d9a47e6157c2106f4b4a5e2",
-      "sha256": "d61b47256a18155a81c8e5ef95e3cc6569ce8c18317c35c4dd9c8015cf68cb59"
+      "git_blob_sha": "cb61b8d3ee5d2a1b8fa403d8b99ed8d2e18f77df",
+      "sha256": "b45512f6ca5e96e81681984683b7472bfe892581da3a89a73cca4159438f29ed"
     },
     {
       "original_path": "skills/sharpen/SKILL.md",
       "stored_path": "references/upstream/skills/sharpen/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "4f9bb4ab50fd760285dd6c4cbbfa7fe20e2d2466",
-      "sha256": "6bcd73916696eb9c5b79b6f960983760c34bcc28937c11142dd8d86b5107aa46"
+      "git_blob_sha": "5b4a7b104e709f8cded1726541be42431c334164",
+      "sha256": "563dfc460c605d311e650726288e2f1cbd61eab817db178d6e7e29643e07e7a2"
     },
     {
       "original_path": "skills/show-me-your-work/SKILL.md",
@@ -1055,8 +1076,8 @@
       "original_path": "skills/swarm/SKILL.md",
       "stored_path": "references/upstream/skills/swarm/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "ed99acb98691c5555434e25b00e4ae3ca8b5b59b",
-      "sha256": "c8fe1b28282e7a051a4041a146a11f076e0fd95252bb010106a58209805303d5"
+      "git_blob_sha": "b0b1eb83363853843ccf1524917b83d0c16d2cd8",
+      "sha256": "031657cb81e490f9aed5c75d6ff2a4fda35ccafbaf72be604e59481cc4080cdc"
     },
     {
       "original_path": "skills/tdd/SKILL.md",
@@ -1083,15 +1104,15 @@
       "original_path": "skills/typescript-best-practices/SKILL.md",
       "stored_path": "references/upstream/skills/typescript-best-practices/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "2c0279d9a5f800192605e47b55cae4e75a17ec27",
-      "sha256": "28f9e61710e205f6f3c5476f333483cff0e988f6a5b639e2faad536344b40c5e"
+      "git_blob_sha": "e1e5aa7c97ed39c425d60d933a96424a3f14539e",
+      "sha256": "ec1dac086d3708e5940d45d250c30a37dd953b4e3cb2ca0692f5851d7a039e27"
     },
     {
       "original_path": "skills/typescript-best-practices/references/patterns.md",
       "stored_path": "references/upstream/skills/typescript-best-practices/references/patterns.md",
       "git_mode": "100644",
-      "git_blob_sha": "c21d876b71b9c7afa897f2f6d982ead07db8f104",
-      "sha256": "faa1362055374452efccac1b629677c61acfb0bcc6c4e3311836b5715638ee18"
+      "git_blob_sha": "f8dd99b63ecb469a090b8fa0a7e235d3239cb9ec",
+      "sha256": "12e70c9419a8b3f5d6a1ab80e272c1f00a43ac0b3bbf72d68199033570e5de77"
     },
     {
       "original_path": "skills/unslop/SKILL.md",
