@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 47 **host-neutral** [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 58 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 11 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -119,6 +119,23 @@ These skills require the Figma MCP server.
 | [`codebase-design`](skills/codebase-design) | Design deep modules: interfaces, seams, testability. | "Where should the seam go between billing and orders?" |
 | [`domain-modeling`](skills/domain-modeling) | Sharpen domain terms and maintain `GLOSSARY.md`, `CONTEXT.md`, and ADRs. | "Record an ADR for switching to Postgres" |
 
+### Claude Code flavored skills
+
+These were imported from earlier Claude Code collections and keep Claude Code wording (tool names, `~/.claude` paths, hooks). They still read as plain Markdown elsewhere, but expect to adapt them on other hosts. Eight are adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (see each `UPSTREAM.md`); `reverse-engineer-anything` is imported verbatim from [morluto/rea](https://github.com/morluto/rea).
+
+| Skill | Use it to | Example prompt |
+|---|---|---|
+| [`diagnosing-bugs`](skills/diagnosing-bugs) | Run a diagnosis loop on hard bugs and performance regressions. | "Diagnose why the export job is slow" |
+| [`tdd`](skills/tdd) | Build features or fix bugs test-first (red-green-refactor). | "Do this with red-green-refactor" |
+| [`grilling`](skills/grilling) / [`grill-me`](skills/grill-me) | Get grilled on a plan, decision or idea until the gaps show (`grill-me` is the short interview form). | "Grill me on this migration plan" |
+| [`handoff`](skills/handoff) | Compact the conversation into a handoff document for another agent. | "Hand this off to a fresh session" |
+| [`to-questionnaire`](skills/to-questionnaire) | Turn a decision you can't fully answer into a questionnaire for someone else to fill in. | "Turn this open question into a questionnaire for the client" |
+| [`wait-what`](skills/wait-what) | Re-pitch a message that didn't land, more clearly. | "Wait, what? Say that again" |
+| [`writing-for-agents`](skills/writing-for-agents) | Write skills, `AGENTS.md` and `CLAUDE.md` that agents follow. | "Tighten this CLAUDE.md" |
+| [`git-guardrails-claude-code`](skills/git-guardrails-claude-code) | Install Claude Code hooks that block dangerous git commands. | "Block git push and reset --hard" |
+| [`update-mattpocock-skills`](skills/update-mattpocock-skills) | Check mattpocock/skills for upstream changes and merge them. | "Refresh the Matt Pocock skills" |
+| [`reverse-engineer-anything`](skills/reverse-engineer-anything) | Reverse engineer native, Electron, packaged and browser targets with REA. | "How does this app's updater work?" |
+
 ### Security
 
 | Skill | Use it to | Example prompt |
@@ -204,7 +221,7 @@ python3 scripts/validate.py                  # all skills
 python3 scripts/validate.py skills/animate   # one skill
 ```
 
-The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
+The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt; the Claude Code flavored skills only warn). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
 
 ## Licensing
 

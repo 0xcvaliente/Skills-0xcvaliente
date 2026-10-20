@@ -2,7 +2,11 @@
 """Validate Agent Skills packages: frontmatter, name/folder match, local links,
 and leftover host-specific wording in active (non-provenance) files.
 
-Usage: validate.py [skills/<name> ...]   (default: every skill under ./skills)
+Host wording: the skills listed in CLAUDE_FLAVORED are Claude Code skills kept as
+imported. Host-specific wording in them is a WARNING and does not fail the run;
+everywhere else it is an error. Pass --strict to treat warnings as errors.
+
+Usage: validate.py [--strict] [skills/<name> ...]   (default: every skill under ./skills)
 """
 import os
 import re
@@ -20,6 +24,12 @@ HOST_RE = re.compile(
     r"\bTask tool\b|\bSkill tool\b|TodoWrite|mcp__|\bAnthropic\b"
 )
 ALLOW_LINE = re.compile(r"[Ee]xample|observed|headless|ran on Claude Code|writes host-specific|auto-allow permissions|Claude Code (only|target)|CLAUDE\.md|GEMINI\.md|AGENTS\.md|\.claude/skills|~/\.claude/skills|Claude Code[`,)]? *(,|and|or)|(Codex|Gemini|Cursor|Copilot|OpenCode)")
+# Claude Code flavored skills: host wording is a warning, not an error.
+CLAUDE_FLAVORED = {
+    "diagnosing-bugs", "git-guardrails-claude-code", "grill-me", "grilling", "handoff",
+    "reverse-engineer-anything", "tdd", "to-questionnaire", "update-mattpocock-skills",
+    "wait-what", "writing-for-agents",
+}
 LINK_RE = re.compile(r"\]\((?!https?:|mailto:|#)([^)#\s]+)")
 
 
@@ -43,14 +53,15 @@ def frontmatter(text):
 
 def check(skill_dir):
     errs = []
+    warns = []
     name = os.path.basename(skill_dir.rstrip("/"))
     path = os.path.join(skill_dir, "SKILL.md")
     if not os.path.isfile(path):
-        return [f"{name}: missing SKILL.md"]
+        return [f"{name}: missing SKILL.md"], []
     text = open(path, encoding="utf-8").read()
     fm = frontmatter(text)
     if fm is None:
-        return [f"{name}: SKILL.md has no frontmatter"]
+        return [f"{name}: SKILL.md has no frontmatter"], []
     if fm.get("name") != name:
         errs.append(f"{name}: frontmatter name {fm.get('name')!r} != folder")
     if not NAME_RE.match(fm.get("name", "")) or len(fm.get("name", "")) > 64:
@@ -75,22 +86,30 @@ def check(skill_dir):
                 continue
             for i, line in enumerate(open(p, encoding="utf-8", errors="ignore"), 1):
                 if HOST_RE.search(line) and not ALLOW_LINE.search(line):
-                    errs.append(f"{rel}:{i}: host-specific wording: {line.strip()[:90]}")
-    return errs
+                    msg = f"{rel}:{i}: host-specific wording: {line.strip()[:90]}"
+                    (warns if name in CLAUDE_FLAVORED else errs).append(msg)
+    return errs, warns
 
 
 def main(argv):
+    strict = "--strict" in argv
+    argv = [a for a in argv if a != "--strict"]
     targets = argv or sorted(
         os.path.join(ROOT, "skills", d) for d in os.listdir(os.path.join(ROOT, "skills"))
         if os.path.isdir(os.path.join(ROOT, "skills", d))
     )
-    bad = 0
+    bad = nwarn = 0
     for t in targets:
-        errs = check(os.path.realpath(t))
+        errs, warns = check(os.path.realpath(t))
+        if strict:
+            errs, warns = errs + warns, []
         for e in errs:
             print(e)
+        for w in warns:
+            print("warning: " + w)
         bad += bool(errs)
-    print(f"{len(targets)} skills checked, {bad} with problems")
+        nwarn += len(warns)
+    print(f"{len(targets)} skills checked, {bad} with problems, {nwarn} warnings")
     return 1 if bad else 0
 
 
