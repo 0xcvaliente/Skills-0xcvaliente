@@ -23,6 +23,7 @@ Each actionable finding should contain:
 - Required attacker access, expected security invariant, actual broken control, and impact.
 - Reproduction using owned fixtures, expected versus observed result, and a legitimate control case.
 - Counterevidence checked, constraints, and any remaining runtime or deployment gap.
+- For a proxied or captured HTTP exchange, the exact identifiers of the proving request and its baseline/control, copied from the tool and never guessed. If the capture store cannot be reached to verify them, keep them and mark them unverified rather than dropping the evidence; an identifier confirmed missing is removed.
 - Root-cause remediation, affected sibling instances, and verification result if fixed.
 
 The overall report records in-scope assets, exclusions, auth/role coverage, tools and meaningful checks, inaccessible surfaces, stopped/capped runs, and unresolved candidates. Redact secret values and private record contents. Supply a machine-readable index or SARIF only when needed; do not claim a custom JSON format is Strix-compatible or invent source locations to populate a report.

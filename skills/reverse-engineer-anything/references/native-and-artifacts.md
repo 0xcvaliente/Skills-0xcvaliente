@@ -11,6 +11,22 @@ Select columns, batch IDs and page individual facts; aliases remain unresolved.
 Unpaired observations do not prove additions/removals. Existing matched dossier
 pairs include inputs for `compare_functions`; otherwise analyze just chosen pairs.
 
+## Apple app resources
+
+Use `open_bundle_resources` with the selected app path, then `inspect_plist`,
+`decode_interface_builder`, `inspect_asset_catalog`, or `inspect_keyed_archive`.
+The resource session reads the app without resolving `CFBundleExecutable` or
+starting a deep provider. Preserve `resource_root` provenance, per-resource
+hashes where reported, and null executable identity; a directory path is not
+an executable digest. Export retained Evidence before closing or switching
+roots. Binary analysis snapshots do not apply. Use `open_binary` to switch to
+executable analysis, and `close_binary` to release either session kind.
+
+The four matching CLI commands accept the app path directly. For an archive
+inside the app, use `inspect-keyed-archive APP_PATH RELATIVE_ARCHIVE_PATH`.
+Host requirements for plist and compiled asset/Interface Builder tooling still
+apply; a resource-only session does not establish provider availability.
+
 ## Desktop installation directories
 
 When an installation directory is supplied and its runtime is unknown, use
@@ -37,6 +53,16 @@ Preserve artifact SHA-256, original file ranges, framed module bytes and every
 unparsed module-text line. A missing record is an unknown, not proof of a
 non-Go binary; observed metadata does not authenticate its claims. Function,
 source and type recovery remain a separate native-analysis question.
+
+## Model files
+
+Use `inspect_model_artifact` (`inspect-model-artifact PATH`) for local GGUF v2/v3
+and safetensors declarations without a model runtime. Header-only mode does not
+read weights or establish full-file identity. `hash: "full"` explicitly streams
+all bytes. Retained `model-artifact` views page `metadata`, `tensors` and derived
+`types`, with exact batch filters and selected fields. Arrays retain typed counts
+and eight-element previews; omitted values, unknown types and runtime behavior
+stay explicit. See [model files](https://github.com/morluto/rea/blob/main/docs/model-artifacts.md).
 
 ## IL2CPP metadata
 

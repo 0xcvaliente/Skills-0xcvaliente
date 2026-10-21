@@ -121,7 +121,7 @@ These skills require the Figma MCP server.
 
 ### Claude Code flavored skills
 
-These were imported from earlier Claude Code collections and keep Claude Code wording (tool names, `~/.claude` paths, hooks). They still read as plain Markdown elsewhere, but expect to adapt them on other hosts. Eight are adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (see each `UPSTREAM.md`); `reverse-engineer-anything` is imported verbatim from [morluto/rea](https://github.com/morluto/rea).
+These were imported from earlier Claude Code collections and keep Claude Code wording (tool names, `~/.claude` paths, hooks). They still read as plain Markdown elsewhere, but expect to adapt them on other hosts. Nine are adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (see each `UPSTREAM.md`); `reverse-engineer-anything` is imported verbatim from [morluto/rea](https://github.com/morluto/rea).
 
 | Skill | Use it to | Example prompt |
 |---|---|---|

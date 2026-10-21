@@ -114,3 +114,24 @@ Skipped as engine internals with no effect on the host-neutral workflow: the
 policy mechanics beyond the incomplete-run note, config-file decoding of saved
 dict settings, and the new tests. The file-inventory baseline in `upstream.json`
 was advanced to `aa2036f` after this review.
+
+## Reviewed update — 2026-10-21
+
+Reviewed the range from `aa2036f22942eed3ecd142169289a256a2e7acb7` to
+`a3c31236bd6305784a501a3102dab0bda83f2317` (14 files).
+
+Adopted (guidance only, in `reporting-and-fixes.md`): upstream's reporting tool
+now keeps `http_exchange_ids` with an "stored without verification" warning when
+the proxy times out, and still rejects ids the proxy reports missing. The skill
+records the same rule host-neutrally: keep and mark unverified captured-exchange
+identifiers when the capture store is unreachable, remove ones confirmed missing,
+never invent them.
+
+Skipped: the `{{ report_tool }}` template variable in `system_prompt.jinja` and
+the `counterevidence.md` wording change that drops the hardcoded
+`create_vulnerability_report` name (the skill already names no Strix-only tool as
+callable), the `report_tool` plumbing in `factory.py`, `prompt.py`, and
+`runner.py`, the lighter id-only existence query in `proxy/tools.py`, and
+CI/packaging/lockfile and test churn. No authorization, ownership, scope, or
+consent safeguard was changed upstream or in the skill. The file-inventory
+baseline in `upstream.json` was advanced to `a3c31236`.

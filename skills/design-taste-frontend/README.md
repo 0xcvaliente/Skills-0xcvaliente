@@ -1,6 +1,6 @@
 # design-taste-frontend
 
-Anti-slop art direction for public-facing web pages (landing pages, marketing sites, portfolios, one-pagers, redesigns) and, since v2.1, app screens (dashboards, admin and analytics views, settings, inboxes). This is taste-skill v2.1.1 by Leonxlnx (MIT), vendored from upstream at revision 63aba5f.
+Anti-slop art direction for public-facing web pages (landing pages, marketing sites, portfolios, one-pagers, redesigns) and, since v2.1, app screens (dashboards, admin and analytics views, settings, inboxes). This is taste-skill v2.1.4 by Leonxlnx (MIT), vendored from upstream at revision 6010f91.
 
 What v2 does: it deals researched design directions from a local library (`scripts/draw.mjs`), enforces a house style with a static linter (`scripts/lint.mjs`) and a real-browser inspector (`scripts/inspect.mjs`), finds open-licence pictures (`scripts/assets.mjs`), and runs a look-and-fix loop on screenshots.
 
