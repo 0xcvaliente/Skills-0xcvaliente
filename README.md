@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 58 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 11 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 59 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -121,7 +121,7 @@ These skills require the Figma MCP server.
 
 ### Claude Code flavored skills
 
-These were imported from earlier Claude Code collections and keep Claude Code wording (tool names, `~/.claude` paths, hooks). They still read as plain Markdown elsewhere, but expect to adapt them on other hosts. Nine are adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (see each `UPSTREAM.md`); `reverse-engineer-anything` is imported verbatim from [morluto/rea](https://github.com/morluto/rea).
+These were imported from earlier Claude Code collections and keep Claude Code wording (tool names, `~/.claude` paths, hooks). They still read as plain Markdown elsewhere, but expect to adapt them on other hosts. Nine are adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (see each `UPSTREAM.md`); `reverse-engineer-anything` is imported verbatim from [morluto/rea](https://github.com/morluto/rea); `pptx-deck` is original work that uses `${CLAUDE_SKILL_DIR}` and `allowed-tools` (see its `LICENSES/NOTICE.md`).
 
 | Skill | Use it to | Example prompt |
 |---|---|---|
@@ -135,6 +135,7 @@ These were imported from earlier Claude Code collections and keep Claude Code wo
 | [`git-guardrails-claude-code`](skills/git-guardrails-claude-code) | Install Claude Code hooks that block dangerous git commands. | "Block git push and reset --hard" |
 | [`update-mattpocock-skills`](skills/update-mattpocock-skills) | Check mattpocock/skills for upstream changes and merge them. | "Refresh the Matt Pocock skills" |
 | [`reverse-engineer-anything`](skills/reverse-engineer-anything) | Reverse engineer native, Electron, packaged and browser targets with REA. | "How does this app's updater work?" |
+| [`pptx-deck`](skills/pptx-deck) | Build, fill, edit and restyle English PowerPoint (`.pptx`) decks from a JSON spec: intake, storyline, 27 themes with three style previews, native charts, speaker notes, PNG rendering and a QA loop. | "Make a 10 slide deck for the board about our 2026 results" |
 
 ### Security
 
@@ -182,6 +183,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | `codegraph` | The CodeGraph CLI and an indexed repository (see `skills/codegraph/references/setup.md`) |
 | `repo-context`, `pstack`, `founder`, `business-sales-documents`, `diagram-craft` | Python 3.9+ for their bundled helper scripts |
 | `documents` | Python 3.9+ for the bundled scripts (standard library only). Optional, by task: `python-docx`, `openpyxl`, `python-pptx`, `pypdf`, `reportlab`, LibreOffice, Poppler, pandoc. `scripts/doctor.py` reports what is installed |
+| `pptx-deck` | Python 3 with `python-pptx`, `lxml`, `Pillow` (`pip install -r skills/pptx-deck/requirements.txt`). Optional, for rendering and visual QA: LibreOffice and Poppler |
 
 ## Anatomy of a skill
 

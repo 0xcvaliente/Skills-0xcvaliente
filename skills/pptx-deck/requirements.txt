@@ -1,0 +1,5 @@
+python-pptx>=1.0.0
+lxml
+Pillow
+# Optional: stricter schema validation in validate_spec.py (a built-in validator is used otherwise)
+# jsonschema

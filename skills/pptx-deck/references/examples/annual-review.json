@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "title": "Annual Review 2026",
+  "goal": "Review the year, explain the results and agree priorities for 2027",
+  "audience": "Leadership team and department heads",
+  "owner": "Strategy Office",
+  "language": "en",
+  "randomSeed": "growth-surge-20261022-qzx",
+  "theme": "growth-surge",
+  "aspect": "16:9",
+  "slides": [
+    {
+      "id": "cover",
+      "role": "cover",
+      "coreMessage": "2026 was our strongest year and 2027 builds on it.",
+      "title": {
+        "full": "Annual Review 2026",
+        "short": "Annual Review 2026"
+      },
+      "summary": {
+        "full": "Results, lessons and priorities for the year ahead",
+        "short": "Results and priorities"
+      },
+      "notes": "Welcome the room and state the purpose in one sentence.",
+      "arcStage": "hook"
+    },
+    {
+      "id": "agenda",
+      "role": "breakdown",
+      "coreMessage": "The review covers four parts.",
+      "title": {
+        "full": "What we will cover",
+        "short": "Agenda"
+      },
+      "items": [
+        {
+          "id": "a1",
+          "label": "Results",
+          "detail": {
+            "full": "Revenue, margin and customers",
+            "short": "Revenue and margin"
+          }
+        },
+        {
+          "id": "a2",
+          "label": "Growth drivers",
+          "detail": {
+            "full": "What worked and why",
+            "short": "What worked"
+          }
+        },
+        {
+          "id": "a3",
+          "label": "Risks",
+          "detail": {
+            "full": "What could slow us down",
+            "short": "Risks"
+          }
+        },
+        {
+          "id": "a4",
+          "label": "2027 plan",
+          "detail": {
+            "full": "Priorities and roadmap",
+            "short": "Priorities"
+          }
+        }
+      ],
+      "arcStage": "context",
+      "notes": "Walk through the four parts quickly; do not read every line."
+    },
+    {
+      "id": "kpis",
+      "role": "metrics",
+      "coreMessage": "Revenue and customer growth both beat plan.",
+      "title": {
+        "full": "Headline results",
+        "short": "Results"
+      },
+      "items": [
+        {
+          "id": "k1",
+          "label": "Revenue",
+          "detail": {
+            "full": "Up 24% on 2025",
+            "short": "Up 24%"
+          },
+          "value": 48.2,
+          "displayValue": "$48.2M",
+          "unit": "USD million",
+          "priority": 1
+        },
+        {
+          "id": "k2",
+          "label": "Customers",
+          "detail": {
+            "full": "Net new accounts",
+            "short": "Net new"
+          },
+          "value": 1320,
+          "displayValue": "1,320",
+          "priority": 2
+        },
+        {
+          "id": "k3",
+          "label": "Gross margin",
+          "detail": {
+            "full": "Two points above plan",
+            "short": "+2 pts vs plan"
+          },
+          "value": 61,
+          "displayValue": "61%",
+          "unit": "%",
+          "priority": 3
+        },
+        {
+          "id": "k4",
+          "label": "NPS",
+          "detail": {
+            "full": "Highest on record",
+            "short": "Record"
+          },
+          "value": 52,
+          "displayValue": "52",
+          "priority": 3
+        }
+      ],
+      "arcStage": "core",
+      "notes": "Lead with revenue, then customers; margin and NPS are supporting."
+    },
+    {
+      "id": "revenue-trend",
+      "role": "trend",
+      "coreMessage": "Revenue grew every quarter of 2026.",
+      "title": {
+        "full": "Revenue grew every quarter",
+        "short": "Quarterly revenue"
+      },
+      "chart": {
+        "type": "column",
+        "categories": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "series": [
+          {
+            "name": "Revenue (USD million)",
+            "values": [
+              9.8,
+              11.4,
+              12.6,
+              14.4
+            ]
+          }
+        ],
+        "insight": "Revenue rose from 9.8 million in Q1 to 14.4 million in Q4."
+      },
+      "notes": "Q4 was driven by enterprise renewals.",
+      "arcStage": "core"
+    },
+    {
+      "id": "mix",
+      "role": "distribution",
+      "coreMessage": "Enterprise is now more than half of revenue.",
+      "title": {
+        "full": "Revenue by segment",
+        "short": "Segment mix"
+      },
+      "chart": {
+        "type": "doughnut",
+        "categories": [
+          "Enterprise",
+          "Mid-market",
+          "Small business"
+        ],
+        "series": [
+          {
+            "name": "Share of revenue (%)",
+            "values": [
+              54,
+              31,
+              15
+            ]
+          }
+        ],
+        "insight": "Enterprise accounts for 54% of revenue."
+      },
+      "arcStage": "core",
+      "notes": "Point out the enterprise share and what it means for risk."
+    },
+    {
+      "id": "case",
+      "role": "case",
+      "coreMessage": "A single enterprise rollout showed the playbook that scales.",
+      "title": {
+        "full": "Case: retail rollout",
+        "short": "Retail rollout"
+      },
+      "summary": {
+        "full": "A national retailer moved 400 stores onto the platform in one quarter.",
+        "short": "400 stores in one quarter"
+      },
+      "items": [
+        {
+          "id": "c1",
+          "label": "Challenge",
+          "detail": {
+            "full": "Fragmented systems across regions",
+            "short": "Fragmented systems"
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Approach",
+          "detail": {
+            "full": "Phased rollout with local champions",
+            "short": "Phased rollout"
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Result",
+          "detail": {
+            "full": "Onboarding time cut by 40%",
+            "short": "Onboarding down 40%"
+          }
+        }
+      ],
+      "arcStage": "shift",
+      "notes": "Tell the retail story in under a minute."
+    },
+    {
+      "id": "risks",
+      "role": "risks",
+      "coreMessage": "Three risks need owners before Q1.",
+      "title": {
+        "full": "Risks to manage",
+        "short": "Risks"
+      },
+      "items": [
+        {
+          "id": "r1",
+          "label": "Hiring pace",
+          "detail": {
+            "full": "Engineering hiring is 6 weeks behind plan; widen agency support",
+            "short": "Hiring behind plan"
+          },
+          "priority": 1
+        },
+        {
+          "id": "r2",
+          "label": "Concentration",
+          "detail": {
+            "full": "Top five customers hold 28% of revenue; diversify pipeline",
+            "short": "Customer concentration"
+          },
+          "priority": 2
+        },
+        {
+          "id": "r3",
+          "label": "Pricing pressure",
+          "detail": {
+            "full": "Competitors discount in mid-market; protect value selling",
+            "short": "Mid-market pricing"
+          },
+          "priority": 3
+        }
+      ],
+      "arcStage": "shift",
+      "notes": "Ask each owner to confirm before moving on."
+    },
+    {
+      "id": "outlook",
+      "role": "observation",
+      "coreMessage": "Growth will come from enterprise expansion, not new logos alone.",
+      "title": {
+        "full": "What the data tells us",
+        "short": "Observations"
+      },
+      "items": [
+        {
+          "id": "o1",
+          "label": "Expansion beats acquisition",
+          "detail": {
+            "full": "Existing accounts grew 31%",
+            "short": "Accounts grew 31%"
+          }
+        },
+        {
+          "id": "o2",
+          "label": "Support drives retention",
+          "detail": {
+            "full": "Churn is lowest where onboarding is guided",
+            "short": "Guided onboarding wins"
+          }
+        },
+        {
+          "id": "o3",
+          "label": "Margin has headroom",
+          "detail": {
+            "full": "Automation lifted margin without price rises",
+            "short": "Automation lifts margin"
+          }
+        }
+      ],
+      "arcStage": "takeaway",
+      "notes": "Connect each observation back to the numbers."
+    },
+    {
+      "id": "roadmap",
+      "role": "actions",
+      "coreMessage": "Four initiatives, each with a quarter and an owner.",
+      "title": {
+        "full": "2027 roadmap",
+        "short": "Roadmap"
+      },
+      "items": [
+        {
+          "id": "p1",
+          "label": "Expand enterprise team",
+          "detail": {
+            "full": "Q1, owner: Sales",
+            "short": "Q1, owner: Sales"
+          },
+          "value": 1,
+          "displayValue": "Q1",
+          "priority": 1
+        },
+        {
+          "id": "p2",
+          "label": "Launch guided onboarding",
+          "detail": {
+            "full": "Q2, owner: Customer Success",
+            "short": "Q2, owner: Customer Success"
+          },
+          "displayValue": "Q2",
+          "priority": 1
+        },
+        {
+          "id": "p3",
+          "label": "Regional pricing review",
+          "detail": {
+            "full": "Q3, owner: Finance",
+            "short": "Q3, owner: Finance"
+          },
+          "displayValue": "Q3",
+          "priority": 2
+        },
+        {
+          "id": "p4",
+          "label": "Partner programme",
+          "detail": {
+            "full": "Q4, owner: Alliances",
+            "short": "Q4, owner: Alliances"
+          },
+          "displayValue": "Q4",
+          "priority": 3
+        }
+      ],
+      "arcStage": "takeaway",
+      "notes": "Ask for approval of the four initiatives."
+    },
+    {
+      "id": "close",
+      "role": "closing",
+      "coreMessage": "Thank you; questions and decisions are next.",
+      "title": {
+        "full": "Thank you",
+        "short": "Thank you"
+      },
+      "summary": {
+        "full": "Questions and decisions on the 2027 plan",
+        "short": "Questions and decisions"
+      },
+      "items": [
+        {
+          "id": "t1",
+          "label": "strategy@example.com"
+        }
+      ],
+      "notes": "Open the floor for questions and decisions.",
+      "arcStage": "takeaway"
+    }
+  ],
+  "density": "reading-first",
+  "durationMinutes": 15,
+  "mode": "new"
+}

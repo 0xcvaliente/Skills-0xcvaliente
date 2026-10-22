@@ -27,7 +27,7 @@ ALLOW_LINE = re.compile(r"[Ee]xample|observed|headless|ran on Claude Code|writes
 # Claude Code flavored skills: host wording is a warning, not an error.
 CLAUDE_FLAVORED = {
     "diagnosing-bugs", "git-guardrails-claude-code", "grill-me", "grilling", "handoff",
-    "reverse-engineer-anything", "tdd", "to-questionnaire", "update-mattpocock-skills",
+    "pptx-deck", "reverse-engineer-anything", "tdd", "to-questionnaire", "update-mattpocock-skills",
     "wait-what", "writing-for-agents",
 }
 LINK_RE = re.compile(r"\]\((?!https?:|mailto:|#)([^)#\s]+)")

@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "title": "Aster Product Launch",
+  "goal": "Introduce Aster and win pilot sign-ups from early customers",
+  "audience": "Prospective customers and partners",
+  "language": "en",
+  "randomSeed": "cobalt-slab-20261022-kmv",
+  "theme": "cobalt-slab",
+  "aspect": "16:9",
+  "slides": [
+    {
+      "id": "cover",
+      "role": "cover",
+      "coreMessage": "Aster turns raw data into decisions in minutes.",
+      "title": {
+        "full": "Meet Aster",
+        "short": "Meet Aster"
+      },
+      "summary": {
+        "full": "The analytics assistant for busy teams",
+        "short": "Analytics for busy teams"
+      },
+      "arcStage": "hook",
+      "notes": "Welcome the room and state the purpose in one sentence."
+    },
+    {
+      "id": "claim",
+      "role": "statement",
+      "coreMessage": "Teams drown in data but starve for answers.",
+      "title": {
+        "full": "Data is plentiful. Answers are not.",
+        "short": "Answers are scarce"
+      },
+      "summary": {
+        "full": "Analysts spend most of their week preparing data, not using it.",
+        "short": "Prep beats insight"
+      },
+      "arcStage": "hook",
+      "notes": "Pause after the claim and let it land."
+    },
+    {
+      "id": "problem",
+      "role": "context",
+      "coreMessage": "Slow reporting delays decisions across the company.",
+      "title": {
+        "full": "Why this matters now",
+        "short": "Why now"
+      },
+      "summary": {
+        "full": "Reports take days, and by then the question has changed.",
+        "short": "Reports arrive too late"
+      },
+      "items": [
+        {
+          "id": "x1",
+          "label": "3 days",
+          "detail": {
+            "full": "Typical wait for a custom report",
+            "short": "Report wait"
+          }
+        },
+        {
+          "id": "x2",
+          "label": "60%",
+          "detail": {
+            "full": "Analyst time spent on data prep",
+            "short": "Prep time"
+          }
+        }
+      ],
+      "arcStage": "context",
+      "notes": "Use a real example of a slow report."
+    },
+    {
+      "id": "how",
+      "role": "process",
+      "coreMessage": "Aster works in three steps from data to decision.",
+      "title": {
+        "full": "How Aster works",
+        "short": "How it works"
+      },
+      "items": [
+        {
+          "id": "s1",
+          "label": "Connect",
+          "detail": {
+            "full": "Link your warehouse or spreadsheets in minutes",
+            "short": "Link your data"
+          }
+        },
+        {
+          "id": "s2",
+          "label": "Ask",
+          "detail": {
+            "full": "Type a question in plain language",
+            "short": "Ask in plain words"
+          }
+        },
+        {
+          "id": "s3",
+          "label": "Decide",
+          "detail": {
+            "full": "Get a chart, a summary and the next step",
+            "short": "Chart and next step"
+          }
+        }
+      ],
+      "arcStage": "core",
+      "notes": "Demo each step live if time allows."
+    },
+    {
+      "id": "compare",
+      "role": "comparison",
+      "coreMessage": "Aster is faster and cheaper than the manual route.",
+      "title": {
+        "full": "Aster versus manual reporting",
+        "short": "Aster vs manual"
+      },
+      "items": [
+        {
+          "id": "v1",
+          "label": "Manual",
+          "detail": {
+            "full": "Analyst queue, spreadsheets",
+            "short": "Analyst queue, spreadsheets"
+          }
+        },
+        {
+          "id": "v2",
+          "label": "Aster",
+          "detail": {
+            "full": "Instant, self-serve",
+            "short": "Instant, self-serve"
+          }
+        }
+      ],
+      "chart": {
+        "type": "bar",
+        "categories": [
+          "Time to answer (hours)",
+          "Cost per report (USD)"
+        ],
+        "series": [
+          {
+            "name": "Manual",
+            "values": [
+              72,
+              420
+            ]
+          },
+          {
+            "name": "Aster",
+            "values": [
+              1,
+              35
+            ]
+          }
+        ],
+        "insight": "Aster cuts time to answer from 72 hours to 1 hour."
+      },
+      "arcStage": "core",
+      "notes": "Stress the hours, not the dollars, first."
+    },
+    {
+      "id": "proof",
+      "role": "result",
+      "coreMessage": "Pilot teams saved 11 hours a week.",
+      "title": {
+        "full": "Pilot results",
+        "short": "Pilot results"
+      },
+      "items": [
+        {
+          "id": "w1",
+          "label": "Hours saved per week",
+          "detail": {
+            "full": "Average across 24 pilot teams",
+            "short": "24 pilot teams"
+          },
+          "value": 11,
+          "displayValue": "11 hours",
+          "priority": 1
+        },
+        {
+          "id": "w2",
+          "label": "Answer accuracy",
+          "detail": {
+            "full": "Verified against analyst reports",
+            "short": "Verified"
+          },
+          "value": 96,
+          "displayValue": "96%",
+          "unit": "%"
+        }
+      ],
+      "arcStage": "shift",
+      "notes": "Give the 24-team pilot as the proof point."
+    },
+    {
+      "id": "next",
+      "role": "actions",
+      "coreMessage": "Join the pilot and we will onboard you within a week.",
+      "title": {
+        "full": "Next steps",
+        "short": "Next steps"
+      },
+      "items": [
+        {
+          "id": "n1",
+          "label": "Sign up for the pilot",
+          "detail": {
+            "full": "Takes two minutes",
+            "short": "Two minutes"
+          },
+          "displayValue": "This week",
+          "priority": 1
+        },
+        {
+          "id": "n2",
+          "label": "Onboarding call",
+          "detail": {
+            "full": "We connect your first data source",
+            "short": "First data source"
+          },
+          "displayValue": "Week 1",
+          "priority": 2
+        },
+        {
+          "id": "n3",
+          "label": "Review results",
+          "detail": {
+            "full": "Measure the hours you save",
+            "short": "Measure savings"
+          },
+          "displayValue": "Week 4",
+          "priority": 3
+        }
+      ],
+      "arcStage": "takeaway",
+      "notes": "Invite sign-ups on the spot."
+    },
+    {
+      "id": "close",
+      "role": "closing",
+      "coreMessage": "Start your pilot today.",
+      "title": {
+        "full": "Let us build with you",
+        "short": "Build with us"
+      },
+      "summary": {
+        "full": "Request pilot access at the address below",
+        "short": "Request access"
+      },
+      "items": [
+        {
+          "id": "e1",
+          "label": "pilot@example.com"
+        }
+      ],
+      "arcStage": "takeaway",
+      "notes": "Open the floor for questions and decisions."
+    }
+  ],
+  "density": "speaker-led",
+  "durationMinutes": 12,
+  "mode": "new"
+}

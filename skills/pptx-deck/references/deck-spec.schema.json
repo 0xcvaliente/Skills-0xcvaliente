@@ -1,0 +1,747 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pptx-deck/deck-spec.schema.json",
+  "title": "pptx-deck deck specification",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "title",
+    "goal",
+    "audience",
+    "language",
+    "randomSeed",
+    "theme",
+    "slides"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "description": "BCP 47 tag, e.g. en or en-GB",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$"
+    },
+    "randomSeed": {
+      "type": "string",
+      "description": "<themeId>-<YYYYMMDD>-<3 lowercase letters>; themeId must equal theme",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*-[0-9]{8}-[a-z]{3}$"
+    },
+    "theme": {
+      "type": "string",
+      "description": "Theme id from themes.json",
+      "enum": [
+        "soft-neumorphic",
+        "aurora-circuit",
+        "code-canvas",
+        "candy-glass",
+        "spectrum-report",
+        "atlas-dark",
+        "research-white",
+        "onyx-gold",
+        "midnight-editorial",
+        "ledger-gold",
+        "growth-surge",
+        "neon-wave",
+        "paper-noir",
+        "harbour-ink",
+        "pine-folio",
+        "walnut-press",
+        "sepia-quarto",
+        "swiss-cobalt",
+        "swiss-yellow",
+        "swiss-lime",
+        "swiss-orange",
+        "furnace-grotesk",
+        "cobalt-slab",
+        "dune-serif",
+        "signal-modern",
+        "crimson-folio",
+        "terminal-phosphor"
+      ]
+    },
+    "aspect": {
+      "enum": [
+        "16:9",
+        "4:3"
+      ],
+      "default": "16:9"
+    },
+    "template": {
+      "type": "string",
+      "description": "Path to an existing .pptx whose slide masters/layouts are reused"
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/slide"
+      }
+    },
+    "density": {
+      "enum": [
+        "speaker-led",
+        "reading-first"
+      ],
+      "default": "speaker-led",
+      "description": "speaker-led: sparse slides for live delivery; reading-first: denser slides for pre-reads"
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "enum": [
+        "new",
+        "template-fill",
+        "edit",
+        "restyle"
+      ],
+      "description": "Informational: how the deck was produced"
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": [
+        "full",
+        "short"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "full": {
+          "type": "string",
+          "minLength": 1
+        },
+        "short": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "label"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detail": {
+          "type": "object",
+          "required": [
+            "full",
+            "short"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "full": {
+              "type": "string",
+              "minLength": 1
+            },
+            "short": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "value": {
+          "type": "number"
+        },
+        "displayValue": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "1 = most important"
+        }
+      }
+    },
+    "chart": {
+      "type": "object",
+      "required": [
+        "type",
+        "categories",
+        "series",
+        "insight"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "bar",
+            "column",
+            "line",
+            "pie",
+            "doughnut",
+            "stacked_bar"
+          ]
+        },
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "series": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "values"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "insight": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One sentence that must be true of the data; validators check numbers quoted here against series values"
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "required": [
+        "path",
+        "kind",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "image"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fit": {
+          "enum": [
+            "cover",
+            "contain"
+          ],
+          "default": "cover"
+        }
+      }
+    },
+    "slide": {
+      "type": "object",
+      "required": [
+        "id",
+        "role",
+        "coreMessage",
+        "title"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "role": {
+          "enum": [
+            "cover",
+            "statement",
+            "breakdown",
+            "transition",
+            "context",
+            "metrics",
+            "trend",
+            "comparison",
+            "distribution",
+            "relationship",
+            "case",
+            "image",
+            "process",
+            "risks",
+            "observation",
+            "ambient",
+            "actions",
+            "result",
+            "team",
+            "closing"
+          ]
+        },
+        "coreMessage": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The single takeaway of the slide, one sentence"
+        },
+        "title": {
+          "$ref": "#/$defs/text"
+        },
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        },
+        "chart": {
+          "$ref": "#/$defs/chart"
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "layoutVariant": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "1-based; must be <= x-roleLimits[role].variants. If omitted derived from randomSeed + slide index"
+        },
+        "arcStage": {
+          "enum": [
+            "hook",
+            "context",
+            "core",
+            "shift",
+            "takeaway"
+          ],
+          "description": "Position of the slide in the narrative arc"
+        }
+      }
+    }
+  },
+  "x-roleLimits": {
+    "cover": {
+      "maxItems": 0,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 30,
+        "detail": 80
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    },
+    "statement": {
+      "maxItems": 0,
+      "maxChars": {
+        "title": 80,
+        "summary": 200,
+        "label": 30,
+        "detail": 80
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "breakdown": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 30,
+        "detail": 80
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "transition": {
+      "maxItems": 0,
+      "maxChars": {
+        "title": 50,
+        "summary": 100,
+        "label": 30,
+        "detail": 60
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "context": {
+      "maxItems": 4,
+      "maxChars": {
+        "title": 60,
+        "summary": 200,
+        "label": 30,
+        "detail": 120
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "metrics": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 60
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "trend": {
+      "maxItems": 7,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 80
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "comparison": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 100
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "distribution": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 80
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "relationship": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 80
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "case": {
+      "maxItems": 4,
+      "maxChars": {
+        "title": 60,
+        "summary": 200,
+        "label": 30,
+        "detail": 140
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    },
+    "image": {
+      "maxItems": 3,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 80
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "media"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    },
+    "process": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 24,
+        "detail": 100
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "risks": {
+      "maxItems": 5,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 30,
+        "detail": 120
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "observation": {
+      "maxItems": 5,
+      "maxChars": {
+        "title": 60,
+        "summary": 200,
+        "label": 30,
+        "detail": 140
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "ambient": {
+      "maxItems": 0,
+      "maxChars": {
+        "title": 50,
+        "summary": 100,
+        "label": 30,
+        "detail": 60
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    },
+    "actions": {
+      "maxItems": 6,
+      "maxChars": {
+        "title": 60,
+        "summary": 140,
+        "label": 30,
+        "detail": 100
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": false
+    },
+    "result": {
+      "maxItems": 4,
+      "maxChars": {
+        "title": 60,
+        "summary": 160,
+        "label": 30,
+        "detail": 100
+      },
+      "variants": 3,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": true,
+      "allowsMedia": false
+    },
+    "team": {
+      "maxItems": 8,
+      "maxChars": {
+        "title": 50,
+        "summary": 140,
+        "label": 30,
+        "detail": 80
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage",
+        "items"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    },
+    "closing": {
+      "maxItems": 3,
+      "maxChars": {
+        "title": 50,
+        "summary": 140,
+        "label": 30,
+        "detail": 80
+      },
+      "variants": 2,
+      "requiredFields": [
+        "title",
+        "coreMessage"
+      ],
+      "allowsChart": false,
+      "allowsMedia": true
+    }
+  },
+  "x-rules": [
+    "Exactly one cover (first slide) and one closing (last slide).",
+    "Slide ids unique; item ids unique within a slide.",
+    "title.short/summary.short/detail.short must be <= 60% of the full maxChars; full texts must respect x-roleLimits maxChars.",
+    "items count <= maxItems; chart only if allowsChart; media only if allowsMedia.",
+    "Every field in requiredFields must be present and non-empty.",
+    "randomSeed themeId prefix equals theme.",
+    "Chart series values length equals categories length.",
+    "WARNING: every slide should have notes (speaker notes).",
+    "WARNING: no more than 2 consecutive slides with the same role and the same layout variant.",
+    "ERROR: list-like roles obey x-densityLimits for the deck's density.",
+    "ERROR: rendered font sizes never fall below x-typography.minPt (body 18pt, caption 12pt, title 28pt); if text does not fit, split the slide, never shrink below the minimum.",
+    "ERROR: hero number font size is at least 2.5 times the body font size.",
+    "WARNING: slide count should be about durationMinutes / 1.5.",
+    "ERROR: themes with accentTextAllowed false never use the accent colour for text on the paper background (fill, rules and large shapes only)."
+  ],
+  "x-densityLimits": {
+    "listLikeRoles": [
+      "breakdown",
+      "context",
+      "metrics",
+      "trend",
+      "comparison",
+      "distribution",
+      "relationship",
+      "case",
+      "process",
+      "risks",
+      "observation",
+      "actions",
+      "team"
+    ],
+    "speaker-led": {
+      "maxItems": 3
+    },
+    "reading-first": {
+      "maxItems": 8
+    },
+    "note": "Effective cap = min(x-roleLimits[role].maxItems, density maxItems) for list-like roles. Split the slide when exceeded."
+  },
+  "x-typography": {
+    "minPt": {
+      "body": 18,
+      "caption": 12,
+      "title": 28
+    },
+    "heroToBodyRatioMin": 2.5,
+    "neverShrinkBelowMin": true
+  },
+  "x-pacing": {
+    "minutesPerSlide": 1.5,
+    "note": "Target slides ~ durationMinutes / 1.5; warn if outside +/-30%"
+  },
+  "x-sameRoleRun": {
+    "maxConsecutiveSameRoleAndVariant": 2,
+    "severity": "warning"
+  }
+}

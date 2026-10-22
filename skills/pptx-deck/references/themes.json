@@ -1,0 +1,1445 @@
+{
+  "schemaVersion": 1,
+  "themes": [
+    {
+      "id": "soft-neumorphic",
+      "name": "Soft Clay",
+      "mood": "Calm, tactile, gentle shadows",
+      "suitedFor": [
+        "wellness",
+        "design studios",
+        "product tours",
+        "internal updates"
+      ],
+      "audience": "General and design-minded audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#E6EAF0",
+        "surface": "#EEF1F6",
+        "primary": "#4A5A8C",
+        "secondary": "#7C8DB5",
+        "accent": "#E07A5F",
+        "text": "#2B3245",
+        "mutedText": "#5B6478",
+        "chartSeries": [
+          "#4A5A8C",
+          "#E07A5F",
+          "#6BA292",
+          "#D9A441",
+          "#8E7CC3",
+          "#5FA8D3"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Segoe UI",
+          "fallback": "Calibri"
+        },
+        "body": {
+          "name": "Segoe UI",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": true,
+        "cornerRadius": 18,
+        "gradients": false,
+        "rules": "none",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "aurora-circuit",
+      "name": "Aurora Circuit",
+      "mood": "Futuristic glow, violet and green on deep night",
+      "suitedFor": [
+        "AI",
+        "SaaS",
+        "deep tech",
+        "innovation pitches"
+      ],
+      "audience": "Technical and investor audiences",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#120B24",
+        "surface": "#1E1438",
+        "primary": "#8B5CF6",
+        "secondary": "#22D3A0",
+        "accent": "#F472B6",
+        "text": "#F4F0FF",
+        "mutedText": "#B9AEDB",
+        "chartSeries": [
+          "#8B5CF6",
+          "#22D3A0",
+          "#F472B6",
+          "#FBBF24",
+          "#38BDF8",
+          "#A3E635"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Segoe UI Semibold",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Segoe UI",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 12,
+        "gradients": true,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "code-canvas",
+      "name": "Code Canvas",
+      "mood": "Terminal-flavoured, crisp and utilitarian",
+      "suitedFor": [
+        "developer talks",
+        "engineering reviews",
+        "API launches",
+        "architecture"
+      ],
+      "audience": "Engineers and technical leads",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0F1419",
+        "surface": "#1A2129",
+        "primary": "#58A6FF",
+        "secondary": "#3FB950",
+        "accent": "#D29922",
+        "text": "#E6EDF3",
+        "mutedText": "#9BA7B4",
+        "chartSeries": [
+          "#58A6FF",
+          "#3FB950",
+          "#D29922",
+          "#F85149",
+          "#BC8CFF",
+          "#39C5CF"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        },
+        "body": {
+          "name": "Segoe UI",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 4,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "candy-glass",
+      "name": "Candy Glass",
+      "mood": "Bright translucent pastels, playful",
+      "suitedFor": [
+        "consumer brands",
+        "youth marketing",
+        "app launches",
+        "social campaigns"
+      ],
+      "audience": "Consumers and younger audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#FFF4FA",
+        "surface": "#FFFFFF",
+        "primary": "#EC4899",
+        "secondary": "#8B5CF6",
+        "accent": "#06B6D4",
+        "text": "#3A1D3F",
+        "mutedText": "#7A5A80",
+        "chartSeries": [
+          "#EC4899",
+          "#8B5CF6",
+          "#06B6D4",
+          "#F59E0B",
+          "#10B981",
+          "#F43F5E"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Trebuchet MS",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": true,
+        "cornerRadius": 20,
+        "gradients": true,
+        "rules": "none",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "spectrum-report",
+      "name": "Spectrum Report",
+      "mood": "Clean white with a wide, distinguishable colour range",
+      "suitedFor": [
+        "data reports",
+        "dashboards",
+        "KPI reviews",
+        "survey results"
+      ],
+      "audience": "Analysts and managers",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#FFFFFF",
+        "surface": "#F3F5F9",
+        "primary": "#2563EB",
+        "secondary": "#16A34A",
+        "accent": "#F59E0B",
+        "text": "#1F2937",
+        "mutedText": "#5B6472",
+        "chartSeries": [
+          "#2563EB",
+          "#16A34A",
+          "#F59E0B",
+          "#DC2626",
+          "#7C3AED",
+          "#0891B2",
+          "#DB2777"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 6,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "atlas-dark",
+      "name": "Atlas Dark",
+      "mood": "Dense dark canvas built for charts and maps",
+      "suitedFor": [
+        "strategy",
+        "market maps",
+        "operations",
+        "portfolio reviews"
+      ],
+      "audience": "Executives and strategy teams",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0B1220",
+        "surface": "#16213A",
+        "primary": "#38BDF8",
+        "secondary": "#34D399",
+        "accent": "#FBBF24",
+        "text": "#E8EEF9",
+        "mutedText": "#9AA8C2",
+        "chartSeries": [
+          "#38BDF8",
+          "#34D399",
+          "#FBBF24",
+          "#F87171",
+          "#A78BFA",
+          "#FB923C"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Bahnschrift",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 6,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "research-white",
+      "name": "Research White",
+      "mood": "Cool, sober white with restrained blue accents",
+      "suitedFor": [
+        "white papers",
+        "research findings",
+        "academic talks",
+        "policy briefs"
+      ],
+      "audience": "Researchers, policy and academic readers",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#FAFBFD",
+        "surface": "#EEF2F8",
+        "primary": "#1E4E8C",
+        "secondary": "#4F7CAC",
+        "accent": "#C2410C",
+        "text": "#1B2430",
+        "mutedText": "#566174",
+        "chartSeries": [
+          "#1E4E8C",
+          "#4F7CAC",
+          "#C2410C",
+          "#2F855A",
+          "#7B5EA7",
+          "#B7791F"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Georgia",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "onyx-gold",
+      "name": "Onyx Gold",
+      "mood": "Black with warm gold, premium and quiet",
+      "suitedFor": [
+        "luxury",
+        "premium products",
+        "awards",
+        "high-end services"
+      ],
+      "audience": "Premium clients and VIP audiences",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0C0C0C",
+        "surface": "#1B1A17",
+        "primary": "#D4AF37",
+        "secondary": "#B08D57",
+        "accent": "#F5E6B3",
+        "text": "#F5F1E6",
+        "mutedText": "#B5AD98",
+        "chartSeries": [
+          "#D4AF37",
+          "#F5E6B3",
+          "#B08D57",
+          "#8C8C8C",
+          "#C97B4A",
+          "#E8D9A0"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Georgia",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Courier New",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 2,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "midnight-editorial",
+      "name": "Midnight Editorial",
+      "mood": "Deep blue magazine layout with confident serif headings",
+      "suitedFor": [
+        "brand stories",
+        "annual reports",
+        "thought leadership",
+        "campaign narratives"
+      ],
+      "audience": "Customers, press and brand audiences",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0A1F44",
+        "surface": "#12305F",
+        "primary": "#F5C26B",
+        "secondary": "#7FB3E6",
+        "accent": "#FF7A59",
+        "text": "#F4F7FC",
+        "mutedText": "#A9BAD6",
+        "chartSeries": [
+          "#F5C26B",
+          "#7FB3E6",
+          "#FF7A59",
+          "#6FD3B1",
+          "#C7A6F2",
+          "#E9EEF7"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Georgia",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Courier New",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "ledger-gold",
+      "name": "Ledger Gold",
+      "mood": "Ivory page with indexed gold rules, conservative finance",
+      "suitedFor": [
+        "finance",
+        "investor relations",
+        "audit",
+        "banking"
+      ],
+      "audience": "Finance, risk and board audiences",
+      "autoPick": false,
+      "dark": false,
+      "palette": {
+        "background": "#FBF7EC",
+        "surface": "#F1EAD6",
+        "primary": "#7A5C12",
+        "secondary": "#2F4858",
+        "accent": "#B8860B",
+        "text": "#222018",
+        "mutedText": "#5E574A",
+        "chartSeries": [
+          "#7A5C12",
+          "#2F4858",
+          "#B8860B",
+          "#8A3B3B",
+          "#4F6F52",
+          "#6B5B95"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Georgia",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Courier New",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "growth-surge",
+      "name": "Growth Surge",
+      "mood": "High-energy orange and teal, momentum-driven",
+      "suitedFor": [
+        "growth reviews",
+        "business plans",
+        "sales kickoffs",
+        "quarterly targets"
+      ],
+      "audience": "Commercial teams and leadership",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#FFFFFF",
+        "surface": "#FFF3E8",
+        "primary": "#F97316",
+        "secondary": "#0D9488",
+        "accent": "#1D4ED8",
+        "text": "#1F2933",
+        "mutedText": "#5F6B76",
+        "chartSeries": [
+          "#F97316",
+          "#0D9488",
+          "#1D4ED8",
+          "#EAB308",
+          "#DC2626",
+          "#7C3AED"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Franklin Gothic Demi",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": true,
+        "cornerRadius": 8,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "neon-wave",
+      "name": "Neon Wave",
+      "mood": "Sound-wave neon on black, loud and rhythmic",
+      "suitedFor": [
+        "events",
+        "music",
+        "entertainment",
+        "festivals",
+        "launch parties"
+      ],
+      "audience": "Event attendees and entertainment audiences",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#08060F",
+        "surface": "#16112A",
+        "primary": "#FF2E93",
+        "secondary": "#00E5FF",
+        "accent": "#C6FF00",
+        "text": "#FFFFFF",
+        "mutedText": "#B8B0D0",
+        "chartSeries": [
+          "#FF2E93",
+          "#00E5FF",
+          "#C6FF00",
+          "#FFB400",
+          "#8A5CFF",
+          "#FF5E5E"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Impact",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "family": "signature",
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 10,
+        "gradients": true,
+        "rules": "none",
+        "imageTreatment": "duotone"
+      }
+    },
+    {
+      "id": "paper-noir",
+      "name": "Paper Noir",
+      "family": "editorial",
+      "mood": "Classic black-on-newsprint; serif headings, generous whitespace, thin rules",
+      "suitedFor": [
+        "essays",
+        "long-form narratives",
+        "cultural briefings",
+        "annual letters"
+      ],
+      "audience": "Readers who value reading over scanning",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#f1efea",
+        "surface": "#E7E4DC",
+        "primary": "#0a0a0b",
+        "secondary": "#55534E",
+        "accent": "#9B2C2C",
+        "text": "#0a0a0b",
+        "mutedText": "#55534E",
+        "chartSeries": [
+          "#0a0a0b",
+          "#9B2C2C",
+          "#55534E",
+          "#2F6F73",
+          "#B8860B",
+          "#8C8A83"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Source Serif 4",
+          "fallback": "Georgia"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "harbour-ink",
+      "name": "Harbour Ink",
+      "family": "editorial",
+      "mood": "Navy ink on cool paper; serif headings, generous whitespace, thin rules",
+      "suitedFor": [
+        "essays",
+        "long-form narratives",
+        "cultural briefings",
+        "annual letters"
+      ],
+      "audience": "Readers who value reading over scanning",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#f1f3f5",
+        "surface": "#E4E8EC",
+        "primary": "#0a1f3d",
+        "secondary": "#4F5B6B",
+        "accent": "#B4531F",
+        "text": "#0a1f3d",
+        "mutedText": "#4F5B6B",
+        "chartSeries": [
+          "#0a1f3d",
+          "#B4531F",
+          "#4F6D8F",
+          "#2F7F6F",
+          "#B8860B",
+          "#7C8794"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Source Serif 4",
+          "fallback": "Georgia"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "pine-folio",
+      "name": "Pine Folio",
+      "family": "editorial",
+      "mood": "Forest ink on warm paper; serif headings, generous whitespace, thin rules",
+      "suitedFor": [
+        "essays",
+        "long-form narratives",
+        "cultural briefings",
+        "annual letters"
+      ],
+      "audience": "Readers who value reading over scanning",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#f5f1e8",
+        "surface": "#EAE5D6",
+        "primary": "#1a2e1f",
+        "secondary": "#566052",
+        "accent": "#8A4B12",
+        "text": "#1a2e1f",
+        "mutedText": "#566052",
+        "chartSeries": [
+          "#1a2e1f",
+          "#8A4B12",
+          "#4F7A57",
+          "#9B2C2C",
+          "#B8860B",
+          "#7F8A7A"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Source Serif 4",
+          "fallback": "Georgia"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "walnut-press",
+      "name": "Walnut Press",
+      "family": "editorial",
+      "mood": "Dark walnut on parchment; serif headings, generous whitespace, thin rules",
+      "suitedFor": [
+        "essays",
+        "long-form narratives",
+        "cultural briefings",
+        "annual letters"
+      ],
+      "audience": "Readers who value reading over scanning",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#eedfc7",
+        "surface": "#E2D1B4",
+        "primary": "#2a1e13",
+        "secondary": "#5E4B38",
+        "accent": "#8C2F1B",
+        "text": "#2a1e13",
+        "mutedText": "#5E4B38",
+        "chartSeries": [
+          "#2a1e13",
+          "#8C2F1B",
+          "#6B8E5A",
+          "#2F5F7F",
+          "#B8860B",
+          "#8A7660"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Source Serif 4",
+          "fallback": "Georgia"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "sepia-quarto",
+      "name": "Sepia Quarto",
+      "family": "editorial",
+      "mood": "Soft sepia on aged cream; serif headings, generous whitespace, thin rules",
+      "suitedFor": [
+        "essays",
+        "long-form narratives",
+        "cultural briefings",
+        "annual letters"
+      ],
+      "audience": "Readers who value reading over scanning",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#f0e6d2",
+        "surface": "#E5D8BE",
+        "primary": "#1f1a14",
+        "secondary": "#5C5143",
+        "accent": "#7A3E2B",
+        "text": "#1f1a14",
+        "mutedText": "#5C5143",
+        "chartSeries": [
+          "#1f1a14",
+          "#7A3E2B",
+          "#4F6F52",
+          "#2F5F7F",
+          "#A6761D",
+          "#857A68"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Source Serif 4",
+          "fallback": "Georgia"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "swiss-cobalt",
+      "name": "Grid Cobalt",
+      "family": "swiss",
+      "mood": "Flat grid, asymmetric left alignment, one hard accent",
+      "suitedFor": [
+        "design talks",
+        "architecture",
+        "product systems",
+        "research summaries"
+      ],
+      "audience": "Design-literate and technical audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#fafaf8",
+        "surface": "#f0f0ee",
+        "primary": "#0a0a0a",
+        "secondary": "#666666",
+        "accent": "#002FA7",
+        "text": "#0a0a0a",
+        "mutedText": "#666666",
+        "chartSeries": [
+          "#0a0a0a",
+          "#002FA7",
+          "#666666",
+          "#d4d4d2",
+          "#FFD500",
+          "#FF6B35"
+        ],
+        "rule": "#d4d4d2"
+      },
+      "fonts": {
+        "heading": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      },
+      "accentUsage": "text-allowed",
+      "accentTextAllowed": true
+    },
+    {
+      "id": "swiss-yellow",
+      "name": "Grid Signal Yellow",
+      "family": "swiss",
+      "mood": "Flat grid, asymmetric left alignment, one hard accent",
+      "suitedFor": [
+        "design talks",
+        "architecture",
+        "product systems",
+        "research summaries"
+      ],
+      "audience": "Design-literate and technical audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#fafaf8",
+        "surface": "#f0f0ee",
+        "primary": "#0a0a0a",
+        "secondary": "#666666",
+        "accent": "#FFD500",
+        "text": "#0a0a0a",
+        "mutedText": "#666666",
+        "chartSeries": [
+          "#0a0a0a",
+          "#FFD500",
+          "#666666",
+          "#d4d4d2",
+          "#002FA7",
+          "#FF6B35"
+        ],
+        "rule": "#d4d4d2"
+      },
+      "fonts": {
+        "heading": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      },
+      "accentUsage": "fill-only",
+      "accentTextAllowed": false
+    },
+    {
+      "id": "swiss-lime",
+      "name": "Grid Volt Lime",
+      "family": "swiss",
+      "mood": "Flat grid, asymmetric left alignment, one hard accent",
+      "suitedFor": [
+        "design talks",
+        "architecture",
+        "product systems",
+        "research summaries"
+      ],
+      "audience": "Design-literate and technical audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#fafaf8",
+        "surface": "#f0f0ee",
+        "primary": "#0a0a0a",
+        "secondary": "#666666",
+        "accent": "#C5E803",
+        "text": "#0a0a0a",
+        "mutedText": "#666666",
+        "chartSeries": [
+          "#0a0a0a",
+          "#C5E803",
+          "#666666",
+          "#d4d4d2",
+          "#002FA7",
+          "#FF6B35"
+        ],
+        "rule": "#d4d4d2"
+      },
+      "fonts": {
+        "heading": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      },
+      "accentUsage": "fill-only",
+      "accentTextAllowed": false
+    },
+    {
+      "id": "swiss-orange",
+      "name": "Grid Vermilion",
+      "family": "swiss",
+      "mood": "Flat grid, asymmetric left alignment, one hard accent",
+      "suitedFor": [
+        "design talks",
+        "architecture",
+        "product systems",
+        "research summaries"
+      ],
+      "audience": "Design-literate and technical audiences",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#fafaf8",
+        "surface": "#f0f0ee",
+        "primary": "#0a0a0a",
+        "secondary": "#666666",
+        "accent": "#FF6B35",
+        "text": "#0a0a0a",
+        "mutedText": "#666666",
+        "chartSeries": [
+          "#0a0a0a",
+          "#FF6B35",
+          "#666666",
+          "#d4d4d2",
+          "#002FA7",
+          "#FF6B35"
+        ],
+        "rule": "#d4d4d2"
+      },
+      "fonts": {
+        "heading": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Helvetica Neue",
+          "fallback": "Arial"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      },
+      "accentUsage": "fill-only",
+      "accentTextAllowed": false
+    },
+    {
+      "id": "furnace-grotesk",
+      "name": "Furnace Grotesk",
+      "family": "bold",
+      "mood": "Heavy grotesk on near-black with hot orange",
+      "suitedFor": [
+        "growth",
+        "launches",
+        "keynotes"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#1a1a1a",
+        "surface": "#262626",
+        "primary": "#F5F5F5",
+        "secondary": "#B3B3B3",
+        "accent": "#FF5722",
+        "text": "#F5F5F5",
+        "mutedText": "#B3B3B3",
+        "chartSeries": [
+          "#FF5722",
+          "#F5F5F5",
+          "#4361ee",
+          "#FFD500",
+          "#22D3A0",
+          "#B3B3B3"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Archivo Black",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "cobalt-slab",
+      "name": "Cobalt Slab",
+      "family": "bold",
+      "mood": "Black field with electric blue blocks",
+      "suitedFor": [
+        "tech launches",
+        "product reveals",
+        "pitches"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0a0a0a",
+        "surface": "#171717",
+        "primary": "#FFFFFF",
+        "secondary": "#B0B0B0",
+        "accent": "#4361ee",
+        "text": "#FFFFFF",
+        "mutedText": "#B0B0B0",
+        "chartSeries": [
+          "#4361ee",
+          "#FFFFFF",
+          "#FF5722",
+          "#FFD500",
+          "#22D3A0",
+          "#B0B0B0"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Space Grotesk",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 4,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "dune-serif",
+      "name": "Dune Serif",
+      "family": "bold",
+      "mood": "Elegant serif in warm tan on near-black",
+      "suitedFor": [
+        "luxury",
+        "hospitality",
+        "brand heritage"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#0f0f0f",
+        "surface": "#1c1a17",
+        "primary": "#F3EEE6",
+        "secondary": "#B5AB9C",
+        "accent": "#d4a574",
+        "text": "#F3EEE6",
+        "mutedText": "#B5AB9C",
+        "chartSeries": [
+          "#d4a574",
+          "#F3EEE6",
+          "#4361ee",
+          "#FFD500",
+          "#22D3A0",
+          "#B5AB9C"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Fraunces",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "grayscale"
+      }
+    },
+    {
+      "id": "signal-modern",
+      "name": "Signal Modern",
+      "family": "bold",
+      "mood": "White page with one loud red-orange signal",
+      "suitedFor": [
+        "campaigns",
+        "strategy decks",
+        "studios"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#FFFFFF",
+        "surface": "#F4F4F4",
+        "primary": "#111111",
+        "secondary": "#5A5A5A",
+        "accent": "#ff3300",
+        "text": "#111111",
+        "mutedText": "#5A5A5A",
+        "chartSeries": [
+          "#ff3300",
+          "#111111",
+          "#4361ee",
+          "#FFD500",
+          "#22D3A0",
+          "#5A5A5A"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Archivo Black",
+          "fallback": "Arial"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "bold",
+        "imageTreatment": "natural"
+      },
+      "accentUsage": "fill-only"
+    },
+    {
+      "id": "crimson-folio",
+      "name": "Crimson Folio",
+      "family": "bold",
+      "mood": "Warm paper, serif type, crimson emphasis",
+      "suitedFor": [
+        "law",
+        "publishing",
+        "cultural institutions"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": false,
+      "palette": {
+        "background": "#faf9f7",
+        "surface": "#F0EEEA",
+        "primary": "#111111",
+        "secondary": "#5E5A57",
+        "accent": "#c41e3a",
+        "text": "#1C1A19",
+        "mutedText": "#5E5A57",
+        "chartSeries": [
+          "#c41e3a",
+          "#1C1A19",
+          "#4361ee",
+          "#FFD500",
+          "#22D3A0",
+          "#5E5A57"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Playfair Display",
+          "fallback": "Georgia"
+        },
+        "body": {
+          "name": "Calibri",
+          "fallback": "Calibri"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "natural"
+      }
+    },
+    {
+      "id": "terminal-phosphor",
+      "name": "Terminal Phosphor",
+      "family": "bold",
+      "mood": "Phosphor green on black, monospaced",
+      "suitedFor": [
+        "security",
+        "infrastructure",
+        "hacker culture"
+      ],
+      "audience": "Audiences that respond to strong contrast",
+      "autoPick": true,
+      "dark": true,
+      "palette": {
+        "background": "#050805",
+        "surface": "#0E160E",
+        "primary": "#D6F5DD",
+        "secondary": "#8DB898",
+        "accent": "#33ff66",
+        "text": "#D6F5DD",
+        "mutedText": "#8DB898",
+        "chartSeries": [
+          "#33ff66",
+          "#D6F5DD",
+          "#4361ee",
+          "#FFD500",
+          "#22D3A0",
+          "#8DB898"
+        ]
+      },
+      "fonts": {
+        "heading": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        },
+        "body": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        },
+        "mono": {
+          "name": "Consolas",
+          "fallback": "Courier New"
+        }
+      },
+      "decoration": {
+        "shadows": false,
+        "cornerRadius": 0,
+        "gradients": false,
+        "rules": "thin",
+        "imageTreatment": "duotone"
+      }
+    }
+  ]
+}
