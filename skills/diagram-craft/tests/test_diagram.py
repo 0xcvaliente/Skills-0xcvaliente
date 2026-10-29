@@ -103,7 +103,9 @@ class DiagramTests(unittest.TestCase):
                      '<defs><rect x="500" width="10" height="10"/></defs>',
                      '<rect x="500" width="10" height="10" display="none"/>',
                      '<rect x="500" width="0" height="10"/>',
-                     '<rect x="50%" width="10" height="10"/>'):
+                     '<rect x="50%" width="10" height="10"/>',
+                     '<g style="transform:translate(-200px,0)"><rect x="200" width="10" height="10"/></g>',
+                     '<rect x="500" width="10" height="10" style="fill:red;/**/transform:translateX(-450px)"/>'):
             with self.subTest(body=body):
                 self.assertEqual(diagram.export_findings(self.export(body)), [])
 

@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 59 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 60 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -83,6 +83,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | [`find-animation-opportunities`](skills/find-animation-opportunities) | List the state changes that deserve motion and the ones that should stay instant. Read-only. | "Where should this dashboard animate?" |
 | [`review-animations`](skills/review-animations) | Critique an animation diff or component and return a verdict. | "Review the motion in this PR" |
 | [`improve-animations`](skills/improve-animations) | Audit motion across a codebase and produce prioritized improvement plans. | "Give me a motion roadmap for the app" |
+| [`remove-animations`](skills/remove-animations) | Find and delete animations an interface does not need (keyboard-triggered, high-frequency, decorative) and clean up what they leave behind. | "The app feels over-animated — strip the motion it doesn't need" |
 | [`ui-animation`](skills/ui-animation) | Reverse-engineer motion from recordings, fit easing and springs, diagnose jank, add sparse UI sound. | "Match the easing in this screen recording" |
 | [`gsap-core`](skills/gsap-core) | Work with GSAP tweens, easing, staggers, and responsive or reduced motion. | "Stagger the hero letters with GSAP" |
 | [`gsap-react`](skills/gsap-react) | Use GSAP in React/Next.js with `useGSAP`, scoping, and cleanup. | "My GSAP animation runs twice in Next.js dev" |

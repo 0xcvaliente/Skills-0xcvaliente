@@ -1,6 +1,6 @@
 ---
 name: improve-animations
-description: "Audit existing motion across a requested codebase or subsystem and produce prioritized, self-contained improvement plans. Use for a motion roadmap; use review-animations for a single diff, animate for a focused implementation, and animation-performance for frame-drop diagnosis."
+description: "Audit existing motion across a requested codebase or subsystem and produce prioritized, self-contained improvement plans. Use for a motion roadmap; use review-animations for a single diff, animate for a focused implementation, animation-performance for frame-drop diagnosis, and remove-animations to delete unneeded motion."
 license: MIT
 ---
 

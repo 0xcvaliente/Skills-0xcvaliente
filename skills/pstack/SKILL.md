@@ -7,7 +7,7 @@ license: MIT
 # Pstack
 
 Go deep first, write less code, and prove the result against the real artifact.
-This is one host-neutral Agent Skill adapting pstack 0.15.32 by Lauren Tan. All 200 upstream
+This is one host-neutral Agent Skill adapting pstack 0.15.36 by Lauren Tan. All 573 upstream
 files are retained with their original bytes, including 34 workflows, 24
 principles, 23 playbooks, two agent definitions, and the three-workflow Benny pack.
 
@@ -40,7 +40,7 @@ principles, 23 playbooks, two agent definitions, and the three-workflow Benny pa
 | Check a PR, deliver a stack, resume, pause, or run a long task | Delivery and coordination playbooks. |
 | Configure pstack, capture lessons, create a verifier, or improve prose | Setup, maintenance, and writing workflows. |
 | Check a race, invariant, or other property that tests rarely reach, or bring that check back in line with changed code | `create-formal-verification-skill`, `maintain-formal-verification-skill`. Explicit requests only (see Native workflows). |
-| Show the behavior of a system, or each bug a model checker finds, as a chart for the person who owns it | `statechart`. Explicit requests only (see Native workflows). |
+| Show the behavior of a system, or the shortest path to each state that breaks a rule in a TLA+ model, as a chart for the person who owns it | `statechart`. Explicit requests only (see Native workflows). |
 | Rewrite a prompt deeper, restate the goal, or catch up after a long run | `sharpen`, `in-your-own-words`, `ketchup`, `ketchup-video`. Explicit requests only (see Native workflows). |
 | Set up or run Benny triage/reproduction | [Benny on any host](references/benny.md), then its linked source workflow. |
 
@@ -51,6 +51,11 @@ registered commands.
 
 ## Engineering decisions
 
+- At the start of a task, tell the user in your own words their goal, the problem
+  they are solving, and, if the task ships a change, the smallest change you
+  expect to meet it. Do not wait for confirmation, but if the evidence rules out
+  the change they asked for, show it and stop. Skip this for a fully specified
+  one-line edit.
 - Inspect connected source and callers. Separate observed behavior, historical
   rationale, inference, and unknowns.
 - Name data shapes, owners, lifetimes, and boundaries before stateful logic.

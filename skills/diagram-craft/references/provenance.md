@@ -137,3 +137,11 @@ placement formula to correct.
 ## Inspiration review — 2026-10-26
 
 Checked cathrynlavery/diagram-design `b8f3617` (previously reviewed through `f2f4d49ea8d632f17cf196ba26599277a93f767b`, plugin 2.6.115 to 2.6.129). Changes are fixes to the upstream Mermaid importer (edge IDs in flowcharts, kept sequence `autonumber` directives, counted config directives, `else`/`and`/`option` regions in the digest), the self-check (rejects a document that stopped early), the service-blueprint verifier (Japanese two-line labels), heatmap markup parsing, export commands, and CI pins. This package has no Mermaid importer or upstream-style verifiers, so nothing was adopted; the "document stopped early" check is noted as an idea for a future completeness check in the inspector. No upstream text or code was copied.
+
+## Inspiration review — 2026-10-29
+
+Reviewed cathrynlavery/diagram-design from `b8f3617` through `0cf73c3` (14 commits, plugin 2.6.130 to 2.6.136) for ideas only. No upstream text or code was copied; the guidance, the fix, and the tests were written independently here.
+
+Adopted as ideas: draw.io plain-versus-HTML label handling that keeps literal angle brackets (`17686b9`) and the Excalidraw outer-group chain (`84886eb`), both as import guidance in `delivery-and-import.md` because this package ships no importer; and the CSS-transform blind spot in geometry verification (`0b5b3bc`, plus the quoting-robustness idea from `d39a365`). Our `viewbox_findings` skipped only a `transform` attribute, so a shape moved by an inline `style` transform was judged at its written coordinates; it now treats that as unmeasurable, with regression cases. Our check parses XML, so single-quoted attributes were already read.
+
+Skipped: the box-plot variant and its verifier, and the expanded scatter reference (`7bf9445`), because quantitative plots belong to a chart workflow per this skill's scope; the dp-integration arrowhead example tweak (`1677a5c`), since this package ships no such type; docs-sync test and release manifest bumps (`fbdbd83` and the version commits).

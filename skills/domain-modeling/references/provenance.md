@@ -15,3 +15,7 @@ Made host-neutral for the Agent Skills standard on 2026-10-12. README install an
 ## Upstream review 2026-10-20
 
 Checked against mattpocock/skills `5beb35b040e3de97e54fa9e386d7e42d15c295c2`: no changes to `skills/engineering/domain-modeling` since `b0618bc436ad893b3c5e84e55fba86586d34a404`.
+
+## Upstream review 2026-10-29
+
+Checked against mattpocock/skills `a496f5513d4a4cf889bc48e189e579f4b0bdf6aa` (a496f55), from `5beb35b`. No change to `skills/engineering/domain-modeling`. The only related upstream edit is to the docs page `docs/engineering/domain-modeling.md` (FAQ answer on GLOSSARY.md vs CONTEXT.md naming, now referencing `/setup-matt-pocock-skills`); that page is not shipped here and the skill has no matching FAQ, so it was skipped.

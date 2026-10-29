@@ -133,39 +133,55 @@ persistence from an active turn; an in-session loop recurs only while the sessio
 
 ## Orchestrate
 
-For an authorized program, maintain dependencies, owners, branch/worktree
-pointers, exact heads, proof, and operator gates. The coordinating chat plans,
-writes briefs, and drains results; it does not author code, and it runs this
-playbook itself rather than handing it to a delegate. Exactly one stacker per
-stack changes topology (chain rebases, force-pushes, base retargets, merges);
-workers never rebase and never retarget or merge PRs, and babysitters report
-conflicts to the stacker. Recompute the frontier (ordered PRs, branches, head
-SHAs) from the forge after every merge or topology change. Choose each
+For an authorized program, the coordinating chat decides which agent does each
+piece of work and checks what each one produces; it does not author code, and it
+runs this playbook itself rather than handing it to a delegate. It keeps state in
+a tracker file and store, subscribes to PR and CI events when the host has them,
+calls no scripts, runs no polling loops, and does not relay messages between
+agents. One owner per PR is the only writer of its branch (pushes, rebases,
+retargets); conflicted merges, chain rebases and fixes go to owners. Give each
+independent task a fresh worker whose kickoff carries everything it needs (goal,
+paths it may and may not write, forbidden actions, each upstream report in full,
+and the evidence that proves it done). Add a sub-coordinator only when one area has
+many parallel workers, stop at three levels, and keep about ten workers in flight per
+coordinator. Give each PR a verifier that is not its author, on a different model
+family where available; merge only on a pass at the current head. Start with one
+unit through kickoff, owner, verifier and merge before fanning out. Read the diff or
+artifact rather than a summary; green CI is an input, not a verdict, and a verdict
+covers one head SHA. Send back drift from scope, check a PR's live state with the
+forge CLI before reporting, stop or replace a stalled worker by its pushes and PR
+activity, and ask the user only for a real decision or blocker. Choose each
 delegate's reasoning effort and speed for the job (see the runtime notes).
-Partition writes and respect concurrency. Count commits, PR changes, and artifacts as progress. Preserve a
-stuck worker's state before replacement. Standing cadence needs a requested
-host scheduled routine or in-session loop, not an assumed Cursor cloud fleet.
+Count commits, PR changes, and artifacts as progress. Preserve a stuck worker's
+state before replacement. Standing cadence needs a requested host scheduled routine
+or in-session loop, not an assumed Cursor cloud fleet.
 
 ## Autopilot-full
 
 Requires execution scope covering the independent queue and intended merges.
 Stating a plan does not start execution. Keep one owner/branch per independent
-change. Verify code-ready heads, inspect artifacts, absorb relevant base drift,
+change. Verify code-ready heads, inspect artifacts, absorb relevant base drift
+(including a known concurrent change to the same files),
 and recheck CI/mergeability before authorized merges. Preserve operator gates;
 stop all writes on a hold instruction. Every later change to a verified patch
-needs a fresh check. Write the final reply as a `ketchup`
-catch-up: each PR's state and verdict, what merged, countersigns, every open
-operator gate as a call with your pick, and links.
+needs a fresh check, except that a wording-only change needs no verifier. Block a PR
+only for a problem you can show (a failing run at the head, or a doc line the PR
+made wrong); a problem its base already has does not block unless the PR copies it or
+newly reaches it, and everything else goes in a follow-up. Write the final reply as a
+`ketchup` catch-up: each PR's state and verdict, what merged, countersigns, every open
+operator gate as a call with your pick, parked follow-ups, and links.
 
 ## Autopilot-stack
 
-Build and verify a dependent queue as one linear stack for the user to land.
-One coordinator owns topology; implementers own slices. Write the final
-reply as a `ketchup` catch-up with stack root and tip links, a one-line verdict
-per link, and anything parked or excluded with the reason. Record exact parents
-and heads. Re-verify affected proof after conflicts or patch changes. Deliver
-ordered PRs and evidence. Do not merge or arm auto-merge. Rewrites still require
-authorization even when using force-with-lease.
+Autopilot-full without the merge. Build and verify the queue of PRs with the same
+owners, stop when each PR is verified and green at its current head, and hand them
+to the user to land; after the handoff nobody pushes without the user's go. Stack a
+PR only when it builds on another PR: base it on that PR's branch, rebase it onto
+its parent, and rebase the stack root onto trunk. A new head on a lower PR restacks
+those above it, and a PR whose patch-id is unchanged keeps its verdict. Write the
+final reply as a `ketchup` catch-up listing each PR with its verdict. Do not merge or
+arm auto-merge. Rewrites still require authorization even when using
+force-with-lease.
 
 ## Session pickup
 

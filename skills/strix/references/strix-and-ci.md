@@ -81,5 +81,19 @@ confirm the installed version supports them):
   not set `model`, `messages`, `tools`, or `stream`. A dedicated dedupe model never
   inherits the main model's headers or body fields; keep provider identifiers and
   credentials out of CI logs and shared configuration, as with `LLM_EXTRA_HEADERS`.
+- `STRIX_LLM_INPUT_COST_PER_MTOK`, `STRIX_LLM_OUTPUT_COST_PER_MTOK`, and
+  `STRIX_LLM_CACHED_INPUT_COST_PER_MTOK` (USD per million tokens; verified in
+  `docs/advanced/configuration.mdx` and `strix/config/settings.py` at upstream `6b7ae2e`)
+  set manual prices for `STRIX_LLM` when the model catalog cannot price a gateway or
+  self-hosted model id. Setting any of them replaces the provider-reported and catalog cost
+  for that model in reports and in `--max-budget`; an unset input or output price counts as
+  zero, so set both, and unset cached price falls back to the input price. A separate dedupe
+  model keeps its catalog price. Wrong or missing prices make the budget cap and cost
+  figures unreliable, so confirm them with the owner of the spend limit before relying on
+  `--max-budget`.
+- `STRIX_API_TYPE` (`responses` or `chat_completions`, alias `STRIX_FORCE_API`): the
+  current default is chosen per model, Responses when the model catalog lists it for that
+  model and chat completions otherwise; a custom `LLM_API_BASE` no longer implies chat
+  completions. Set `chat_completions` explicitly for a gateway that serves only that API.
 - A run paused by an operator, or parked at a budget limit, is incomplete. Resume or
   rerun it before treating its report as a clean result.

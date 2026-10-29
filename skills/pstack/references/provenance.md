@@ -204,3 +204,62 @@ commit touching `pstack/` in cursor/plugins. No upstream file was deleted or ren
   were not ported or executed; `statechart` downloads about 305 MB (TLC and Java via
   mise) on first run, so it is documented as an explicit, network-using request. The
   `SKILL.md` description is unchanged.
+
+## Upstream sync 2026-10-29
+
+Refreshed on 2026-10-29 from `99b609a72323b70204eab407c622f436e858e112` (0.15.32)
+to `1ba91fc25c0977741dd0e267849e6234b037ed0a` (short `1ba91fc`, 0.15.36), the
+current head of cursor/plugins for `pstack/`. The range covers seven commits (the
+statechart compiler port, two version bumps, two statechart fixes, a skill-update
+port, and the agentic Orchestrate change). 464 upstream paths changed: 406 added,
+33 deleted, 25 modified.
+
+- `references/upstream/` and `references/upstream-manifest.json` were rebuilt from
+  the new revision with the same layout, taken from `git archive` of the pinned
+  commit: 573 files (was 200), 61 `SKILL.md` entrypoints stored as `SKILL.md.source`
+  (unchanged), bytes and modes unchanged (6 executables). Deletions were applied:
+  the old statechart `.mjs` scripts and `test/band.mmd` (26 files), the four
+  `interrogate/references/` prompts (code-quality-review, lead-judgment,
+  reviewer-prompt, rubric), and `poteto-mode/scripts/orch/` (`orch.ts`, `store.ts`,
+  `orch.test.ts`). Added: the TypeScript statechart rewrite (`statechart` launcher,
+  `statechart.ts`, `pipeline.ts`, `ir.ts`, `run.ts`, backends, frontends, passes,
+  `references/render.md`, a `package.json`) and its test corpus (about 370 files).
+- Guidance changes in the rest of the range: `statechart` is rewritten around a
+  single `statechart SPEC.tla` command with a view module (the `from-chart`,
+  `--against`, `--png`, and `stories.md` flows are gone; rendering uses the npm package
+  `pele`; first run still installs TLC and Java with mise, with no size stated);
+  `interrogate` is rewritten so adversaries try to break a change with a run and only
+  verified findings survive (no Act on / Consider / Noted / Dismissed buckets, Output
+  is Intent, Findings, Dropped); `orchestrate` is agentic and calls no scripts;
+  `autopilot-stack` is "Autopilot-full without the merge" and stacks a PR only on a PR
+  it builds on, with `babysit`, `multi-phase-plan`, `opening-a-pr`, and the guide
+  chapters following; `autopilot-full` gains a blocking rule, no verifier for a
+  wording-only change, a rebase on a known concurrent change, and parked follow-ups in
+  the reply; `arena` takes a judge only from a different family and may skip it;
+  `ketchup-video` becomes subtitled; `poteto-mode` adds a first-message restatement of
+  the goal, background steers and resumes, and fallbacks for rejected model slugs;
+  `explain-the-number` applies before measuring; `setup-pstack` explains cross-judge
+  ordering; `create-formal-verification-skill`, `poteto-help`, both plugin manifests
+  (version), the README, and four guide chapters follow.
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical.
+- Local host-neutral layer merged by hand: `SKILL.md` (version, counts, goal
+  restatement bullet, statechart routing row), `README.md` (version, count, reviewed
+  revision), `references/catalog.md` (count, changed descriptions for `interrogate`,
+  `ketchup-video`, `statechart`, `explain-the-number`, and the orchestration CLI
+  bullet), `workflows.md` (`ketchup-video` subtitles, `interrogate` and `statechart`
+  rewritten, `arena` judge-family rule), `playbooks.md` (`Orchestrate`,
+  `Autopilot-full`, `Autopilot-stack`), `host-runtime.md` (background steers), and the
+  file count in `tests/test_helpers.py`. Cursor mechanics were mapped to the
+  capability vocabulary rather than copied.
+- Skipped: Cursor plugin metadata and frontmatter keys; the `disable-model-invocation`
+  flag (these skills run only on explicit request by instruction); the `arena` and
+  `poteto-mode` model-slug fallback chains and `setup-pstack` cross-judge ordering
+  (Cursor model slugs and the `pstack-models` rule are not used here; inherit the
+  parent model); the `orch` store layout and brief template (deleted upstream, and the
+  host-neutral Orchestrate section never carried them). Retained scripts, including the
+  new statechart TypeScript and its tests, were not ported or executed. `statechart`
+  stays an explicit-request, network-using workflow (mise installs TLC and Java, and
+  rendering fetches `pele`); the "about 305 MB" figure is kept as measured at 0.15.32
+  because upstream stopped stating it. The `SKILL.md` description is unchanged.

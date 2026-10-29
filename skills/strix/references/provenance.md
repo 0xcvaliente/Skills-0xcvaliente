@@ -158,3 +158,23 @@ model-id changes, dependency and lockfile bumps, and test churn. These are Strix
 behavior, not guidance. No authorization, ownership, scope, or consent safeguard changed
 upstream or in the skill. The file-inventory baseline in `upstream.json` was advanced to
 `4ac5dc65`.
+
+## Reviewed update — 2026-10-29
+
+Reviewed the range from `4ac5dc65e4c02afc8fdc22878716a83d481f00fb` to
+`6b7ae2ebe4d47037a927aade23265ff4e4f27e84` (7 commits, 12 files).
+
+Adopted (documentation only, in `strix-and-ci.md`): the new optional manual price
+settings `STRIX_LLM_INPUT_COST_PER_MTOK`, `STRIX_LLM_OUTPUT_COST_PER_MTOK` and
+`STRIX_LLM_CACHED_INPUT_COST_PER_MTOK` (`92b30bc`, `6b7ae2e`), with upstream's
+semantics: they replace the reported cost for the main model in reports and the budget
+cap, and an unset input or output price counts as zero. The skill adds that wrong prices
+make the cap unreliable. Also the corrected `STRIX_API_TYPE` default description
+(`ffa35e2`).
+
+Skipped as runtime behavior: the `root_instructions_override` replace-scan-prompt option
+(`d6f4bc5`, `ef5d810`), Vercel AI Gateway attribution headers (`98e3df1`), the sandbox
+image tag bump 1.3.0 to 1.3.1 and brotli patch (`dfdbe4b`; the skill pins no image tag),
+the install script tweak, and test churn. No authorization, ownership, scope, or consent
+safeguard changed upstream or in the skill. The file-inventory baseline in `upstream.json`
+was advanced to `6b7ae2eb`.

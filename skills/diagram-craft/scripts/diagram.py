@@ -446,6 +446,12 @@ def _hidden(el):
             or re.search(r"display\s*:\s*none|visibility\s*:\s*hidden", style) is not None)
 
 
+def _css_transform(el):
+    """True when an inline style declares a transform (or a comment-split one), which moves the shape."""
+    style = re.sub(r"/\*.*?\*/", "", el.get("style", ""), flags=re.S)
+    return re.search(r"(?:^|;)\s*transform\s*:", style, re.I) is not None
+
+
 def viewbox_findings(root, label="svg"):
     """Report simple shapes painted outside the viewBox, which exporters and viewers clip silently.
 
@@ -467,7 +473,7 @@ def viewbox_findings(root, label="svg"):
 
     def walk(el):
         tag = el.tag.replace(SVG_NS, "")
-        if tag in NOT_PAINTED or _hidden(el) or el.get("transform"):
+        if tag in NOT_PAINTED or _hidden(el) or el.get("transform") or _css_transform(el):
             return
         box = _shape_box(el)
         if box and (box[0] < x0 - 0.01 or box[1] < y0 - 0.01 or box[2] > x1 + 0.01 or box[3] > y1 + 0.01):

@@ -49,7 +49,7 @@ that flag has no effect here, so run them only when the user names them.
   no screenshot, mark its line "No screenshot yet". Never invent numbers or draw
   a screen you did not capture, mark work done that waits on the user, or take new
   actions while catching up.
-- `ketchup-video`: follow `ketchup`, but show what happened as a short silent video of slides instead of its summary and visuals, with the calls waiting on the user as text under it. The window starts at the user's last own message before `ketchup-video`. Write and render the video outside the project; that is the one exception to `ketchup`'s read-only rule. Reply with ketchup's opening sentence, the video, one line naming any work left that you can do yourself, and the action items. Name each option as the video names it. If no tool can render slides to video, or the render fails, say so in one line and give only the calls.
+- `ketchup-video`: follow `ketchup`, but show what happened as a short subtitled video of slides instead of its summary and visuals, with the calls waiting on the user as text under it. Give each slide one short subtitle line (about ten words) that says its point, burned into that slide's frames in a strip below the slide so it never covers the slide. Hold each slide at least one second for every three words it adds (its subtitle plus any new word, including a changed label); measure the holds by matching the rendered file's frames to the slides, and check a frame from each slide at chat size before embedding. The window starts at the user's last own message before `ketchup-video`. Write and render the video outside the project; that is the one exception to `ketchup`'s read-only rule. Reply with ketchup's opening sentence, the video, one line naming any work left that you can do yourself, and the action items. Name each option as the video names it. If no tool can render slides to video, or the render fails, say so in one line and give only the calls.
 
 ## how
 
@@ -103,7 +103,9 @@ Define a common brief and judge-only rubric. Give authorized candidates isolated
 writable locations and the same organic request. Wait for outputs before
 judging under sanitized labels. Select a base and graft demonstrated strengths
 from alternatives. Read every artifact and verify the synthesis. Use different
-models only when available and chosen. Label serial alternatives accurately
+models only when available and chosen. Use a read-only judge only from a different
+model family than the parent's; when none can run, skip the judge, pick the base
+yourself, and say so. Label serial alternatives accurately
 when parallel agents are unavailable.
 
 ## swarm
@@ -116,11 +118,23 @@ sequentially yourself; do not start separate user sessions as subagent substitut
 
 ## interrogate
 
-Pin the diff and connected code. Assign skeptical lenses such as correctness,
-lifetimes/concurrency, consumer compatibility, and code quality using retained
-reviewer prompts/rubric. Review independently when authorized; label serial
-review otherwise. Validate findings and distinguish confirmed defects from
-hypotheses. Report findings by default; edits require an implementation request.
+Adversaries try to break a change or a design, and a finding survives only when a
+run proves it. Scope is what the user names, otherwise the branch diff from its merge
+base through the working tree. State the intent first (see `in-your-own-words`);
+ask the user when it is unclear. When subagents are authorized, fan out one
+adversary per configured model in isolated worktrees (as in `arena`), each told to
+break the change with a run against the real code (a failing test, a repro script,
+or command output) and to report only what it ran: title, exact command, the output
+it printed, and the output the intent requires. Style, naming, structure, and risks
+that need a future change to matter are out of scope, and no findings is a valid
+result. Without subagents, run the same attempts yourself and label the independence
+limit. Verify each finding by rerunning its command: keep it when the output shows
+the failure and the failure breaks the intent, drop the rest, and merge findings that
+share a root cause. Do not run the arena judging and synthesis phases; the verdict
+keeps every verified finding. Report the intent, each verified finding (command,
+output, how it breaks the intent, which adversaries found it), and per adversary the
+count of dropped findings and why. Report only; edits require an implementation
+request.
 
 ## tdd
 
@@ -177,31 +191,38 @@ simpler bundled route when it fits.
 
 ## statechart
 
-Explicit-request workflow. Draw how a system moves between states, in the words of the
-person who owns the behavior (a PM, designer, engineer or reviewer), as a Mermaid
-statechart generated from a TLA+ model so the picture and the checked model cannot
-drift apart. Label states by what the reader can observe and steps by the event that
-moves the system; keep variable and action names out of labels. Each rule the reader
-agrees to becomes one invariant carrying their sentence; never weaken a rule to make
-the chart pass. Each bug the model checker finds is a numbered path in the reader's
-words, and each state is marked works, still wrong, or fixed by a proposed change.
-Two directions: `from-spec` (a model exists, or the code or design is concrete enough
-to model; when the code already has a TLA+ spec, copy it, add the variables the labels
-need, and pass the original unchanged as the thing to audit against) and `from-chart`
-(no model yet: agree on a chart first, write a `%% never` line per rule, then add the
-real code's guards and ask the reader about every difference). When a model describes
-code, tie every variable and action to code a reviewer can open, and replay each bug's
-story against the real code through entry points a user or client reaches; if a bug
-does not reproduce, the model is wrong, not the rule. For a design with no code yet,
-say the counterexample is the only evidence. Look at every rendered PNG before handing
-off. Work in a scratch folder outside the repo. The scripts need Node, and the first
-run installs TLC and Java with mise (about 305 MB, network); say so before running, and
-use an existing TLC and Java if the user has them. Hand off the PNG and Mermaid source
-of each chart, one line per bug (rule broken, its steps, whether it reproduced, whether
-the proposed fix fixes it), the generated stories file, the command that regenerates
-everything, and what the model leaves out. Take every count you quote from the
-generated summary. The retained scripts are reference implementations; run them only on
-the user's request.
+Explicit-request workflow. Check a TLA+ model of a system that moves between states,
+and draw it as a Mermaid statechart in the words of the person who owns the behavior
+(a PM, designer, engineer or reviewer). Work in a scratch folder outside the repo:
+write the spec and its config, then run the bundled command on the spec (optionally
+with a config file, a view module, and an output folder). The script is TypeScript, so
+it needs a runtime that can execute it (recent Node, Bun, or Deno). The first run
+installs TLC and Java with mise and needs the network; say so before running, and use
+an existing TLC and Java if the user has them. Upstream no longer states a download
+size (about 305 MB at 0.15.32). Each rule the reader agrees to becomes an invariant;
+add the variable when the model has none, and never weaken a rule to make it hold.
+Write `Next` as a disjunction of named actions, and give an end state with no step out
+a stuttering `Done` action so it does not read as a deadlock. The judgment work goes
+in a view module: `state(vars)` returns a string (flat chart), an array (parent
+states) or an object (parallel regions) in the reader's words, `step(action, from, to)`
+labels each arrow as the user sees it happen (return null to hide a step the reader
+does not need), and optional `group`, `colors` and `title`. Keep each function
+dependent on its arguments only, aim for about 20 arrows, and never merge two states
+that break different rules. The report marks each state that breaks a rule (or may,
+when only some model states behind it do) and gives the shortest path to it; TLC goes
+past a bug, so the chart shows the states after it, and a model with no limit on its
+states can run without end (keep constants small or add a CONSTRAINT). Rules the run
+did not check are listed in the report; a rule not checked can hold or break. Show
+the chart text to the user as a Mermaid block. Above 500 states the chart draws only
+the bug paths. To produce an image, render the `.mmd` file with the npm package
+`pele` (network), following the retained render notes; otherwise give the Mermaid text
+and any render error. When a model describes code, replay each bug path against the
+real code as a test or live repro, one step per action, and treat a bug that does not
+occur as a modeling error. Hand off each chart with its Mermaid text, one line per
+bug (rule, the reader's sentence for it, the path as the report numbers it), what
+the model leaves out and which steps the chart hides, and the command that regenerates
+the files into a new output folder. The retained scripts are reference implementations;
+run them only on the user's request.
 
 ## create-formal-verification-skill
 
