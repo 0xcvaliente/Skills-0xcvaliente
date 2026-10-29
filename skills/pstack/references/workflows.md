@@ -17,7 +17,7 @@ global persistent mode or mandatory setup is implied.
 
 ## sharpen, in-your-own-words, and ketchup
 
-Explicit-request workflows (the two formal verification workflows below follow the same rule). Upstream marks each `disable-model-invocation: true`;
+Explicit-request workflows (`ketchup-video`, `statechart` and the two formal verification workflows below follow the same rule). Upstream marks each `disable-model-invocation: true`;
 that flag has no effect here, so run them only when the user names them.
 
 - `sharpen`: make the prompt deeper, not bigger, then return the rewrite. The
@@ -49,6 +49,7 @@ that flag has no effect here, so run them only when the user names them.
   no screenshot, mark its line "No screenshot yet". Never invent numbers or draw
   a screen you did not capture, mark work done that waits on the user, or take new
   actions while catching up.
+- `ketchup-video`: follow `ketchup`, but show what happened as a short silent video of slides instead of its summary and visuals, with the calls waiting on the user as text under it. The window starts at the user's last own message before `ketchup-video`. Write and render the video outside the project; that is the one exception to `ketchup`'s read-only rule. Reply with ketchup's opening sentence, the video, one line naming any work left that you can do yourself, and the action items. Name each option as the video names it. If no tool can render slides to video, or the render fails, say so in one line and give only the calls.
 
 ## how
 
@@ -174,6 +175,34 @@ dependencies, evidence gates, and stopping conditions. Experiment on empirical
 forks, log decisions, and revise hypotheses when observations disagree. Use a
 simpler bundled route when it fits.
 
+## statechart
+
+Explicit-request workflow. Draw how a system moves between states, in the words of the
+person who owns the behavior (a PM, designer, engineer or reviewer), as a Mermaid
+statechart generated from a TLA+ model so the picture and the checked model cannot
+drift apart. Label states by what the reader can observe and steps by the event that
+moves the system; keep variable and action names out of labels. Each rule the reader
+agrees to becomes one invariant carrying their sentence; never weaken a rule to make
+the chart pass. Each bug the model checker finds is a numbered path in the reader's
+words, and each state is marked works, still wrong, or fixed by a proposed change.
+Two directions: `from-spec` (a model exists, or the code or design is concrete enough
+to model; when the code already has a TLA+ spec, copy it, add the variables the labels
+need, and pass the original unchanged as the thing to audit against) and `from-chart`
+(no model yet: agree on a chart first, write a `%% never` line per rule, then add the
+real code's guards and ask the reader about every difference). When a model describes
+code, tie every variable and action to code a reviewer can open, and replay each bug's
+story against the real code through entry points a user or client reaches; if a bug
+does not reproduce, the model is wrong, not the rule. For a design with no code yet,
+say the counterexample is the only evidence. Look at every rendered PNG before handing
+off. Work in a scratch folder outside the repo. The scripts need Node, and the first
+run installs TLC and Java with mise (about 305 MB, network); say so before running, and
+use an existing TLC and Java if the user has them. Hand off the PNG and Mermaid source
+of each chart, one line per bug (rule broken, its steps, whether it reproduced, whether
+the proposed fix fixes it), the generated stories file, the command that regenerates
+everything, and what the model leaves out. Take every count you quote from the
+generated summary. The retained scripts are reference implementations; run them only on
+the user's request.
+
 ## create-formal-verification-skill
 
 Explicit-request workflow. Find the part of the repo where a break harms users and
@@ -191,7 +220,10 @@ project-local skill (same placement as `create-verification-skill`) with
 frontmatter, a coverage record of files and functions, one rerun command, and the
 commit at which the verification was last confirmed to describe them. Follow it
 once on a scratch break, then drop the break. Hand off the property, tool and
-why, bounds, findings, how to run it, and what it does not cover.
+why, bounds, findings, how to run it, and what it does not cover. When the check is a
+TLA+ model, tell the next agent to read each result with the `statechart` workflow
+and to refer to it by name, never copying its commands, options or paths into the
+generated skill or its scripts, since they change between releases and machines.
 
 ## maintain-formal-verification-skill
 

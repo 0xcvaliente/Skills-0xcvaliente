@@ -135,3 +135,26 @@ callable), the `report_tool` plumbing in `factory.py`, `prompt.py`, and
 CI/packaging/lockfile and test churn. No authorization, ownership, scope, or
 consent safeguard was changed upstream or in the skill. The file-inventory
 baseline in `upstream.json` was advanced to `a3c31236`.
+
+## Reviewed update — 2026-10-26
+
+Reviewed the range from `a3c31236bd6305784a501a3102dab0bda83f2317` to
+`4ac5dc65e4c02afc8fdc22878716a83d481f00fb` (50 files).
+
+Adopted (guidance only): `skills/vulnerabilities/xss.md` now covers scriptless HTML
+injection, second-order rendering and Unicode normalization. The XSS row in
+`testing-playbooks.md` carries the decode/normalize/sanitize/encode ordering, the
+second-order render paths, the rule to keep HTML injection separate from XSS, and the
+original-versus-transformed value in evidence. The root agent's rule to follow up every
+open coverage row before finishing is recorded host-neutrally in `assessment.md`: work or
+delegate each unresolved row, and leave one open only with its blocker stated.
+
+Skipped: opt-in parallel tool calls (`STRIX_PARALLEL_TOOL_CALLS`), soft per-skill turn
+limits for sub-agents, the switch that turns the coverage-ledger tools off and the
+`coverage_tools` Jinja conditionals added to `counterevidence.md`,
+`source_aware_discovery.md`, `root_agent.md` and `scan_modes/diff.md`,
+`STRIX_DOCKER_SANDBOX_DEVICES` pass-through, Vercel AI Gateway and OpenRouter README and
+model-id changes, dependency and lockfile bumps, and test churn. These are Strix runtime
+behavior, not guidance. No authorization, ownership, scope, or consent safeguard changed
+upstream or in the skill. The file-inventory baseline in `upstream.json` was advanced to
+`4ac5dc65`.

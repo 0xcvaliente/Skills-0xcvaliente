@@ -166,3 +166,41 @@ recent version-bump commit message said 0.15.28; the manifests at this revision 
   guidance never carried that text); typescript-best-practices snippet changes
   (retained source covers them). Retained scripts were not ported or executed. The
   `SKILL.md` description is unchanged.
+
+## Upstream sync 2026-10-26
+
+Refreshed on 2026-10-26 from `88d47514b82e7c44f00f2b2a72ff6dd12158038c` (0.15.29)
+to `99b609a72323b70204eab407c622f436e858e112` (short `99b609a`, 0.15.32), the latest
+commit touching `pstack/` in cursor/plugins. No upstream file was deleted or renamed.
+
+- `references/upstream/` and `references/upstream-manifest.json` were rebuilt from
+  the new revision with the same layout: 200 files (was 172), 61 `SKILL.md`
+  entrypoints stored as `SKILL.md.source` (was 59), bytes and modes unchanged.
+  Added: `skills/statechart` (a `SKILL.md`, 21 scripts including the renderer and
+  the TLC converters, and 5 test files) and `skills/ketchup-video/SKILL.md`, each
+  `disable-model-invocation: true` upstream. Other changed files: both plugin
+  manifests (version), the README (Claude Code auto-update note, two new rows), the
+  verify-and-ship and recipes guide chapters, `create-formal-verification-skill`
+  (read each TLA+ result with `/statechart`), `poteto-help`, `reflect` (never edit
+  a skill under the plugin cache), `swarm` (Phase A numbering and a dangling table
+  reference), and fixes in `poteto-mode` scripts: `check-plan` (matching inline-code
+  delimiters), `orch/store` (prefer the active PR over branch history), `watch-pr`
+  (cap polling sleeps at the deadline, tell fork heads apart during stack discovery)
+  and `worktree-audit.sh` (GNU `stat` and `date` flags).
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical.
+- Local host-neutral layer merged by hand: `SKILL.md` (counts, version, routing rows
+  for `statechart` and `ketchup-video`), `README.md` (counts, version, reviewed
+  revision), `references/catalog.md` (two new workflows), `workflows.md` (new
+  `statechart` section, `ketchup-video` bullet, and the `/statechart` pointer in
+  `create-formal-verification-skill`), `host-runtime.md` (explicit-request list), and
+  the file count in `tests/test_helpers.py`. Cursor mechanics were mapped to the
+  capability vocabulary rather than copied.
+- Skipped: Cursor plugin metadata and frontmatter keys; the `disable-model-invocation`
+  flag (these skills run only on explicit request by instruction); the Claude Code
+  auto-update note; the `reflect` cache-path rule (Cursor plugin layout); the `swarm`
+  step renumbering (the local guidance carries no numbered steps). Retained scripts
+  were not ported or executed; `statechart` downloads about 305 MB (TLC and Java via
+  mise) on first run, so it is documented as an explicit, network-using request. The
+  `SKILL.md` description is unchanged.

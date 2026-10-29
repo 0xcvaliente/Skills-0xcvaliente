@@ -133,3 +133,7 @@ here), the architecture containment important-priority fix (`4ebfd0c`, no such
 verifier here), documentation anchor fixes, and the loop station-0 wording
 (`05a858c`): this package ships no loop diagram type, so there is no station
 placement formula to correct.
+
+## Inspiration review — 2026-10-26
+
+Checked cathrynlavery/diagram-design `b8f3617` (previously reviewed through `f2f4d49ea8d632f17cf196ba26599277a93f767b`, plugin 2.6.115 to 2.6.129). Changes are fixes to the upstream Mermaid importer (edge IDs in flowcharts, kept sequence `autonumber` directives, counted config directives, `else`/`and`/`option` regions in the digest), the self-check (rejects a document that stopped early), the service-blueprint verifier (Japanese two-line labels), heatmap markup parsing, export commands, and CI pins. This package has no Mermaid importer or upstream-style verifiers, so nothing was adopted; the "document stopped early" check is noted as an idea for a future completeness check in the inspector. No upstream text or code was copied.

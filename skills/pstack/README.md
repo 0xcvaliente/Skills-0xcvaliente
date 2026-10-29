@@ -3,13 +3,13 @@
 Pstack's engineering workflows adapted into one installable, host-neutral Agent Skill
 (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode, or plain chat).
 Based on [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack)
-0.15.29. Go deep first, write less code, and verify the result against the real artifact.
+0.15.32. Go deep first, write less code, and verify the result against the real artifact.
 
-The package includes native host-neutral routing and **all 172 original upstream files**:
+The package includes native host-neutral routing and **all 200 original upstream files**:
 
 | Material | Included |
 |---|---|
-| Main and situational workflows | 32, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, writing/verification maintenance, formal verification (`create-formal-verification-skill`, `maintain-formal-verification-skill`), and the explicit-request `sharpen`, `in-your-own-words`, and `ketchup`. |
+| Main and situational workflows | 34, including poteto-mode, how, why, architect, arena, swarm, interrogate, recall, writing/verification maintenance, formal verification (`create-formal-verification-skill`, `maintain-formal-verification-skill`), `statechart`, and the explicit-request `sharpen`, `in-your-own-words`, `ketchup`, and `ketchup-video`. |
 | Engineering principles | All 24 full principle sources. |
 | Poteto playbooks | All 23 originals plus host-neutral execution guidance for each. |
 | Agent definitions | Poteto Agent and Comment Sicko as reference prompts. |
@@ -156,7 +156,7 @@ Installed copies do not automatically update when GitHub changes.
 
 MIT, copyright 2026 Lauren Tan. The [original license](LICENSE) is retained in
 the package and source snapshot. Reviewed revision:
-[`88d47514b82e7c44f00f2b2a72ff6dd12158038c`](https://github.com/cursor/plugins/tree/88d47514b82e7c44f00f2b2a72ff6dd12158038c/pstack),
-2026-10-20 (pstack 0.15.29). See [provenance and adaptation notes](references/provenance.md).
+[`99b609a72323b70204eab407c622f436e858e112`](https://github.com/cursor/plugins/tree/99b609a72323b70204eab407c622f436e858e112/pstack),
+2026-10-26 (pstack 0.15.32). See [provenance and adaptation notes](references/provenance.md).
 This is a personal host-neutral adaptation, derived from earlier Codex and Claude Code ports;
 no affiliation or endorsement is claimed.

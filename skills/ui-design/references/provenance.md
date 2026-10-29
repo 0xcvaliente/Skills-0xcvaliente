@@ -17,3 +17,7 @@ Ported from the Codex version on 2026-10-10. Raster dark-mode variants and brand
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. Tool names (AskUserQuestion, the Read tool) became capability wording (ask the user, file/image reading); image-generation fallbacks no longer assume a specific host; the design-system pointer prefers `AGENTS.md` and mentions host-specific instruction files only if the project already uses one; README install and examples are host-neutral. Rules, modes, and the audit load contract are unchanged.
+
+## Upstream review 2026-10-26
+
+Checked mblode/agent-skills `193fa28cba62506457a815141f37b41396b0ad91` (previously reviewed at `81d0af2f6d4b32d791fb26caa82b17603ef4d807`). `ui-verification` and `ui-animation` have no upstream changes in that range. `ui-design` changed in two commits (`8d78f92`, `dc3f816`). Integrated: the rule that a design spec started from a client's assets records only what the client supplied and marks each gap "Not supplied" instead of filling it with defaults, added to the design-system paragraph in `SKILL.md`. Not carried over: the `npx` to `pnpm dlx` and `npm audit` to `pnpm audit` command swaps in `canonicalize-tailwind.md`, `componentize.md`, `defer-to-other-tools.md` and `output-adapters.md`, since this skill stays package-manager neutral.

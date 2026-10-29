@@ -2,18 +2,18 @@
   "schema_version": 1,
   "source_repository": "cursor/plugins",
   "source_directory": "pstack",
-  "source_version": "0.15.29",
-  "source_revision": "88d47514b82e7c44f00f2b2a72ff6dd12158038c",
-  "reviewed_on": "2026-10-20",
-  "source_url": "https://github.com/cursor/plugins/tree/88d47514b82e7c44f00f2b2a72ff6dd12158038c/pstack",
+  "source_version": "0.15.32",
+  "source_revision": "99b609a72323b70204eab407c622f436e858e112",
+  "reviewed_on": "2026-10-26",
+  "source_url": "https://github.com/cursor/plugins/tree/99b609a72323b70204eab407c622f436e858e112/pstack",
   "filename_adaptation": "SKILL.md -> SKILL.md.source; file bytes are unchanged",
   "files": [
     {
       "original_path": ".cursor-plugin/plugin.json",
       "stored_path": "references/upstream/.cursor-plugin/plugin.json",
       "git_mode": "100644",
-      "git_blob_sha": "fe3321bdc728fe8dbd74c925e9913c4954450ecc",
-      "sha256": "079de0bc2c331df98ecf388b84c938a3a61910f49a1cc37e680d9e2ca9bcd324"
+      "git_blob_sha": "2d5accfaed9959e5a15226df48b17a59a16a4132",
+      "sha256": "66b10ca48989920b65f150f80954a59adb4bb787c197a13e27f91fe793b996a3"
     },
     {
       "original_path": ".gitignore",
@@ -33,8 +33,8 @@
       "original_path": "README.md",
       "stored_path": "references/upstream/README.md",
       "git_mode": "100644",
-      "git_blob_sha": "9fde3a06f75245313b7e257de5603e2fbe721368",
-      "sha256": "b928886260bd551b0c8f3e58617a5dc3ad8dfc1293d096b1ef81b84007532486"
+      "git_blob_sha": "7a5037faeedcba432e1d4044099756d1fcbcdb1b",
+      "sha256": "ce7d9ab68491d329ca88bd2a4b5f34b46390c196a5838fdcc1eae4633eca5fc9"
     },
     {
       "original_path": "agents/comment-sicko.md",
@@ -180,8 +180,8 @@
       "original_path": "docs/guide/06-verify-and-ship.md",
       "stored_path": "references/upstream/docs/guide/06-verify-and-ship.md",
       "git_mode": "100644",
-      "git_blob_sha": "3c7b3c4dd0a256165f308f051b7125b9c5b37b62",
-      "sha256": "5c16c88bf377bf5ea5ffd4cd9dc1a83f19a0415090cc4645865d16a5500d1cab"
+      "git_blob_sha": "c432012d22cb1e8ba43e40163e119880518a68d3",
+      "sha256": "9276f7a20f72c115536e0a12f08aa2e9699fcd7498c217d9a02a7149c7d3a4a8"
     },
     {
       "original_path": "docs/guide/07-overnight.md",
@@ -208,8 +208,8 @@
       "original_path": "docs/guide/10-recipes-and-pitfalls.md",
       "stored_path": "references/upstream/docs/guide/10-recipes-and-pitfalls.md",
       "git_mode": "100644",
-      "git_blob_sha": "4569129baf6acee770f11f57b94629d82a41c6bd",
-      "sha256": "006d8282db567aeae57398d5de1f3a802af2e3ac1a1f564198c384183fca3f92"
+      "git_blob_sha": "b1aaf2738c6818deec6009edb9fc3526f9b95aa5",
+      "sha256": "0d4b71436d9646d2e656e19fcdc570624f2d8b66bc09ed73b731d55f554e3a0b"
     },
     {
       "original_path": "docs/guide/README.md",
@@ -271,8 +271,8 @@
       "original_path": "plugin.json",
       "stored_path": "references/upstream/plugin.json",
       "git_mode": "100644",
-      "git_blob_sha": "2b28f689ca144500269499dd0d4ca5ab01891bf4",
-      "sha256": "8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a"
+      "git_blob_sha": "62fb31e8b272a7b0164843feb16a32aa6bb6d22e",
+      "sha256": "2197363ebd8e7995e2a57417b1fc5fd23f40a4139f9c50634feca61effd23615"
     },
     {
       "original_path": "skills/architect/SKILL.md",
@@ -348,8 +348,8 @@
       "original_path": "skills/create-formal-verification-skill/SKILL.md",
       "stored_path": "references/upstream/skills/create-formal-verification-skill/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "b97609fd2649e95ea2960e720b3b581a6c2cb75a",
-      "sha256": "6c934cd15a9583533ff9b7a9cad62775d7e80402d26d3ba7f74f79ea21a1d8eb"
+      "git_blob_sha": "37d73f9044b6bcc0132a0e703f70d13be5ded7c3",
+      "sha256": "5e489d938620883502c27c9c2f32143ae7aa8c0543088dad996b2c815d2acc52"
     },
     {
       "original_path": "skills/create-verification-skill/SKILL.md",
@@ -450,6 +450,13 @@
       "sha256": "0f9c6bdb0b96e26dbde5f6407f417e0c02f54080e7a1268d8994f3c3ec6c5ac0"
     },
     {
+      "original_path": "skills/ketchup-video/SKILL.md",
+      "stored_path": "references/upstream/skills/ketchup-video/SKILL.md.source",
+      "git_mode": "100644",
+      "git_blob_sha": "69aa72aba763ae1836f8440d88e03e2928eb3719",
+      "sha256": "74f1b9e61f8479e2be5b91a4f53136f6ad8e144fd950c9848de6aa1cdbb7645c"
+    },
+    {
       "original_path": "skills/ketchup/SKILL.md",
       "stored_path": "references/upstream/skills/ketchup/SKILL.md.source",
       "git_mode": "100644",
@@ -488,8 +495,8 @@
       "original_path": "skills/poteto-help/SKILL.md",
       "stored_path": "references/upstream/skills/poteto-help/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "3eb02a5bf3ff08e23cf2afc870faa7d674a46459",
-      "sha256": "67c77ee5e91c19809b01d08cc73cc2870a52fb95fc64dc33328bf8ff9e49891c"
+      "git_blob_sha": "9d68a7a72da3a9712f77cc06d4a6bead90222b95",
+      "sha256": "587793b0f9959dbea7d5d009b8a6513795380d7150dd478a6cb05e604058e315"
     },
     {
       "original_path": "skills/poteto-help/references/prompting.md",
@@ -698,22 +705,22 @@
       "original_path": "skills/poteto-mode/scripts/check-plan.mjs",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/check-plan.mjs",
       "git_mode": "100755",
-      "git_blob_sha": "c8626766cee4cc4a2736fe438a1aea5c1f1b28ce",
-      "sha256": "e58c3d871b09d477be00628d69dd23ffa6c2e3a1728f5b867a841baa8e90278b"
+      "git_blob_sha": "c3ddc398997d29d3c97a414e5c2b37172b901254",
+      "sha256": "e3d4e9ca638c6fb4a2b52c434c17c7af30da4fdd44605ccfe9906f82fe37b555"
     },
     {
       "original_path": "skills/poteto-mode/scripts/check-plan.test.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/check-plan.test.ts",
       "git_mode": "100644",
-      "git_blob_sha": "fd966c2b5fb6e99c12070c553906765c7bd900d8",
-      "sha256": "c80f3ea043b81f219b92c4c8a3af6bdd4f8d32ea596ec15b5b9e0252645f2ae8"
+      "git_blob_sha": "cd1debfa31579068dc41b8657b7de3b341be29a0",
+      "sha256": "848d321f2b76299d1b2d7bb46c929dbaebef08ca4ba8669dbe09d1d5c86f96e2"
     },
     {
       "original_path": "skills/poteto-mode/scripts/orch/orch.test.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/orch/orch.test.ts",
       "git_mode": "100644",
-      "git_blob_sha": "2ef435d7d6f464a396d23158d4bcaae08f19c94d",
-      "sha256": "5e80b416bdcd68e4067690ce857345852fd2e0db3dcf3e25607999cd55b963d2"
+      "git_blob_sha": "be8edd505b7d14c79323fd648af60f1cf1048c3f",
+      "sha256": "c15bbcc17700acb812722bf3330e2b2ee2838407636cdb86784cdd9bb8ee93f3"
     },
     {
       "original_path": "skills/poteto-mode/scripts/orch/orch.ts",
@@ -726,8 +733,8 @@
       "original_path": "skills/poteto-mode/scripts/orch/store.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/orch/store.ts",
       "git_mode": "100644",
-      "git_blob_sha": "417368918d2a6e2589c0221ade5c65535ffe05f1",
-      "sha256": "558cfda533e1ebe7c8d7842604f07e0be7618759cf129b4c2397a8e29516ecea"
+      "git_blob_sha": "a7cef5af83af9bf571753cf911c992e877aae683",
+      "sha256": "bf0ed29c44093ee3b333aa10b138612f773c81eda73df7dc5337c59713f35a97"
     },
     {
       "original_path": "skills/poteto-mode/scripts/package.json",
@@ -761,29 +768,29 @@
       "original_path": "skills/poteto-mode/scripts/watch-pr/github.test.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/watch-pr/github.test.ts",
       "git_mode": "100644",
-      "git_blob_sha": "54722a940aeeff3d8c8cdea5fe7e796296bb44c4",
-      "sha256": "70c9f03d8738228763846f2abdd8c7de7be68dba3035041482386a69cbf5639b"
+      "git_blob_sha": "4e58938389bb8ac6f3728aea65c56e30ed047a5e",
+      "sha256": "9d9f644388f3516364d47f5eb96c1f977dd6f560bd6005b660d90d3b367cf4b9"
     },
     {
       "original_path": "skills/poteto-mode/scripts/watch-pr/github.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/watch-pr/github.ts",
       "git_mode": "100644",
-      "git_blob_sha": "4828b0299672a4696e6844132c1caedb7ebbbd8b",
-      "sha256": "a605b8531468dbe4c07b93663c0993a9c11dc7e9179adde970f5c740396451d9"
+      "git_blob_sha": "123a33b19f807cff4c641fff3d44f9a02ba449e0",
+      "sha256": "7ba193190d488c8ce0982c85234ebea026e9a595703e99a3c3df0fcd640ddd18"
     },
     {
       "original_path": "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/watch-pr/policy.test.ts",
       "git_mode": "100644",
-      "git_blob_sha": "6dae16da71800fb06eb37a7e3b296a8d27275b08",
-      "sha256": "146acabcfee9b6fa3342358eb0a9504aa65fd081bbc15b10adf9c1c5485067d2"
+      "git_blob_sha": "966b7536754602e2550bf7245eed2124af623b76",
+      "sha256": "7ee38c20ed605f4a255f1f78e5a4be56b3563fcd8d3d65cfeea58d44c3f58d53"
     },
     {
       "original_path": "skills/poteto-mode/scripts/watch-pr/policy.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/watch-pr/policy.ts",
       "git_mode": "100644",
-      "git_blob_sha": "cabadb9bf96f4d8c4c0426d77d0cbdab80fbe3e5",
-      "sha256": "f2a3e31223d05edc05e5473cc3f8f3cb9bd20c202c30c6abe7f21f0f7aee8fbb"
+      "git_blob_sha": "8179f2d8ba5bf675feb3b1449161360827031518",
+      "sha256": "2d4823aeea788acab258ec60eb52e7b9e3a23a6649850af128d6ada5c33d7778"
     },
     {
       "original_path": "skills/poteto-mode/scripts/watch-pr/render.ts",
@@ -810,8 +817,8 @@
       "original_path": "skills/poteto-mode/scripts/watch-pr/types.ts",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/watch-pr/types.ts",
       "git_mode": "100644",
-      "git_blob_sha": "6c94e0a687f8e48f91acffd21f725320dd66e659",
-      "sha256": "0cac435294dc85ce1ba755e8e67f6c5ab163dfa252f2722d6e3a2d68c58fec59"
+      "git_blob_sha": "60b9abcac983fc0a4319428c1be145dc110a8cc5",
+      "sha256": "daa66c56220bae084c18cc6d3b0a2c66c0e72206d298e40973b44ee085ce16d2"
     },
     {
       "original_path": "skills/poteto-mode/scripts/watch-pr/watch-pr",
@@ -824,8 +831,8 @@
       "original_path": "skills/poteto-mode/scripts/worktree-audit.sh",
       "stored_path": "references/upstream/skills/poteto-mode/scripts/worktree-audit.sh",
       "git_mode": "100755",
-      "git_blob_sha": "743c4e9250ba95000f90db10ef6ba47d8a106461",
-      "sha256": "e0a94e5e5b1ff60638916e440600e15851f7b79bc1a1d1f602fde05d465e2ec0"
+      "git_blob_sha": "47e08919d7b08c32923a7bdaaa70b17ca708f5f6",
+      "sha256": "06be04b38346ded24ce761d373726f98cd9b9737f20ec98214e88b5f08f521b8"
     },
     {
       "original_path": "skills/principle-attack-the-premise/SKILL.md",
@@ -1006,8 +1013,8 @@
       "original_path": "skills/reflect/SKILL.md",
       "stored_path": "references/upstream/skills/reflect/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "998ae6530fe294791c3a1daa635b36e2947fcca2",
-      "sha256": "1f5a8c246cdee8251f8667d85bd5d97f6c2801f505843c26ddbd6c621632519b"
+      "git_blob_sha": "9bb153bd2121e49d73a7af7d55ef372079889e62",
+      "sha256": "9648df23cabaae99b78ed59cd93b6f35ebbf02105d228e3d0b5c3a3b3419d753"
     },
     {
       "original_path": "skills/reflect/references/divergent-reviewer.md",
@@ -1073,11 +1080,200 @@
       "sha256": "a65a4bc5fb7cdeadbdb7b7ff1ca4682f4d9c42420942b2977cd17b46c4ac338e"
     },
     {
+      "original_path": "skills/statechart/SKILL.md",
+      "stored_path": "references/upstream/skills/statechart/SKILL.md.source",
+      "git_mode": "100644",
+      "git_blob_sha": "66670ebd1856621ef5307bb73eed09e60133212b",
+      "sha256": "b1c544782b1527ba09e63311e4faa4c277c86aa33b0506590f8082b7b4bea505"
+    },
+    {
+      "original_path": "skills/statechart/scripts/bug-states.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/bug-states.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "3c8e9f21f6046393903a5b496e65c5e93bf4727a",
+      "sha256": "8c138f76542997f4fc8aa00ccb42f5b3510a4bcb475e04e422cf06c77ae6bbf4"
+    },
+    {
+      "original_path": "skills/statechart/scripts/chart-edges.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/chart-edges.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "0f0db11dc51dbf10ab20715820861a682893789f",
+      "sha256": "bb1896c1e0eb6b2bfe0f1e5ef71b194a3096c4a6db1879514bcfc3818d3d644a"
+    },
+    {
+      "original_path": "skills/statechart/scripts/chart-parts.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/chart-parts.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "eaa391d4e634b096d3625337f288627afb2e3427",
+      "sha256": "567b4700cba97881ec129cc9b2ed6cdbe9e1f041819ea37957dd3def5261b754"
+    },
+    {
+      "original_path": "skills/statechart/scripts/chart-to-tla.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/chart-to-tla.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "911c58698d7abf8c459134f0112a47750d317c1c",
+      "sha256": "e26b0decb4762ee4c05cc96f4ba1454bd87ab6ae49f0f4bde74a29a4b493117d"
+    },
+    {
+      "original_path": "skills/statechart/scripts/compare-charts.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/compare-charts.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "730698be4e1dfadb4866ff5f61e6cba2b37fe6ce",
+      "sha256": "1fa3c1aad875d38d6d1702fcbbcdb7592bc9a3dbe871cdbd4f9ddeda1bc859fc"
+    },
+    {
+      "original_path": "skills/statechart/scripts/lib.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/lib.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "238f1745e561aa5668cd09ec7a694836bf6b7156",
+      "sha256": "ae8ebe18e09419a63b23465f9a53c9117e04de12a7bc945b1f75ce66a367cc5b"
+    },
+    {
+      "original_path": "skills/statechart/scripts/map-view.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/map-view.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "e7e844b6d1fd6534408e94ac7f96fd7384ca5650",
+      "sha256": "d9ca92ba29a9d5e4143c64826c24b34cc41d5cac28aeee6a25db485e5b2c7d4f"
+    },
+    {
+      "original_path": "skills/statechart/scripts/property-loop.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/property-loop.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "47bf0372f89f27251e8639445ef1716dd243ea94",
+      "sha256": "437b66fa85d45bddc8f743fc96af3f3a358f6c3d4da5d55e23dd04c4468f00e7"
+    },
+    {
+      "original_path": "skills/statechart/scripts/read-check.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/read-check.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "18c52b6d1447583c0d3b4e0dbd01c0ffc701e47b",
+      "sha256": "f4124d09512b62c056ca81fcde91d9dd1a4d07a99de950ec945df83f044772a9"
+    },
+    {
+      "original_path": "skills/statechart/scripts/regions-chart.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/regions-chart.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "95d746021468883e6a4adab5d82dc34d4f2c4082",
+      "sha256": "c234623411a2d5368737c8ef4f4012ec92f902340d8fdd527d08d015a448bde9"
+    },
+    {
+      "original_path": "skills/statechart/scripts/render.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/render.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "4c90c58531d8f99ccb28fa659df1e85e868e0c9c",
+      "sha256": "b813236db10ce50a4d04efa68953eabbee0cdc30e3fa96c03b8a2e1f477f3e57"
+    },
+    {
+      "original_path": "skills/statechart/scripts/rule-book.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/rule-book.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "3ea545228f7908394f903734b40157a23565e6b4",
+      "sha256": "d26a8da74d105b5807ef8333172470660853e61069cc2573817ab7811755dde2"
+    },
+    {
+      "original_path": "skills/statechart/scripts/second-replay.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/second-replay.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "1dba571c2c23d4648f0f15ffcf9359558e8de1be",
+      "sha256": "033325ff5440a81a11aebdd485de4e2fd2f703db9f9b84c4fe24bc274d9df285"
+    },
+    {
+      "original_path": "skills/statechart/scripts/snapshot.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/snapshot.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "ebaf35573fb2208d9f3f29aca81669602d25171c",
+      "sha256": "9ae5040255945474f45d09a150cf4659acdff780e18d62f8a084bcb5c79543eb"
+    },
+    {
+      "original_path": "skills/statechart/scripts/spec-text.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/spec-text.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "ddfc8d10c9b22dd6bae3a4e4d950384bd0033574",
+      "sha256": "494f56d5577a09f9e93057fb6bfe5e3e74df53644e9992f4452ed7008f6f5aab"
+    },
+    {
+      "original_path": "skills/statechart/scripts/statechart-help.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/statechart-help.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "1a900fc51f985a0e9b774bfc0fc6e0c4e484ff04",
+      "sha256": "ab38345c41028ad76d2866b03b3f5aa2c8303c3223c87dc9979effbeec79e46b"
+    },
+    {
+      "original_path": "skills/statechart/scripts/statechart.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/statechart.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "555f10b8c83d98e7e5de07224b99cc339ba75935",
+      "sha256": "c24a83dda26aec03a3a0e5a961ece983a8283f6c4c66334fd229c2d2e8d7bb36"
+    },
+    {
+      "original_path": "skills/statechart/scripts/test/band.mmd",
+      "stored_path": "references/upstream/skills/statechart/scripts/test/band.mmd",
+      "git_mode": "100644",
+      "git_blob_sha": "83af5860141f7d6ed4d0f323d1b3eef4303954ee",
+      "sha256": "9ae80a75bce87c8126095b6d9de3669cc69ae65d850acd6d4328ea9b8538d5ed"
+    },
+    {
+      "original_path": "skills/statechart/scripts/test/regions.mmd",
+      "stored_path": "references/upstream/skills/statechart/scripts/test/regions.mmd",
+      "git_mode": "100644",
+      "git_blob_sha": "d241e24ff73c292e5fc62a81fd7ff17c189a5354",
+      "sha256": "53d12de8df0e4269c2fbee7399285ead307952c98bb8f8e2eefeba4492e42e25"
+    },
+    {
+      "original_path": "skills/statechart/scripts/test/statechart.test.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/test/statechart.test.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "543fe8d67e3c7f5da3d54b678a48b05c8f7de820",
+      "sha256": "65b090975ad970f38e7ed06ff3212802705948ce682f0ee90a616a95f874f800"
+    },
+    {
+      "original_path": "skills/statechart/scripts/test/sync.mmd",
+      "stored_path": "references/upstream/skills/statechart/scripts/test/sync.mmd",
+      "git_mode": "100644",
+      "git_blob_sha": "c780c2e4336925b66e79c2bd107c045c69e54355",
+      "sha256": "cb1f5387058a0f79d6187eb217690588a2e2d384637b4d53cbc4bb050c570757"
+    },
+    {
+      "original_path": "skills/statechart/scripts/test/upload.mmd",
+      "stored_path": "references/upstream/skills/statechart/scripts/test/upload.mmd",
+      "git_mode": "100644",
+      "git_blob_sha": "dcfafa73793e4475427a6897466debd40c4e3f8f",
+      "sha256": "bbc1fa70e26cbcbcc7cde5d8fb7eda26df34b6d973053bf13c40b18527ff0e76"
+    },
+    {
+      "original_path": "skills/statechart/scripts/tlc-to-chart-args.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/tlc-to-chart-args.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "a2e0a3124641af13770fd7e4dc3e76c17f1ce347",
+      "sha256": "6cfff1104d7024ecb079ac4c6fa539279e2b537824e01a1c8eb3c7f8e9320ffd"
+    },
+    {
+      "original_path": "skills/statechart/scripts/tlc-to-chart.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/tlc-to-chart.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "7aefe44be6e60425fd061d04379adb256b06f75d",
+      "sha256": "2fc9c866ed1217cd5f107ec059eb9df2d32268c1f582929321a0a4cdbb26b15a"
+    },
+    {
+      "original_path": "skills/statechart/scripts/tlc-tools.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/tlc-tools.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "09d46de4a62173348de802643944bd54a1298e71",
+      "sha256": "50fba780bb36edeb20804964f2e93f8c5fa85b6fe1e0e1e8d32e4b933eb69e84"
+    },
+    {
+      "original_path": "skills/statechart/scripts/ways-in.mjs",
+      "stored_path": "references/upstream/skills/statechart/scripts/ways-in.mjs",
+      "git_mode": "100644",
+      "git_blob_sha": "e94658c804f62065b7bf4c7e0ae8c6854d1f0d69",
+      "sha256": "4728ad85dbd12d192c6bfb5c4374ef3f63ce8d61e03aa120f159dfc607b2af06"
+    },
+    {
       "original_path": "skills/swarm/SKILL.md",
       "stored_path": "references/upstream/skills/swarm/SKILL.md.source",
       "git_mode": "100644",
-      "git_blob_sha": "b0b1eb83363853843ccf1524917b83d0c16d2cd8",
-      "sha256": "031657cb81e490f9aed5c75d6ff2a4fda35ccafbaf72be604e59481cc4080cdc"
+      "git_blob_sha": "9cd32247b4f381bb020cbbf0fc546ba71407d558",
+      "sha256": "fea6bfbbf21e067a4e2d2ebab034bc3af508118e9df1abc9d2ba040d58a6df3a"
     },
     {
       "original_path": "skills/tdd/SKILL.md",

@@ -43,7 +43,7 @@ Keep a compact ledger:
 |---|---|---|---|
 | Method + route or file + symbol | Required control | Test result or complete source trace | Runtime-confirmed, source-supported, ruled out, unresolved, not tested, or not applicable |
 
-Name the actual control before ruling something out and verify its order and coverage on the reachable path. Distinguish "no issue found in the tested case" from a universal clearance. Record build failures, unavailable accounts, environment mismatch, and cap-related truncation explicitly. Move to other useful surfaces when repeated setup attempts add no evidence.
+Name the actual control before ruling something out and verify its order and coverage on the reachable path. Distinguish "no issue found in the tested case" from a universal clearance. Record build failures, unavailable accounts, environment mismatch, and cap-related truncation explicitly. Move to other useful surfaces when repeated setup attempts add no evidence. Before finishing, go back over every row still marked unresolved or not tested: work it, or hand it to a worker when delegation is authorized, until it reaches a real disposition. A row stays unresolved only when it is genuinely blocked, and the blocker is stated in its evidence.
 
 ## PR and diff reviews
 
