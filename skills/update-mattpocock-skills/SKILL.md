@@ -10,7 +10,7 @@ Picked skills record their upstream pin in one of two places. Read the latest pi
 - `skills/<name>/UPSTREAM.md` for diagnosing-bugs, git-guardrails-claude-code, grill-me, grilling, handoff, tdd, to-questionnaire, wait-what, writing-for-agents. The first line names the upstream path and says "pinned to `<sha>`"; later dated lines ("reviewed against upstream `<sha>`") are review marks and move the effective baseline.
 - `skills/<name>/references/provenance.md` for codebase-design and domain-modeling. Use the original source commit, or the newest "Upstream review" section, as the baseline. Local adaptation sections list the files changed locally.
 
-Ignore any line in UPSTREAM.md that mentions `sync.sh`, `overlay/`, or `~/.claude/skill-sources`: that tooling no longer exists. Edit the skill files in this repo directly.
+Edit the skill files in this repo directly.
 
 ## Steps
 

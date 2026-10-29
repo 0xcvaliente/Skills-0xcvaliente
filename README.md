@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 60 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 61 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -161,6 +161,7 @@ Run security assessments only against systems you own or are authorized to test.
 | Skill | Use it to | Example prompt |
 |---|---|---|
 | [`documents`](skills/documents) | One skill with six bundled sub-skills: **docs** (reports, proposals, memos, specs to read, share, review), **word** (`.docx`), **spreadsheets** (`.xlsx`/`.csv`), **slides** (`.pptx`), **pdf**, and **design** (typography, layout, colour, contrast, tables and charts, with four presets and starter builds). Includes dependency-free inspect, pack/unpack, render, formula-check, design-audit and PDF scripts, plus evals. | "Turn this brief into a proposal as Word and PDF", "Make this deck look professional", "Fix the formula errors in this workbook", "Fill this PDF form" |
+| [`humanizer`](skills/humanizer) | Rewrite AI-sounding prose so it reads like the writer, without changing what it says; removes staged openers, forced triads, inflated claims, stock AI words and filler. | "Humanize this draft so it doesn't read like a chatbot wrote it" |
 
 ### Creative assets
 
