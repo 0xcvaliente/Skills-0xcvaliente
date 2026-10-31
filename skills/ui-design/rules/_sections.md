@@ -113,8 +113,8 @@ Do not reintroduce a second rules folder. A rule that needs the browser says so 
 
 **Impact:** MEDIUM
 **Default tier:** backlog
-**Rules:** 9
-**Description:** The house style of machine-generated interfaces: default-everything spacing, stock gradient hero, emoji as iconography, filler copy shipped as real copy, and the other tells that make a screen read as unfinished rather than broken. Visual cleanup defaults to backlog; unsupported product capabilities default to fix-this-sprint because they create false expectations. Use each rule’s own evidence and tier rather than treating all findings as aesthetic.
+**Rules:** 16
+**Description:** The house style of machine-generated interfaces: default-everything spacing, stock gradient hero, emoji as iconography, filler copy shipped as real copy, and the other tells that make a screen read as unfinished rather than broken. Visual cleanup defaults to backlog; unsupported product capabilities default to fix-this-sprint because they create false expectations. Use each rule’s own evidence and tier rather than treating all findings as aesthetic. The surface tells are checkable too: emoji in product copy, a pulsing dot with nothing live, Instrument Serif headings, an italic word in every heading, a ladder of text opacities, monospace on everything, and a coloured left border on cards that are not callouts.
 
 ---
 
@@ -126,7 +126,7 @@ These pairings often co-fire. Emit both findings with the same `surface` to make
 
 ---
 
-Total: 55 rules across 14 categories.
+Total: 62 rules across 14 categories.
 
 New static checks in the `slop` category: `slop-invented-behaviour`,
 `slop-fact-padding`, and `slop-external-arrow-internal-link`. Product capability

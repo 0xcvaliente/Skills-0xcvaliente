@@ -67,12 +67,19 @@ A primary rule that the probe could not run for stays `unknown`. A confirming ru
 | `perf-virtualize-large-lists` | see below | confirming |
 | `slop-affordance-mismatch` | theme-locale-matrix | capture-only |
 | `slop-decoration-no-role` | theme-locale-matrix | capture-only |
+| `slop-emoji-in-copy` | theme-locale-matrix | capture-only |
 | `slop-invented-behaviour` | theme-locale-matrix | capture-only |
+| `slop-italic-accent-word` | theme-locale-matrix | capture-only |
+| `slop-left-accent-border` | theme-locale-matrix | capture-only |
 | `slop-fact-padding` | theme-locale-matrix | capture-only |
 | `slop-external-arrow-internal-link` | focus-walk | confirming |
 | `slop-faux-product-chrome` | theme-locale-matrix | capture-only |
+| `slop-mono-overuse` | theme-locale-matrix | capture-only |
 | `slop-near-duplicate-scale` | theme-locale-matrix | capture-only |
+| `slop-opacity-ladder` | theme-locale-matrix | capture-only |
+| `slop-pulse-dot` | theme-locale-matrix | capture-only |
 | `slop-token-drift` | theme-locale-matrix | capture-only |
+| `slop-trending-display-serif` | theme-locale-matrix | capture-only |
 | `slop-unverifiable-proof` | theme-locale-matrix | capture-only |
 | `states-layout-shift` | layout-shift | primary |
 | `states-no-empty-state` | failure-injection | primary |
