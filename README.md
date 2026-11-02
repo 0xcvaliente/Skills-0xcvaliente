@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 62 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 64 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -106,6 +106,8 @@ These skills require the Figma MCP server.
 |---|---|---|
 | [`vercel-react-best-practices`](skills/vercel-react-best-practices) | Review React/Next.js for performance, rendering correctness, bundle size, and server/client boundaries. | "Why is this page shipping so much JS?" |
 | [`payload`](skills/payload) | Work with Payload CMS collections, access control, hooks, Local API, migrations, and Next.js integration. | "Add a localized `projects` collection with drafts" |
+| [`supabase`](skills/supabase) | Work on any Supabase task: Auth/SSR and RLS, Edge Functions, Storage, Realtime, CLI, MCP, migrations, security checklist and log-driven debugging (official Supabase skill). | "Why does my RLS policy return zero rows on update?" |
+| [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices) | Postgres schema, SQL, indexes, RLS, locking and connection rules to apply before writing or changing database code (official Supabase skill). | "Review this migration and its indexes before I merge" |
 | [`ask-sonner`](skills/ask-sonner) | Set up and style Sonner toasts, promise toasts, stacking, and themes. | "Show a loading toast that resolves when the save finishes" |
 | [`write-swift`](skills/write-swift) | Write, review, or migrate Swift: concurrency, ownership, generics, Swift Testing. | "Migrate this class to Swift 6 strict concurrency" |
 
@@ -186,6 +188,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | `codegraph` | The CodeGraph CLI and an indexed repository (see `skills/codegraph/references/setup.md`) |
 | `repo-context`, `pstack`, `founder`, `business-sales-documents`, `diagram-craft` | Python 3.9+ for their bundled helper scripts |
 | `documents` | Python 3.9+ for the bundled scripts (standard library only). Optional, by task: `python-docx`, `openpyxl`, `python-pptx`, `pypdf`, `reportlab`, LibreOffice, Poppler, pandoc. `scripts/doctor.py` reports what is installed |
+| `supabase` | Network access to supabase.com docs (it fetches the changelog and docs pages). Optional: the Supabase CLI and the Supabase MCP server (`https://mcp.supabase.com/mcp`, OAuth); use a scoped access token, not a classic one |
 | `pptx-deck` | Python 3 with `python-pptx`, `lxml`, `Pillow` (`pip install -r skills/pptx-deck/requirements.txt`). Optional, for rendering and visual QA: LibreOffice and Poppler |
 
 ## Anatomy of a skill
