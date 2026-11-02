@@ -1,0 +1,360 @@
+{
+  "notes": "last_checked is the baseline for 'has upstream moved since we last looked', independent of per-skill pins, which are inconsistently recorded (see references/process.md). Entries with last_checked null are credited but not tracked.",
+  "upstreams": [
+    {
+      "id": "emilkowalski/skills",
+      "repo": "https://github.com/emilkowalski/skills",
+      "watch": [
+        "skills/{name}"
+      ],
+      "skills": [
+        "animate",
+        "animate-expo",
+        "animation-performance",
+        "animation-vocabulary",
+        "apple-design",
+        "ask-sonner",
+        "break-ui",
+        "emil-design-eng",
+        "find-animation-opportunities",
+        "improve-animations",
+        "mobile-native",
+        "pick-ui-library",
+        "prototype",
+        "remove-animations",
+        "review-animations",
+        "write-swift"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
+      },
+      "last_checked": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "mattpocock/skills",
+      "repo": "https://github.com/mattpocock/skills",
+      "watch": [
+        "skills/engineering",
+        "skills/productivity",
+        "skills/misc"
+      ],
+      "skills": [
+        "codebase-design",
+        "domain-modeling",
+        "grilling",
+        "diagnosing-bugs",
+        "git-guardrails-claude-code",
+        "grill-me",
+        "handoff",
+        "to-questionnaire",
+        "wait-what",
+        "writing-for-agents",
+        "tdd"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "codebase-design, domain-modeling": "references/provenance.md lines 3-4 (b0618bc) plus dated review sections; append-only",
+        "grilling": "UPSTREAM.md (a496f55)",
+        "tdd": "UPSTREAM.md line 1 (49dd158)",
+        "diagnosing-bugs, git-guardrails-claude-code, grill-me, handoff, to-questionnaire, wait-what, writing-for-agents": "UPSTREAM.md (append a dated review line)"
+      },
+      "last_checked": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "last_checked_date": "2026-11-02",
+      "note": "Upstream layout: skills/engineering/, skills/productivity/, skills/misc/ (skills/in-progress/ is not ours). update-mattpocock-skills is an original rewrite that can update this group in isolation."
+    },
+    {
+      "id": "mblode/agent-skills",
+      "repo": "https://github.com/mblode/agent-skills",
+      "watch": [
+        "skills/{name}"
+      ],
+      "skills": [
+        "ui-design",
+        "ui-verification",
+        "ui-animation"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
+      },
+      "last_checked": "391508702523088f564fecfdd95ce76304efb117",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "greensock/gsap-skills",
+      "repo": "https://github.com/greensock/gsap-skills",
+      "watch": [
+        "skills/{name}"
+      ],
+      "skills": [
+        "gsap-core",
+        "gsap-react",
+        "gsap-scrolltrigger",
+        "gsap-timeline"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "all 4": "references/provenance.md line 4 (aed9cfd); append-only"
+      },
+      "last_checked": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "cursor/plugins",
+      "repo": "https://github.com/cursor/plugins",
+      "watch": [
+        "pstack"
+      ],
+      "skills": [
+        "pstack"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "pstack": "references/provenance.md prose near line 211 (1ba91fc, 0.15.36); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
+      },
+      "last_checked": "ae5650febf4320793844c12c4adaa937f417f8da",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "usestrix/strix",
+      "repo": "https://github.com/usestrix/strix",
+      "watch": [
+        "."
+      ],
+      "skills": [
+        "strix"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "strix": "references/upstream.json reviewed_commit (6b7ae2e); follow references/upstream-maintenance.md"
+      },
+      "last_checked": "6b7ae2ebe4d47037a927aade23265ff4e4f27e84",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "DietrichGebert/ponytail",
+      "repo": "https://github.com/DietrichGebert/ponytail",
+      "watch": [],
+      "skills": [
+        "ponytail"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "ponytail": "references/provenance.md line 92 (09c434a); append-only"
+      },
+      "last_checked": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "blader/humanizer",
+      "repo": "https://github.com/blader/humanizer",
+      "watch": [],
+      "skills": [
+        "humanizer"
+      ],
+      "style": "verbatim-refresh",
+      "mode": "head",
+      "pin_locations": {
+        "humanizer": "references/provenance.md line 4 (0ef9fe5); append-only"
+      },
+      "last_checked": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "leonxlnx/taste-skill",
+      "repo": "https://github.com/leonxlnx/taste-skill",
+      "watch": [],
+      "skills": [
+        "design-taste-frontend"
+      ],
+      "style": "verbatim-refresh",
+      "mode": "head",
+      "pin_locations": {
+        "design-taste-frontend": "references/provenance.md line 9 (12af471); append-only"
+      },
+      "last_checked": "12af471f627f866411b4bd785b19646d3672784c",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "cathrynlavery/diagram-design",
+      "repo": "https://github.com/cathrynlavery/diagram-design",
+      "watch": [],
+      "skills": [
+        "diagram-craft"
+      ],
+      "style": "inspired-only",
+      "mode": "head",
+      "pin_locations": {
+        "diagram-craft": "references/provenance.md (reviewed through 0cf73c3); ideas adopted independently, no text copied"
+      },
+      "last_checked": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "openai/skills",
+      "repo": "https://github.com/openai/skills",
+      "watch": [
+        "skills/.curated/{name}"
+      ],
+      "skills": [
+        "figma",
+        "figma-implement-design",
+        "figma-create-design-system-rules",
+        "security-best-practices",
+        "security-threat-model",
+        "hatch-pet"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "all 6": "references/provenance.md line 4 'Based on revision'; figma-implement-design 736f600, figma-create-design-system-rules 0e7823c, security-* 5c8f1e2, hatch-pet c25113b (substantially extended fork)"
+      },
+      "last_checked": "49f948faa9258a0c61caceaf225e179651397431",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "anthropics/skills",
+      "repo": "https://github.com/anthropics/skills",
+      "watch": [
+        "skills/frontend-design"
+      ],
+      "skills": [
+        "frontend-design"
+      ],
+      "style": "adapted-with-review",
+      "mode": "head",
+      "pin_locations": {
+        "frontend-design": "references/provenance.md line 4 (41bbe19); append-only"
+      },
+      "last_checked": "ca45fc496a3436251f191354091d557da31c15b5",
+      "last_checked_date": "2026-11-02",
+      "note": "The documents skill only studied this repo's approach; nothing copied (see no_upstream_notes)."
+    },
+    {
+      "id": "morluto/rea",
+      "repo": "https://github.com/morluto/rea",
+      "watch": [
+        ".agents/skills/reverse-engineer-anything"
+      ],
+      "skills": [
+        "reverse-engineer-anything"
+      ],
+      "style": "verbatim-refresh",
+      "mode": "head",
+      "pin_locations": {
+        "reverse-engineer-anything": "UPSTREAM.md pin"
+      },
+      "last_checked": "d3ab0faf52a02ff5a618f3ed7beb608b78752abd",
+      "last_checked_date": "2026-11-02"
+    },
+    {
+      "id": "colbymchenry/codegraph",
+      "repo": "https://github.com/colbymchenry/codegraph",
+      "watch": [],
+      "skills": [
+        "codegraph"
+      ],
+      "style": "adapted-with-review",
+      "mode": "tag",
+      "pin_locations": {
+        "codegraph": "references/provenance.json (upstream_repository; pinned b635dd4; runtime tag v1.6.2)"
+      },
+      "last_checked": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+      "last_checked_date": "2026-11-02",
+      "last_checked_tag": "v1.6.2",
+      "last_checked_commit": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+      "note": "v1.6.2 is a lightweight tag (git ls-remote shows no peeled ^{} entry), so the tag object name equals the commit."
+    },
+    {
+      "id": "zarazhangrui/frontend-slides",
+      "repo": "https://github.com/zarazhangrui/frontend-slides",
+      "watch": [],
+      "skills": [
+        "pptx-deck"
+      ],
+      "style": "inspired-only",
+      "mode": "head",
+      "pin_locations": {
+        "pptx-deck": "README.md credits (ideas only)"
+      },
+      "last_checked": null,
+      "last_checked_date": null,
+      "note": "not tracked"
+    },
+    {
+      "id": "GordenSun/GordenPPTSkill",
+      "repo": "https://github.com/GordenSun/GordenPPTSkill",
+      "watch": [],
+      "skills": [
+        "pptx-deck"
+      ],
+      "style": "inspired-only",
+      "mode": "head",
+      "pin_locations": {
+        "pptx-deck": "README.md credits (ideas only)"
+      },
+      "last_checked": null,
+      "last_checked_date": null,
+      "note": "not tracked"
+    },
+    {
+      "id": "chuspeeism/dashi-ppt-skill",
+      "repo": "https://github.com/chuspeeism/dashi-ppt-skill",
+      "watch": [],
+      "skills": [
+        "pptx-deck"
+      ],
+      "style": "inspired-only",
+      "mode": "head",
+      "pin_locations": {
+        "pptx-deck": "README.md credits (ideas only)"
+      },
+      "last_checked": null,
+      "last_checked_date": null,
+      "note": "not tracked"
+    },
+    {
+      "id": "op7418/guizang-ppt-skill",
+      "repo": "https://github.com/op7418/guizang-ppt-skill",
+      "watch": [],
+      "skills": [
+        "pptx-deck"
+      ],
+      "style": "inspired-only",
+      "mode": "head",
+      "pin_locations": {
+        "pptx-deck": "README.md credits (ideas only)"
+      },
+      "last_checked": null,
+      "last_checked_date": null,
+      "note": "not tracked"
+    }
+  ],
+  "no_upstream": [
+    "business-sales-documents",
+    "create-3d-assets",
+    "documents",
+    "founder",
+    "outlook-email-automation",
+    "payload",
+    "pptx-deck",
+    "repo-context",
+    "vercel-react-best-practices",
+    "web-design-guidelines",
+    "web-experience-design",
+    "update-skills",
+    "update-mattpocock-skills"
+  ],
+  "no_upstream_notes": {
+    "documents": "studied the anthropics/skills approach; nothing copied"
+  }
+}

@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 61 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 62 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -119,6 +119,7 @@ These skills require the Figma MCP server.
 | [`codegraph`](skills/codegraph) | Trace cross-file calls and change impact with a local CodeGraph index, or set it up. | "What breaks if I change `getSession`?" |
 | [`codebase-design`](skills/codebase-design) | Design deep modules: interfaces, seams, testability. | "Where should the seam go between billing and orders?" |
 | [`domain-modeling`](skills/domain-modeling) | Sharpen domain terms and maintain `GLOSSARY.md`, `CONTEXT.md`, and ADRs. | "Record an ADR for switching to Postgres" |
+| [`update-skills`](skills/update-skills) | Check every upstream of this library for changes and apply them after review. | "Update skills" |
 
 ### Claude Code flavored skills
 
@@ -204,7 +205,7 @@ Only the frontmatter is always in context; the rest loads when the skill is used
 
 ## Updating, adding and removing skills
 
-**Update.** Symlinked installs follow the repository: run `git pull` in your clone. Copied installs (`--copy` or a manual `cp -R`) must be re-copied, or re-run the installer with `--force` to replace them. Start a new agent session afterwards.
+**Update.** To pull in upstream changes to the skills themselves, ask your agent to "update skills": the `update-skills` skill runs a checker over every upstream, reports what moved, and applies changes only after you approve. `update-mattpocock-skills` remains for updating only the mattpocock-derived skills. To get this repository's own changes, symlinked installs follow the repository: run `git pull` in your clone. Copied installs (`--copy` or a manual `cp -R`) must be re-copied, or re-run the installer with `--force` to replace them. Start a new agent session afterwards.
 
 **Add.** Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep `name` identical to the folder, put long material in `references/`, add a catalog row, run `python3 scripts/validate.py`, then re-run the installer.
 

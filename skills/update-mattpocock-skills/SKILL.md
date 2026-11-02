@@ -1,6 +1,6 @@
 ---
 name: update-mattpocock-skills
-description: Check the mattpocock/skills GitHub repo for upstream changes to the Matt Pocock skills picked into this library and report what changed, so the user can decide what to merge. Use when the user asks to update, sync, or refresh those skills, or to add or remove one from the set. Read-only until the user approves changes.
+description: Check the mattpocock/skills GitHub repo for upstream changes to the Matt Pocock skills picked into this library and report what changed, so the user can decide what to merge. Use when the user asks to update, sync, or refresh those skills, or to add or remove one from the set. Read-only until the user approves changes. To check all upstreams, not only mattpocock/skills, use update-skills.
 ---
 
 # Update Matt Pocock skills
@@ -11,6 +11,8 @@ Picked skills record their upstream pin in one of two places. Read the latest pi
 - `skills/<name>/references/provenance.md` for codebase-design and domain-modeling. Use the original source commit, or the newest "Upstream review" section, as the baseline. Local adaptation sections list the files changed locally.
 
 Edit the skill files in this repo directly.
+
+To check all upstreams of this library (not only mattpocock/skills), use `update-skills`.
 
 ## Steps
 
