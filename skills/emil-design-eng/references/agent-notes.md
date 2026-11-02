@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Motion 14.2 note (2026-11-02).** The bundled `performance-cheatsheet.md` predates Motion 14.2 and still says Motion's `x`/`y`/`scale` shorthands are not hardware-accelerated (its Motion row). The Motion 14.2+ guidance in this skill's `references/guide.md` supersedes that claim, so do not report `x`/`y`/`scale` on Motion 14.2+ as a performance problem. Layout animations, `onUpdate`, `transformTemplate`, inertia and values driven every frame still run on the main thread in every version. `performance-cheatsheet.md` is kept verbatim because it is hash-pinned.

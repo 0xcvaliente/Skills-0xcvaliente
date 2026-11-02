@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Motion 14.2 note (2026-11-02).** The bundled `AUDIT.md` predates Motion 14.2 and still says Motion's `x`/`y`/`scale` shorthands are not hardware-accelerated (its animation-performance section). That claim is superseded: on Motion 14.2+, the `x`/`y`/`scale`/`rotate` shorthands are hardware-accelerated on HTML elements, so do not report them as a performance problem there. Layout animations, `onUpdate`, `transformTemplate`, inertia and values driven every frame stay on the main thread in every version. Before 14.2, the full `transform` string is still the advice. The `animation-performance` skill (`references/guide.md`) carries the full guidance. `AUDIT.md` is kept verbatim because it is hash-pinned.

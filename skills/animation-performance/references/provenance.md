@@ -20,3 +20,4 @@ installed by the instruction package.
 Frame-budget numbers and the property tiers remain authored defaults; browser
 support for compositor-only properties changes between versions, so profile the
 target workload. No affiliation or endorsement is claimed.
+2026-11-02: Reviewed upstream f1090bec277140d02ed202440185ad9d02ac1490 (Motion 14.2 hardware acceleration guidance). Adopted the changed lines in references/guide.md. The upstream-SKILL.md.source and source-manifest.json pins are unchanged.

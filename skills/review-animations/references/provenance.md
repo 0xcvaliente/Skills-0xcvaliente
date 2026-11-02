@@ -35,3 +35,4 @@ upstream files and the source manifest are unchanged.
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. `references/agent-notes.md` and the README were reworded for readability and neutrality (shell, file/image reading, ask-the-user capability). Upstream files and the source manifest are unchanged.
+2026-11-02: Reviewed upstream f1090bec277140d02ed202440185ad9d02ac1490 (Motion 14.2 hardware acceleration guidance). Adopted the changed lines in references/guide.md. STANDARDS.md is sha256-pinned and kept at the pinned revision; see references/agent-notes.md. The upstream-SKILL.md.source and source-manifest.json pins are unchanged.

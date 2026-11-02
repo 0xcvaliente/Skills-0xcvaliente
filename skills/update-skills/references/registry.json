@@ -30,7 +30,7 @@
       "pin_locations": {
         "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
       },
-      "last_checked": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+      "last_checked": "f1090bec277140d02ed202440185ad9d02ac1490",
       "last_checked_date": "2026-11-02"
     },
     {
@@ -253,7 +253,7 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "d3ab0faf52a02ff5a618f3ed7beb608b78752abd",
+      "last_checked": "93b8b82db70279e40f484114cff9dc1958dc14ee",
       "last_checked_date": "2026-11-02"
     },
     {
