@@ -210,6 +210,8 @@ Only the frontmatter is always in context; the rest loads when the skill is used
 
 **Update.** To pull in upstream changes to the skills themselves, ask your agent to "update skills": the `update-skills` skill runs a checker over every upstream, reports what moved, and applies changes only after you approve. `update-mattpocock-skills` remains for updating only the mattpocock-derived skills. To get this repository's own changes, symlinked installs follow the repository: run `git pull` in your clone. Copied installs (`--copy` or a manual `cp -R`) must be re-copied, or re-run the installer with `--force` to replace them. Start a new agent session afterwards.
 
+**Scheduled check (macOS).** `scripts/auto-update.sh --install` registers a launchd job that runs every 4 days (`INTERVAL_DAYS` changes it). Each run fast-forward pulls the repositories, logs the upstream status to `~/Library/Logs/skills-update.log` and shows a notification when the set of moved upstreams changes. It does not edit skills. `--apply` additionally starts a headless agent that reviews, commits and pushes the update, so use it only when you accept unattended pushes. `--status` shows the schedule and `--uninstall` removes it.
+
 **Add.** Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep `name` identical to the folder, put long material in `references/`, add a catalog row, run `python3 scripts/validate.py`, then re-run the installer.
 
 **Remove.** Delete the installed entry, for example `rm ~/.agents/skills/<name>` or `rm ~/.claude/skills/<name>`. For a symlink this removes only the link and leaves the repository copy.
