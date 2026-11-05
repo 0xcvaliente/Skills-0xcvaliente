@@ -22,7 +22,7 @@ Optional installed tooling:
 
 | Tool family | Useful evidence | Limit |
 |---|---|---|
-| Semgrep, ast-grep, Tree-sitter | Candidate sinks, callers, routes, structural patterns | Findings require path and control review; incomplete parsing limits coverage |
+| Semgrep or Opengrep, ast-grep, Tree-sitter | Candidate sinks, callers, routes, structural patterns | Findings require path and control review; incomplete parsing limits coverage |
 | Gitleaks, TruffleHog | Secret-shaped material and history exposure | Redact results; never validate a credential against a third-party account without authorization |
 | Trivy, native package audits, OSV tooling | Resolved vulnerable versions, configuration issues | Check actual package, advisory, runtime reachability, and relevant fix version |
 | Browser and bounded HTTP requests | Auth, response content, state transitions, browser execution | Respect scope, stateful side effects, request limits, and test identities |

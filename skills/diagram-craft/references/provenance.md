@@ -145,3 +145,11 @@ Reviewed cathrynlavery/diagram-design from `b8f3617` through `0cf73c3` (14 commi
 Adopted as ideas: draw.io plain-versus-HTML label handling that keeps literal angle brackets (`17686b9`) and the Excalidraw outer-group chain (`84886eb`), both as import guidance in `delivery-and-import.md` because this package ships no importer; and the CSS-transform blind spot in geometry verification (`0b5b3bc`, plus the quoting-robustness idea from `d39a365`). Our `viewbox_findings` skipped only a `transform` attribute, so a shape moved by an inline `style` transform was judged at its written coordinates; it now treats that as unmeasurable, with regression cases. Our check parses XML, so single-quoted attributes were already read.
 
 Skipped: the box-plot variant and its verifier, and the expanded scatter reference (`7bf9445`), because quantitative plots belong to a chart workflow per this skill's scope; the dp-integration arrowhead example tweak (`1677a5c`), since this package ships no such type; docs-sync test and release manifest bumps (`fbdbd83` and the version commits).
+
+## Inspiration review — 2026-11-05
+
+Reviewed cathrynlavery/diagram-design from `0cf73c3` through `f24d98b` (10 commits, plugin 2.6.137 to 2.6.141) for ideas only. No upstream text or code was copied; the guidance was written independently here.
+
+Adopted as ideas, as import guidance in `delivery-and-import.md` because this package ships no importer: Mermaid dotted links lengthened with extra dots are one dotted edge (`81c6301`); draw.io shape names are matched exactly before any prefix fallback, so a table row is not counted as a table (`88028a8`); Excalidraw labels come from `originalText` before the re-wrapped `text` (`5928455`).
+
+Skipped: the proposed OpenAI directory snapshot ADR (`eb1fded`), plugin listing URLs (`790e801`) and the release manifest bumps, all packaging and distribution.

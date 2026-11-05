@@ -17,7 +17,7 @@ Never edit by hand or by the updater: `references/provenance.md` (append only), 
 
 ## Per-style procedures
 
-**verbatim-refresh** (humanizer, design-taste-frontend, reverse-engineer-anything): compare the local files with the old pinned upstream revision; they must match. If they do not, stop and tell the user about the local edits. Then copy the new upstream files over, re-run validation, and append a dated pin line.
+**verbatim-refresh** (humanizer, design-taste-frontend, reverse-engineer-anything, supabase, supabase-postgres-best-practices): compare the local files with the old pinned upstream revision; they must match. If they do not, stop and tell the user about the local edits. Then copy the new upstream files over, re-run validation, and append a dated pin line.
 
 **adapted-with-review** (most skills): read the upstream diff for the watched paths, decide per change (below), and port it by hand into the local wording, keeping local adaptations. Check local files named in the skill's adaptation notes for overlap with upstream edits.
 

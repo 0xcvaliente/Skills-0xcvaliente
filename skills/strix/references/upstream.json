@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "usestrix/strix",
-  "reviewed_commit": "6b7ae2ebe4d47037a927aade23265ff4e4f27e84",
-  "reviewed_tree": "23c06e4a0e58bdf3b4979863d7623230e4091332",
+  "reviewed_commit": "06015506625a78b981ae0b34be40239fc1b389be",
+  "reviewed_tree": "15d135fe118d3f57383cc5bf8210c9d6debf0aea",
   "reviewed_default_branch": "main",
-  "reviewed_at": "2026-10-29",
+  "reviewed_at": "2026-11-05",
   "files": {
     ".github/ISSUE_TEMPLATE/bug_report.md": {
       "sha": "85919cefe8ec2acccfbc74c2692b1148b7dc87fd",
@@ -36,38 +36,23 @@
       "mode": "100644",
       "type": "blob"
     },
+    ".github/workflows/binary.yml": {
+      "sha": "18f5b78f4891d3231fd8ecf0b569b7ccd552c939",
+      "mode": "100644",
+      "type": "blob"
+    },
     ".github/workflows/build-release.yml": {
-      "sha": "504080206d44f5b5c26a420df711309a301a3ddd",
-      "mode": "100644",
-      "type": "blob"
-    },
-    ".github/workflows/ci-package.yml": {
-      "sha": "31cddee1a4f84f66fb75482f15a34b6a7e25bcaa",
-      "mode": "100644",
-      "type": "blob"
-    },
-    ".github/workflows/ci-python.yml": {
-      "sha": "d1ee05915b5cb0c0b30fa9551610c4c94f9f6b82",
-      "mode": "100644",
-      "type": "blob"
-    },
-    ".github/workflows/ci-tui.yml": {
-      "sha": "1dac8219f84f8f0eb80e6a8f86af30faf310d8d8",
-      "mode": "100644",
-      "type": "blob"
-    },
-    ".github/workflows/ci-viewer.yml": {
-      "sha": "4bfc93613e4e7963e364b5a550ef3c625857fb6a",
-      "mode": "100644",
-      "type": "blob"
-    },
-    ".github/workflows/ci-workflows.yml": {
-      "sha": "5796e0d2a913c37c358d76bef2bb02da2e8c122d",
+      "sha": "337255c2c6643d4f866e8eb065f6dea2e7f9ff2a",
       "mode": "100644",
       "type": "blob"
     },
     ".github/workflows/ci.yml": {
-      "sha": "9ae8e7636be718f9cca1153328d446d4ca4915d0",
+      "sha": "51d0fe0e8b3cb299f550f6d5f3c8daacbda31b7a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    ".github/workflows/workflows.yml": {
+      "sha": "32601e93cd512c7d13fe2fe99f3aa54fcca21b6c",
       "mode": "100644",
       "type": "blob"
     },
@@ -77,7 +62,7 @@
       "type": "blob"
     },
     ".pre-commit-config.yaml": {
-      "sha": "ceaae9717e9acad684d79d7ff38ecf1588f07fc4",
+      "sha": "00af1cea8e30f1ede31212ac5fcdd46704d37508",
       "mode": "100644",
       "type": "blob"
     },
@@ -112,12 +97,17 @@
       "type": "blob"
     },
     "containers/Dockerfile": {
-      "sha": "7d125ca834f8ab2f4ed160e358f368d0b492cf4c",
+      "sha": "a1ff49ef0e2246b982f5a5670edde29212947572",
       "mode": "100644",
       "type": "blob"
     },
     "containers/docker-entrypoint.sh": {
       "sha": "e4f472d6279cec6ca530a398297d6a780a15edd1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "containers/opengrep-rules/github-owned-action-not-pinned-to-commit-sha.yaml": {
+      "sha": "0640684bfb4c41356be1dbc32c03d089e46a2c25",
       "mode": "100644",
       "type": "blob"
     },
@@ -127,7 +117,7 @@
       "type": "blob"
     },
     "docs/advanced/configuration.mdx": {
-      "sha": "247c0994ec202b913aa13e6d612e55e81ce1d64b",
+      "sha": "29be4c87161553fff7158219d4f87ea0eda0eb27",
       "mode": "100644",
       "type": "blob"
     },
@@ -272,12 +262,12 @@
       "type": "blob"
     },
     "docs/tools/sandbox.mdx": {
-      "sha": "386452f7fbf24a8479388ba3da8581e15727830d",
+      "sha": "aebb07cc1bd9133b3eba7f691663b5430b9c0dea",
       "mode": "100644",
       "type": "blob"
     },
     "docs/tools/terminal.mdx": {
-      "sha": "5f7cb8410e7b0fa8b3d8efc31b222e57a7057a7a",
+      "sha": "47c7c76f522d8cc8eb9db5cd48c14eaccc98dd8e",
       "mode": "100644",
       "type": "blob"
     },
@@ -292,7 +282,7 @@
       "type": "blob"
     },
     "docs/usage/scan-modes.mdx": {
-      "sha": "9f9589103106b38b79dcb6d9e90c65de25c88c27",
+      "sha": "48d0447920b830c1853152b3d86df4c10121a0c5",
       "mode": "100644",
       "type": "blob"
     },
@@ -317,7 +307,7 @@
       "type": "blob"
     },
     "scripts/install.sh": {
-      "sha": "876f11db28a21445c3af0e57f2a403d054879968",
+      "sha": "78f8c97d82c1a962e3ea64a59293394e37576b9c",
       "mode": "100755",
       "type": "blob"
     },
@@ -402,7 +392,7 @@
       "type": "blob"
     },
     "strix/agents/prompts/system_prompt.jinja": {
-      "sha": "fd09d0774f48c85b056104e1eb5e265e8b3c756b",
+      "sha": "6c6a0ab95cf044fc9a3488a74afcf81bb3769428",
       "mode": "100644",
       "type": "blob"
     },
@@ -427,7 +417,7 @@
       "type": "blob"
     },
     "strix/config/settings.py": {
-      "sha": "9b216aa99a570d515f87ead539b4507362ecfe38",
+      "sha": "4db49d5d8b7737b68f4340ed00551be7b9cb31af",
       "mode": "100644",
       "type": "blob"
     },
@@ -1432,7 +1422,7 @@
       "type": "blob"
     },
     "strix/report/dedupe.py": {
-      "sha": "b1d3e5370be2deb16e7e9cc73a7d795d45dfddd7",
+      "sha": "102ebb3c88f308a8e06544e0fb3f9c434c89cb21",
       "mode": "100644",
       "type": "blob"
     },
@@ -1512,7 +1502,7 @@
       "type": "blob"
     },
     "strix/skills/README.md": {
-      "sha": "87a48ddfadf791877ef263302e28c03ebc6e9fc0",
+      "sha": "d87d09412eabeb9086004d38c25ea833fa17f6aa",
       "mode": "100644",
       "type": "blob"
     },
@@ -1572,7 +1562,7 @@
       "type": "blob"
     },
     "strix/skills/coordination/source_aware_whitebox.md": {
-      "sha": "d8849e638548556e34d49a58b5e347feb30f3f30",
+      "sha": "24d734a479fbbbdef75230fa29a96d644e4ecd7a",
       "mode": "100644",
       "type": "blob"
     },
@@ -1597,12 +1587,12 @@
       "type": "blob"
     },
     "strix/skills/custom/source_aware_sast.md": {
-      "sha": "fee2fd9211a403386e45e50c7754b180e1ddb999",
+      "sha": "0c44267d8f524f12f8f6187552c01731cff2f772",
       "mode": "100644",
       "type": "blob"
     },
     "strix/skills/frameworks/django.md": {
-      "sha": "143e6e905aa2a1530d782528a780294c4c58a04c",
+      "sha": "4fee7012150c35119d4d5eae16c0a03b0b99a401",
       "mode": "100644",
       "type": "blob"
     },
@@ -1647,7 +1637,7 @@
       "type": "blob"
     },
     "strix/skills/scan_modes/deep.md": {
-      "sha": "af2b85dd0a3f24605cb78878211a320f51ad006c",
+      "sha": "61fd0473b607c6fb80b1a8d923b359f0cbf3e985",
       "mode": "100644",
       "type": "blob"
     },
@@ -1657,12 +1647,12 @@
       "type": "blob"
     },
     "strix/skills/scan_modes/quick.md": {
-      "sha": "a8824786eafe0269cdaeb0990f9c4a92963b7ee8",
+      "sha": "93be9b8e5daad684983153fe11407a5aa415cbc0",
       "mode": "100644",
       "type": "blob"
     },
     "strix/skills/scan_modes/standard.md": {
-      "sha": "b7a37395c011b9e13b982426fbd9301e9e85de90",
+      "sha": "b44feb514ed2e12ba7322c8e136ab986e4d6c63b",
       "mode": "100644",
       "type": "blob"
     },
@@ -1746,13 +1736,13 @@
       "mode": "100644",
       "type": "blob"
     },
-    "strix/skills/tooling/python.md": {
-      "sha": "b38cdaee37f4417dd193da897a15cea8bfb47053",
+    "strix/skills/tooling/opengrep.md": {
+      "sha": "ae4a416b9183d152d318ceefda871fb645c270b7",
       "mode": "100644",
       "type": "blob"
     },
-    "strix/skills/tooling/semgrep.md": {
-      "sha": "55cfe8d920c3c37370ee7448bd909325a3501a02",
+    "strix/skills/tooling/python.md": {
+      "sha": "b38cdaee37f4417dd193da897a15cea8bfb47053",
       "mode": "100644",
       "type": "blob"
     },
@@ -1872,7 +1862,7 @@
       "type": "blob"
     },
     "strix/skills/vulnerabilities/semantic_confusion.md": {
-      "sha": "cdd580b4b5fdb39899bdd22d8ffe9139de2041d9",
+      "sha": "6aea4f6a8f03dab14b07cff9fb18362a64d0ecc5",
       "mode": "100644",
       "type": "blob"
     },
@@ -2328,6 +2318,11 @@
     },
     "tests/test_coverage_tool.py": {
       "sha": "3061dd89ea59c5bf1f5e1c47218d0ba20ffd7070",
+      "mode": "100644",
+      "type": "blob"
+    },
+    "tests/test_dedupe_decisions.py": {
+      "sha": "773b2f95efc200698a44de312c89634896b9b33b",
       "mode": "100644",
       "type": "blob"
     },

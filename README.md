@@ -68,7 +68,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | [`pick-ui-library`](skills/pick-ui-library) | Choose a library for a UI capability from a curated shortlist, respecting existing dependencies. | "Which library should I use for a command palette?" |
 | [`prototype`](skills/prototype) | Build several genuinely different variants of a UI behind a working picker. | "Give me three variants of the pricing table to compare" |
 | [`break-ui`](skills/break-ui) | Stress-test a component with worst-case data, locales, and missing media; reports what breaks. | "Break the ProjectCard with long titles and empty images" |
-| [`ui-verification`](skills/ui-verification) | Run browser probes for focus, hit targets, overflow, themes, failed requests, and performance. | "Verify the nav fix in the browser" |
+| [`ui-verification`](skills/ui-verification) | Run browser probes for focus, hit targets, overflow, themes, failed requests, and performance, or try a finished feature like a real user. | "Verify the nav fix in the browser" |
 | [`mobile-native`](skills/mobile-native) | Fix mobile web/PWA issues: sticky hover, `100vh`, input zoom, safe areas, keyboard layout. | "Inputs zoom in on iOS and the footer jumps under the keyboard" |
 | [`diagram-craft`](skills/diagram-craft) | Produce polished, editable SVG/HTML diagrams (architecture, flows, sequences, states, service blueprints) from code or notes. | "Draw a sequence diagram of the checkout flow from this code" |
 

@@ -178,3 +178,26 @@ image tag bump 1.3.0 to 1.3.1 and brotli patch (`dfdbe4b`; the skill pins no ima
 the install script tweak, and test churn. No authorization, ownership, scope, or consent
 safeguard changed upstream or in the skill. The file-inventory baseline in `upstream.json`
 was advanced to `6b7ae2eb`.
+
+## Upstream review 2026-11-05 (`6b7ae2eb` to `06015506`)
+
+Reviewed usestrix/strix `6b7ae2ebe4d47037a927aade23265ff4e4f27e84..06015506625a78b981ae0b34be40239fc1b389be` (4 commits).
+
+Adopted, rewritten in local words: a new "Email and account identity" row in
+`testing-playbooks.md` from the semantic-confusion pack's email and IDNA identity drift
+section (`851743a`): trace the address through normalization, collation, the selected
+principal and the bound token or link; bounded variants from the observed stack; only an
+authorized test mailbox or domain; proof requires that the variant selects the protected
+principal and that redemption yields its access, with exact lookup plus delivery to the
+stored address as the negative control. `assessment.md`'s optional tooling row now names
+Opengrep beside Semgrep, because upstream's sandbox replaced Semgrep with Opengrep and
+bundled offline rules (`cb581bf`).
+
+Skipped as runtime behavior: the sandbox Dockerfile and image bump to 1.4.0, bundled
+Opengrep rule paths (`/opt/opengrep-rules`), the pinned trivy and gitleaks installs, the
+new Strix rule for unpinned GitHub-owned actions (the CI reference already says to keep
+action revisions pinned), the report deduplication validation (`09536cf`), and the CI
+workflow consolidation (`0601550`). No authorization, ownership, scope, or consent
+safeguard was weakened; the adopted guidance restricts testing to authorized mailboxes.
+No LICENSE or NOTICE change upstream. The file-inventory baseline in `upstream.json` was
+regenerated from the exact reviewed commit `06015506` (tree `15d135fe`).

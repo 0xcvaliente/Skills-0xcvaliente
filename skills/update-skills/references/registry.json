@@ -30,8 +30,8 @@
       "pin_locations": {
         "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
       },
-      "last_checked": "f1090bec277140d02ed202440185ad9d02ac1490",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "mattpocock/skills",
@@ -82,8 +82,8 @@
       "pin_locations": {
         "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
       },
-      "last_checked": "391508702523088f564fecfdd95ce76304efb117",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "5eeba20fa3b9b142be7705ee9e6c7401e7ee6f08",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "greensock/gsap-skills",
@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 211 (1ba91fc, 0.15.36); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "ae5650febf4320793844c12c4adaa937f417f8da",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "2776ddd2355d6d6c8747d3964600f28daf62f049",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "usestrix/strix",
@@ -136,8 +136,8 @@
       "pin_locations": {
         "strix": "references/upstream.json reviewed_commit (6b7ae2e); follow references/upstream-maintenance.md"
       },
-      "last_checked": "6b7ae2ebe4d47037a927aade23265ff4e4f27e84",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "06015506625a78b981ae0b34be40239fc1b389be",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -196,8 +196,8 @@
       "pin_locations": {
         "diagram-craft": "references/provenance.md (reviewed through 0cf73c3); ideas adopted independently, no text copied"
       },
-      "last_checked": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "openai/skills",
@@ -253,8 +253,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "93b8b82db70279e40f484114cff9dc1958dc14ee",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "0beedcd712e39a7d93e4558ee56fd596eaa22838",
+      "last_checked_date": "2026-11-05"
     },
     {
       "id": "colbymchenry/codegraph",
@@ -273,6 +273,24 @@
       "last_checked_tag": "v1.6.2",
       "last_checked_commit": "6560052a6f856855d3f71eee838fd66ccfa4285d",
       "note": "v1.6.2 is a lightweight tag (git ls-remote shows no peeled ^{} entry), so the tag object name equals the commit."
+    },
+    {
+      "id": "supabase/agent-skills",
+      "repo": "https://github.com/supabase/agent-skills",
+      "watch": [
+        "skills/{name}"
+      ],
+      "skills": [
+        "supabase",
+        "supabase-postgres-best-practices"
+      ],
+      "style": "verbatim-refresh",
+      "mode": "head",
+      "pin_locations": {
+        "both": "references/provenance.md Revision line (c9be0e9); append-only"
+      },
+      "last_checked": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "last_checked_date": "2026-11-03"
     },
     {
       "id": "zarazhangrui/frontend-slides",
