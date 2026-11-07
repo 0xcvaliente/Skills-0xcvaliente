@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glass Reference Demo</title>
+<style>
+/* ============================================================
+   Glass reference demo: frosted glassmorphism + a Liquid Glass
+   approximation (SVG lens refraction in Chromium, frosted
+   fallback elsewhere), scroll edge effect, accessibility hooks.
+   Open directly in a browser. No dependencies.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  color-scheme: light dark;
+  --ink: #111114;
+  --ink-2: #3a3a42;
+  --page: #f3f1ff;
+
+  /* Frosted glass (glassmorphism) */
+  --glass-fill: rgb(255 255 255 / 0.55);   /* >= 0.49 keeps --ink text at 4.5:1 over any backdrop */
+  --glass-optics: blur(18px) saturate(180%);
+  --glass-edge: rgb(255 255 255 / 0.55);
+  --glass-rim: rgb(255 255 255 / 0.9);
+  --glass-solid: rgb(250 250 252 / 0.97);   /* reduced-transparency fill */
+  --glass-shadow: 0 10px 30px rgb(20 10 60 / 0.18), 0 1px 2px rgb(20 10 60 / 0.10);
+
+  /* Liquid Glass approximation: light at the rim, lens at the edge.
+     Without backdrop sampling the web cannot flip ink light/dark like
+     Apple's small glass does, so the fill must carry icon contrast. */
+  --lg-fill: rgb(255 255 255 / 0.40);       /* >= 0.37 keeps icons at 3:1 over any backdrop */
+  --lg-optics: blur(3px) saturate(180%) brightness(1.06);
+  --lg-ink: #0b0b10;
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --spring: cubic-bezier(.34, 1.56, .64, 1);  /* small overshoot for press feedback */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f4f4f7;
+    --ink-2: #c9c9d3;
+    --page: #0d0b16;
+    --glass-fill: rgb(22 20 32 / 0.64);       /* >= 0.62 keeps --ink text at 4.5:1 over any backdrop */
+    --glass-edge: rgb(255 255 255 / 0.14);
+    --glass-rim: rgb(255 255 255 / 0.35);
+    --glass-solid: rgb(24 22 32 / 0.97);
+    --glass-shadow: 0 10px 30px rgb(0 0 0 / 0.45), 0 1px 2px rgb(0 0 0 / 0.3);
+    --lg-fill: rgb(30 30 40 / 0.50);          /* >= 0.48 keeps white icons at 3:1 */
+    --lg-ink: #ffffff;
+  }
+}
+
+/* Reduced transparency: OS setting (Chromium only today) OR in-app toggle */
+@media (prefers-reduced-transparency: reduce) {
+  :root:not([data-transparency="full"]) {
+    --glass-fill: var(--glass-solid); --glass-optics: none;
+    --lg-fill: var(--glass-solid);    --lg-optics: none;
+  }
+}
+:root[data-transparency="reduced"] {
+  --glass-fill: var(--glass-solid); --glass-optics: none;
+  --lg-fill: var(--glass-solid);    --lg-optics: none;
+}
+
+/* Increased contrast: solid surface, hard border, full-strength ink */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast="normal"]) {
+    --glass-fill: var(--glass-solid); --glass-optics: none;
+    --lg-fill: var(--glass-solid);    --lg-optics: none;
+    --glass-edge: var(--ink); --ink-2: var(--ink);
+  }
+}
+:root[data-contrast="more"] {
+  --glass-fill: var(--glass-solid); --glass-optics: none;
+  --lg-fill: var(--glass-solid);    --lg-optics: none;
+  --glass-edge: var(--ink); --ink-2: var(--ink);
+}
+
+/* ---------- 2. Page + a busy backdrop (glass needs something behind it) ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(40rem 30rem at 10% 10%, #ff6b9a 0%, transparent 60%),
+    radial-gradient(36rem 28rem at 90% 20%, #5b8cff 0%, transparent 60%),
+    radial-gradient(40rem 34rem at 50% 90%, #ffd166 0%, transparent 60%),
+    var(--page);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+main { max-width: 960px; margin: 0 auto; padding: 0 16px 160px; }
+.backdrop-type {
+  font-size: clamp(64px, 16vw, 180px); font-weight: 900; line-height: .9;
+  letter-spacing: -0.04em; margin: 40px 0 0; color: #1b1340;
+  background: repeating-linear-gradient(90deg, #1b1340 0 14px, #ff4f7b 14px 28px);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stripes {
+  height: 220px; border-radius: 24px; margin: 24px 0;
+  background: repeating-linear-gradient(135deg, #111 0 18px, #fff 18px 36px);
+}
+.photo {
+  height: 260px; border-radius: 24px; margin: 24px 0;
+  background:
+    radial-gradient(circle at 30% 40%, #fff7 0 8%, transparent 9%),
+    conic-gradient(from 200deg at 60% 55%, #0a84ff, #34c759, #ffd60a, #ff375f, #bf5af2, #0a84ff);
+}
+p { max-width: 62ch; color: var(--ink-2); }
+
+/* ---------- 3. Frosted glass surface (classic glassmorphism) ---------- */
+.glass {
+  position: relative;
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-optics);   /* Safari < 18 */
+  backdrop-filter: var(--glass-optics);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-rim);
+  color: var(--ink);
+}
+/* No backdrop-filter at all: fall back to the solid fill so text stays legible */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .lg { background: var(--glass-solid); }
+}
+/* Grain: 3% noise reads as material and hides gradient banding */
+.glass::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  opacity: .035; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.card { padding: 24px 24px 20px; margin: clamp(-140px, -12vw, -40px) 24px 0; max-width: 420px; }
+.card h2 { margin: 0 0 6px; font-size: 22px; font-weight: 650; letter-spacing: -0.01em; }
+.card p { margin: 0; color: var(--ink); font-weight: 500; }
+
+/* ---------- 4. Scroll edge effect (sticky header) ---------- */
+.app-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; font-weight: 650;
+}
+/* The blur lives on its own layer so the mask fades the blur, not the title */
+.app-header::before {
+  content: ""; position: absolute; inset: 0 0 -28px 0; z-index: -1; pointer-events: none;
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--page) 70%, transparent), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+/* ---------- 5. Liquid Glass approximation ---------- */
+.lg {
+  position: relative;
+  background: var(--lg-fill);
+  -webkit-backdrop-filter: var(--lg-optics);
+  backdrop-filter: var(--lens,) var(--lg-optics);   /* --lens = url(#lens-N), set by JS in Chromium */
+  border-radius: 999px;
+  color: var(--lg-ink);
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 0.18),            /* lift */
+    inset 0 1px 1px rgb(255 255 255 / 0.75), /* top specular */
+    inset 0 -1px 1px rgb(255 255 255 / 0.25),/* bottom bounce light */
+    inset 0 0 0 1px rgb(255 255 255 / 0.18); /* rim */
+}
+/* Rim light: a gradient border that is brighter where the light hits */
+.lg::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: linear-gradient(140deg, rgb(255 255 255 / .9), rgb(255 255 255 / 0) 35%, rgb(255 255 255 / 0) 65%, rgb(255 255 255 / .45));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.dock {
+  position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex; gap: 10px; align-items: center; z-index: 20;
+}
+.toolbar { display: flex; gap: 2px; padding: 6px; }
+.lg-btn {
+  appearance: none; border: 0; background: transparent; color: inherit; cursor: pointer;
+  width: 48px; height: 48px; border-radius: 999px; display: grid; place-items: center;
+  transition: transform 420ms var(--spring), background-color 200ms ease;
+}
+.lg-btn:hover { background: rgb(255 255 255 / .16); }
+.lg-btn:active { transform: scale(1.12); background: rgb(255 255 255 / .28); transition-duration: 120ms; }
+.lg-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+/* Focus ring that survives any backdrop: dark + light double ring */
+.lg-btn:focus-visible { outline: 2px solid #000; outline-offset: 2px; box-shadow: 0 0 0 5px #fff; }
+/* The one tinted element: the primary action */
+.lg.primary { width: 60px; height: 60px; display: grid; place-items: center; background: rgb(10 132 255 / .78); color: #fff; }
+.lg.primary .lg-btn { width: 60px; height: 60px; }
+
+/* Menu that materializes from its source button. It is a SIBLING of the
+   toolbar, never a child: a backdrop-filter ancestor would become its
+   Backdrop Root and the menu would blur nothing. */
+.menu {
+  position: fixed; left: 50%; bottom: calc(max(16px, env(safe-area-inset-bottom)) + 76px);
+  translate: -50% 0; z-index: 21;
+  border-radius: var(--radius-md); padding: 6px; min-width: 220px;
+  transform-origin: 70% 100%;
+  transition: opacity 220ms ease, scale 360ms var(--spring), filter 260ms ease, visibility 0s;
+}
+/* Stay rendered so it can animate out, but hidden from focus and screen readers */
+.menu[hidden] {
+  display: block; visibility: hidden; opacity: 0; scale: .6; filter: blur(10px); pointer-events: none;
+  transition: opacity 160ms ease, scale 200ms ease, filter 160ms ease, visibility 0s 200ms;
+}
+.menu button {
+  all: unset; display: block; padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 550;
+}
+.menu button:hover, .menu button:focus-visible { background: rgb(127 127 127 / .18); }
+
+/* Settings are content, so they get a solid surface, not glass */
+.settings {
+  background: var(--page); border: 1px solid rgb(127 127 127 / .3); border-radius: 16px;
+  padding: 16px; margin: 32px 0; display: flex; flex-wrap: wrap; gap: 16px 24px;
+}
+.settings label { display: flex; gap: 8px; align-items: center; font-weight: 550; }
+.status { font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink-2); }
+
+/* Increased contrast: hard borders */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast="normal"]) .lg { box-shadow: none; outline: 1.5px solid var(--ink); }
+  :root:not([data-contrast="normal"]) .lg::before, :root:not([data-contrast="normal"]) .glass::after { display: none; }
+}
+:root[data-contrast="more"] .lg { box-shadow: none; outline: 1.5px solid var(--ink); }
+:root[data-contrast="more"] .lg::before, :root[data-contrast="more"] .glass::after { display: none; }
+
+/* Forced colors (Windows High Contrast): system colors, no filters */
+@media (forced-colors: active) {
+  .glass, .lg, .app-header::before { -webkit-backdrop-filter: none; backdrop-filter: none; background: Canvas; }
+  .glass, .lg { border: 1px solid CanvasText; }
+}
+
+/* Reduced motion: keep the state change, drop the spring and the blur-in */
+@media (prefers-reduced-motion: reduce) {
+  .lg-btn, .menu { transition: opacity 150ms ease; }
+  .lg-btn:active { transform: none; }
+  .menu[hidden] { scale: 1; filter: none; }
+}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <span>Glass Reference</span>
+  <span class="status" id="status"></span>
+</header>
+
+<main>
+  <h1 class="backdrop-type">LENS<br>GLASS</h1>
+
+  <section class="glass card" aria-labelledby="card-title">
+    <h2 id="card-title">Frosted glass</h2>
+    <p>Blur + saturate + a tint that is opaque enough to keep this text at 4.5:1 over a pure white or pure black backdrop.</p>
+  </section>
+
+  <div class="settings" role="group" aria-label="Glass settings">
+    <label><input type="checkbox" id="reduce-transparency"> Reduce transparency</label>
+    <label><input type="checkbox" id="increase-contrast"> Increase contrast</label>
+  </div>
+
+  <div class="stripes" aria-hidden="true"></div>
+  <p>Scroll so the striped and coloured blocks pass under the header and the floating toolbar. The header blur fades out with a mask (a scroll edge effect) instead of ending in a hard divider. In Chromium the toolbar bends the content behind its rim through an SVG displacement map; in Safari and Firefox it falls back to a light blur with the same rim lighting.</p>
+  <div class="photo" aria-hidden="true"></div>
+  <p>Only the primary action is tinted. Settings are content, so they sit on a solid surface. The menu is a sibling of the toolbar, not a child, so its own backdrop blur still sees the page.</p>
+  <div class="stripes" aria-hidden="true"></div>
+  <p>End of demo content.</p>
+</main>
+
+<div class="dock">
+  <nav class="lg toolbar" aria-label="Main">
+    <button class="lg-btn" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></button>
+    <button class="lg-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+    <button class="lg-btn" aria-label="Favourites"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+    <button class="lg-btn" id="more" aria-label="More" aria-haspopup="menu" aria-expanded="false" aria-controls="more-menu"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
+  </nav>
+  <div class="lg primary"><button class="lg-btn" aria-label="New item"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div>
+</div>
+
+<div class="glass menu" id="more-menu" role="menu" hidden>
+  <button role="menuitem">Share</button>
+  <button role="menuitem">Duplicate</button>
+  <button role="menuitem">Move to folder</button>
+</div>
+
+<script>
+/* ---------- Lens refraction (Chromium only) ----------
+   Builds a displacement map per element: neutral (128,128) in the flat
+   centre, pushing samples inward across a bezel near the rounded edge, so
+   the backdrop bends at the rim like a thick convex lens. */
+function lensMap(w, h, radius, bezel) {
+  const c = document.createElement("canvas");
+  c.width = w; c.height = h;
+  const ctx = c.getContext("2d");
+  const img = ctx.createImageData(w, h);
+  const d = img.data;
+  const r = Math.min(radius, w / 2, h / 2);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const px = x + 0.5 - w / 2, py = y + 0.5 - h / 2;
+      const qx = Math.abs(px) - (w / 2 - r), qy = Math.abs(py) - (h / 2 - r);
+      // signed distance to the rounded rect (negative inside)
+      const dist = Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - r;
+      const inset = -dist;
+      let nx = 0, ny = 0, m = 0;
+      if (inset > 0 && inset < bezel) {
+        if (qx > 0 && qy > 0) { const l = Math.hypot(qx, qy); nx = qx / l; ny = qy / l; }
+        else if (qx > qy) nx = 1; else ny = 1;
+        nx *= Math.sign(px) || 1; ny *= Math.sign(py) || 1;
+        const t = 1 - inset / bezel;  // 1 at the edge, 0 where the flat centre starts
+        m = t * t;                     // steeper toward the rim
+      }
+      const i = (y * w + x) * 4;
+      d[i] = 128 - nx * m * 127;       // R drives x: sample inward
+      d[i + 1] = 128 - ny * m * 127;   // G drives y
+      d[i + 2] = 128; d[i + 3] = 255;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  return c.toDataURL();
+}
+
+const isChromium = !!navigator.userAgentData?.brands?.some(b => /Chromium/i.test(b.brand));
+const reducedQuery = matchMedia("(prefers-reduced-transparency: reduce)");
+const contrastQuery = matchMedia("(prefers-contrast: more)");
+const forcedQuery = matchMedia("(forced-colors: active)");
+const root = document.documentElement;
+const svgNS = "http://www.w3.org/2000/svg";
+const defs = document.createElementNS(svgNS, "svg");
+defs.setAttribute("width", "0"); defs.setAttribute("height", "0");
+defs.setAttribute("aria-hidden", "true");
+defs.style.position = "absolute";
+document.body.append(defs);
+
+function lensAllowed() {
+  const reduced = root.dataset.transparency === "reduced" ||
+    (reducedQuery.matches && root.dataset.transparency !== "full");
+  const contrast = root.dataset.contrast === "more" ||
+    (contrastQuery.matches && root.dataset.contrast !== "normal");
+  return isChromium && !reduced && !contrast && !forcedQuery.matches;
+}
+
+let lensId = 0;
+function applyLens(el, { bezel = 14, scale = 24 } = {}) {
+  const id = el.dataset.lensId || (el.dataset.lensId = `lens-${++lensId}`);
+  const build = () => {
+    defs.querySelector(`#${id}`)?.remove();
+    if (!lensAllowed()) { el.style.removeProperty("--lens"); return; }
+    const { width, height } = el.getBoundingClientRect();
+    const w = Math.round(width), h = Math.round(height);
+    if (!w || !h) return;
+    const radius = parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
+    const filter = document.createElementNS(svgNS, "filter");
+    filter.id = id;
+    filter.setAttribute("color-interpolation-filters", "sRGB");
+    filter.innerHTML =
+      `<feImage href="${lensMap(w, h, radius, bezel)}" x="0" y="0" width="${w}" height="${h}" result="map"/>` +
+      `<feDisplacementMap in="SourceGraphic" in2="map" scale="${scale}" xChannelSelector="R" yChannelSelector="G"/>`;
+    defs.append(filter);
+    el.style.setProperty("--lens", `url(#${id})`);
+  };
+  let frame = 0;
+  const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(build); };
+  new ResizeObserver(schedule).observe(el);
+  return schedule;
+}
+
+const rebuilders = [...document.querySelectorAll(".lg")].map(el => applyLens(el));
+const rebuildAll = () => { rebuilders.forEach(fn => fn()); updateStatus(); };
+reducedQuery.addEventListener("change", rebuildAll);
+contrastQuery.addEventListener("change", rebuildAll);
+forcedQuery.addEventListener("change", rebuildAll);
+
+/* In-app overrides, because Safari and Firefox do not expose
+   prefers-reduced-transparency yet. Persisting the choice is left to the app. */
+document.getElementById("reduce-transparency").addEventListener("change", e => {
+  if (e.target.checked) root.dataset.transparency = "reduced"; else delete root.dataset.transparency;
+  rebuildAll();
+});
+document.getElementById("increase-contrast").addEventListener("change", e => {
+  if (e.target.checked) root.dataset.contrast = "more"; else delete root.dataset.contrast;
+  rebuildAll();
+});
+
+function updateStatus() {
+  document.getElementById("status").textContent =
+    lensAllowed() ? "lens: on (Chromium)" : isChromium ? "lens: off (setting)" : "lens: frosted fallback";
+}
+updateStatus();
+
+/* Menu: materializes from the More button */
+const moreBtn = document.getElementById("more");
+const menu = document.getElementById("more-menu");
+function setMenu(open) {
+  menu.hidden = !open;
+  moreBtn.setAttribute("aria-expanded", String(open));
+  if (open) menu.querySelector("button").focus();
+}
+moreBtn.addEventListener("click", () => setMenu(menu.hidden));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { setMenu(false); moreBtn.focus(); } });
+document.addEventListener("click", e => { if (!menu.hidden && !menu.contains(e.target) && !moreBtn.contains(e.target)) setMenu(false); });
+</script>
+</body>
+</html>

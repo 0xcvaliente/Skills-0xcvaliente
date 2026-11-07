@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 64 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 65 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -65,6 +65,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | [`web-design-guidelines`](skills/web-design-guidelines) | Review or implement against accessibility, forms, responsive layout, theming, and front-end performance rules. | "Check the signup form against web interface guidelines" |
 | [`emil-design-eng`](skills/emil-design-eng) | Polish details in Emil Kowalski's style: feedback, spacing, typography, shadows, motion continuity. | "Polish this dropdown so it feels crafted" |
 | [`apple-design`](skills/apple-design) | Apply Apple-style fluid motion: gestures, sheets, momentum, translucent materials. | "Make this bottom sheet feel like iOS" |
+| [`glassmorphism-liquid-glass`](skills/glassmorphism-liquid-glass) | Design, build and audit glass UI: frosted glassmorphism and Apple's Liquid Glass, on the web (CSS, SVG refraction), SwiftUI/UIKit/AppKit, Expo, Compose, Flutter and Windows, with worst-case contrast checks and accessibility fallbacks. | "Give the toolbar a Liquid Glass look that stays readable" |
 | [`pick-ui-library`](skills/pick-ui-library) | Choose a library for a UI capability from a curated shortlist, respecting existing dependencies. | "Which library should I use for a command palette?" |
 | [`prototype`](skills/prototype) | Build several genuinely different variants of a UI behind a working picker. | "Give me three variants of the pricing table to compare" |
 | [`break-ui`](skills/break-ui) | Stress-test a component with worst-case data, locales, and missing media; reports what breaks. | "Break the ProjectCard with long titles and empty images" |
@@ -189,6 +190,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | `repo-context`, `pstack`, `founder`, `business-sales-documents`, `diagram-craft` | Python 3.9+ for their bundled helper scripts |
 | `documents` | Python 3.9+ for the bundled scripts (standard library only). Optional, by task: `python-docx`, `openpyxl`, `python-pptx`, `pypdf`, `reportlab`, LibreOffice, Poppler, pandoc. `scripts/doctor.py` reports what is installed |
 | `supabase` | Network access to supabase.com docs (it fetches the changelog and docs pages). Optional: the Supabase CLI and the Supabase MCP server (`https://mcp.supabase.com/mcp`, OAuth); use a scoped access token, not a classic one |
+| `glassmorphism-liquid-glass` | Optional: Node 18+ for `scripts/glass-contrast.mjs`; any current browser for `assets/glass-demo.html` (lens refraction renders in Chromium) |
 | `pptx-deck` | Python 3 with `python-pptx`, `lxml`, `Pillow` (`pip install -r skills/pptx-deck/requirements.txt`). Optional, for rendering and visual QA: LibreOffice and Poppler |
 
 ## Anatomy of a skill
