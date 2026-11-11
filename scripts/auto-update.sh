@@ -4,8 +4,10 @@
 # Default run (read-only for skill content):
 #   1. fast-forward pulls the public and private skills repos (skipped when a repo has
 #      uncommitted tracked changes, is off its main branch or cannot fast-forward);
-#   2. runs `check_upstreams.py status` and logs the table;
-#   3. shows a macOS notification when the set of moved upstreams CHANGED since the last
+#   2. links new or renamed skills from both repos into OpenCode's global skills folder
+#      (scripts/sync-opencode.sh); content updates already flow through the symlinks;
+#   3. runs `check_upstreams.py status` and logs the table;
+#   4. shows a macOS notification when the set of moved upstreams CHANGED since the last
 #      notification (an upstream you deliberately skipped does not nag every 4 days).
 #
 # --apply: when something moved, also start a headless Claude Code session that follows
@@ -105,6 +107,18 @@ pull_repo() {
 pull_repo "$PUBLIC_REPO"
 pull_repo "$PRIVATE_REPO"
 
+# Keep OpenCode's global skills folder current: link skills added since the last run and
+# prune dangling links (renamed/deleted skills). Pulls are skipped because pull_repo above
+# already did them; symlinked content updates on its own.
+SYNC_OPENCODE="$PUBLIC_REPO/scripts/sync-opencode.sh"
+sync_opencode() {
+  [ -x "$SYNC_OPENCODE" ] || { log "sync-opencode.sh not found, skipped"; return 0; }
+  if [ "$DRY" = 1 ]; then log "(dry-run) would run sync-opencode.sh --no-pull --prune"; return 0; fi
+  if "$SYNC_OPENCODE" --no-pull --prune >> "$LOG" 2>&1; then log "OpenCode skills synced"
+  else log "sync-opencode.sh failed, see $LOG"; fi
+}
+sync_opencode
+
 if ! OUT="$(python3 "$CHECKER" --repo "$PUBLIC_REPO" status 2>&1)"; then
   log "status check failed:"; printf '%s\n' "$OUT"
   notify "Upstream check failed, see $LOG"; exit 1
@@ -137,4 +151,5 @@ if [ "$APPLY" = 1 ]; then
     "Follow skills/update-skills/SKILL.md for $PUBLIC_REPO. Upstreams that moved: $MOVED. Review each, adopt only ADOPT or ADOPT-ADAPTED changes, and SKIP anything that is a large rewrite, removes coverage or adds more than a few MB: list those in your final report instead of applying them. Obey AGENTS.md (no attribution lines, never edit protected records). Run python3 scripts/validate.py; if it fails, do not commit. Otherwise record each reviewed upstream, commit, and git push origin main. Then pull and check $PRIVATE_REPO the same way if it has upstream sources. End with a short report." \
     2>&1 || log "headless run exited with an error"
   log "apply run finished"
+  sync_opencode
 fi
