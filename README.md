@@ -59,7 +59,7 @@ The installer symlinks each skill into `~/.claude/skills` (`--target claude`) an
 | Skill | Use it to | Example prompt |
 |---|---|---|
 | [`frontend-design`](skills/frontend-design) | Choose a distinctive visual direction (type, color, layout) instead of a templated default. | "Design a landing page for a coffee roastery that doesn't look like a SaaS template" |
-| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop art direction (taste-skill v2.1) for public web pages and app screens (dashboards, admin views, settings): draws researched directions from a library, lints and browser-inspects the page, finds open-licence images, and runs a look-and-fix loop. | "Redesign this landing page so it doesn't look AI-generated" |
+| [`design-taste-frontend`](skills/design-taste-frontend) | Anti-slop art direction (tasteskill 2.5.1) for company and product websites: deals the page plan, palette, type, hero, effects and moments from local libraries, places real or licensed photographs, and checks the page in a real browser behind a finish gate. | "Redesign this landing page so it doesn't look AI-generated" |
 | [`ui-design`](skills/ui-design) | Build React/Next/Tailwind UI and audit visual and interaction defects: design systems, dark mode, responsiveness, "UI slop". | "Extract our design system and add dark mode" |
 | [`web-experience-design`](skills/web-experience-design) | Plan and build a whole coherent site or product experience, including cinematic and 3D web. | "Plan and build the new portfolio homepage" |
 | [`web-design-guidelines`](skills/web-design-guidelines) | Review or implement against accessibility, forms, responsive layout, theming, and front-end performance rules. | "Check the signup form against web interface guidelines" |
@@ -182,7 +182,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 |---|---|
 | `figma`, `figma-implement-design`, `figma-create-design-system-rules` | Figma MCP server connected to your agent (setup in `skills/figma/references/figma-mcp-config.md`) |
 | `ui-verification`, `strix`, `outlook-email-automation`, `diagram-craft` | A browser automation tool (Playwright, a browser MCP server, or the desktop app's browser pane) |
-| `design-taste-frontend` | Node 18+ for `draw`, `lint` and `assets` scripts; Node 22+ and a local Chrome, Edge or Chromium for `inspect.mjs`; network access for `assets.mjs` (open-licence image sources) |
+| `design-taste-frontend` | Node 22+ and a local Chrome, Edge or Chromium for its checkers and finish gate; `ffmpeg` optional; network access for live photograph searches, icon sets and Google Fonts. In Claude Code, invoking it adds a Stop hook that runs its local finish gate (see the skill's README) |
 | `ui-animation` | Python 3, `ffmpeg` (`brew install ffmpeg`), `pip install opencv-python numpy scipy` |
 | `create-3d-assets` | Blender for mesh work; Python 3 for `scripts/inspect_gltf.py` |
 | `hatch-pet` | Python 3 and an image generation/editing tool |
@@ -233,7 +233,7 @@ python3 scripts/validate.py                  # all skills
 python3 scripts/validate.py skills/animate   # one skill
 ```
 
-The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt; the Claude Code flavored skills only warn). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
+The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt; the Claude Code flavored skills and `design-taste-frontend`, which is kept verbatim from upstream, only warn). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
 
 ## Licensing
 

@@ -440,16 +440,27 @@ def _shape_box(el):
     return None
 
 
+# One left-to-right pass: a comment, or a quoted string (ended by its quote, a line break, or the end).
+_STYLE_DATA = re.compile(r"/\*.*?(?:\*/|\Z)|\"(?:\\.|[^\"\\\n\r\f])*\"?|'(?:\\.|[^'\\\n\r\f])*'?", re.S)
+
+
+def _style_text(el):
+    """Inline style with comments dropped and quoted strings emptied.
+
+    Text inside a string is data, so `--note:'a;transform:...'` neither moves nor hides the shape,
+    and a `/*` inside a string opens no comment that could swallow a real declaration."""
+    return _STYLE_DATA.sub(lambda m: "" if m.group().startswith("/*") else '""', el.get("style", ""))
+
+
 def _hidden(el):
-    style = el.get("style", "")
+    style = _style_text(el)
     return (el.get("display") == "none" or el.get("visibility") == "hidden" or el.get("clip-path") or el.get("mask")
             or re.search(r"display\s*:\s*none|visibility\s*:\s*hidden", style) is not None)
 
 
 def _css_transform(el):
     """True when an inline style declares a transform (or a comment-split one), which moves the shape."""
-    style = re.sub(r"/\*.*?\*/", "", el.get("style", ""), flags=re.S)
-    return re.search(r"(?:^|;)\s*transform\s*:", style, re.I) is not None
+    return re.search(r"(?:^|;)\s*transform\s*:", _style_text(el), re.I) is not None
 
 
 def viewbox_findings(root, label="svg"):

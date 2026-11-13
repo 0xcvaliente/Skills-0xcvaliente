@@ -3,7 +3,8 @@
 and leftover host-specific wording in active (non-provenance) files.
 
 Host wording: the skills listed in CLAUDE_FLAVORED are Claude Code skills kept as
-imported. Host-specific wording in them is a WARNING and does not fail the run;
+imported, and those in VERBATIM_UPSTREAM are host-neutral skills vendored verbatim.
+Host-specific wording in them is a WARNING and does not fail the run;
 everywhere else it is an error. Pass --strict to treat warnings as errors.
 
 Usage: validate.py [--strict] [skills/<name> ...]   (default: every skill under ./skills)
@@ -30,6 +31,10 @@ CLAUDE_FLAVORED = {
     "pptx-deck", "reverse-engineer-anything", "tdd", "to-questionnaire", "update-mattpocock-skills",
     "wait-what", "writing-for-agents",
 }
+# Host-neutral skills vendored verbatim from upstream: their text cannot be edited
+# without breaking the pin, so host wording (an optional Claude Code hook, brand
+# names in icon data) is a warning, not an error.
+VERBATIM_UPSTREAM = {"design-taste-frontend"}
 LINK_RE = re.compile(r"\]\((?!https?:|mailto:|#)([^)#\s]+)")
 
 
@@ -87,7 +92,7 @@ def check(skill_dir):
             for i, line in enumerate(open(p, encoding="utf-8", errors="ignore"), 1):
                 if HOST_RE.search(line) and not ALLOW_LINE.search(line):
                     msg = f"{rel}:{i}: host-specific wording: {line.strip()[:90]}"
-                    (warns if name in CLAUDE_FLAVORED else errs).append(msg)
+                    (warns if name in CLAUDE_FLAVORED or name in VERBATIM_UPSTREAM else errs).append(msg)
     return errs, warns
 
 

@@ -93,7 +93,10 @@ class DiagramTests(unittest.TestCase):
         inside = self.export('<rect x="0" y="0" width="100" height="50"/>')
         self.assertEqual(diagram.export_findings(inside), [])
         for body in ('<rect x="90" y="10" width="20" height="10"/>', '<circle cx="5" cy="5" r="10"/>',
-                     '<polyline points="0,0 120,10"/>', '<text x="10" y="80">late</text>'):
+                     '<polyline points="0,0 120,10"/>', '<text x="10" y="80">late</text>',
+                     # Text inside a quoted CSS string is data: it neither moves nor hides the shape.
+                     '<rect x="500" width="10" height="10" style="--note:\'a;transform:translate(-450px)\'"/>',
+                     '<rect x="500" width="10" height="10" style="--note:\'display:none\'"/>'):
             with self.subTest(body=body):
                 found = diagram.export_findings(self.export(body))
                 self.assertTrue(any("outside the viewBox" in f for f in found), found)
@@ -105,7 +108,9 @@ class DiagramTests(unittest.TestCase):
                      '<rect x="500" width="0" height="10"/>',
                      '<rect x="50%" width="10" height="10"/>',
                      '<g style="transform:translate(-200px,0)"><rect x="200" width="10" height="10"/></g>',
-                     '<rect x="500" width="10" height="10" style="fill:red;/**/transform:translateX(-450px)"/>'):
+                     '<rect x="500" width="10" height="10" style="fill:red;/**/transform:translateX(-450px)"/>',
+                     # A `/*` inside a string opens no comment, so the transform between them is real.
+                     '<rect x="500" width="10" height="10" style="--a:\'/*\';transform:translateX(-450px);--b:\'*/\'"/>'):
             with self.subTest(body=body):
                 self.assertEqual(diagram.export_findings(self.export(body)), [])
 

@@ -7,11 +7,14 @@ Read the section matching the reader's question. These contracts apply to custom
 | What talks to what? | Architecture/data flow | Direction, payload/action, boundaries, sync/async |
 | Where does it run? | Deployment | Environments, instances, hosts, replicas; separate from logical modules |
 | What happens next? | Flowchart | Branch conditions, terminal outcomes, loops, exceptions |
+| What are the steps, in order? | Numbered stage rail | Order only: no time scale, branches, or owners; no arrows between neighbors |
 | Who hands work to whom? | Swimlanes | Ownership, handoffs, waits; lanes do not imply parallelism |
 | In what order do messages happen? | Sequence | Actors, message direction, guards, alternatives, concurrency |
 | What can this thing become? | State machine | Events, guards, effects, initial/terminal states |
+| Which request records which fact, and what view shows it? | Event model | Command, event, read model per stage; stated links only; order, not duration |
 | How are records related? | ER/schema | Cardinality, optionality, keys, logical versus physical |
 | What depends on what? | Dependency graph | Declare “uses” versus “is required by”; retain cycles |
+| Is each requirement met and checked? | Traceability matrix | Source, requirement, satisfying design, verifying check by ID; printed gaps |
 | What changed structurally? | Before/after map | Stable identity, changed nodes/edges |
 | What does the customer see versus what stays hidden? | Service blueprint | Stage order, customer/frontstage/backstage/support layers, the line of visibility |
 | What contains or owns what? | Tree/nested groups | Single parent per child in a tree; cross-links need a graph |
@@ -49,6 +52,10 @@ Use actions for process nodes and questions/guards for decisions. Label outgoing
 
 Choose lanes when responsibility is central. Put actions under owners and show cross-lane handoffs. Show known parallel work with fork/join or explained notation, not merely neighboring columns. Label waits as waits.
 
+A short method with no branches (a playbook, an onboarding path, a "how it works" explainer) can be a single numbered rail: one equal segment per stage, each with a title and one brief line. Equal spacing claims order and nothing else, so the rail needs no arrows between neighbors. Move to a timeline when dates matter, a flowchart when the path forks, and swimlanes when ownership does.
+
+An event model lays ordered stages left to right across three lanes: the command (a request, named as an imperative), the event it records (a fact, named in the past tense), and the read model built from it (a view, not another event). Draw command-to-event and event-to-view links only where the source states them, and label an unknown link as a gap. The figure does not show an event store, broker, persistence, or delivery guarantee unless evidence does; stage spacing is order, not duration, and a branching scenario belongs in a flowchart or separate views.
+
 ## Sequences and states
 
 Sequence time advances on one axis. Call and return differ in style/direction. Asynchronous messages need not block the sender. Use guarded alternative/optional frames, loops, and known parallel frames. Keep self-calls visible. Numbering cannot correct an inaccurate order. Reserve a clear band for fragment headings and guards; inspect them against lifelines and messages because generic text-containment checks do not detect every intersection.
@@ -60,6 +67,10 @@ State nodes name persistent conditions, not actions. Transitions name the event 
 Separate logical entities from physical tables. Include field types/constraints only when supported. A foreign key alone does not establish mandatory participation on both ends; derive optionality and cardinality from constraints and behavior. Explain unusual notation. Align physical FK connectors to corresponding fields.
 
 Use conventional UML generalization/composition/aggregation/dependency symbols only when the semantics apply. Composition implies lifecycle ownership; a generic “has” does not establish it. Include methods/signatures relevant to the reader without turning the diagram into a code listing.
+
+## Traceability
+
+Give each requirement a row: where it came from, the design element that satisfies it, and the check (test, inspection, review) that verifies it, each named by a stable ID. Put the relationship in the column heading or the label so its direction does not depend on arrow placement. When the evidence has no link, print the gap ("no verifying check") rather than leaving a blank cell or inventing one. A shared ID or a design-to-test arrow does not show that the test verifies the requirement, and an illustrative example must say so. Many-to-many traces usually read better as a table or an overview plus detail.
 
 ## Comparison and simplification
 

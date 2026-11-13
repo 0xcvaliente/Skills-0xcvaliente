@@ -14,9 +14,13 @@ Favor readable text over fitting everything onto one page. Starting points are 1
 
 Groups express containment/scope. Keep related objects close and separate clusters. Status and category need textual or shape/line encodings in addition to color. An “assumed” badge remains useful in grayscale. Emphasize what answers the reader's question.
 
+Spend the accent on one or two marks, the subject the figure exists to show. Every accented mark counts against that, a legend swatch included; connectors and neighbors stay in the neutral ink unless they are the subject. Giving every step or stage its own hue turns an ordered sequence into a legend lookup: let position and numbering carry order.
+
 ## Geometry
 
-Position nodes from topology, route edges, then place labels. Give arrowheads space and keep labels off junctions. Distinguish crossings from joins. Shared connectors must intentionally mean the same thing before a split. Reserve gutters/corridors for feedback routes.
+Position nodes from topology, route edges, then place labels. Give arrowheads space and keep labels off junctions. Distinguish crossings from joins: route around first, and where one crossing is unavoidable, a small hop in one line shows it is not a junction. Shared connectors must intentionally mean the same thing before a split.
+
+A connector's drawn ends must sit on the boundaries of the two nodes its ledger entry names; an arrow that lands on a neighbor states a different model even when the ledger is right. Draw one relationship as one continuous path rather than pieces that only look joined, keep it clear of every other node, and do not end it on another connector. Delete a relationship you do not want shown instead of leaving it in the source with no stroke or zero opacity. The scene validator checks endpoints for helper scenes; in custom SVG this is a review step. Reserve gutters/corridors for feedback routes.
 
 Use masks matching the surface under a label. On mixed surfaces move labels or use an explicit chip. Draw connectors before opaque nodes and labels last. Group boxes must not hide content or imply communication by touching.
 
@@ -35,7 +39,7 @@ Bounds describe actual geometry in the annotated element’s local coordinate fr
 
 Each meaningful SVG needs `role="img"`, unique `<title>`/`<desc>`, and resolving `aria-labelledby`. Describe the principal relationship; for substantial work add a text summary or relationship table. Hide decoration from assistive technology; do not make every SVG text separately focusable.
 
-Contrast contract: text needs 4.5:1 against the surface it sits on; marks that carry meaning (node borders that define a shape, connectors, arrowheads, focus rings) need 3:1. A white node on warm paper is not a visible boundary by itself, so its border counts as an essential mark. Measure translucent tints after compositing them over the actual background, and check both themes. Purely decorative rules may be fainter. Color alone must not convey state or edge type.
+Contrast contract: text needs 4.5:1 against the surface it sits on; marks that carry meaning (node borders that define a shape, connectors, arrowheads, focus rings) need 3:1. A white node on warm paper is not a visible boundary by itself, so its border counts as an essential mark. Measure translucent tints after compositing them over the actual background, and check both themes. Group, zone, and scope labels are text under the same rule: fading them with opacity usually takes them below 4.5:1, so give them the opaque muted token instead. Purely decorative rules may be fainter. Color alone must not convey state or edge type.
 
 The scene validator enforces these pairs for both built-in palettes and any token overrides: ink/muted text on paper, surface and accent surface; rule (node and region borders) on paper and surface; edge on paper; accent on paper and accent surface.
 
