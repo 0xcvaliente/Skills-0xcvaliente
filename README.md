@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 64 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 66 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -111,6 +111,8 @@ These skills require the Figma MCP server.
 | [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices) | Postgres schema, SQL, indexes, RLS, locking and connection rules to apply before writing or changing database code (official Supabase skill). | "Review this migration and its indexes before I merge" |
 | [`ask-sonner`](skills/ask-sonner) | Set up and style Sonner toasts, promise toasts, stacking, and themes. | "Show a loading toast that resolves when the save finishes" |
 | [`write-swift`](skills/write-swift) | Write, review, or migrate Swift: concurrency, ownership, generics, Swift Testing. | "Migrate this class to Swift 6 strict concurrency" |
+| [`flutter-app-architecture`](skills/flutter-app-architecture) | Structure, build and review Flutter apps the official way: MVVM view models, repositories, Result and Command, go_router tab shells, dio with bearer tokens, secure storage, gen-l10n (incl. Norwegian), tests with fakes. | "Add a projects screen to our Flutter app that loads from our API" |
+| [`flutter-ios-testflight`](skills/flutter-ios-testflight) | Ship a Flutter app to TestFlight, even without a Mac: Apple account steps, signing with openssl or CI, GitHub Actions or Codemagic macOS builds, upload errors. | "Get this Flutter app on TestFlight; I only have Linux" |
 
 ### Engineering workflow and architecture
 
@@ -185,6 +187,8 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | `ui-animation` | Python 3, `ffmpeg` (`brew install ffmpeg`), `pip install opencv-python numpy scipy` |
 | `create-3d-assets` | Blender for mesh work; Python 3 for `scripts/inspect_gltf.py` |
 | `hatch-pet` | Python 3 and an image generation/editing tool |
+| `flutter-app-architecture` | The Flutter SDK (3.50+) |
+| `flutter-ios-testflight` | An Apple Developer account, and a macOS machine or a cloud macOS CI (GitHub Actions, Codemagic) for the build |
 | `codegraph` | The CodeGraph CLI and an indexed repository (see `skills/codegraph/references/setup.md`) |
 | `repo-context`, `pstack`, `founder`, `business-sales-documents`, `diagram-craft` | Python 3.9+ for their bundled helper scripts |
 | `documents` | Python 3.9+ for the bundled scripts (standard library only). Optional, by task: `python-docx`, `openpyxl`, `python-pptx`, `pypdf`, `reportlab`, LibreOffice, Poppler, pandoc. `scripts/doctor.py` reports what is installed |

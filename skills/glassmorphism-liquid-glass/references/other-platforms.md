@@ -52,6 +52,7 @@ ClipRRect(                         // clip, or the blur covers everything behind
 )
 ```
 
+- A complete, tested floating tab bar (iOS 26 style), the state of Liquid Glass in Flutter, package options and go_router wiring: [flutter.md](flutter.md).
 - Flutter 3.29 added `BackdropGroup` and `BackdropFilter.grouped`, which share one backdrop sample across many filters. Use them when several blurred widgets are visible at once.
 - Read `MediaQuery.highContrastOf(context)` and the platform's reduce-transparency setting through your own platform channel or package if you need it, and swap in solid colours.
 

@@ -50,6 +50,7 @@ When someone asks for "liquid glass" on the web, say up front what browsers can 
 - [web.md](references/web.md): support table, tokens, frosted recipe, Liquid Glass approximation with an SVG lens, scroll edge effect, toolbars, menus, motion, fallbacks, Tailwind, gotchas.
 - [apple-platforms.md](references/apple-platforms.md): adoption order and SwiftUI, UIKit and AppKit APIs with code, the iOS 27 SDK opt-out change.
 - [other-platforms.md](references/other-platforms.md): React Native/Expo, Android/Compose, Flutter, Windows Fluent, visionOS.
+- [flutter.md](references/flutter.md): Flutter glass tab bar (tested code), Liquid Glass status in Flutter, packages, go_router shell.
 - [accessibility-performance.md](references/accessibility-performance.md): contrast maths, settings mapping, focus rings, motion, performance budget.
 - [audit.md](references/audit.md): review checklist, glass anti-patterns, report format.
 - [sources.md](references/sources.md): sources with dates and what was verified.

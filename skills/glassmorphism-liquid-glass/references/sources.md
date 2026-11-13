@@ -42,3 +42,10 @@ Researched November 2026. Apple documentation was read in its Markdown form on d
 - Backdrop-root behaviour (opacity, filter, `will-change`, transform, nested glass, masked blur layer) in Chromium 156.
 - WebKit (Safari 27.2 engine, automated build): `CSS.supports` returns true for `url()` backdrop filters; `prefers-reduced-transparency` is not recognised. That build did not paint `backdrop-filter` at all, so Safari visuals were **not** verified.
 - Firefox was not tested.
+
+## Flutter (added 13 November 2026)
+
+- flutter/flutter#170310, *Support for iOS 26 Liquid Glass Design in Cupertino Widgets*: <https://github.com/flutter/flutter/issues/170310>.
+- *Migrate to standalone material_ui and cupertino_ui packages*: <https://docs.flutter.dev/release/breaking-changes/material-ui-and-cupertino-ui>.
+- pub.dev: `liquid_glass_widgets`, `liquid_glass_renderer`, `adaptive_platform_ui`, `cupertino_native`, `glass_kit` (versions and licences as read that day).
+- API reference: `BackdropGroup`, `BackdropFilter.grouped`, `MediaQuery.highContrastOf`; go_router `StatefulShellRoute`, `StatefulNavigationShell.goBranch`.
