@@ -1,6 +1,6 @@
 # Skills-0xcvaliente
 
-A curated library of 65 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
+A curated library of 64 [Agent Skills](https://agentskills.io) maintained by 0xcvaliente. Most are **host-neutral**; 12 are Claude Code flavored (see [Claude Code flavored skills](#claude-code-flavored-skills)). They work in any agent that loads the open `SKILL.md` format (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode and dozens more), and read fine as plain Markdown in a chat that has no skills support. They cover UI design and motion, Figma-to-code, React/Next.js, Swift, engineering workflow, security review, and founder/business work.
 
 This repository consolidates the earlier Claude-specific, Codex-specific and host-neutral skill repositories (since retired; see [docs/origins.md](docs/origins.md)) into one host-neutral library; the Git history of the Claude-specific and host-neutral repositories is preserved here. Wording that tied a skill to one product (tool names, install paths, slash commands) is replaced by the capability vocabulary in [docs/capability-map.md](docs/capability-map.md). Upstream sources, licenses and provenance records are kept as published; see [docs/origins.md](docs/origins.md).
 
@@ -148,9 +148,8 @@ These were imported from earlier Claude Code collections and keep Claude Code wo
 |---|---|---|
 | [`security-best-practices`](skills/security-best-practices) | Review Python, JavaScript/TypeScript, or Go for language- and framework-specific security practice. | "Security review the Express routes" |
 | [`security-threat-model`](skills/security-threat-model) | Write a repo-grounded threat model: trust boundaries, assets, abuse paths, mitigations. | "Threat model this repo" |
-| [`strix`](skills/strix) | Run evidence-led app security assessments (web/API, OWASP), triage Strix reports, set up security CI. | "Pentest the staging API (I own it)" |
 
-Run security assessments only against systems you own or are authorized to test.
+For autonomous penetration testing, use the Strix CLI itself ([strix.ai](https://www.strix.ai/)), installed separately with `curl -sSL https://strix.ai/install | bash`; it needs Docker and its own LLM key. Run security assessments only against systems you own or are authorized to test.
 
 ### Business and founder work
 
@@ -181,7 +180,7 @@ Most skills are instructions only and need nothing extra. These ones depend on t
 | Skill | Needs |
 |---|---|
 | `figma`, `figma-implement-design`, `figma-create-design-system-rules` | Figma MCP server connected to your agent (setup in `skills/figma/references/figma-mcp-config.md`) |
-| `ui-verification`, `strix`, `outlook-email-automation`, `diagram-craft` | A browser automation tool (Playwright, a browser MCP server, or the desktop app's browser pane) |
+| `ui-verification`, `outlook-email-automation`, `diagram-craft` | A browser automation tool (Playwright, a browser MCP server, or the desktop app's browser pane) |
 | `design-taste-frontend` | Node 22+ and a local Chrome, Edge or Chromium for its checkers and finish gate; `ffmpeg` optional; network access for live photograph searches, icon sets and Google Fonts. In Claude Code, invoking it adds a Stop hook that runs its local finish gate (see the skill's README) |
 | `ui-animation` | Python 3, `ffmpeg` (`brew install ffmpeg`), `pip install opencv-python numpy scipy` |
 | `create-3d-assets` | Blender for mesh work; Python 3 for `scripts/inspect_gltf.py` |

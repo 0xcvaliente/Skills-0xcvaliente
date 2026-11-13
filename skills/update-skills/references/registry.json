@@ -123,23 +123,6 @@
       "last_checked_date": "2026-11-13"
     },
     {
-      "id": "usestrix/strix",
-      "repo": "https://github.com/usestrix/strix",
-      "watch": [
-        "."
-      ],
-      "skills": [
-        "strix"
-      ],
-      "style": "adapted-with-review",
-      "mode": "head",
-      "pin_locations": {
-        "strix": "references/upstream.json reviewed_commit (6b7ae2e); follow references/upstream-maintenance.md"
-      },
-      "last_checked": "9798ecc404bff228629dba7b60879bc9a498d8fe",
-      "last_checked_date": "2026-11-10"
-    },
-    {
       "id": "DietrichGebert/ponytail",
       "repo": "https://github.com/DietrichGebert/ponytail",
       "watch": [],

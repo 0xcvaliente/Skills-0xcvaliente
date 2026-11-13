@@ -13,7 +13,7 @@ The script never commits or pushes and never runs upstream code.
 
 ## Protected records
 
-Never edit by hand or by the updater: `references/provenance.md` (append only), `upstream-SKILL.md.source`, `source-manifest.json`, `LICENSE*`, `NOTICE`, anything under `upstream/` or `licenses/`. Allowed places for pins and notes: `UPSTREAM.md`, `upstream.json`-style baselines where that skill's own maintenance doc (for example `strix/references/upstream-maintenance.md`) says so, new dated lines appended to `provenance.md`, and `docs/origins.md`. `source-manifest.json` is never hand-edited; record emilkowalski reviews in `docs/origins.md`.
+Never edit by hand or by the updater: `references/provenance.md` (append only), `upstream-SKILL.md.source`, `source-manifest.json`, `LICENSE*`, `NOTICE`, anything under `upstream/` or `licenses/`. Allowed places for pins and notes: `UPSTREAM.md`, `upstream.json`-style baselines where that skill's own maintenance doc says so, new dated lines appended to `provenance.md`, and `docs/origins.md`. `source-manifest.json` is never hand-edited; record emilkowalski reviews in `docs/origins.md`.
 
 ## Per-style procedures
 
@@ -42,14 +42,13 @@ Append a dated sentence to the row, in the style of the existing rows:
 
 ## How pins are recorded today
 
-Six formats exist, so no single field says "reviewed up to here":
+Five formats exist, so no single field says "reviewed up to here":
 
 1. `references/source-manifest.json` `source_revision` (emilkowalski; protected).
-2. `references/upstream.json` `reviewed_commit` (strix).
-3. `UPSTREAM.md` line 1, plus dated review lines (mattpocock group, morluto/rea).
-4. Prose lines in `references/provenance.md` ("Based on revision", pinned lines; codebase-design, domain-modeling, mblode, gsap, ponytail, humanizer, taste, openai, anthropics, pstack).
-5. Dated review headings in `provenance.md` (mblode, mattpocock reviews).
-6. `references/provenance.json` (codegraph: `upstream_repository`, pinned commit, runtime tag).
+2. `UPSTREAM.md` line 1, plus dated review lines (mattpocock group, morluto/rea).
+3. Prose lines in `references/provenance.md` ("Based on revision", pinned lines; codebase-design, domain-modeling, mblode, gsap, ponytail, humanizer, taste, openai, anthropics, pstack).
+4. Dated review headings in `provenance.md` (mblode, mattpocock reviews).
+5. `references/provenance.json` (codegraph: `upstream_repository`, pinned commit, runtime tag).
 
 The registry's `last_checked` is the baseline for "has upstream moved since we last looked". It is independent of per-skill pins; when a skill's own pin lags (for example a pin on an older commit plus a note that later changes were reviewed), trust `last_checked` for movement and the skill's record for what was adopted.
 
