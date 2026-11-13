@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "usestrix/strix",
-  "reviewed_commit": "06015506625a78b981ae0b34be40239fc1b389be",
-  "reviewed_tree": "15d135fe118d3f57383cc5bf8210c9d6debf0aea",
+  "reviewed_commit": "9798ecc404bff228629dba7b60879bc9a498d8fe",
+  "reviewed_tree": "7a5b8b3f09acd85c1abc6c4d8813e5916ac0ffc4",
   "reviewed_default_branch": "main",
-  "reviewed_at": "2026-11-05",
+  "reviewed_at": "2026-11-10",
   "files": {
     ".github/ISSUE_TEMPLATE/bug_report.md": {
       "sha": "85919cefe8ec2acccfbc74c2692b1148b7dc87fd",
@@ -97,7 +97,7 @@
       "type": "blob"
     },
     "containers/Dockerfile": {
-      "sha": "a1ff49ef0e2246b982f5a5670edde29212947572",
+      "sha": "14a2c0ced890b940fa7489f2ab535c9485132731",
       "mode": "100644",
       "type": "blob"
     },
@@ -117,7 +117,7 @@
       "type": "blob"
     },
     "docs/advanced/configuration.mdx": {
-      "sha": "29be4c87161553fff7158219d4f87ea0eda0eb27",
+      "sha": "4f941d65d7dacd031ad9018554c48f6471f0b24f",
       "mode": "100644",
       "type": "blob"
     },
@@ -307,7 +307,7 @@
       "type": "blob"
     },
     "scripts/install.sh": {
-      "sha": "78f8c97d82c1a962e3ea64a59293394e37576b9c",
+      "sha": "7c7ce38ad6ac47fd4dbc717a164dc72747d4a793",
       "mode": "100755",
       "type": "blob"
     },
@@ -417,7 +417,7 @@
       "type": "blob"
     },
     "strix/config/settings.py": {
-      "sha": "4db49d5d8b7737b68f4340ed00551be7b9cb31af",
+      "sha": "f7068c96f0ef7b0919bd522e2475cbe3c34614c6",
       "mode": "100644",
       "type": "blob"
     },
@@ -1577,7 +1577,7 @@
       "type": "blob"
     },
     "strix/skills/custom/dependency_cve_scanning.md": {
-      "sha": "349dd2b796a64a21714f80ae12b3603181426568",
+      "sha": "5e831627223c4cc3566dbedd398fc0857703e12d",
       "mode": "100644",
       "type": "blob"
     },
@@ -1692,7 +1692,7 @@
       "type": "blob"
     },
     "strix/skills/tooling/agent_browser.md": {
-      "sha": "efc59cdd96ee3c19ef4f81771c13e8a04b71c257",
+      "sha": "9ac8ebaa3c5b5a9f0b2b8ea204ae4df352a1923a",
       "mode": "100644",
       "type": "blob"
     },
@@ -1996,8 +1996,13 @@
       "mode": "100644",
       "type": "blob"
     },
+    "strix/tools/mcp/auth.py": {
+      "sha": "320efad6ebbe96e3dadc4134ddaa085b869c23f9",
+      "mode": "100644",
+      "type": "blob"
+    },
     "strix/tools/mcp/client.py": {
-      "sha": "b1f3f902c90ed713bf9783f4899e386fcecc7029",
+      "sha": "86500969b1e56b3640efef587fdbf03577a04734",
       "mode": "100644",
       "type": "blob"
     },
@@ -2007,7 +2012,7 @@
       "type": "blob"
     },
     "strix/tools/mcp/failures.py": {
-      "sha": "a5b82ca875e2eb8562c4641bcc6913265407608a",
+      "sha": "3710ce1a2f0284cac83bedee4c7832f22ed7cde8",
       "mode": "100644",
       "type": "blob"
     },
@@ -2022,12 +2027,12 @@
       "type": "blob"
     },
     "strix/tools/mcp/registry.py": {
-      "sha": "6e87c958bf75a187f24dcdf0425a65f6140fbf06",
+      "sha": "914afe5a5f3cbc91c1b3be00c349b2179494c0f8",
       "mode": "100644",
       "type": "blob"
     },
     "strix/tools/mcp/session.py": {
-      "sha": "9cf8540862424179cc49df504e9c1863c3fd2808",
+      "sha": "faf0c674a252ada1c9001b993392043c67134b6e",
       "mode": "100644",
       "type": "blob"
     },
@@ -2072,7 +2077,7 @@
       "type": "blob"
     },
     "strix/tools/reporting/tool.py": {
-      "sha": "3faf7fbd60ba1c75881ac44f3c264c87b2519277",
+      "sha": "80cc048f4d3afb536fbc879477df5aba25f2f698",
       "mode": "100644",
       "type": "blob"
     },
@@ -2441,13 +2446,18 @@
       "mode": "100644",
       "type": "blob"
     },
+    "tests/test_mcp_auth.py": {
+      "sha": "e8691c246ad0e39dcd236a04511d8d7971b85256",
+      "mode": "100644",
+      "type": "blob"
+    },
     "tests/test_mcp_client.py": {
       "sha": "fcbac3745f1bd1a8f278a77b8108c15daa8c5368",
       "mode": "100644",
       "type": "blob"
     },
     "tests/test_mcp_resilience.py": {
-      "sha": "209acf1c5993e2b5c73e6d9907c0580521983eab",
+      "sha": "fc0e0cff28db5037ba7bf7562b69217697d3bff8",
       "mode": "100644",
       "type": "blob"
     },
@@ -2522,7 +2532,7 @@
       "type": "blob"
     },
     "tests/test_reporting_fields.py": {
-      "sha": "c895847c6d93dd49c20ad97e78292f3ac74f8514",
+      "sha": "dfa4c4dc5e6d33cf9f18bbd55293b6e47cd4462a",
       "mode": "100644",
       "type": "blob"
     },

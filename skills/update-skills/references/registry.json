@@ -30,8 +30,8 @@
       "pin_locations": {
         "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
       },
-      "last_checked": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "715c1807e08c497cfd1dc4feb450a2a3300ef2a9",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "mattpocock/skills",
@@ -82,8 +82,8 @@
       "pin_locations": {
         "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
       },
-      "last_checked": "5eeba20fa3b9b142be7705ee9e6c7401e7ee6f08",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "8400fe5179a0d4218816762093e6468e372d52e1",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "greensock/gsap-skills",
@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 211 (1ba91fc, 0.15.36); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "2776ddd2355d6d6c8747d3964600f28daf62f049",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "de8ee15dd1194627d21eb5fcd41cb1873208dabb",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "usestrix/strix",
@@ -136,8 +136,8 @@
       "pin_locations": {
         "strix": "references/upstream.json reviewed_commit (6b7ae2e); follow references/upstream-maintenance.md"
       },
-      "last_checked": "06015506625a78b981ae0b34be40239fc1b389be",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "9798ecc404bff228629dba7b60879bc9a498d8fe",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -166,8 +166,8 @@
       "pin_locations": {
         "humanizer": "references/provenance.md line 4 (0ef9fe5); append-only"
       },
-      "last_checked": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "b48c832f0f809c1b5658edbb838c2521b72f2413",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "leonxlnx/taste-skill",
@@ -196,8 +196,8 @@
       "pin_locations": {
         "diagram-craft": "references/provenance.md (reviewed through 0cf73c3); ideas adopted independently, no text copied"
       },
-      "last_checked": "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "f2496acbde9f45ccb55c24d4f75210c8a1355df8",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "openai/skills",
@@ -235,8 +235,8 @@
       "pin_locations": {
         "frontend-design": "references/provenance.md line 4 (41bbe19); append-only"
       },
-      "last_checked": "ca45fc496a3436251f191354091d557da31c15b5",
-      "last_checked_date": "2026-11-02",
+      "last_checked": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "last_checked_date": "2026-11-10",
       "note": "The documents skill only studied this repo's approach; nothing copied (see no_upstream_notes)."
     },
     {
@@ -253,8 +253,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "0beedcd712e39a7d93e4558ee56fd596eaa22838",
-      "last_checked_date": "2026-11-05"
+      "last_checked": "b2f3dc81fa503c2b9ff0d8625336ed2e74d1e829",
+      "last_checked_date": "2026-11-10"
     },
     {
       "id": "colbymchenry/codegraph",

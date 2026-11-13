@@ -201,3 +201,22 @@ workflow consolidation (`0601550`). No authorization, ownership, scope, or conse
 safeguard was weakened; the adopted guidance restricts testing to authorized mailboxes.
 No LICENSE or NOTICE change upstream. The file-inventory baseline in `upstream.json` was
 regenerated from the exact reviewed commit `06015506` (tree `15d135fe`).
+
+## Upstream review 2026-11-10
+
+Reviewed usestrix/strix from `06015506` through `9798ecc404bff228629dba7b60879bc9a498d8fe`
+(8 commits). Adopted, rewritten in this package's own words in
+`references/reporting-and-fixes.md`: the dependency advisory verdict model from `675608d`
+(one verdict per advisory, reachable, not reachable or not applicable, each with evidence;
+a source-to-sink path with a file and line per hop for a reachable verdict; every
+introducing chain walked for a transitive dependency; an unfinished analysis is named as
+not analyzed, never given a guessed verdict). It replaces the older four-step usage ladder
+in the same paragraph. The rule that the verdict never sets severity is kept.
+Skipped: `9ebeffb` and its revert `e059480` (net no change); the `create_dependency_report`
+field contract and contextual CVSS breakdown in `675608d` and `4b19046`, which belong to the
+Strix reporting tool this package does not use; the MCP bearer refresh (`18fa4c8`); the
+sandbox image and tool pins (`48d93cd`, `9798ecc`); and the link fix in the upstream
+browser-tool skill (`215482e`), a file this package does not carry.
+No authorization, ownership, scope, or consent safeguard was weakened. No LICENSE or NOTICE
+change upstream. The file-inventory baseline in `upstream.json` was regenerated from the
+exact reviewed commit `9798ecc4`.

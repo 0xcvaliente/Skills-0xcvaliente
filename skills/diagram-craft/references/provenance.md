@@ -153,3 +153,11 @@ Reviewed cathrynlavery/diagram-design from `0cf73c3` through `f24d98b` (10 commi
 Adopted as ideas, as import guidance in `delivery-and-import.md` because this package ships no importer: Mermaid dotted links lengthened with extra dots are one dotted edge (`81c6301`); draw.io shape names are matched exactly before any prefix fallback, so a table row is not counted as a table (`88028a8`); Excalidraw labels come from `originalText` before the re-wrapped `text` (`5928455`).
 
 Skipped: the proposed OpenAI directory snapshot ADR (`eb1fded`), plugin listing URLs (`790e801`) and the release manifest bumps, all packaging and distribution.
+
+## Upstream review 2026-11-10
+
+Reviewed cathrynlavery/diagram-design from `f24d98b` through `f2496ac` (24 commits, plugin 2.6.141 to 2.6.153) for ideas only. No upstream text or code was copied; the guidance was written independently here.
+
+Adopted as ideas, as import and export guidance in `delivery-and-import.md` because this package ships no importer: the older `stateDiagram` header reads as a state diagram (`02ed81e`); Mermaid ER entity aliases, quoted names, cardinality written in words and dotted non-identifying links keep their meaning (`728824b`, `7491d96`); PlantUML sequence and class diagrams as a redraw source, with preprocessor includes recorded and never fetched (`6869b1e`; the safeguard is this package's own); and HTML numeric character references in a standalone SVG export (`ab75153`).
+
+Skipped: the arc-diagram variant of the dependency graph (`1241c49`) and the box-plot fixes (`16a6343`, `c2c0c96`), since this package leaves chart-like types to the chart workflow; the boxed-text width check (`9f78b97`) and the OAuth sequence validator (`26dd8ea`), which are checks in upstream's own scripts and would need new code in `scripts/diagram.py` rather than a note; shipping the geometry verifier inside the skill (`eb46053`), the plugin description change (`3adbd1c`) and the release manifest bumps, all packaging.
