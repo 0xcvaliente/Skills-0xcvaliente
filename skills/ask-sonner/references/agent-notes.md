@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Upstream corrections (2026-11-14, emilkowalski/skills `0f2e23b`).** The bundled `API.md` is hash-pinned and kept verbatim; where it differs, these corrections supersede it. `<Toaster />` props: `offset` defaults to `'24px'` (not `'32px'`); `dir` is `'ltr' | 'rtl' | 'auto'` and defaults to the document direction; `hotkey` is a `string[]` defaulting to `['altKey', 'KeyT']`; `containerAriaLabel` (default `'Notifications'`) is a Toaster prop, not a `toast()` option. `toast()` options: `id` is `string | number`; `onDismiss` also fires when `toast.dismiss()` closes the toast. Functions: read active toasts with `toast.getToasts()` (not `toast.getActiveToasts()`); `toast.getHistory()` includes dismissed ones.

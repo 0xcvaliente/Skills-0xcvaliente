@@ -17,3 +17,4 @@ jobs are installed by the instruction package.
 The same upstream commit added a root `ui-cheatsheet.md` and a README line. The skill
 does not reference the cheatsheet, so it is not imported. Durations, frequency cutoffs, and
 reduction targets remain authored defaults. No affiliation or endorsement is claimed.
+2026-11-14: Reviewed upstream f7ce8c02d6e3c8f0d980a44c57bcc41a40254349..0f2e23b32bb1265e84cff8d3e75785fec953fb1b (fixes to wrong APIs and cross-skill contradictions). Adopted the changed SKILL.md lines in references/guide.md. The upstream-SKILL.md.source and source-manifest.json pins are unchanged.

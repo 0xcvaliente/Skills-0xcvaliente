@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Upstream corrections (2026-11-14, emilkowalski/skills `0f2e23b`).** The bundled `CATALOG.md` is hash-pinned and kept verbatim; where it differs, these corrections supersede it. Use `a@b.test` and `ops@sub.department.region.example.test` (reserved test domains) instead of the `.co` and `.co.uk` emails. `Jo` does not produce wrong initials. Use the compact form `1M` for a 1,000,000 count where precision does not matter. Switch relative times to an absolute date after 7 days.

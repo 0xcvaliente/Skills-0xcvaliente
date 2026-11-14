@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Upstream corrections (2026-11-14, emilkowalski/skills `0f2e23b`).** The bundled `RECIPES.md` is hash-pinned and kept verbatim; where it differs, these corrections supersede it. In "Stagger a group entrance", use non-uniform delays (50ms, 90ms, 120ms rather than 50, 100, 150) and one entrance per container.

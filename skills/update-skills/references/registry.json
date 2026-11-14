@@ -30,8 +30,8 @@
       "pin_locations": {
         "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
       },
-      "last_checked": "f7ce8c02d6e3c8f0d980a44c57bcc41a40254349",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "last_checked_date": "2026-11-14"
     },
     {
       "id": "mattpocock/skills",
@@ -82,8 +82,8 @@
       "pin_locations": {
         "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
       },
-      "last_checked": "402a666823ddf9b8cd9be76c3314b1119078ff01",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "7df4b7edff1dc1c991331061373d4ba42ecacdbe",
+      "last_checked_date": "2026-11-14"
     },
     {
       "id": "greensock/gsap-skills",
@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 211 (1ba91fc, 0.15.36); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "ec569379616a4826b98f0f0a205dd3411b573611",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "3dbd22ff12742fb28c9700b9760baa29ed41dc13",
+      "last_checked_date": "2026-11-14"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -236,8 +236,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "966bde37806d1d16a7028037da264f33065c65d0",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "0fa03afe7d6823d342b7f713ef035a97cb7b55bc",
+      "last_checked_date": "2026-11-14"
     },
     {
       "id": "colbymchenry/codegraph",

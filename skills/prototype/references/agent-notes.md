@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Upstream corrections (2026-11-14, emilkowalski/skills `0f2e23b`).** The bundled `PICKER.md` is hash-pinned and kept verbatim; where it differs, these corrections supersede it. Drop `will-change: transform` from the picker thumb. Give `.proto-picker-item` `transition: color 150ms ease-out, transform 160ms cubic-bezier(0.23, 1, 0.32, 1)` and gate its `:hover` color behind `@media (hover: hover) and (pointer: fine)`. Clamp the `?v=` query value: use it only when it is between 1 and the number of variants, otherwise start at the first variant.
