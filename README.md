@@ -217,7 +217,7 @@ Only the frontmatter is always in context; the rest loads when the skill is used
 
 **Scheduled check (macOS).** `scripts/auto-update.sh --install` registers a launchd job that runs every 4 days (`INTERVAL_DAYS` changes it). Each run fast-forward pulls the repositories, logs the upstream status to `~/Library/Logs/skills-update.log` and shows a notification when the set of moved upstreams changes. It does not edit skills. `--apply` additionally starts a headless agent that reviews, commits and pushes the update, so use it only when you accept unattended pushes. `--status` shows the schedule and `--uninstall` removes it.
 
-**Add.** Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep `name` identical to the folder, put long material in `references/`, add a catalog row, run `python3 scripts/validate.py`, then re-run the installer.
+**Add.** Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep `name` identical to the folder, put long material in `references/`, add a catalog row, run `python3 scripts/validate.py`, then re-run the installer. The validator fails when a skill has no catalog row or more than one, or when a row links a folder that does not exist.
 
 **Remove.** Delete the installed entry, for example `rm ~/.agents/skills/<name>` or `rm ~/.claude/skills/<name>`. For a symlink this removes only the link and leaves the repository copy.
 
@@ -236,7 +236,7 @@ python3 scripts/validate.py                  # all skills
 python3 scripts/validate.py skills/animate   # one skill
 ```
 
-The validator checks frontmatter, that `name` matches the folder, local links, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt; the Claude Code flavored skills and `design-taste-frontend`, which is kept verbatim from upstream, only warn). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
+The validator checks frontmatter, that `name` matches the folder, local links, that each skill has exactly one catalog row, and that active files carry no single-host wording (provenance, upstream sources and licenses are exempt; the Claude Code flavored skills and `design-taste-frontend`, which is kept verbatim from upstream, only warn). For the official format check, `pip install skills-ref` and run `agentskills validate skills/<name>`. To add a skill: create `skills/<name>/SKILL.md`, keep `name` identical to the folder, write the `description` so any agent can tell when to use it and which sibling to use instead, put long material in `references/`, add a catalog row here, and run the validator.
 
 ## Licensing
 

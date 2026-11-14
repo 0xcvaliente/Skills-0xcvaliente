@@ -7,6 +7,9 @@ imported, and those in VERBATIM_UPSTREAM are host-neutral skills vendored verbat
 Host-specific wording in them is a WARNING and does not fail the run;
 everywhere else it is an error. Pass --strict to treat warnings as errors.
 
+Catalog: every skill under ./skills needs exactly one README.md table row whose first
+cell links skills/<name>. With no argument, rows naming a missing folder also fail.
+
 Usage: validate.py [--strict] [skills/<name> ...]   (default: every skill under ./skills)
 """
 import os
@@ -16,6 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 # Files that record upstream origin or license text may keep original wording.
+# This also covers provenance.json beside SKILL.md (its created_by names the creating tool).
 PRESERVED = re.compile(r"(provenance|upstream-SKILL|source-manifest|LICENSE|NOTICE|\.source$)|/upstream/|/licenses/")
 TEXT = re.compile(r"\.(md|py|sh|json|yaml|yml|txt|mjs|js|ts)$")
 # Wording that ties an active file to one host. Allowed only in lines that
@@ -36,6 +40,42 @@ CLAUDE_FLAVORED = {
 # names in icon data) is a warning, not an error.
 VERBATIM_UPSTREAM = {"design-taste-frontend"}
 LINK_RE = re.compile(r"\]\((?!https?:|mailto:|#)([^)#\s]+)")
+
+# README catalog: every folder under skills/ needs exactly one table row whose
+# first cell links skills/<name>, and every such row must name an existing folder.
+ROW_LINK_RE = re.compile(r"\]\((?:\./)?skills/([^)/#\s]+)/?\)")
+
+
+def catalog_rows():
+    """Map skill name -> number of README table rows whose first cell links skills/<name>."""
+    counts = {}
+    readme = os.path.join(ROOT, "README.md")
+    if not os.path.isfile(readme):
+        return counts
+    for line in open(readme, encoding="utf-8"):
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        cells = line.split("|")
+        first = cells[1] if len(cells) > 2 else ""
+        for name in set(ROW_LINK_RE.findall(first)):
+            counts[name] = counts.get(name, 0) + 1
+    return counts
+
+
+def check_catalog(names, all_rows):
+    """Errors for skills in `names` without exactly one row; with all_rows, also rows naming no folder."""
+    errs = []
+    counts = catalog_rows()
+    for name in names:
+        n = counts.get(name, 0)
+        if n != 1:
+            errs.append(f"README.md: skills/{name} has {n} catalog rows (needs exactly 1)")
+    if all_rows:
+        for name in sorted(counts):
+            if not os.path.isdir(os.path.join(ROOT, "skills", name)):
+                errs.append(f"README.md: catalog row names skills/{name}, which does not exist")
+    return errs
 
 
 def frontmatter(text):
@@ -114,8 +154,14 @@ def main(argv):
             print("warning: " + w)
         bad += bool(errs)
         nwarn += len(warns)
-    print(f"{len(targets)} skills checked, {bad} with problems, {nwarn} warnings")
-    return 1 if bad else 0
+    skills_dir = os.path.join(ROOT, "skills")
+    names = [os.path.basename(os.path.abspath(t).rstrip("/")) for t in targets
+             if os.path.dirname(os.path.abspath(t).rstrip("/")) == skills_dir]
+    cat_errs = check_catalog(names, all_rows=not argv)
+    for e in cat_errs:
+        print(e)
+    print(f"{len(targets)} skills checked, {bad} with problems, {nwarn} warnings, {len(cat_errs)} catalog problems")
+    return 1 if bad or cat_errs else 0
 
 
 if __name__ == "__main__":
