@@ -49,3 +49,5 @@ defaults. Read only the relevant sections.
 
 Performance references checked during adaptation: [Motion](https://motion.dev/docs/performance)
 and [MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance).
+
+**Upstream corrections (2026-11-14, emilkowalski/skills `0f2e23b`).** The bundled `RECIPES.md` is hash-pinned and kept verbatim; where it differs, these corrections supersede it. Import `cancelAnimation` from Reanimated and call it on the shared value in the pan gesture's `onStart` (bottom sheet and swipe row) before reading the current value, so a grab during a running spring does not jump. Press feedback (120ms, 3% scale) sits inside the 100–150ms press budget. In the collapsing header, `Extrapolation.CLAMP` matters because without it `translateY` runs past −12 and the title slides out of its container. Give a per-screen `animation` the same reduced-motion fallback as the stack (`animation: reduced ? 'fade' : 'slide_from_right'`). The 300ms cap holds for native toasts; the only web exception is Sonner's 400ms toast.

@@ -35,3 +35,4 @@ unchanged.
 ## Host-neutral adaptation
 
 Made host-neutral for the Agent Skills standard on 2026-10-12. README install and `references/agent-notes.md` tool wording (Bash, Read, Agent tool, Claude in Chrome, CLAUDE.md) became capability wording; install targets `~/.agents/skills/`. Guidance is unchanged.
+2026-11-14: Reviewed upstream f7ce8c02d6e3c8f0d980a44c57bcc41a40254349..0f2e23b32bb1265e84cff8d3e75785fec953fb1b (fixes to wrong APIs and cross-skill contradictions). Adopted the changed SKILL.md lines in references/guide.md. The upstream-SKILL.md.source and source-manifest.json pins are unchanged.
