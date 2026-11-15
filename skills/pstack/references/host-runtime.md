@@ -47,8 +47,8 @@ instruction file.
 | `poteto-agent`, Comment Sicko agent files | Prompts you pass in a worker brief (or read and follow yourself), not registered agent types. `poteto-agent` is a delegate for code-writing and helper slices. The conversation that receives `poteto-mode` runs the playbook itself; never hand the playbook to a delegate. See "Agent definition files" below. |
 | Bundled skills at `../<name>/SKILL.md`, "put this file's absolute path in every prompt" | In this package, retained sources live under `references/upstream/skills/<name>/SKILL.md.source` and the catalog links each one. When briefing a delegate, give it the absolute path of the files it must read (the relevant native section plus retained source) instead of assuming it can resolve a sibling skill by name. |
 | `gt` (Graphite), stack tooling | Not required. Use the project's forge CLI or integration; one stacker changes topology, workers never retarget or merge PRs. See the shipping and orchestrate playbooks. |
-| Claude/Grok defaults and `pstack-models.mdc` | Inherit the parent model. Use a model or effort override only when the user explicitly chose it and the host supports it. Grok slugs are unavailable. Never claim model diversity without it. |
-| Per-spawn "match the model to the job" (reasoning level and fast/standard speed) | Where the host and the user's settings allow choosing a reasoning effort or speed per subagent, pick it per job: more for the hardest work, less for routine work, fast only when something is urgent (red CI, a blocked person). Keep the model family a role names. If the host rejects the adjusted setting, use the default and say so. Without that control, inherit and move on. |
+| Upstream per-role default model slugs and `pstack-models.mdc` | Inherit the parent model. Use a model or effort override only when the user explicitly chose it and the host supports it. Upstream slugs are Cursor names and are not used here. Never claim model diversity without it. |
+| Per-spawn "match the model to the job" (reasoning level and fast/standard speed) | Where the host and the user's settings allow choosing a reasoning effort or speed per subagent, pick it per job: more for the hardest work, less for routine work, fast only when something is urgent (red CI, a blocked person). Keep the model family a role names. If the model has no such effort or speed, use its nearest supported setting; if the host rejects the adjusted setting, use the default and say so. Without that control, inherit and move on. |
 | `disable-model-invocation: true` (`sharpen`, `in-your-own-words`, `ketchup`, `ketchup-video`, `create-formal-verification-skill`, `maintain-formal-verification-skill`, `statechart`, and other upstream skills that set it) | No effect here. These run only on an explicit user request. |
 | Claude Code adapter (`docs/harness/claude-code.md`), `pstack:` command prefixes, `~/.claude/rules/pstack-models.md` | Retained as reference only. Its tool, subagent-field, model, and path tables describe one host; this table and capability vocabulary govern. No rule file is written and no plugin is installed. A step that needs a Cursor-only feature (Automations, Bugbot, Cursor cloud agents) is reported as unavailable in one line, and the remaining steps continue unless they depend on it; Benny still fails closed on missing configuration. |
 | `AskQuestion`, todo tools | **Ask the user** (a structured question tool if the host has one, otherwise a short question with options in plain chat) and the host's **task list** (otherwise a checklist in your reply). Ask only for material information that evidence cannot resolve. |
@@ -103,8 +103,8 @@ and disjoint write ownership. Isolate candidates in separate directories or
 worktrees. Inspect returned artifacts and verify claims yourself. Scale coverage
 to the task and available slots instead of forcing ten lanes or a cloud fleet.
 
-Inherit model settings by default. Do not derive model IDs by editing Cursor's
-Claude/Grok slugs. Verify user-configured model/effort combinations against the
+Inherit model settings by default. Do not derive model IDs by editing upstream's
+Cursor model slugs. Verify user-configured model/effort combinations against the
 current host. Same-model passes are not multi-model evidence; a local second pass
 is not an independent reviewer. Do not create or message user-owned sessions as
 a subagent substitute without authorization.
@@ -152,6 +152,8 @@ current authorization, and project-appropriate checks.
 For an explicit setup request, save agreed choices in project data such as
 `.agents/pstack.json`, or the user's chosen location. This workflow reads that
 file; no host does. Preserve existing unrelated values.
+On a rerun, drop role names that no longer exist upstream (`how explorer`,
+`how explainer`, `why investigators`, `why synthesizer`) and tell the user which.
 Suggested fields are `delegation`, `roles`, and `verification_commands`. Use
 `inherit` for models until the user chooses supported overrides. Do not alter
 global model or host settings, write Cursor rules, edit the project

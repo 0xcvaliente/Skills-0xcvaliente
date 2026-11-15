@@ -3,9 +3,9 @@
 Pstack's engineering workflows adapted into one installable, host-neutral Agent Skill
 (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode, or plain chat).
 Based on [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack)
-0.15.36. Go deep first, write less code, and verify the result against the real artifact.
+0.15.42. Go deep first, write less code, and verify the result against the real artifact.
 
-The package includes native host-neutral routing and **all 573 original upstream files**:
+The package includes native host-neutral routing and **all 560 original upstream files**:
 
 | Material | Included |
 |---|---|
@@ -156,7 +156,7 @@ Installed copies do not automatically update when GitHub changes.
 
 MIT, copyright 2026 Lauren Tan. The [original license](LICENSE) is retained in
 the package and source snapshot. Reviewed revision:
-[`1ba91fc25c0977741dd0e267849e6234b037ed0a`](https://github.com/cursor/plugins/tree/1ba91fc25c0977741dd0e267849e6234b037ed0a/pstack),
-2026-10-29 (pstack 0.15.36). See [provenance and adaptation notes](references/provenance.md).
+[`bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`](https://github.com/cursor/plugins/tree/bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7/pstack),
+2026-11-15 (pstack 0.15.42). See [provenance and adaptation notes](references/provenance.md).
 This is a personal host-neutral adaptation, derived from earlier Codex and Claude Code ports;
 no affiliation or endorsement is claimed.
