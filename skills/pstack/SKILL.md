@@ -7,7 +7,7 @@ license: MIT
 # Pstack
 
 Go deep first, write less code, and prove the result against the real artifact.
-This is one host-neutral Agent Skill adapting pstack 0.15.36 by Lauren Tan. All 573 upstream
+This is one host-neutral Agent Skill adapting pstack 0.15.42 by Lauren Tan. All 560 upstream
 files are retained with their original bytes, including 34 workflows, 24
 principles, 23 playbooks, two agent definitions, and the three-workflow Benny pack.
 

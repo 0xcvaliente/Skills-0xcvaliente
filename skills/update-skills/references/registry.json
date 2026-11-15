@@ -30,8 +30,8 @@
       "pin_locations": {
         "all 16 skills": "references/source-manifest.json source_revision (PROTECTED: never hand edit); pins e8a175d for most, animation-performance 2d22863, remove-animations a81dbca; record reviews in docs/origins.md"
       },
-      "last_checked": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
-      "last_checked_date": "2026-11-14"
+      "last_checked": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "last_checked_date": "2026-11-15"
     },
     {
       "id": "mattpocock/skills",
@@ -117,10 +117,10 @@
       "style": "adapted-with-review",
       "mode": "head",
       "pin_locations": {
-        "pstack": "references/provenance.md prose near line 211 (1ba91fc, 0.15.36); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
+        "pstack": "references/provenance.md prose near line 270 (bf0c7cd, 0.15.42); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "3dbd22ff12742fb28c9700b9760baa29ed41dc13",
-      "last_checked_date": "2026-11-14"
+      "last_checked": "bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7",
+      "last_checked_date": "2026-11-15"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -218,8 +218,8 @@
       "pin_locations": {
         "frontend-design": "references/provenance.md line 4 (41bbe19); append-only"
       },
-      "last_checked": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
-      "last_checked_date": "2026-11-10",
+      "last_checked": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
+      "last_checked_date": "2026-11-15",
       "note": "The documents skill only studied this repo's approach; nothing copied (see no_upstream_notes)."
     },
     {
@@ -236,8 +236,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "9e24b36fa69423098627309cb61f8bbf1d23d3f8",
-      "last_checked_date": "2026-11-14"
+      "last_checked": "2d4a97b405ea2b5845f0c6968551066a93406df8",
+      "last_checked_date": "2026-11-15"
     },
     {
       "id": "colbymchenry/codegraph",

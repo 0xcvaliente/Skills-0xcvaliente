@@ -7,9 +7,10 @@ for detailed guidance.
 
 ## Investigation
 
-Pin the question and subsystem. Trace behavior with `how`, historical motivation
-with `why`, and test load-bearing claims when feasible. Return a cited answer
-and uncertainties. Keep a question read-only unless changes were requested.
+Pin the question and subsystem. Trace the code yourself, add `why` for
+historical motivation, and test load-bearing claims when feasible. Return a
+cited answer (or a recommendation with a trade-offs table for a choice between
+options) and uncertainties. Keep a question read-only unless changes were requested.
 
 ## Bug fix
 

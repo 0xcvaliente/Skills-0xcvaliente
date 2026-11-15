@@ -263,3 +263,73 @@ port, and the agentic Orchestrate change). 464 upstream paths changed: 406 added
   stays an explicit-request, network-using workflow (mise installs TLC and Java, and
   rendering fetches `pele`); the "about 305 MB" figure is kept as measured at 0.15.32
   because upstream stopped stating it. The `SKILL.md` description is unchanged.
+
+## Upstream sync 2026-11-15
+
+Refreshed on 2026-11-15 from `1ba91fc25c0977741dd0e267849e6234b037ed0a` (0.15.36)
+to `bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7` (short `bf0c7cd`, 0.15.42), the
+current head of cursor/plugins for `pstack/`. The range covers one commit touching
+`pstack/` (new default models, one-file `why` and `how`, statechart fixes, `sharpen`
+and `reflect` text). 59 upstream paths changed: 1 added, 14 deleted, 44 modified.
+
+- `references/upstream/` and `references/upstream-manifest.json` were rebuilt from
+  the new revision with the same layout, taken from `git archive` of the pinned
+  commit: 560 files (was 573), 61 `SKILL.md` entrypoints stored as `SKILL.md.source`
+  (unchanged), bytes and modes unchanged (6 executables). Deletions were applied:
+  the two `how/references/` prompts (explainer, explorer) and the twelve
+  `why/references/` files (epistemics, investigator-prompt, source-playbook,
+  synthesizer-prompt, and the eight per-source playbooks under `sources/`). Added:
+  `skills/statechart/scripts/test/drawn.ts`.
+- Guidance changes in the range: `how` is one read-only subagent that explores and
+  explains in one pass; `why` is one paragraph (answer from the record, not the
+  code: the commits and PR discussions that introduced the target and each later
+  change, other sources when that trail is thin; cite what the authors wrote, mark
+  inferences, say what the record does not answer); `recall` sweeps the shared
+  record with one investigator per source instead of going through `why`;
+  `poteto-mode` drops its `how` trigger, and the playbooks, `architect`,
+  `blast-radius`, `no-comments`, Comment Sicko, Benny, and the guide say "trace the
+  code" instead of invoking `how`; `teach` drops its "keep `why` narrow" sentence;
+  the default models change (the Grok defaults are gone, panels take three
+  runners), with `arena` requiring a cross-judge from a different vendor rather
+  than a different family; `setup-pstack` adds a `# defaults: 2` marker, replaces
+  old defaults it recognizes on a rerun, moves each role's effort relative to its
+  default, and retires the `how explorer`, `how explainer`, `why investigators`,
+  and `why synthesizer` roles; `sharpen` has the rewritten prompt ask the agent to
+  prototype any choice an experiment can settle and leaves product and preference
+  choices to the user; `reflect` changes its tooling default and one synthesizer
+  example; `statechart` draws a parent's only way in as an arrow to the parent
+  with a start marker inside (`backends/mermaid.ts`) and reports SANY's line and
+  column instead of a Java stack trace when a spec does not parse (`run.ts`), with
+  tests for both; both plugin manifests (version), the README, five guide
+  chapters, and the Claude Code adapter follow.
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical.
+- Local host-neutral layer merged by hand: `SKILL.md` (version, count), `README.md`
+  (version, count, reviewed revision), `references/catalog.md` (count, `why` and
+  `sharpen` descriptions, a note on the deleted `how` and `why` references),
+  `workflows.md` (`how` in one pass with its output sections named, `why` from the
+  record first, the `recall` shared-record sweep, the `arena` judge-vendor rule,
+  the `sharpen` prototype wording, the `statechart` SANY error note),
+  `playbooks.md` (`Investigation` traces the code directly), `host-runtime.md`
+  (vendor-neutral model rows, nearest supported effort or speed, retired setup
+  roles), and the file count in `tests/test_helpers.py`. Cursor mechanics were
+  mapped to the capability vocabulary rather than copied.
+- Kept locally where upstream dropped it: readers of shared sources stay read-only
+  and never post or edit (upstream `recall` now spawns its investigators in agent
+  mode, and the sentence telling `why` investigators not to write is gone with that
+  skill's old text); the essentials of the deleted `why` epistemics in new words
+  (keep conflicting sources side by side, test a cause the user suggests instead of
+  confirming it, say where you looked); and `sharpen` still adds no scope, actions,
+  or authorization the user did not give.
+- Skipped: Cursor plugin metadata and frontmatter keys; the `disable-model-invocation`
+  flag (these skills run only on explicit request by instruction); the new default
+  model slugs, the family and vendor prefix rules, and the per-model effort and
+  speed limits (Cursor model slugs are not used here; inherit the parent model);
+  the `setup-pstack` `# defaults: 2` marker, old-default replacement, and budget
+  ladder (the local setup writes no model slugs or budgets); the `teach` trim (the
+  local guidance never carried that sentence); the `reflect` default and example
+  (retained source only); the Benny, Comment Sicko, `no-comments`, guide, and Claude
+  Code adapter edits (retained source only). Retained scripts, including the changed
+  statechart TypeScript and its tests, were not ported or executed. The `SKILL.md`
+  description is unchanged.
