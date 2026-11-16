@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 270 (bf0c7cd, 0.15.42); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7",
-      "last_checked_date": "2026-11-15"
+      "last_checked": "b63c29ff846b972e26e88473919d9a2de5392224",
+      "last_checked_date": "2026-11-16"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -218,8 +218,8 @@
       "pin_locations": {
         "frontend-design": "references/provenance.md line 4 (41bbe19); append-only"
       },
-      "last_checked": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
-      "last_checked_date": "2026-11-15",
+      "last_checked": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "last_checked_date": "2026-11-16",
       "note": "The documents skill only studied this repo's approach; nothing copied (see no_upstream_notes)."
     },
     {
@@ -236,8 +236,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "2d4a97b405ea2b5845f0c6968551066a93406df8",
-      "last_checked_date": "2026-11-15"
+      "last_checked": "a9097b2108af6e87cc38c4d6836271cd69917672",
+      "last_checked_date": "2026-11-16"
     },
     {
       "id": "colbymchenry/codegraph",
