@@ -24,7 +24,8 @@ concurrency:
 jobs:
   update:
     runs-on: [self-hosted, mac-sync]
-    timeout-minutes: 10
+    # Above lockf's 600 s wait, so a lock timeout reports its own error.
+    timeout-minutes: 15
     steps:
       # No actions/checkout: that would act on the runner's work dir, not the clone.
       - name: Fast-forward Mac clone
@@ -79,24 +80,26 @@ jobs:
         run: |
           set -euo pipefail
           # One lock shared by the Skills and Private-skills jobs, so the two
-          # never run sync-opencode.sh at the same time. mkdir is atomic.
-          lock="$HOME/.local/state/skills-sync.lock"
-          mkdir -p "$(dirname "$lock")"
-          deadline=$((SECONDS + 300))
-          until mkdir "$lock" 2>/dev/null; do
-            holder="$(cat "$lock/pid" 2>/dev/null || true)"
-            if [[ -n "$holder" ]] && ! kill -0 "$holder" 2>/dev/null; then
-              echo "Removing stale lock held by dead pid $holder"
-              rm -rf "$lock"
-              continue
-            fi
-            if (( SECONDS >= deadline )); then
-              echo "::error::Timed out waiting for $lock"
-              exit 1
-            fi
-            sleep 5
-          done
-          trap 'rm -rf "$lock"' EXIT
-          echo $$ > "$lock/pid"
+          # never run sync-opencode.sh at the same time. /usr/bin/lockf holds a
+          # kernel lock on the file while the command runs; the kernel drops it
+          # when the process exits, so no stale lock is ever left behind.
+          state="$HOME/.local/state"
+          mkdir -p "$state"
+          # Clean up the old mkdir lock directory, but only when it is empty.
+          old="$state/skills-sync.lock"
+          if [[ -d "$old" ]]; then
+            rmdir "$old" 2>/dev/null && echo "Removed empty old lock dir $old" || echo "Leaving non-empty $old in place"
+          fi
+          lock="$state/skills-sync.lockf"
+          rc=0
           # --prune removes only dangling symlinks that point into the two skills repos.
-          "$HOME/Documents/projects-repo/Skills-0xcvaliente/scripts/sync-opencode.sh" --no-pull --prune
+          /usr/bin/lockf -k -t 600 "$lock" \
+            "$HOME/Documents/projects-repo/Skills-0xcvaliente/scripts/sync-opencode.sh" --no-pull --prune || rc=$?
+          if (( rc == 75 )); then
+            # EX_TEMPFAIL: lockf gave up waiting; the sync did not run.
+            echo "::error::Timed out after 600 s waiting for $lock; sync-opencode.sh did not run"
+            exit 1
+          elif (( rc != 0 )); then
+            echo "::error::sync-opencode.sh under lockf failed with exit $rc"
+            exit "$rc"
+          fi
