@@ -2,7 +2,7 @@
 
 Rewrites AI-sounding prose so it reads like the writer, without changing what it says. Use it when editing or reviewing text for AI tells: not-X-but-Y contrasts, one-line closers, staged openers, forced triads, overused dashes, inflated claims, sales language, stock AI words, bold labels and filler. Based on Wikipedia's "Signs of AI writing."
 
-This is humanizer v4.0.0 by Siqi Chen (blader), MIT, vendored from upstream at revision b48c832.
+This is humanizer v4.0.0 by Siqi Chen (blader), MIT, vendored from upstream at revision a32f244.
 
 Since 4.0.0 the skill may add a specific detail it knows to be true where the text is generic. Earlier versions never added a fact. It still keeps every claim the original made and treats a lost or changed claim as an error, so check added details in anything factual, legal or sent in your name.
 

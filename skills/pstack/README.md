@@ -157,6 +157,9 @@ Installed copies do not automatically update when GitHub changes.
 MIT, copyright 2026 Lauren Tan. The [original license](LICENSE) is retained in
 the package and source snapshot. Reviewed revision:
 [`bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`](https://github.com/cursor/plugins/tree/bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7/pstack),
-2026-11-15 (pstack 0.15.42). See [provenance and adaptation notes](references/provenance.md).
+2026-11-15 (pstack 0.15.42); this is the revision of the retained source files.
+Guidance changes were reviewed on 2026-11-20 through
+`0b46ec399d55f2829e88822998f53b84944837d3` (0.15.46) and ported into the native
+references without refreshing the retained files. See [provenance and adaptation notes](references/provenance.md).
 This is a personal host-neutral adaptation, derived from earlier Codex and Claude Code ports;
 no affiliation or endorsement is claimed.

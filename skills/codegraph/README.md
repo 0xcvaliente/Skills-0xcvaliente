@@ -95,6 +95,9 @@ or a proof of complete language coverage.
 
 Before upgrading, inspect release changes and installed help/tool schemas,
 rerun the smoke test, and update setup, assessment, and provenance together.
+Release 1.6.3 was reviewed in source on 2026-11-20 and its differences are in
+the [setup guide](references/setup.md#what-163-changes); the pin stays at 1.6.2
+until the smoke test has been rerun against it.
 The skill does not fetch upstream instructions at invocation or automatically
 upgrade the runtime. Name the skill in your prompt or let the host pick it from
 its description.

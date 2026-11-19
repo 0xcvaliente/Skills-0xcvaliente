@@ -62,8 +62,8 @@
         "tdd": "UPSTREAM.md line 1 (49dd158)",
         "diagnosing-bugs, git-guardrails-claude-code, grill-me, handoff, to-questionnaire, wait-what, writing-for-agents": "UPSTREAM.md (append a dated review line)"
       },
-      "last_checked": "5863806dd4e15c63174bee4e7515a4256792ecfa",
-      "last_checked_date": "2026-11-13",
+      "last_checked": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+      "last_checked_date": "2026-11-20",
       "note": "Upstream layout: skills/engineering/, skills/productivity/, skills/misc/ (skills/in-progress/ is not ours). update-mattpocock-skills is an original rewrite that can update this group in isolation."
     },
     {
@@ -82,8 +82,8 @@
       "pin_locations": {
         "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
       },
-      "last_checked": "7df4b7edff1dc1c991331061373d4ba42ecacdbe",
-      "last_checked_date": "2026-11-14"
+      "last_checked": "ff9805a3dabf4529f4d88f6b3f09c5a33cb0fcb6",
+      "last_checked_date": "2026-11-20"
     },
     {
       "id": "greensock/gsap-skills",
@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 270 (bf0c7cd, 0.15.42); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "b63c29ff846b972e26e88473919d9a2de5392224",
-      "last_checked_date": "2026-11-16"
+      "last_checked": "0b46ec399d55f2829e88822998f53b84944837d3",
+      "last_checked_date": "2026-11-20"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -149,8 +149,8 @@
       "pin_locations": {
         "humanizer": "references/provenance.md line 4 (0ef9fe5); append-only"
       },
-      "last_checked": "b48c832f0f809c1b5658edbb838c2521b72f2413",
-      "last_checked_date": "2026-11-10"
+      "last_checked": "a32f24407364c74c812b43c15926d638bee1e072",
+      "last_checked_date": "2026-11-20"
     },
     {
       "id": "leonxlnx/taste-skill",
@@ -179,8 +179,8 @@
       "pin_locations": {
         "diagram-craft": "references/provenance.md (reviewed through 0cf73c3); ideas adopted independently, no text copied"
       },
-      "last_checked": "f6db0decea96de66b901331a0f79a8d4b147ebae",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0",
+      "last_checked_date": "2026-11-20"
     },
     {
       "id": "openai/skills",
@@ -236,8 +236,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "a9097b2108af6e87cc38c4d6836271cd69917672",
-      "last_checked_date": "2026-11-16"
+      "last_checked": "4c02ceb282b79b2182c94ba92b44497986fb0799",
+      "last_checked_date": "2026-11-20"
     },
     {
       "id": "colbymchenry/codegraph",
@@ -251,10 +251,10 @@
       "pin_locations": {
         "codegraph": "references/provenance.json (upstream_repository; pinned b635dd4; runtime tag v1.6.2)"
       },
-      "last_checked": "6560052a6f856855d3f71eee838fd66ccfa4285d",
-      "last_checked_date": "2026-11-02",
-      "last_checked_tag": "v1.6.2",
-      "last_checked_commit": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+      "last_checked": "ef4bd058d97020a2b2a74a89f1bf21b84e9f5b30",
+      "last_checked_date": "2026-11-20",
+      "last_checked_tag": "v1.6.3",
+      "last_checked_commit": "ef4bd058d97020a2b2a74a89f1bf21b84e9f5b30",
       "note": "v1.6.2 is a lightweight tag (git ls-remote shows no peeled ^{} entry), so the tag object name equals the commit."
     },
     {

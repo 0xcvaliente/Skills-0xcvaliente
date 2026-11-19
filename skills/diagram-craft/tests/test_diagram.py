@@ -96,7 +96,9 @@ class DiagramTests(unittest.TestCase):
                      '<polyline points="0,0 120,10"/>', '<text x="10" y="80">late</text>',
                      # Text inside a quoted CSS string is data: it neither moves nor hides the shape.
                      '<rect x="500" width="10" height="10" style="--note:\'a;transform:translate(-450px)\'"/>',
-                     '<rect x="500" width="10" height="10" style="--note:\'display:none\'"/>'):
+                     '<rect x="500" width="10" height="10" style="--note:\'display:none\'"/>',
+                     # A backslash inside a string is data too, not an escaped property name.
+                     '<rect x="500" width="10" height="10" style="--note:\'tr\\61nsform\'"/>'):
             with self.subTest(body=body):
                 found = diagram.export_findings(self.export(body))
                 self.assertTrue(any("outside the viewBox" in f for f in found), found)
@@ -109,6 +111,9 @@ class DiagramTests(unittest.TestCase):
                      '<rect x="50%" width="10" height="10"/>',
                      '<g style="transform:translate(-200px,0)"><rect x="200" width="10" height="10"/></g>',
                      '<rect x="500" width="10" height="10" style="fill:red;/**/transform:translateX(-450px)"/>',
+                     # An escaped property name is still applied by a browser.
+                     '<rect x="500" width="10" height="10" style="tr\\61nsform:translateX(-450px)"/>',
+                     '<rect x="500" width="10" height="10" style="displ\\61y:none"/>',
                      # A `/*` inside a string opens no comment, so the transform between them is real.
                      '<rect x="500" width="10" height="10" style="--a:\'/*\';transform:translateX(-450px);--b:\'*/\'"/>'):
             with self.subTest(body=body):

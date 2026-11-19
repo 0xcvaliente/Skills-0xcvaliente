@@ -333,3 +333,65 @@ and `reflect` text). 59 upstream paths changed: 1 added, 14 deleted, 44 modified
   Code adapter edits (retained source only). Retained scripts, including the changed
   statechart TypeScript and its tests, were not ported or executed. The `SKILL.md`
   description is unchanged.
+
+## Upstream review 2026-11-20
+
+Reviewed on 2026-11-20 from `b63c29ff846b972e26e88473919d9a2de5392224` to
+`0b46ec399d55f2829e88822998f53b84944837d3` (short `0b46ec3`, 0.15.46), the current
+head of cursor/plugins for `pstack/`. `pstack/` did not change between the last
+synced revision `bf0c7cd` (0.15.42) and `b63c29f`. The range covers four commits
+touching `pstack/`: `2f87c85` (0.15.43: shorter skill texts, `worker.md`, new model
+routing), `e58dd04` and `dd24b67` (0.15.44 and 0.15.45: the Gemini panel seat), and
+`0b46ec3` (0.15.46: `statechart` on native Windows). 78 upstream paths changed: 3
+added, 10 deleted, 65 modified.
+
+- This is a guidance review, not a snapshot refresh. `references/upstream/` and
+  `references/upstream-manifest.json` were not rebuilt and stay at `bf0c7cd`
+  (0.15.42, 560 files), so the counts and version in `SKILL.md`, `README.md`,
+  `references/catalog.md`, and `tests/test_helpers.py` are unchanged. The retained
+  copies therefore still include files upstream has since deleted (the
+  `orchestrate` playbook, three `architect` and four `reflect` reference prompts,
+  `check-plan.mjs` and its test) and lack the three it added (`poteto-mode/worker.md`
+  and two `statechart` files, `scripts/janitor.ts` and `scripts/kill.ts`).
+- `scripts/decision-log.sh` is a runnable copy of upstream
+  `skills/show-me-your-work/scripts/log.sh`; that file is unchanged in this range,
+  so the copy stays byte-identical.
+- Adopted, in host-neutral wording: `worker.md` as "Delegate kickoff rules" in
+  `host-runtime.md` (the operator is the user, the brief's bar is the whole bar,
+  block only for a failing run or a user-facing bug, delegates decide reversible
+  choices instead of asking), with a pointer in `SKILL.md`; `architect` as a short
+  brief (trace every touched system, sketch two shapes, pick by one owner per piece
+  of state, one way per task, least for callers to know, `arena` for a large or
+  contested design); `reflect` as one pass with no subagents (durable findings only,
+  routed to a skill the session used, Accepted / Rejected / Backlog, approval
+  before any edit, no PR or push); the five-step `Multi-phase plan`; the Babysit
+  order (conflicts, threads, CI), its no-rebase rule, and replies passed as a file
+  rather than shell text built from a comment; the PR title and body shape and
+  "opening a PR does not start a babysit" in `Opening a PR`; the owner's rebase in
+  `Autopilot-full`; program-scale and no-fit work routed to `figure-it-out`, with
+  `Orchestrate` marked as removed upstream; the four roles retired from
+  `setup-pstack`; and notes in `catalog.md`, `host-runtime.md`, and `README.md` on
+  what upstream deleted and the reviewed revision.
+- Kept locally where upstream dropped or differs: the `Orchestrate` section stays
+  as guidance for an explicitly requested standing coordinator, since its source is
+  still retained; the goal restatement keeps "if the evidence rules out the change
+  they asked for, show it and stop" and the one-line-edit exception; inapplicable
+  plan boxes are marked rather than required; a PR opens only when publication is
+  authorized, and opens ready unless the user or project asks for a draft (upstream:
+  always ready, never a draft); a delegate stops before any outward action the user
+  has not authorized, not only in the four cases upstream lists, and a brief cannot grant
+  more authority than the user gave; the `reflect` cache rule is worded for any
+  host-managed copy rather than Cursor's plugin cache paths.
+- Skipped: Cursor plugin metadata and version bumps; all model routing (Opus-first
+  defaults, the Fable exception, the xhigh cap, always-fast slugs, the Gemini 4 Neon
+  seat and its level, the `poteto-agent` model pin, the eval dispatcher model, the
+  `arena` slug fallbacks and cross-judge pool, and the `setup-pstack`
+  `# defaults: 3` marker, budgets, and migrations), because Cursor model slugs are
+  not used here and roles inherit the parent model; the `statechart` native Windows
+  note and script fixes (the retained scripts are the 0.15.42 copies without that
+  fix, and they are not ported or executed); the shorter principle leaves, `unslop`,
+  and `technical-writing` bodies (retained source only; the native layer carries no
+  copy of them); the Shipping watcher flags, forge-specific Babysit commands, and the
+  `poteto-mode` trigger-list trims (the local guidance never carried them); the
+  `poteto-help`, README, guide, and Claude Code adapter edits (retained source only).
+  The `SKILL.md` description is unchanged.

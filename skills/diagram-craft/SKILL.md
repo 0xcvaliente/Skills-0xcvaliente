@@ -60,7 +60,11 @@ node <skill-dir>/scripts/inspect_diagram.cjs diagram.html --out-dir checks
 # Add --png diagram.png or --pdf diagram.pdf for requested exports.
 ```
 
-View the captured screenshots and exports with the host's image-viewing capability. Without Playwright, use whatever browser-automation capability the session has (a Playwright MCP server, a browser extension, or a built-in browser pane) for a visual check; do not assume one exists, and if neither a browser nor an image viewer is available, say the visual result is unverified. The helpers report a useful subset of defects, not a complete visual/semantic verdict. Review crossings, chronology, line masks, custom contrast, and source accuracy yourself. Fix observed defects and repeat affected checks. If rendering is unavailable, perform structural checks and report the missing visual verification instead of claiming a pass.
+View the captured screenshots and exports with the host's image-viewing capability. Without Playwright, use whatever browser-automation capability the session has (a Playwright MCP server, a browser extension, or a built-in browser pane) for a visual check; do not assume one exists, and if neither a browser nor an image viewer is available, say the visual result is unverified. The helpers report a useful subset of defects, not a complete visual/semantic verdict. Review crossings, chronology, line masks, custom contrast, and source accuracy yourself. Fix observed defects and repeat affected checks.
+
+Look at the capture at 100% as a reader would, hunting for defects rather than confirming the draft. Make a deliberate pass over text (cut off, colliding, too small at the delivered size), edges (a label that could belong to either of two lines, a line running under an unrelated node or stopping short of its target, several lines merged into one stroke), and balance (peers spaced unevenly, one region crowded while another sits empty, anything touching the canvas edge). When the cause is structural, change the structure (reading direction, grouping, label length, combining parallel edges) before moving coordinates by a few pixels, then capture again; after two rounds, report what remains instead of polishing further. Where measured bounds and your impression of the image disagree about geometry, trust the measurement. Check captures are scratch output: keep them apart from requested exports.
+
+If rendering is unavailable, perform structural checks and report the missing visual verification instead of claiming a pass.
 
 ## Deliver
 
