@@ -459,8 +459,12 @@ def _hidden(el):
 
 
 def _css_transform(el):
-    """True when an inline style declares a transform (or a comment-split one), which moves the shape."""
-    return re.search(r"(?:^|;)\s*transform\s*:", _style_text(el), re.I) is not None
+    """True when an inline style declares a transform (or a comment-split one), which moves the shape.
+
+    A browser decodes CSS escapes in property names (`tr\\61nsform`), so a backslash outside a
+    string means a declaration this reader cannot name: also unmeasurable."""
+    style = _style_text(el)
+    return "\\" in style or re.search(r"(?:^|;)\s*transform\s*:", style, re.I) is not None
 
 
 def viewbox_findings(root, label="svg"):

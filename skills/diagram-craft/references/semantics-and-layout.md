@@ -14,6 +14,7 @@ Read the section matching the reader's question. These contracts apply to custom
 | Which request records which fact, and what view shows it? | Event model | Command, event, read model per stage; stated links only; order, not duration |
 | How are records related? | ER/schema | Cardinality, optionality, keys, logical versus physical |
 | What depends on what? | Dependency graph | Declare “uses” versus “is required by”; retain cycles |
+| Which task chain sets the finish, and where is the slack? | Schedule network (activity on node) | Durations in one stated unit, finish-to-start links, derived early/late times, total float, every tied critical chain |
 | Is each requirement met and checked? | Traceability matrix | Source, requirement, satisfying design, verifying check by ID; printed gaps |
 | What changed structurally? | Before/after map | Stable identity, changed nodes/edges |
 | What does the customer see versus what stays hidden? | Service blueprint | Stage order, customer/frontstage/backstage/support layers, the line of visibility |
@@ -67,6 +68,12 @@ State nodes name persistent conditions, not actions. Transitions name the event 
 Separate logical entities from physical tables. Include field types/constraints only when supported. A foreign key alone does not establish mandatory participation on both ends; derive optionality and cardinality from constraints and behavior. Explain unusual notation. Align physical FK connectors to corresponding fields.
 
 Use conventional UML generalization/composition/aggregation/dependency symbols only when the semantics apply. Composition implies lifecycle ownership; a generic “has” does not establish it. Include methods/signatures relevant to the reader without turning the diagram into a code listing.
+
+## Schedule networks
+
+Use a schedule network when the source gives task durations and which task must finish before another starts, and the reader asks what sets the end date. It is a dependency graph with arithmetic, so the graph must be acyclic and the arithmetic must be visible: each task box prints its duration, earliest and latest start and finish, and total float. Derive these, never estimate them. A forward pass starts each task at the latest early finish among its predecessors (zero when it has none); a backward pass from the project finish ends each task at the earliest late start among its successors; total float is late start minus early start. Zero-float tasks are critical. A link is critical only when both of its tasks are and the successor starts exactly when the predecessor finishes, so a shortcut between two critical tasks may not be. Show every tied critical chain, and mark the critical set with line weight instead of an accent per task.
+
+Recompute after every edit and compare the printed numbers with the recomputation; a correct drawing of wrong numbers is still wrong. State the unit, the zero origin, and that box size and spacing are not a time scale. Durations and links come from the source. Lag, calendars, resource limits, deadlines, and probabilistic estimates are outside this simple model: name them as omitted instead of folding them in, and do not turn elapsed durations into calendar dates without real calendar rules. Use a dated timeline or Gantt chart when calendar overlap matters and a plain dependency graph when there are no durations. The helper neither computes nor renders this notation.
 
 ## Traceability
 

@@ -100,3 +100,13 @@ installer side effects, npm launcher and telemetry controls. Rerun the helper
 before changing the pinned version and manifest. Do not advance the reviewed
 revision merely because a release exists. The retained MIT notice attributes
 CodeGraph; its runtime remains separately distributed by the author.
+
+Review 2026-11-20: v1.6.3 (source revision
+`ef4bd058d97020a2b2a74a89f1bf21b84e9f5b30`, released 2026-11-17) was reviewed
+from its changelog and from diffs of the CLI, MCP tool definitions, server
+instructions, installer and telemetry sources. The default allowlist is still
+`explore` only, the server instructions are unchanged, disabled-watch
+`init --yes` still installs Git hooks, and the installer gained nine targets.
+The helper was not rerun, so the pinned version, [provenance.json](provenance.json)
+and [verification.json](verification.json) still describe 1.6.2. Differences
+that affect guidance are in [setup](setup.md#what-163-changes).

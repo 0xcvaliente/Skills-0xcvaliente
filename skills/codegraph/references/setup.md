@@ -4,7 +4,10 @@ Reviewed with CodeGraph 1.6.2 on macOS arm64. MCP registration differs per host;
 the generic JSON below is host-neutral, and the one host-specific command shown
 (Claude Code's `claude mcp add`, from Claude Code 2.1.296 help) is an example.
 Use the chosen scope and preserve existing configuration; a setup request does not authorize changing other
-agents or indexing unrelated repositories.
+agents or indexing unrelated repositories. Release 1.6.3 (2026-11-17) was
+reviewed in source on 2026-11-20 without running it; statements marked 1.6.3
+below come from that review, and [What 1.6.3 changes](#what-163-changes)
+explains why the pin has not moved.
 
 ## Install the instruction package
 
@@ -92,7 +95,11 @@ writes host-specific configuration. In 1.6.2 the Claude Code target also writes
 section to `~/.claude/CLAUDE.md`; other targets write their own host files. Use
 it only when those settings and instruction edits are wanted. `--yes` defaults to
 `--target=auto`; do not configure all agents to satisfy a single-host setup
-request.
+request. 1.6.3 adds nine more targets (IBM Bob, Factory Droid, Windsurf, Qwen
+Code, DeepSeek Harness, Grok Build, Kimi Code, Qoder CLI, Pi), several of which
+also get an instruction-file section, and the auto-allow permission list is
+now written for the Qwen Code target too (`--no-permissions` skips it), so
+`--target=auto` can touch more hosts than before.
 
 ## Initialize a selected project
 
@@ -106,11 +113,17 @@ CODEGRAPH_TELEMETRY=0 codegraph explore --path /absolute/project --max-files 4 '
 
 `init` creates the database and indexes immediately; it does not connect any host to the MCP server.
 Respect ignored paths and keep `.codegraph/` out of commits. Do not index a home
-directory or filesystem root or override that refusal for orientation.
+directory or filesystem root or override that refusal for orientation. From
+1.6.3, `init --local-only` makes `.codegraph/` ignore itself so nothing of it
+shows in `git status` (it also converts an initialized project), and system or
+credential folders (`/etc`, `~/.ssh`, `~/.aws`, `~/.config` and anything inside
+them) are refused as a project or as an MCP session's default project, however
+the path is spelled or linked.
 
 Use interactive initialization when watching is disabled and hooks have not
 been requested: **1.6.2 `init --yes` installs fallback Git hooks in a Git
-repository when live watching is disabled.** Choose manual syncing in the
+repository when live watching is disabled** (unchanged in the 1.6.3 source).
+Choose manual syncing in the
 prompt if hooks are outside scope. Non-Git temporary fixtures, as used by this
 package's smoke test, have no such hook side effect.
 
@@ -141,12 +154,16 @@ reported lock owner and running writer first.
 - **Missing platform bundle:** check optional dependencies and registry access,
   then reinstall the pinned runtime. The offline flag deliberately blocks the
   shim's automatic GitHub download fallback.
-- **Unexpected tool menu:** 1.6.2 defaults to explore only. Additional tools need
+- **Unexpected tool menu:** 1.6.2 and 1.6.3 default to explore only. Additional tools need
   `CODEGRAPH_MCP_TOOLS`; use the CLI for a one-off caller/status query rather
   than widening every session's menu.
 - **After a runtime upgrade:** resolver fixes only reach an existing index after
   a full re-index of each project, which needs the user's authorization like any
   index write. Until then, treat old edges as the previous version's answer.
+  From 1.6.3, `codegraph status` and the first MCP answer for a project say
+  when its index was built by an older version; the rebuild is
+  `codegraph index /absolute/project`. `codegraph sync` on such an index
+  applies current edits and warns that untouched files still need the rebuild.
 
 ## Known 1.6.2 resolution gaps
 
@@ -185,8 +202,64 @@ not verified against the pinned runtime. `src/mcp/tools.ts` changed on main
 since v1.6.2, but the default tool exposure did not (still `explore` only,
 `CODEGRAPH_MCP_TOOLS` to widen), so the "defaults to explore only" note holds.
 
-When a release after 1.6.2 ships these fixes, upgrade the pinned version above
-and re-index affected projects.
+Review 2026-11-20: v1.6.3 (`ef4bd05`, released 2026-11-17) contains every fix
+commit named above (33c1436, a9781b0, 16344af, e30a2c1, c0f45c7, fc0da38,
+16bc05a, 3de5bef). Its changelog also covers the patterns that had no commit
+here: package-imported React/Vue tags and generic TSX tags, C++ bare and
+`this->` calls and range-`for` variables, and `unittests/`, `*_unittest/` and
+`*_unittest.*` test detection (a folder named just `unittest/` still counts as
+production code). This is a source and changelog review; nothing was run. The
+gaps therefore still apply to a 1.6.2 runtime and to any index a 1.6.2 runtime
+built, until that project is fully re-indexed with 1.6.3.
+
+## What 1.6.3 changes
+
+The pin stays at 1.6.2: this package moves it only after its smoke test passes
+against the new runtime (see the [assessment](assessment.md#maintenance)), and
+that run has not happened. 1.6.3 does carry security fixes (the sensitive-folder
+refusal can no longer be bypassed through a link, junction or path spelling,
+and the bundled Node.js moves to 24.22.1 for a Brotli decoder CVE), so for a
+new install prefer running the smoke test against 1.6.3 and using it if it
+passes, over installing 1.6.2 unexamined. Everything this guide says about
+1.6.2 was checked against the 1.6.3 source and still holds unless noted here.
+
+- **Unchanged:** `codegraph_explore` is still the only tool listed by default
+  (`CODEGRAPH_MCP_TOOLS` widens the menu), `projectPath` selects the project,
+  `CODEGRAPH_TELEMETRY=0` and `CODEGRAPH_NO_DOWNLOAD=1` work as before, and the
+  `init`, `sync`, `index`, `status`, `explore`, `callers`, `impact` and
+  `affected` commands keep their options.
+- **`maxFiles`:** accepts 1 to 20. When omitted, the default now depends on
+  project size (4 files below 150 indexed files, 5 below 500, 8 otherwise; it
+  was 12). Output is also capped by characters, so a higher value spreads the
+  same budget over more files.
+- **`projectPath`** may name a file inside a project; the answer comes from
+  that project.
+- **Explore answers** leave out files ranked as tests or examples, first list
+  query names the index has never seen, and can show part of a long function
+  with a note on the lines cut. Read the source for what was cut or left out.
+- **`impact`** stops at a safety limit on a heavily referenced symbol and
+  reports the truncation; a truncated answer is not the full blast radius.
+- **`callers`** lists each caller at every calling line and marks a function
+  that calls itself. A qualified name such as `Format.Price` matches only the
+  symbol whose scope is spelled that way.
+- **`affected --filter`** matches the glob against the whole name: no slash
+  means the file name at any depth, a slash means that folder at any depth, and
+  a leading `/` anchors at the project root.
+- **New commands:** `codegraph implementations <symbol>` (types that implement
+  or extend a type; `--depth`, `--json`), `codegraph cycles [path]` (circular
+  imports between files; `--json`; exit code 1 when any exist), and
+  `codegraph files --format package`, `--tests`, `--no-tests`.
+- **`codegraph status --strict`** exits non-zero when the index is missing,
+  unfinished, out of date, or a language yielded no symbols.
+- **`serve --mcp --no-telemetry`** disables telemetry for that server entry
+  and the background server it starts, like `CODEGRAPH_TELEMETRY=0`. A
+  background server already running without the flag keeps its own setting.
+  The environment variable works on both versions, so the examples keep it.
+- **Read commands during a rebuild** (`status`, `query`, `explore`, `callers`)
+  no longer make a running `codegraph index` fail with "database is locked".
+- **Coverage added:** Razor/Blazor views, Tauri frontend-to-Rust links,
+  CodeIgniter 3, Drupal services and plugins, Next.js middleware/proxy links
+  and MediatR handlers. The absence-of-edge cautions in the skill still apply.
 
 Telemetry is disabled in these examples. Upstream documents usage statistics
 separately from local source storage in

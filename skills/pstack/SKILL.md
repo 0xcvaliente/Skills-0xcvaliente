@@ -82,7 +82,8 @@ user or applicable project instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`,
 or `.github/copilot-instructions.md`) authorize it; explicit `arena` or `swarm`
 requests express parallel intent. The conversation that receives `poteto-mode`
 runs its playbook itself; delegates take slices of the work, never the
-playbook. Otherwise run the same steps sequentially
+playbook, and every delegate brief opens with the delegate kickoff rules in the
+host runtime adaptation. Otherwise run the same steps sequentially
 yourself and label the independence limit. Inherit the current model unless an available, explicitly chosen role
 configuration says otherwise. Do not copy Cursor model names.
 
