@@ -119,7 +119,7 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 270 (bf0c7cd, 0.15.42); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "0b46ec399d55f2829e88822998f53b84944837d3",
+      "last_checked": "aaeb0ea3a0584995aa8f55ce44c6c5259414b896",
       "last_checked_date": "2026-11-20"
     },
     {
@@ -236,7 +236,7 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "4c02ceb282b79b2182c94ba92b44497986fb0799",
+      "last_checked": "ad2b34ca9b30769ec8ff8ef26025a38a9a32c589",
       "last_checked_date": "2026-11-20"
     },
     {
