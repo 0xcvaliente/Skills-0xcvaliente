@@ -7,7 +7,9 @@ Use the chosen scope and preserve existing configuration; a setup request does n
 agents or indexing unrelated repositories. Release 1.6.3 (2026-11-17) was
 reviewed in source on 2026-11-20 without running it; statements marked 1.6.3
 below come from that review, and [What 1.6.3 changes](#what-163-changes)
-explains why the pin has not moved.
+explains why the pin has not moved. Release 1.6.4 (2026-11-20) was reviewed the
+same way on 2026-11-23; [What 1.6.4 changes](#what-164-changes) lists what
+differs from 1.6.3.
 
 ## Install the instruction package
 
@@ -154,7 +156,7 @@ reported lock owner and running writer first.
 - **Missing platform bundle:** check optional dependencies and registry access,
   then reinstall the pinned runtime. The offline flag deliberately blocks the
   shim's automatic GitHub download fallback.
-- **Unexpected tool menu:** 1.6.2 and 1.6.3 default to explore only. Additional tools need
+- **Unexpected tool menu:** 1.6.2 through 1.6.4 default to explore only. Additional tools need
   `CODEGRAPH_MCP_TOOLS`; use the CLI for a one-off caller/status query rather
   than widening every session's menu.
 - **After a runtime upgrade:** resolver fixes only reach an existing index after
@@ -260,6 +262,58 @@ passes, over installing 1.6.2 unexamined. Everything this guide says about
 - **Coverage added:** Razor/Blazor views, Tauri frontend-to-Rust links,
   CodeIgniter 3, Drupal services and plugins, Next.js middleware/proxy links
   and MediatR handlers. The absence-of-edge cautions in the skill still apply.
+
+## What 1.6.4 changes
+
+Release 1.6.4 (`461a5d8`) was reviewed in source and changelog on 2026-11-23;
+nothing was run. The pinned, tested version is still 1.6.2, for the reason
+given under [What 1.6.3 changes](#what-163-changes). The points below apply
+only from 1.6.4 and add to the 1.6.3 list.
+
+- **Unchanged:** `codegraph_explore` is still the only tool listed by default,
+  `CODEGRAPH_MCP_TOOLS` widens the menu, and `projectPath` selects the project.
+- **Re-index after upgrading:** 1.6.4 reads code that indexes built by 1.6.3
+  or earlier lack, so `codegraph status` and the first answer in each agent
+  session flag those indexes as out of date. The rebuild is
+  `codegraph index /absolute/project`, an index write that needs the user's
+  authorization; `sync` leaves untouched files as the older version read them.
+- **One-symbol questions:** an explore query that names a single symbol
+  ("who calls `toValidURL`?", "what is `MAX_RETRIES`?") returns that symbol's
+  source and every line that uses it, each with its enclosing function, tests
+  listed apart. Ask about one name this way rather than with a broad query.
+- **`affected` stops at process boundaries:** tests on the far side of an HTTP
+  call, a queue or an event are no longer selected, because they usually mock
+  that boundary. `--cross-tier` includes them, which fits end-to-end tests that
+  make the real call. A shorter list does not show the other side is unaffected.
+- **Changed-on-disk warning:** `callers`, `callees` and `impact` warn when a
+  file in the answer changed after it was indexed, so its line numbers may be
+  off. With `--json` the warning goes to stderr and the files are listed under
+  `changedOnDisk`; read them, or sync, before relying on those lines.
+- **`init`** on a project whose last index run was killed or failed now says the
+  index is incomplete and to run `codegraph index`, instead of "Already
+  initialized".
+- **`status`** also reports edits, new files and deletions in gitignored source
+  that `codegraph.json` `include` brings into the index.
+- **PHP web-root includes:** `require $_SERVER['DOCUMENT_ROOT'] . '/inc/x.php'`
+  links to its file when the includes settle which folder the server serves;
+  otherwise it links to nothing rather than a guess. `"webRoot": "public"` (or
+  `"."` for the project root) in `codegraph.json` names the folder, and the next
+  sync applies it. Includes built from `__DIR__` need neither.
+- **Git and the background server:** a sync no longer holds git's index lock,
+  so a commit during one no longer fails with "index.lock: File exists". On a
+  shared computer each session checks that the background server runs as the
+  same user before sending it anything, and a server whose project folder was
+  deleted exits within about half a minute.
+- **Coverage and resolution:** Elysia (Bun) routes, Dart 3.13 primary
+  constructors, newer Kotlin, Swift and Dart grammars, ASP.NET Core route names,
+  and many call-resolution fixes (most in JavaScript/TypeScript, Python, Rust,
+  C#, PHP and Java). They reach an existing index only after the full re-index.
+- **Documented in this range, not new:** `serve --mcp --no-watch` (present in
+  1.6.2) turns off the file watcher for slow filesystems, leaving the index to
+  manual `codegraph sync`. `--force` on `init` or `index` only overrides the
+  home-folder or filesystem-root refusal; a plain `codegraph index` already
+  rebuilds from scratch, so routine rebuilds never need it. `--no-telemetry` is
+  covered in the 1.6.3 list.
 
 Telemetry is disabled in these examples. Upstream documents usage statistics
 separately from local source storage in
