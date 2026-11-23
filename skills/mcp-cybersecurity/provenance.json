@@ -1,0 +1,13 @@
+{
+  "v": 1,
+  "name": "mcp-cybersecurity",
+  "created_at": "2026-11-23T22:34:23.254Z",
+  "created_by": "claude-code-orchestration 2.0.3",
+  "target": "public",
+  "files": {
+    "SKILL.md": "6917c0fd17358dff16c1e3fb79f6daa8cbb98a2688a28c38151b88f4ab5ac8c5",
+    "references/threat-catalog.md": "7d6565cb5497254ecf6d99ff9df0a0bb0bce3f85a7092b35e66fa91195b4beb8",
+    "scripts/audit_mcp_config.py": "2a513b4acd63f0d645534a0f5523dc66c376a3a24e84118ec3957a6b1378b1ca"
+  },
+  "digest": "83444e21e9165ed5324f8bad772cfe6072202164bee6f8429678cd396126fdbf"
+}
