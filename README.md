@@ -150,6 +150,7 @@ These were imported from earlier Claude Code collections and keep Claude Code wo
 |---|---|---|
 | [`security-best-practices`](skills/security-best-practices) | Review Python, JavaScript/TypeScript, or Go for language- and framework-specific security practice. | "Security review the Express routes" |
 | [`security-threat-model`](skills/security-threat-model) | Write a repo-grounded threat model: trust boundaries, assets, abuse paths, mitigations. | "Threat model this repo" |
+| [`mcp-cybersecurity`](skills/mcp-cybersecurity) | Secure, audit, and maintain MCP servers, clients, and configs with the CIA triad: auth, tool poisoning, prompt injection, secrets, sandboxing, supply chain, limits. | "Audit our MCP server config and harden it" |
 
 For autonomous penetration testing, use the Strix CLI itself ([strix.ai](https://www.strix.ai/)), installed separately with `curl -sSL https://strix.ai/install | bash`; it needs Docker and its own LLM key. Run security assessments only against systems you own or are authorized to test.
 
