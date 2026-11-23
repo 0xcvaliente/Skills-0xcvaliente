@@ -15,6 +15,9 @@ tags, lazy routes, some C++/Go calls) are listed in
 source. Release 1.6.3 was reviewed in source only (not yet the pinned runtime):
 its changelog fixes those gaps once a project is fully re-indexed, and
 [setup](references/setup.md#what-163-changes) lists what else differs.
+Release 1.6.4 was reviewed the same way;
+[setup](references/setup.md#what-164-changes) lists its changes, starting with
+the full re-index it asks for.
 
 ## Choose the path
 
@@ -32,7 +35,7 @@ its changelog fixes those gaps once a project is fully re-indexed, and
 
 ## Query a focused slice
 
-The default MCP surface in 1.6.2 and 1.6.3 exposes **`codegraph_explore` only**. Use the
+The default MCP surface in 1.6.2 through 1.6.4 exposes **`codegraph_explore` only**. Use the
 host's actual tool name and schema (hosts prefix MCP tool names differently;
 look for the `codegraph` server's `codegraph_explore` tool). Pass an
 absolute `projectPath` for the intended indexed repository, especially in
@@ -84,7 +87,10 @@ their CLI equivalents work independently.
   required project validation. They do not replace compilation or tests. From
   1.6.3, impact on a heavily referenced symbol stops at a safety limit and says
   so (`"truncated": true` with `--json`); treat that answer as partial and
-  narrow it with `--file` or a smaller `--depth`.
+  narrow it with `--file` or a smaller `--depth`. From 1.6.4, `affected`
+  leaves out tests across an HTTP, queue or event boundary unless
+  `--cross-tier` is passed, and `callers`, `callees` and `impact` name files
+  changed since indexing (`changedOnDisk` with `--json`); read those files.
 - Keep retrieval proportional to the question. Dense graph responses can
   increase resident context despite reducing discovery calls. Record compact
   conclusions with file/symbol references, not entire tool responses.

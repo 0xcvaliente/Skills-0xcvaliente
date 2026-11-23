@@ -82,8 +82,8 @@
       "pin_locations": {
         "all 3": "references/provenance.md lines 3-4 (5a781a8); dated review headings (latest 2294de5); append-only"
       },
-      "last_checked": "ff9805a3dabf4529f4d88f6b3f09c5a33cb0fcb6",
-      "last_checked_date": "2026-11-20"
+      "last_checked": "f0b5cd4fc28a3598ecc01a8e480ea64c8a92d0c3",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "greensock/gsap-skills",
@@ -119,8 +119,8 @@
       "pin_locations": {
         "pstack": "references/provenance.md prose near line 270 (bf0c7cd, 0.15.42); references/upstream-manifest.json; retained files under skills/pstack/upstream/ are PROTECTED"
       },
-      "last_checked": "aaeb0ea3a0584995aa8f55ce44c6c5259414b896",
-      "last_checked_date": "2026-11-20"
+      "last_checked": "7a583913eb1b8d1a0ee76753d1a2cf072e7b54f9",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "DietrichGebert/ponytail",
@@ -134,8 +134,8 @@
       "pin_locations": {
         "ponytail": "references/provenance.md line 92 (09c434a); append-only"
       },
-      "last_checked": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
-      "last_checked_date": "2026-11-02"
+      "last_checked": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "blader/humanizer",
@@ -164,8 +164,8 @@
       "pin_locations": {
         "design-taste-frontend": "references/provenance.md line 9 (12af471); append-only"
       },
-      "last_checked": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
-      "last_checked_date": "2026-11-13"
+      "last_checked": "6c0b5c78f5d31776e2210305abaa210cdc0030bf",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "cathrynlavery/diagram-design",
@@ -179,8 +179,8 @@
       "pin_locations": {
         "diagram-craft": "references/provenance.md (reviewed through 0cf73c3); ideas adopted independently, no text copied"
       },
-      "last_checked": "d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0",
-      "last_checked_date": "2026-11-20"
+      "last_checked": "0eeda75a708f419560d5e032693618bb9954f17b",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "openai/skills",
@@ -236,8 +236,8 @@
       "pin_locations": {
         "reverse-engineer-anything": "UPSTREAM.md pin"
       },
-      "last_checked": "ad2b34ca9b30769ec8ff8ef26025a38a9a32c589",
-      "last_checked_date": "2026-11-20"
+      "last_checked": "3a63f7803f98dc57dfc5a6205bb8a0a22c89a40d",
+      "last_checked_date": "2026-11-23"
     },
     {
       "id": "colbymchenry/codegraph",
@@ -251,10 +251,10 @@
       "pin_locations": {
         "codegraph": "references/provenance.json (upstream_repository; pinned b635dd4; runtime tag v1.6.2)"
       },
-      "last_checked": "ef4bd058d97020a2b2a74a89f1bf21b84e9f5b30",
-      "last_checked_date": "2026-11-20",
-      "last_checked_tag": "v1.6.3",
-      "last_checked_commit": "ef4bd058d97020a2b2a74a89f1bf21b84e9f5b30",
+      "last_checked": "461a5d87a873a4932997cd9a49042ab30e45a675",
+      "last_checked_date": "2026-11-23",
+      "last_checked_tag": "v1.6.4",
+      "last_checked_commit": "461a5d87a873a4932997cd9a49042ab30e45a675",
       "note": "v1.6.2 is a lightweight tag (git ls-remote shows no peeled ^{} entry), so the tag object name equals the commit."
     },
     {

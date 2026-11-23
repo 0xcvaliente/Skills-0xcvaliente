@@ -20,6 +20,7 @@ Read the section matching the reader's question. These contracts apply to custom
 | What does the customer see versus what stays hidden? | Service blueprint | Stage order, customer/frontstage/backstage/support layers, the line of visibility |
 | What contains or owns what? | Tree/nested groups | Single parent per child in a tree; cross-links need a graph |
 | What reinforces what? | Causal loop | Known polarity/delays; influence versus transfer |
+| Which branch got each commit, and where did branches split and join? | Git graph (not a timeline or swimlane) | One lane per branch, one shared column order, merges as two-parent commits, tags on existing commits |
 | When did it happen? | Timeline | Date spacing versus explicitly ordinal sequence |
 
 For numeric magnitude, distribution, correlation, or measured trends, use a chart workflow with honest scales and units. A Sankey needs quantities and conservation assumptions. A stage funnel is not measured conversion without counts. A quadrant needs defined axes and an honest placement basis. Do not invent precision to fill a visual.
@@ -62,6 +63,10 @@ An event model lays ordered stages left to right across three lanes: the command
 Sequence time advances on one axis. Call and return differ in style/direction. Asynchronous messages need not block the sender. Use guarded alternative/optional frames, loops, and known parallel frames. Keep self-calls visible. Numbering cannot correct an inaccurate order. Reserve a clear band for fragment headings and guards; inspect them against lifelines and messages because generic text-containment checks do not detect every intersection.
 
 State nodes name persistent conditions, not actions. Transitions name the event and, if needed, `[guard] / effect`. Distinguish unreachable, terminal, and failure states. Do not infer transitions merely because two states appear in source. Hierarchical states are containment; crossing transitions need defined meaning.
+
+## Git graphs
+
+Branch and merge history (how a team branches, where a release was cut, which fix was carried back, merge compared with rebase) needs ancestry, which a timeline cannot fork and swimlanes would misread as ownership. Give each branch its own horizontal lane, trunk on top and named at its left end, and put every commit on a single column grid that all lanes share: a column is a step in commit order, the same on every lane, not a date, and an unused column keeps its width. A merge is a commit in its own right with exactly two parents, each in an earlier column and the two on different lanes; a line that joins two rails without such a commit asserts nothing. Draw each edge as a right-angled elbow that only ever moves rightward. A new branch leaves its parent commit vertically, in that commit's column, to reach its own lane, then runs along it; a merge follows the lane it comes from, then bends up or down into the merge commit in that commit's column. Two edges never share a straight run, and an edge never runs along a lane it does not connect. A tag is a small label on a commit that already exists, never an extra lane or dot. Name only the commits the figure's point depends on (the merge, the fix, the release) and leave the rest unlabelled. All lanes share one neutral stroke and are told apart by name; the accent marks two commits at most. Derive the horizontal pitch from the highest column index so the rightmost commit stays inside the canvas, and when that pitch is too tight for labels or merge marks, split the figure into an overview and a zoomed detail. Commits, parents, and tags come from the repository or the stated source; an illustrative history says so. The helper neither renders nor checks this notation.
 
 ## ER, schemas, UML
 
